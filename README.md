@@ -1,4 +1,4 @@
-![tp2](https://github.com/IglesiasT/AlgoStar/actions/workflows/build.yml/badge.svg) [![codecov](https://codecov.io/gh/IglesiasT/AlgoStar/branch/master/graph/badge.svg)](https://codecov.io/gh/fiuba/algo3_proyecto_base_tp2)
+![tp2](https://github.com/IglesiasT/AlgoStar/actions/workflows/build.yml/badge.svg) [![codecov](https://codecov.io/gh/IglesiasT/AlgoStar/branch/master/graph/badge.svg)](https://codecov.io/gh/IglesiasT/AlgoStar)
 
 # TP2 Algoritmos 3: AlgoStar 
 
