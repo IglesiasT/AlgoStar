@@ -9,7 +9,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 1** - [Tomás Iglesias](https://github.com/IglesiasT)
 * **Integrante 2** - [Tiago Sandoval](https://github.com/tiagosandoval)
 * **Integrante 3** - [Anita Vernieri](https://github.com/avernieri)
-* **Integrante 4** - [integrante4](https://github.com/integrante4)
+* **Integrante 4** - [Amparo Zanardi](https://github.com/Ampi-Z)
 
 Corrector: **{Corrector}**
 
