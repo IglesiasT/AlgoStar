@@ -4,15 +4,14 @@
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {N}
+## Grupo {1}
 
 * **Integrante 1** - [Tomás Iglesias](https://github.com/IglesiasT)
-* **Integrante 2** - [Tiago Sandoval](https://github.com/tiagosandoval)
-* **Integrante 3** - [Anita Vernieri](https://github.com/avernieri)
-* **Integrante 4** - [Amparo Zanardi](https://github.com/Ampi-Z)
-* **Integrante 5** - [María Zanatta](https://github.com/mariazanatta)
+* **Integrante 2** - [Anita Vernieri](https://github.com/avernieri)
+* **Integrante 3** - [Amparo Zanardi](https://github.com/Ampi-Z)
+* **Integrante 4** - [María Zanatta](https://github.com/mariazanatta)
 
-Corrector: **{Corrector}**
+Corrector: **{Diego Sánchez}**
 
 ## Aplicación
 
