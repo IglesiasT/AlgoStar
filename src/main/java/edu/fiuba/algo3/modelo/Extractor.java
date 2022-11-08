@@ -12,7 +12,7 @@ public class Extractor {
 
     public void obtenerGasProducido() throws EdificioNoEstaOperativo{
         if (this.turnos < 6){
-            throw EdificioNoEstaOperativo;
+            throw new EdificioNoEstaOperativo();
         }
 
     }
