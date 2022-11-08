@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.entrega_2;
+/*package edu.fiuba.algo3.entrega_2;
 
 import edu.fiuba.algo3.modelo.Message;
 import org.junit.jupiter.api.Test;
@@ -19,3 +19,4 @@ public class MessageTest2 {
         assertEquals("Hola Mundo!", message.greet());
     }
 }
+*/
