@@ -56,6 +56,7 @@ public class ExtractorTest {
         extractor.nuevoTurno();
 
         extractor.asignarZangano();
+        extractor.nuevoTurno(); //El gas correspondiente debe generarse por turno
 
         //Assert
         assertEquals(valorEsperado, extractor.obtenerGasProducido());

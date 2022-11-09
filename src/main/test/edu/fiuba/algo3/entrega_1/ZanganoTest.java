@@ -1,0 +1,25 @@
+package edu.fiuba.algo3.entrega_1;
+
+import edu.fiuba.algo3.modelo.Casillero;
+import edu.fiuba.algo3.modelo.Mineral;
+import edu.fiuba.algo3.modelo.Zangano;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class ZanganoTest {
+
+    @Test
+    public void recolectaVeintePorTurno(){
+        //Arrange
+        Zangano zangano = new Zangano();
+        Casillero casillero = new Casillero(new Mineral());
+        int cantidadEsperada = 10;
+
+        //Act
+        zangano.ubicar(casillero);
+
+        //Assert
+        assertEquals(cantidadEsperada, zangano.producir());
+    }
+}

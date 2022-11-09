@@ -23,4 +23,8 @@ public class Casillero {
     public void setEspacioDeConstruccion(EspacioDeConstruccion espacio){
         this.espacio = espacio;
     }
+
+    public Recurso obtenerRecurso() {
+        return this.recurso;
+    }
 }
