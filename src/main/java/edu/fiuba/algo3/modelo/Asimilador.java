@@ -1,13 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
-public class Asimilador {
-    private static final int turnosParaSerConstruido = 6;
-    private int turnos;
-    private int gasProducido;
+public class Asimilador extends GeneradorDeGas{
 
     public Asimilador(){
-        this.turnos = 0;
-        this.gasProducido = 0;
+        this.turnosParaSerConstruido = 6;
     }
 
     public void nuevoTurno(){
@@ -17,15 +13,7 @@ public class Asimilador {
         }
     }
 
-    private void producirGas(){
+    protected void producirGas(){
         this.gasProducido += 20;
-    }
-
-    public int obtenerGasProducido() throws EdificioNoEstaOperativo{
-        if (this.turnos < turnosParaSerConstruido){
-            throw new EdificioNoEstaOperativo();
-        }
-
-        return this.gasProducido;
     }
 }
