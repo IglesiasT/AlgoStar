@@ -1,12 +1,9 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.Criadero;
-import edu.fiuba.algo3.modelo.Moho;
-import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
-import edu.fiuba.algo3.modelo.RangoPilon;
+import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RangoPilonTest {
@@ -15,7 +12,7 @@ public class RangoPilonTest {
         //MODIFICAR
         RangoPilon rangoPilon = new RangoPilon();
 
-        assertSame(Criadero.class, rangoPilon.construirEdificioProtoss().getClass());
+        assertDoesNotThrow(() -> {rangoPilon.construirEdificioProtoss(new Asimilador(),new Gas());});
     }
 
     @Test
@@ -23,6 +20,6 @@ public class RangoPilonTest {
         //MODIFICAR
         RangoPilon rangoPilon = new RangoPilon();
 
-        assertThrows(NoSePuedeConstruir.class, rangoPilon::construirEdificioZerg);
+        assertThrows(NoSePuedeConstruir.class, () -> {rangoPilon.construirEdificioZerg(new Extractor(),new Gas());});
     }
 }

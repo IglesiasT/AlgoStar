@@ -14,6 +14,11 @@ public class Casillero {
     public void construirEdificioZerg(Construccion construccion){
         espacio.construirEdificioZerg(construccion,recurso);
     }
+    public void construirEdificioProtoss(Construccion construccion){
+        espacio.construirEdificioProtoss(construccion,recurso);
+    }
+
+
 
     public void setEspacioDeConstruccion(EspacioDeConstruccion espacio){
         this.espacio = espacio;

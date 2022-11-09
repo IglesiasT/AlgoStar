@@ -1,11 +1,9 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.Moho;
-import edu.fiuba.algo3.modelo.Criadero;
-import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
+import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MohoTest {
 
@@ -13,13 +11,13 @@ public class MohoTest {
     public void sePuedeConstruirUnEdificioZergSobreElMoho (){
         Moho moho = new Moho();
 
-        assertSame(Criadero.class, moho.construirEdificioZerg().getClass());
+        assertDoesNotThrow(() -> {moho.construirEdificioZerg(new Extractor(),new Gas());});
     }
 
     @Test
     public void noSePuedeConstruirUnEdificioProtossSobreElMoho(){
         Moho moho = new Moho();
 
-        assertThrows(NoSePuedeConstruir.class, moho::construirEdificioProtoss);
+        assertThrows(NoSePuedeConstruir.class, () -> {moho.construirEdificioProtoss(new Asimilador(),new Gas());});
     }
 }
