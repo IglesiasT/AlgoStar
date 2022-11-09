@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public abstract class GeneradorDeGas {
+public abstract class GeneradorDeGas extends Construccion{
     protected int turnos;
     protected int gasProducido;
     protected int turnosParaSerConstruido;
