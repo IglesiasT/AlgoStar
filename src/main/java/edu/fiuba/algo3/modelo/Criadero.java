@@ -2,19 +2,22 @@ package edu.fiuba.algo3.modelo;
 
 public class Criadero extends Construccion{
 
+    private int maximoDeLarvas;
     private int larvas;
     private int turnos;
 
     public Criadero (){
-        this.larvas = 3;
+        this.maximoDeLarvas = 3;
+        this.larvas = this.maximoDeLarvas;
         this.turnos = 0;
+        this.turnosParaConstruirse = 4;
     }
     public int larvasRestantes() {
         return this.larvas;
     }
 
     public Zangano engendrarZangano() throws EdificioNoEstaOperativo {
-        if (turnos < 4){
+        if (turnos < this.turnosParaConstruirse){
             throw new EdificioNoEstaOperativo();
         }
         this.larvas--;
@@ -23,7 +26,7 @@ public class Criadero extends Construccion{
 
     public void nuevoTurno(){
         this.turnos++;
-        if (this.larvas <3){
+        if (this.larvas < this.maximoDeLarvas){
             this.larvas++ ;
         }
     }
