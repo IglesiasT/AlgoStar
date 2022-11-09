@@ -13,13 +13,23 @@ public class Extractor {
 
     public void nuevoTurno(){
         this.turnos++;
+        if (this.turnos >= turnosParaSerConstruido ){
+            this.producirGas();
+        }
     }
 
+    private void producirGas(){
+        this.gasProducido += this.zanganosAsignados * 10;
+    }
     public int obtenerGasProducido() throws EdificioNoEstaOperativo{
         if (this.turnos < turnosParaSerConstruido){
             throw new EdificioNoEstaOperativo();
         }
 
         return this.gasProducido;
+    }
+
+    public void asignarZangano() {
+        this.zanganosAsignados++;
     }
 }

@@ -39,4 +39,24 @@ public class ExtractorTest {
         //Assert
         assertEquals(valorEsperado, extractor.obtenerGasProducido());
     }
+
+    @Test
+    public void unZanganoAsignadoGeneraDiezDeGas(){
+        //Arrange
+        Extractor extractor = new Extractor();
+        int valorEsperado = 10;
+
+        //Act
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+
+        extractor.asignarZangano();
+
+        //Assert
+        assertEquals(valorEsperado, extractor.obtenerGasProducido());
+    }
 }
