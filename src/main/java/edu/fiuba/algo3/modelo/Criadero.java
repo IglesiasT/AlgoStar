@@ -13,17 +13,18 @@ public class Criadero extends Construccion{
         return this.larvas;
     }
 
-    public void engendrarZangano() throws EdificioNoEstaOperativo {
+    public Zangano engendrarZangano() throws EdificioNoEstaOperativo {
         if (turnos < 4){
             throw new EdificioNoEstaOperativo();
         }
-        this.larvas = this.larvas - 1;
+        this.larvas--;
+        return new Zangano();
     }
 
     public void nuevoTurno(){
-        this.turnos ++;
+        this.turnos++;
         if (this.larvas <3){
-            this.larvas ++ ;
+            this.larvas++ ;
         }
     }
 }
