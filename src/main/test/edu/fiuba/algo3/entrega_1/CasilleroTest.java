@@ -8,10 +8,26 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 public class CasilleroTest {
 
     @Test
-    public void casilleroConVolcanPermiteConstruirAsimilador() {
+    public void casilleroConGasPermiteConstruirAsimilador() {
         Casillero casillero = new Casillero(new Gas());
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
         assertDoesNotThrow( () -> {casillero.construirEdificioProtoss(new Asimilador());});
+    }
+
+    @Test
+    public void casilleroConGasPermiteConstruirExtractor(){
+        Casillero casillero = new Casillero(new Gas());
+        casillero.setEspacioDeConstruccion(new Moho());
+
+        assertDoesNotThrow( () -> {casillero.construirEdificioZerg(new Extractor());});
+    }
+
+    @Test
+    public void casilleroConGasNoPermiteConstruirCriadero(){
+        Casillero casillero = new Casillero(new Gas());
+        casillero.setEspacioDeConstruccion(new Moho());
+
+        assertThrows(NoSePuedeConstruir.class,() -> {casillero.construirEdificioZerg(new Criadero());});
     }
 }

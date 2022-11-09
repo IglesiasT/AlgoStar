@@ -1,12 +1,14 @@
 package edu.fiuba.algo3.modelo;
 
-public class Moho {
+public class Moho extends EspacioDeConstruccion{
 
-    public Criadero construirEdificioZerg(){
-        return (new Criadero());
+    @Override
+    public void construirEdificioZerg(Construccion construccion, Recurso recurso){
+        recurso.construirEdificio(construccion);
     }
 
-    public void construirEdificioProtoss() throws NoSePuedeConstruir{
+    @Override
+    public void construirEdificioProtoss(Construccion construccion, Recurso recurso) throws NoSePuedeConstruir{
         throw new NoSePuedeConstruir();
     }
 }

@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
-public class Recurso {
+public abstract class Recurso {
 
-    public void construirEdificio(Construccion construccion){}
+
+
+    public abstract void construirEdificio(Construccion construccion);
 }

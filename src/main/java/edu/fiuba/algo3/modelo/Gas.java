@@ -4,7 +4,9 @@ public class Gas extends Recurso{
 
     private int cantidad;
 
-    public void construirEdificio(GeneradorDeGas construccion) {
+    @Override
+    public void construirEdificio(Construccion construccion) {
+        construccion.esGeneradorDeGas();
 
     }
 

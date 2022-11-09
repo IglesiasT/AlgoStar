@@ -7,8 +7,7 @@ public class RangoPilon extends EspacioDeConstruccion{
     }
 
     public void construirEdificioProtoss(Construccion construccion, Recurso recurso){
-        try{recurso.construirEdificio(construccion);}
-        catch(Exception e){ throw new NoSePuedeConstruir();};
+        recurso.construirEdificio(construccion);
     }
 
 
