@@ -2,6 +2,7 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.Extractor;
+import edu.fiuba.algo3.modelo.MaximoDeZanganosAsignados;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -103,5 +104,26 @@ public class ExtractorTest {
 
         //Assert
         assertEquals(valorEsperado, extractor.obtenerGasProducido());
+    }
+
+    @Test
+    public void noSePuedeAsignarMasDeTresZanganos(){
+        //Arrange
+        Extractor extractor = new Extractor();
+
+        //Act
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+
+        extractor.asignarZangano();
+        extractor.asignarZangano();
+        extractor.asignarZangano();
+
+        //Assert
+        assertThrows(MaximoDeZanganosAsignados.class, extractor::asignarZangano);
     }
 }

@@ -1,14 +1,16 @@
 package edu.fiuba.algo3.modelo;
 
 public class Extractor {
+    private static final int turnosParaSerConstruido = 6;
     private int turnos;
+    private int capacidadMaximaDeZanganos;
     private int zanganosAsignados;
     private int gasProducido;
-    private static final int turnosParaSerConstruido = 6;
     public Extractor(){
         this.turnos = 0;
-        this.gasProducido = 0;
+        this.capacidadMaximaDeZanganos = 3;
         this.zanganosAsignados = 0;
+        this.gasProducido = 0;
     }
 
     public void nuevoTurno(){
@@ -29,7 +31,10 @@ public class Extractor {
         return this.gasProducido;
     }
 
-    public void asignarZangano() {
+    public void asignarZangano() throws MaximoDeZanganosAsignados{
+        if (this.zanganosAsignados >= this.capacidadMaximaDeZanganos){
+            throw new MaximoDeZanganosAsignados();
+        }
         this.zanganosAsignados++;
     }
 }
