@@ -11,6 +11,12 @@ public class Mineral extends Recurso{
         this.mineralPorRecolector.put("NexoMineral", 20);
     }
 
+    public Mineral(int cantidad){
+        this.cantidad = cantidad;
+        this.mineralPorRecolector.put("Zangano", 10);
+        this.mineralPorRecolector.put("NexoMineral", 20);
+    }
+
     public int recolectar(String recolector){
         if (! mineralPorRecolector.containsKey(recolector)){
             return 0;

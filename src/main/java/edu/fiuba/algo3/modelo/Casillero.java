@@ -5,6 +5,10 @@ public class Casillero {
     private Recurso recurso;
     private EspacioDeConstruccion espacio;
 
+    public Casillero(){
+        this.recurso = new SinRecurso();
+        this.espacio = new SinEspacio();
+    }
     public Casillero(Recurso recurso){
         this.recurso = recurso;
         this.espacio = new SinEspacio();

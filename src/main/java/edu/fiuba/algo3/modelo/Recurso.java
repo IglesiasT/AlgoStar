@@ -5,4 +5,7 @@ public abstract class Recurso {
 
     public abstract void construirEdificio(Construccion construccion);
     public abstract int recolectar(String recolector);
+    public int obtenerCantidad(){
+        return this.cantidad;
+    }
 }
