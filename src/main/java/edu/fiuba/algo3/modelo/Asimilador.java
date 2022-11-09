@@ -6,7 +6,7 @@ public class Asimilador extends GeneradorDeGas{
         this.turnosParaSerConstruido = 6;
     }
 
-    public void nuevoTurno(){
+    public void nuevoTurno(){   //Solucionar
         this.turnos++;
         if (this.turnos >= turnosParaSerConstruido ){
             this.producirGas();
