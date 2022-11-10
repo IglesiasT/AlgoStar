@@ -18,7 +18,7 @@ public abstract class Construccion {
     }
 
     public void construirEnCasillero(Casillero casilleroAConstruir){
-        if (! this.sePuedeConstruirEn(casilleroAConstruir)) {
+        if (!this.sePuedeConstruirEn(casilleroAConstruir)) {
             throw new NoSePuedeConstruir();
         }
         casilleroAConstruir.establecerConstruccion(this);
@@ -40,4 +40,11 @@ public abstract class Construccion {
     }
 
     public abstract void nuevoTurno();
+    public int consumirMineral(int mineralAConsumir){
+        return mineralAConsumir - this.mineralNecesarioParaConstruir;
+    }
+
+    public int consumirGas(int gasAConsumir){
+        return gasAConsumir - this.gasNecesarioParaConstruir;
+    }
 }

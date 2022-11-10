@@ -1,21 +1,36 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Zerg extends Raza{
-    ArrayList construccionesRealizadas = new ArrayList<ConstruccionZerg>();
+    private LinkedList<ConstruccionZerg> construccionesRealizadas;
     public Zerg(){
         super();
-        this.listadoConstrucciones.put("Criadero", 50);
+        this.construccionesRealizadas = new LinkedList<>();
     }
 
-    public void construir(String construccion, Casillero casilleroAConstruir){
-        if(this.cantidadDeMineral == 0){
+    public void construir(ConstruccionZerg construccion, Casillero casilleroAConstruir){
+
+        if(!construccion.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
             throw new NoSePuedeConstruir();
         }
 
-        int mineralDisponible = (int) listadoConstrucciones.get(construccion);
+        construccion.construirEnCasillero(casilleroAConstruir);
 
-        this.cantidadDeMineral -= mineralDisponible;
+        //Se pudo construir
+        construccion.consumirMineral(this.cantidadDeMineral);
+        construccion.consumirGas(this.cantidadDeGas);
+        this.construccionesRealizadas.add(construccion);
+    }
+    public void construirCriadero(Casillero casilleroAConstruir){
+        Criadero criadero = new Criadero();
+
+        this.construir(criadero, casilleroAConstruir);
+    }
+
+    public void construirExtractor(Casillero casilleroAConstruir) {
+        Extractor extractor = new Extractor();
+
+        this.construir(extractor, casilleroAConstruir);
     }
 }
