@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
+import java.util.ArrayList;
+
 public class Zerg extends Raza{
+    ArrayList construccionesRealizadas = new ArrayList<ConstruccionZerg>();
     public Zerg(){
         super();
         this.listadoConstrucciones.put("Criadero", 50);

@@ -1,17 +1,14 @@
 package edu.fiuba.algo3.modelo;
 
-public class Extractor extends GeneradorDeGas{
+public class Extractor extends ConstruccionZerg{
+    private int gasProducido;
     private int capacidadMaximaDeZanganos;
     private int zanganosAsignados;
     public Extractor(){
-        this.turnosParaSerConstruido = 6;
+        this.turnosParaConstruirse = 6;
         this.capacidadMaximaDeZanganos = 3;
         this.zanganosAsignados = 0;
-    }
-
-    @Override
-    public void recibirDanio(int danioInflingido) {
-        this.vida -= danioInflingido;
+        this.gasProducido = 0;
     }
 
     public void nuevoTurno(){
@@ -21,12 +18,6 @@ public class Extractor extends GeneradorDeGas{
         }
 
         this.regenerar();
-    }
-
-    protected void regenerar(){
-        if (this.vida < 100){
-            this.vida += 5;
-        }
     }
 
     protected void producirGas(){
