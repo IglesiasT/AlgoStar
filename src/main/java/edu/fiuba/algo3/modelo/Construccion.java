@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo;
 public abstract class Construccion {
     protected int turnosParaConstruirse;
     protected int vida;
+    protected int turnos;
     public Construccion(){
         this.vida = 100;
     }

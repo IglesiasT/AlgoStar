@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class Criadero extends Construccion{
+public class Criadero extends ConstruccionZerg{
 
     private int maximoDeLarvas;
     private int larvas;
@@ -11,16 +11,6 @@ public class Criadero extends Construccion{
         this.larvas = this.maximoDeLarvas;
         this.turnos = 0;
         this.turnosParaConstruirse = 4;
-    }
-
-    @Override
-    public void recibirDanio(int danioInflingido) {
-
-    }
-
-    @Override
-    protected void regenerar() {
-
     }
 
     public int larvasRestantes() {
@@ -37,8 +27,9 @@ public class Criadero extends Construccion{
 
     public void nuevoTurno(){
         this.turnos++;
-        if (this.larvas < this.maximoDeLarvas){
-            this.larvas++ ;
+        if (this.larvas <= this.maximoDeLarvas){
+            this.larvas++;
         }
+        this.regenerar();
     }
 }

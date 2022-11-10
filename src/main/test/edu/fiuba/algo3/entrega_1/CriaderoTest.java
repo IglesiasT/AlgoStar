@@ -63,4 +63,31 @@ public class CriaderoTest {
         assertThrows(EdificioNoEstaOperativo.class, criadero::engendrarZangano);
     }
 
+    @Test
+    public void seReduceLaVidaAlSerDaniado(){
+        //Arrange
+        Criadero criadero = new Criadero();
+        int valorEsperado = 50;
+
+        //Act
+        criadero.recibirDanio(50);
+
+        //Assert
+        assertEquals(valorEsperado, criadero.obtenerVida());
+    }
+
+    @Test
+    public void alSerDaniadoRegeneraVidaHastaCien(){
+        //Arrange
+        Criadero criadero = new Criadero();
+        int valorEsperado = 100;
+
+        //Act
+        criadero.recibirDanio(5);
+        criadero.nuevoTurno();
+
+        //Assert
+        assertEquals(valorEsperado, criadero.obtenerVida());
+    }
+
 }

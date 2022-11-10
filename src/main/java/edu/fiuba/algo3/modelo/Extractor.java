@@ -13,10 +13,10 @@ public class Extractor extends ConstruccionZerg{
 
     public void nuevoTurno(){
         this.turnos++;
-        if (this.turnos >= turnosParaSerConstruido ){
-            this.producirGas();
+        if (this.turnos <= turnosParaConstruirse ){
+            throw new EdificioNoEstaOperativo();
         }
-
+        this.producirGas();
         this.regenerar();
     }
 
@@ -29,5 +29,9 @@ public class Extractor extends ConstruccionZerg{
             throw new MaximoDeZanganosAsignados();
         }
         this.zanganosAsignados++;
+    }
+
+    public int obtenerGasProducido(){
+        return this.gasProducido;
     }
 }
