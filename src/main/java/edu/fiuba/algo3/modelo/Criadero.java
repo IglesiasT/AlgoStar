@@ -32,4 +32,9 @@ public class Criadero extends ConstruccionZerg{
         }
         this.regenerar();
     }
+
+    @Override
+    public boolean sePuedeConstruirEn(Casillero casillero) {
+        return true;
+    }
 }

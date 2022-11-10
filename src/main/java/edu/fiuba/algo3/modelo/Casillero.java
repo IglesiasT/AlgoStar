@@ -32,4 +32,11 @@ public class Casillero {
     public Recurso obtenerRecurso() {
         return this.recurso;
     }
+
+    public boolean contiene (Recurso recurso){
+        return (this.recurso.getClass() == recurso.getClass());
+    }
+    public boolean contiene (EspacioDeConstruccion espacio){
+        return (this.espacio.getClass() == espacio.getClass());
+    }
 }

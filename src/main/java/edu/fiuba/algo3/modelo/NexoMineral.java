@@ -11,6 +11,11 @@ public class NexoMineral extends Construccion {
     }
 
     @Override
+    public boolean sePuedeConstruirEn(Casillero casillero) {
+        return (casillero.contiene(new Mineral()) && !casillero.contiene(new Moho()));
+    }
+
+    @Override
     public void recibirDanio(int danioInflingido) {
 
     }

@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class Zangano extends Recolector {
+public class Zangano {
     private Casillero ubicacion;
 
     public Zangano(){

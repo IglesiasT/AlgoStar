@@ -1,12 +1,10 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
-import edu.fiuba.algo3.modelo.Extractor;
-import edu.fiuba.algo3.modelo.MaximoDeZanganosAsignados;
-import edu.fiuba.algo3.modelo.Pilon;
+import com.sun.source.tree.AssertTree;
+import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ExtractorTest {
 
@@ -154,5 +152,15 @@ public class ExtractorTest {
 
         //Assert
         assertEquals(valorEsperado, extractor.obtenerVida());
+    }
+
+    @Test
+    public void sePuedeConstruirEnUnCasilleroConGasYMoho(){
+        Extractor extractor = new Extractor();
+
+        Casillero casillero = new Casillero(new Gas());
+        casillero.setEspacioDeConstruccion(new Moho());
+
+        assert(extractor.sePuedeConstruirEn(casillero));
     }
 }
