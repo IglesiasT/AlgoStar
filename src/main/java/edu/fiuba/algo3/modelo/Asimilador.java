@@ -24,9 +24,14 @@ public class Asimilador extends ConstruccionProtoss{
         }
     }
 
-    public int obtenerGasProducido(){ return this.gasProducido;}
+    public int obtenerGasProducido(){
+        if(this.turnos < this.turnosParaConstruirse){
+            throw new EdificioNoEstaOperativo();
+        }
+        return this.gasProducido;
+    }
 
-    protected void producirGas(){
+    public void producirGas(){
         this.gasProducido += this.ubicacion.obtenerRecurso().recolectar(this.produccionPorTurno);
     }
 }

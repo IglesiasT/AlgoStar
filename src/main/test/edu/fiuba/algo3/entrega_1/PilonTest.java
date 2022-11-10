@@ -7,14 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PilonTest {
     @Test
-    public void caso9(){
-        //Arrange
-        Casillero casilleroConstruido = new Casillero(1, 1, new Tablero());
-        Pilon pilon = new Pilon();
-        Asimilador asimilador = new Asimilador();
-    }
-
-    @Test
     public void noEstaOperativoAntesDeCincoTurnos(){
         //Ararnge
         Pilon pilon = new Pilon();

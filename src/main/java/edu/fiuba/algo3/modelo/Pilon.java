@@ -7,6 +7,8 @@ public class Pilon extends ConstruccionProtoss{
     private int radioAfectado;
 
     public Pilon(){
+        super();
+        this.turnosParaConstruirse = 5;
         this.radioAfectado = 3;
         this.casillerosEnergizados  = new ArrayList<>();
         this.escudo = 300;
@@ -44,6 +46,8 @@ public class Pilon extends ConstruccionProtoss{
 
     public void nuevoTurno(){
         super.nuevoTurno();
-        this.energizar();
+        if (this.turnos >= this.turnosParaConstruirse){
+            this.energizar();
+        }
     }
 }

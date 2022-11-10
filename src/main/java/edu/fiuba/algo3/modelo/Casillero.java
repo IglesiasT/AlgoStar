@@ -27,9 +27,6 @@ public class Casillero {
         this.construccion = null;
     }
 
-    public void expandir(EspacioDeConstruccion espacioAExpandir){
-
-    }
     public void setEspacioDeConstruccion(EspacioDeConstruccion espacio){
         this.espacio = espacio;
     }

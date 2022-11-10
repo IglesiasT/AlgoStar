@@ -15,6 +15,7 @@ public abstract class Construccion {
         this.mineralNecesarioParaConstruir = 0;
         this.gasNecesarioParaConstruir = 0;
         this.ubicacion = null;
+        this.turnos = 0;
     }
 
     public void construirEnCasillero(Casillero casilleroAConstruir){
@@ -23,10 +24,6 @@ public abstract class Construccion {
         }
         casilleroAConstruir.establecerConstruccion(this);
         this.ubicacion = casilleroAConstruir;
-    }
-
-    public void esGeneradorDeGas() {
-        throw new NoSePuedeConstruir();
     }
 
     public abstract boolean sePuedeConstruirEn (Casillero casillero);

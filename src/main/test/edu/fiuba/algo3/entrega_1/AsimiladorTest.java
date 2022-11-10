@@ -10,8 +10,11 @@ public class AsimiladorTest {
     public void asimiladorNoEstaOperativoAntesDeSeisTurnos(){
         //Arrange
         Asimilador asimilador = new Asimilador();
+        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
 
         //Act
+        casillero.setEspacioDeConstruccion(new RangoPilon());
+        asimilador.construirEnCasillero(casillero);
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
 
@@ -23,9 +26,12 @@ public class AsimiladorTest {
     public void generaVeinteDeGas(){
         //Arrange
         Asimilador asimilador = new Asimilador();
+        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
         int valorEsperado = 20;
 
         //Act
+        casillero.setEspacioDeConstruccion(new RangoPilon());
+        asimilador.construirEnCasillero(casillero);
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
@@ -57,6 +63,4 @@ public class AsimiladorTest {
 
         assert(!asimilador.sePuedeConstruirEn(casillero));
     }
-
-
 }
