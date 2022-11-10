@@ -9,6 +9,7 @@ public class Pilon extends ConstruccionProtoss{
     public Pilon(){
         this.escudo = 300;
         this.vida = 300;
+        this.mineralNecesarioParaConstruir = 100;
     }
 
     public Pilon(Casillero casilleroDeConstruccion){

@@ -7,6 +7,9 @@ public abstract class ConstruccionZerg extends Construccion{
     @Override
     public void recibirDanio(int danioInflingido) {
         this.vida -= danioInflingido;
+        if (this.vida <= 0){
+            this.ubicacion.destruirConstruccion();
+        }
     }
 
     @Override

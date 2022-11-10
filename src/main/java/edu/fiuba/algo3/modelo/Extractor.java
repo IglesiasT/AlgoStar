@@ -9,7 +9,7 @@ public class Extractor extends ConstruccionZerg{
         this.capacidadMaximaDeZanganos = 3;
         this.zanganosAsignados = 0;
         this.gasProducido = 0;
-
+        this.mineralNecesarioParaConstruir = 100;
     }
 
     @Override

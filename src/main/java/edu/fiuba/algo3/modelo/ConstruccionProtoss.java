@@ -22,6 +22,10 @@ public abstract class ConstruccionProtoss extends Construccion{
             this.vida = this.vida + this.escudo;
             this.escudo = 0;
         }
+
+        if (this.vida <= 0){
+            this.ubicacion.destruirConstruccion();
+        }
     }
     @Override
     protected void regenerar() {

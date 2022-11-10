@@ -13,6 +13,6 @@ public class Zangano {
 
     public int producir(){
         Recurso recurso = this.ubicacion.obtenerRecurso();
-        return recurso.recolectar("Zangano");
+        return recurso.recolectar(10);
     }
 }

@@ -1,9 +1,15 @@
 package edu.fiuba.algo3.modelo;
 
-public class Asimilador extends GeneradorDeGas{
+public class Asimilador extends ConstruccionProtoss{
+    private int gasProducido;
+    private int produccionPorTurno;
 
     public Asimilador(){
-        this.turnosParaSerConstruido = 6;
+        super();
+        this.gasProducido = 0;
+        this.turnosParaConstruirse = 6;
+        this.mineralNecesarioParaConstruir = 100;
+        this.produccionPorTurno = 20;
     }
 
     @Override
@@ -11,24 +17,16 @@ public class Asimilador extends GeneradorDeGas{
         return (casillero.contiene(new Gas()) && !casillero.contiene(new Moho()));
     }
 
-    @Override
-    public void recibirDanio(int danioInflingido) {
-
-    }
-
-    @Override
-    protected void regenerar() {
-
-    }
-
-    public void nuevoTurno(){   //Solucionar
+    public void nuevoTurno(){
         this.turnos++;
-        if (this.turnos >= turnosParaSerConstruido ){
+        if (this.turnos >= turnosParaConstruirse ){
             this.producirGas();
         }
     }
 
+    public int obtenerGasProducido(){ return this.gasProducido;}
+
     protected void producirGas(){
-        this.gasProducido += 20;
+        this.gasProducido += this.ubicacion.obtenerRecurso().recolectar(this.produccionPorTurno);
     }
 }

@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.entrega_1;
 
-import com.sun.source.tree.AssertTree;
 import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
@@ -151,16 +150,15 @@ public class ExtractorTest {
         //Arrange
         Extractor extractor = new Extractor();
 
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-
         int valorEsperado = 100;
 
         //Act
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
         extractor.recibirDanio(5);
         extractor.nuevoTurno();
 
@@ -176,5 +174,27 @@ public class ExtractorTest {
         casillero.setEspacioDeConstruccion(new Moho());
 
         assert(extractor.sePuedeConstruirEn(casillero));
+    }
+
+    @Test
+    public void sePuedeConstruirConLosRecursosSuficientes(){
+        //Arrange
+        Extractor extractor = new Extractor();
+        int cantidadMineral = 100;
+        int cantidadGas = 40;
+
+        //Act and Assert
+        assert extractor.recursosSuficientes(cantidadMineral, cantidadGas);
+    }
+
+    @Test
+    public void noSePuedeConstruirSinLosRecursosSuficientes(){
+        //Arrange
+        Extractor extractor = new Extractor();
+        int cantidadMineral = 14;
+        int cantidadGas = 0;
+
+        //Act and Assert
+        assert (! extractor.recursosSuficientes(cantidadMineral, cantidadGas));
     }
 }

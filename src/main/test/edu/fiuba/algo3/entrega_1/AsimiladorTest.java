@@ -58,4 +58,5 @@ public class AsimiladorTest {
         assert(!asimilador.sePuedeConstruirEn(casillero));
     }
 
+
 }
