@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MohoTest {
-
+/*
     @Test
     public void sePuedeConstruirUnEdificioZergSobreElMoho (){
         Moho moho = new Moho();
@@ -20,4 +20,6 @@ public class MohoTest {
 
         assertThrows(NoSePuedeConstruir.class, () -> {moho.construirEdificioProtoss(new Asimilador(),new Gas());});
     }
+*/
 }
+

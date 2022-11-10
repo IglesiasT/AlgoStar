@@ -26,7 +26,7 @@ public class NexoMineral extends Construccion {
     }
 
     public int recolectarMineral(){
-        if (this.turnos <= this.turnosParaConstruirse ){
+        if (this.turnos < this.turnosParaConstruirse ){
             throw new EdificioNoEstaOperativo();
         }
         return produccionPorTurno;

@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.Criadero;
-import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -88,6 +87,16 @@ public class CriaderoTest {
 
         //Assert
         assertEquals(valorEsperado, criadero.obtenerVida());
+    }
+
+    @Test
+    public void noSePuedeConstruirCriaderoEnCasilleroConGas(){
+        Criadero criadero = new Criadero();
+
+        Casillero casillero = new Casillero(new Gas());
+        casillero.setEspacioDeConstruccion(new Moho());
+
+        assert(!criadero.sePuedeConstruirEn(casillero));
     }
 
 }

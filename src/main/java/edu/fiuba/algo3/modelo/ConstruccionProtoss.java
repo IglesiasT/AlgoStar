@@ -1,11 +1,15 @@
 package edu.fiuba.algo3.modelo;
 
 public abstract class ConstruccionProtoss extends Construccion{
-    private int escudo;
+    protected int escudo;
 
     public ConstruccionProtoss(){
         super();
         this.escudo = 100;
+    }
+
+    public int obtenerEscudo(){
+        return this.escudo;
     }
 
     @Override
@@ -22,5 +26,10 @@ public abstract class ConstruccionProtoss extends Construccion{
     @Override
     protected void regenerar() {
         this.escudo += 10;
+    }
+
+    @Override
+    public void nuevoTurno(){
+        regenerar();
     }
 }

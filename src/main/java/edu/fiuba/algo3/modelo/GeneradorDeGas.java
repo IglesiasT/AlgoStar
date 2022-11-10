@@ -14,7 +14,7 @@ public abstract class GeneradorDeGas extends Construccion{
     @Override
     public void esGeneradorDeGas(){}
     abstract void producirGas();
-    abstract void nuevoTurno();
+    public abstract void nuevoTurno();
     public int obtenerGasProducido() throws EdificioNoEstaOperativo{
         if (this.turnos < turnosParaSerConstruido){
             throw new EdificioNoEstaOperativo();

@@ -25,9 +25,4 @@ public class Mineral extends Recurso{
         this.cantidad -= cantidadRecolectada;
         return cantidadRecolectada;
     }
-
-    @Override
-    public void construirEdificio(Construccion construccion) {
-
-    }
 }

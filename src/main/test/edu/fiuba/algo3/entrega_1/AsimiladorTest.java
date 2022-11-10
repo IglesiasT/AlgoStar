@@ -1,11 +1,9 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.Asimilador;
-import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AsimiladorTest {
     @Test
@@ -39,4 +37,25 @@ public class AsimiladorTest {
         //Assert
         assertEquals(valorEsperado, asimilador.obtenerGasProducido());
     }
+
+    @Test
+    public void AsimiladorSePuedeConstruirEnCasilleroConGas() {
+        Asimilador asimilador = new Asimilador();
+
+        Casillero casillero = new Casillero(new Gas());
+        casillero.setEspacioDeConstruccion(new RangoPilon());
+
+        assert(asimilador.sePuedeConstruirEn(casillero));
+    }
+
+    @Test
+    public void AsimiladorNoSePuedeConstruirEnCasilleroSinGas() {
+        Asimilador asimilador = new Asimilador();
+
+        Casillero casillero = new Casillero();
+        casillero.setEspacioDeConstruccion(new RangoPilon());
+
+        assert(!asimilador.sePuedeConstruirEn(casillero));
+    }
+
 }

@@ -21,4 +21,6 @@ public abstract class Construccion {
     public int obtenerVida(){
         return this.vida;
     }
+
+    public abstract void nuevoTurno();
 }

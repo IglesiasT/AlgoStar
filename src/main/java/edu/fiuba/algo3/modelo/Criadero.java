@@ -27,7 +27,7 @@ public class Criadero extends ConstruccionZerg{
 
     public void nuevoTurno(){
         this.turnos++;
-        if (this.larvas <= this.maximoDeLarvas){
+        if (this.larvas < this.maximoDeLarvas){
             this.larvas++;
         }
         this.regenerar();
@@ -35,6 +35,6 @@ public class Criadero extends ConstruccionZerg{
 
     @Override
     public boolean sePuedeConstruirEn(Casillero casillero) {
-        return true;
+        return (casillero.contiene(new SinRecurso()));
     }
 }

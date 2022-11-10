@@ -23,6 +23,12 @@ public class NexoMineralTest {
     public void recolectaVeintePorTurno(){
         //Arrange
         NexoMineral nexo = new NexoMineral();
+
+        nexo.nuevoTurno();
+        nexo.nuevoTurno();
+        nexo.nuevoTurno();
+        nexo.nuevoTurno();
+
         int cantidadEsperada = 20;
 
         //Act and Assert

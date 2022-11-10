@@ -131,6 +131,12 @@ public class ExtractorTest {
     public void seReduceLaVidaAlSerDaniado(){
         //Arrange
         Extractor extractor = new Extractor();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
         int valorEsperado = 50;
 
         //Act
@@ -144,6 +150,14 @@ public class ExtractorTest {
     public void alSerDaniadoRegeneraVidaHastaCien(){
         //Arrange
         Extractor extractor = new Extractor();
+
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+        extractor.nuevoTurno();
+
         int valorEsperado = 100;
 
         //Act
