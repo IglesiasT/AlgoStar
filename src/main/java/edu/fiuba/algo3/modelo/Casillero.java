@@ -20,19 +20,22 @@ public class Casillero {
     public void expandir(EspacioDeConstruccion espacioAExpandir){
 
     }
-
     public void setEspacioDeConstruccion(EspacioDeConstruccion espacio){
         this.espacio = espacio;
     }
     public void establecerConstruccion(Construccion construccionAEstablecer){
-        if (this.construccion != null ){
+
+        if (this.construccion != null || (this.recurso.estaOcupado())){
             throw new NoSePuedeConstruir();
         }
+
         this.construccion = construccionAEstablecer;
+        this.recurso.ocupar();
     }
 
     public void destruirConstruccion(){
         this.construccion = null;
+        this.recurso.liberar();
     }
 
     public Recurso obtenerRecurso() {

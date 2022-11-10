@@ -9,10 +9,26 @@ public class CasilleroTest {
 
     @Test
     public void casilleroTieneMoho(){
+        //Arrange
         Casillero casillero = new Casillero();
+
+        //Act
         casillero.setEspacioDeConstruccion(new Moho());
 
+        //Assert
         assertTrue(casillero.contiene(new Moho()));
+    }
 
+    @Test
+    public void noSePuedeConstruirNexoMineralSiHayZanganoAsignado(){
+        //Arrange
+        Casillero casillero = new Casillero(new Mineral());
+        Zangano zangano = new Zangano();
+
+        //Act
+        zangano.ubicar(casillero);
+
+        //Assert
+        assertThrows(NoSePuedeConstruir.class, () -> casillero.establecerConstruccion(new NexoMineral()));
     }
 }

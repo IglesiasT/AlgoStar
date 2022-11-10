@@ -8,6 +8,7 @@ public class Zangano {
     }
 
     public void ubicar(Casillero nuevaUbicacion){
+        nuevaUbicacion.obtenerRecurso().ocupar();
         this.ubicacion = nuevaUbicacion;
     }
 
