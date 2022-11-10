@@ -2,6 +2,7 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.Casillero;
 import edu.fiuba.algo3.modelo.Mineral;
+import edu.fiuba.algo3.modelo.Tablero;
 import edu.fiuba.algo3.modelo.Zangano;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +14,7 @@ public class ZanganoTest {
     public void recolectaVeintePorTurno(){
         //Arrange
         Zangano zangano = new Zangano();
-        Casillero casillero = new Casillero(new Mineral());
+        Casillero casillero = new Casillero(new Mineral(), 1, 1, new Tablero());
         int cantidadEsperada = 10;
 
         //Act

@@ -12,8 +12,8 @@ public class ZergTest {
     public void sinRecursosNoSePuedeConstruir(){
         //Arrange
         Zerg razaZerg = new Zerg();
-        Casillero casilleroAConstruir1 = new Casillero();
-        Casillero casilleroAConstruir2 = new Casillero();
+        Casillero casilleroAConstruir1 = new Casillero(1, 1, new Tablero());
+        Casillero casilleroAConstruir2 = new Casillero(1, 2, new Tablero());
 
         //Act
         razaZerg.construirCriadero(casilleroAConstruir1);
@@ -27,7 +27,7 @@ public class ZergTest {
     public void noSePuedeCrearEspiralSinGuarida(){
         //Arrange
         Zerg razaZerg = new Zerg();
-        Casillero casilleroAConstruir = new Casillero();
+        Casillero casilleroAConstruir = new Casillero(1, 1, new Tablero());
 
         //Act
         casilleroAConstruir.setEspacioDeConstruccion(new Moho());
@@ -40,8 +40,8 @@ public class ZergTest {
     public void sePuedeCrearEspiralConGuarida(){
         //Arrange
         Zerg razaZerg = new Zerg(1000, 1000);
-        Casillero casilleroAConstruir1 = new Casillero();
-        Casillero casilleroAConstruir2 = new Casillero();
+        Casillero casilleroAConstruir1 = new Casillero(1, 1, new Tablero());
+        Casillero casilleroAConstruir2 = new Casillero(1, 4, new Tablero());
 
         //Act
         casilleroAConstruir1.setEspacioDeConstruccion(new Moho());

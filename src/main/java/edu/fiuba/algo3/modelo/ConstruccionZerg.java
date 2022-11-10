@@ -18,4 +18,9 @@ public abstract class ConstruccionZerg extends Construccion{
             this.vida += 5;
         }
     }
+
+    public void nuevoTurno(){
+        this.turnos++;
+        this.regenerar();
+    }
 }

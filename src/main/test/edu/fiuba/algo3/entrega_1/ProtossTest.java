@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.Casillero;
-import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
-import edu.fiuba.algo3.modelo.Protoss;
-import edu.fiuba.algo3.modelo.RangoPilon;
+import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -15,7 +12,7 @@ public class ProtossTest {
     public void noSePuedeConstruirPuertaEstelarSinAcceso(){
         //Arrange
         Protoss razaProtoss = new Protoss();
-        Casillero casilleroAConstruir = new Casillero();
+        Casillero casilleroAConstruir = new Casillero(1,1,new Tablero());
 
         //Act
         casilleroAConstruir.setEspacioDeConstruccion(new RangoPilon());

@@ -18,12 +18,10 @@ public class Extractor extends ConstruccionZerg{
     }
 
     public void nuevoTurno(){
-        this.turnos++;
+        super.nuevoTurno();
         if (this.turnos >= turnosParaConstruirse ){
             this.producirGas();
-            this.regenerar();
         }
-
     }
 
     protected void producirGas(){

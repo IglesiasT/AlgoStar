@@ -42,7 +42,7 @@ public class AsimiladorTest {
     public void AsimiladorSePuedeConstruirEnCasilleroConGas() {
         Asimilador asimilador = new Asimilador();
 
-        Casillero casillero = new Casillero(new Gas());
+        Casillero casillero = new Casillero(new Gas(), 1, 1, new Tablero());
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
         assert(asimilador.sePuedeConstruirEn(casillero));
@@ -52,7 +52,7 @@ public class AsimiladorTest {
     public void AsimiladorNoSePuedeConstruirEnCasilleroSinGas() {
         Asimilador asimilador = new Asimilador();
 
-        Casillero casillero = new Casillero();
+        Casillero casillero = new Casillero(1, 1, new Tablero());
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
         assert(!asimilador.sePuedeConstruirEn(casillero));

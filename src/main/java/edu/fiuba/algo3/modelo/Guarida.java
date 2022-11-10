@@ -9,11 +9,6 @@ public class Guarida extends ConstruccionZerg{
     }
 
     @Override
-    public void nuevoTurno() {
-
-    }
-
-    @Override
     public boolean sePuedeConstruirEn(Casillero casillero) {
         return (casillero.contiene(new Moho()) && casillero.contiene(new SinRecurso()));
     }

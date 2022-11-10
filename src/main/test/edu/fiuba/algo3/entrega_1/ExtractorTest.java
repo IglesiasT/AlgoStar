@@ -170,7 +170,7 @@ public class ExtractorTest {
     public void sePuedeConstruirEnUnCasilleroConGasYMoho(){
         Extractor extractor = new Extractor();
 
-        Casillero casillero = new Casillero(new Gas());
+        Casillero casillero = new Casillero(new Gas(), 1, 1, new Tablero());
         casillero.setEspacioDeConstruccion(new Moho());
 
         assert(extractor.sePuedeConstruirEn(casillero));

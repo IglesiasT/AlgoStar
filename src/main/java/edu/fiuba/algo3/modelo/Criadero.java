@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
-public class Criadero extends ConstruccionZerg{
+import java.util.ArrayList;
 
+public class Criadero extends ConstruccionZerg{
+    private int rangoMoho;
     private int maximoDeLarvas;
     private int larvas;
     private int turnos;
@@ -12,6 +14,7 @@ public class Criadero extends ConstruccionZerg{
         this.turnos = 0;
         this.turnosParaConstruirse = 4;
         this.mineralNecesarioParaConstruir = 50;
+        this.rangoMoho = 4;
     }
 
     public int larvasRestantes() {
@@ -27,15 +30,31 @@ public class Criadero extends ConstruccionZerg{
     }
 
     public void nuevoTurno(){
+        super.nuevoTurno();
+
         this.turnos++;
         if (this.larvas < this.maximoDeLarvas){
             this.larvas++;
         }
-        this.regenerar();
+
+        if (this.turnos % 2 == 0 && this.turnos >= this.turnosParaConstruirse){
+            this.rangoMoho++;
+            this.expandirMoho();
+        }
     }
 
     @Override
     public boolean sePuedeConstruirEn(Casillero casillero) {
         return (casillero.contiene(new SinRecurso()));
     }
+    public void expandirMoho(){
+        ArrayList<Casillero> casillerosInfectados = new ArrayList<>(this.ubicacion.obtenerCasilleros(this.rangoMoho));
+
+        for (Casillero casillero: casillerosInfectados) {
+            casillero.setEspacioDeConstruccion(new Moho());
+
+        }
+    }
+
+
 }

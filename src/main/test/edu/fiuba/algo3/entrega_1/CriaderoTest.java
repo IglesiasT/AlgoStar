@@ -93,7 +93,7 @@ public class CriaderoTest {
     public void noSePuedeConstruirCriaderoEnCasilleroConGas(){
         Criadero criadero = new Criadero();
 
-        Casillero casillero = new Casillero(new Gas());
+        Casillero casillero = new Casillero(new Gas(), 1, 1, new Tablero());
         casillero.setEspacioDeConstruccion(new Moho());
 
         assert(!criadero.sePuedeConstruirEn(casillero));

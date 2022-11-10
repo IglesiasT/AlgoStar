@@ -10,7 +10,7 @@ public class CasilleroTest {
     @Test
     public void casilleroTieneMoho(){
         //Arrange
-        Casillero casillero = new Casillero();
+        Casillero casillero = new Casillero(1, 1, new Tablero());
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
@@ -22,7 +22,7 @@ public class CasilleroTest {
     @Test
     public void noSePuedeConstruirNexoMineralSiHayZanganoAsignado(){
         //Arrange
-        Casillero casillero = new Casillero(new Mineral());
+        Casillero casillero = new Casillero(new Mineral(), 1, 1, new Tablero());
         Zangano zangano = new Zangano();
 
         //Act

@@ -1,17 +1,27 @@
 package edu.fiuba.algo3.modelo;
 
-public class Casillero {
+import java.util.ArrayList;
 
+public class Casillero {
+    private int fila;
+    private int columna;
+    private Tablero tablero;
     private Recurso recurso;
     private EspacioDeConstruccion espacio;
     private Construccion construccion;
 
-    public Casillero(){
+    public Casillero(int fila, int columna, Tablero tablero){
+        this.fila = fila;
+        this.columna = columna;
+        this.tablero = tablero;
         this.recurso = new SinRecurso();
         this.espacio = new SinEspacio();
         this.construccion = null;
     }
-    public Casillero(Recurso recurso){
+    public Casillero(Recurso recurso, int fila, int columna, Tablero tablero){
+        this.fila = fila;
+        this.columna = columna;
+        this.tablero = tablero;
         this.recurso = recurso;
         this.espacio = new SinEspacio();
         this.construccion = null;
@@ -47,5 +57,8 @@ public class Casillero {
     }
     public boolean contiene (EspacioDeConstruccion espacio){
         return (this.espacio.getClass() == espacio.getClass());
+    }
+    public ArrayList<Casillero> obtenerCasilleros(int radio) {
+        return this.tablero.obtenerCasilleros(radio, this.fila, this.columna);
     }
 }
