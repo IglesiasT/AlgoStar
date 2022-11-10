@@ -8,37 +8,47 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class CriaderoTest {
     @Test
     public void criaderoSeIniciaConTresLarvas() {
-
+        //Arrange
         int valorEsperado = 3;
         Criadero criadero = new Criadero();
+
+        //Act
+        criadero.construirEnCasillero(new Casillero(1,1, new Tablero()));
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
 
+        //Assert
         assertEquals(valorEsperado, criadero.larvasRestantes());
     }
 
     @Test
     public void engendroUnZanganoYConsumeUnaLarva(){
-
+        //Arrange
         int valorEsperado = 2;
         Criadero criadero = new Criadero();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
 
+        //Act
+        criadero.construirEnCasillero(new Casillero(1,1, new Tablero()));
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
         criadero.engendrarZangano();
 
+        //Assert
         assertEquals(valorEsperado, criadero.larvasRestantes());
     }
 
     @Test
     public void engendroZanganosPasaUnTurnoYSeRegeneraUnaLarvaDelCriadero(){
-
+        //Arrange
         int valorEsperado = 2;
         Criadero criadero = new Criadero();
+
+        //Act
+        criadero.construirEnCasillero(new Casillero(1,1, new Tablero()));
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
@@ -48,17 +58,23 @@ public class CriaderoTest {
         criadero.engendrarZangano();
         criadero.nuevoTurno();
 
+        //Assert
         assertEquals(valorEsperado, criadero.larvasRestantes());
 
     }
 
     @Test
     public void pasanTresTurnosYCriaderoNoEstaOperativo(){
+        //Arrange
         Criadero criadero = new Criadero();
+
+        //Act
+        criadero.construirEnCasillero(new Casillero(1,1, new Tablero()));
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
 
+        //Assert
         assertThrows(EdificioNoEstaOperativo.class, criadero::engendrarZangano);
     }
 
