@@ -39,4 +39,19 @@ public class Protoss extends Raza{
 
         this.construir(asimilador, casilleroAConstruir);
     }
+
+    public void construirAcceso(Casillero casilleroAConstruir){
+        Acceso acceso = new Acceso();
+
+        this.construir(acceso, casilleroAConstruir);
+    }
+
+    public void construirPuertaEstelar(Casillero casilleroAConstruir){
+        if(! this.construccionesRealizadas.contains(new Acceso())){
+            throw new NoSePuedeConstruir();
+        }
+        PuertaEstelar puertaEstelar = new PuertaEstelar();
+
+        this.construir(puertaEstelar, casilleroAConstruir);
+    }
 }
