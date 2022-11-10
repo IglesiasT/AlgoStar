@@ -3,6 +3,7 @@ package edu.fiuba.algo3.entrega_1;
 import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.Extractor;
 import edu.fiuba.algo3.modelo.MaximoDeZanganosAsignados;
+import edu.fiuba.algo3.modelo.Pilon;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -126,5 +127,32 @@ public class ExtractorTest {
 
         //Assert
         assertThrows(MaximoDeZanganosAsignados.class, extractor::asignarZangano);
+    }
+
+    @Test
+    public void seReduceLaVidaAlSerDaniado(){
+        //Arrange
+        Extractor extractor = new Extractor();
+        int valorEsperado = 50;
+
+        //Act
+        extractor.recibirDanio(50);
+
+        //Assert
+        assertEquals(valorEsperado, extractor.obtenerVida());
+    }
+
+    @Test
+    public void alSerDaniadoRegeneraVidaHastaCien(){
+        //Arrange
+        Extractor extractor = new Extractor();
+        int valorEsperado = 100;
+
+        //Act
+        extractor.recibirDanio(5);
+        extractor.nuevoTurno();
+
+        //Assert
+        assertEquals(valorEsperado, extractor.obtenerVida());
     }
 }

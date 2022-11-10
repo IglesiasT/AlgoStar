@@ -12,6 +12,17 @@ public class Criadero extends Construccion{
         this.turnos = 0;
         this.turnosParaConstruirse = 4;
     }
+
+    @Override
+    public void recibirDanio(int danioInflingido) {
+
+    }
+
+    @Override
+    protected void regenerar() {
+
+    }
+
     public int larvasRestantes() {
         return this.larvas;
     }

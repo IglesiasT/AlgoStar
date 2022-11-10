@@ -6,6 +6,16 @@ public class Asimilador extends GeneradorDeGas{
         this.turnosParaSerConstruido = 6;
     }
 
+    @Override
+    public void recibirDanio(int danioInflingido) {
+
+    }
+
+    @Override
+    protected void regenerar() {
+
+    }
+
     public void nuevoTurno(){   //Solucionar
         this.turnos++;
         if (this.turnos >= turnosParaSerConstruido ){

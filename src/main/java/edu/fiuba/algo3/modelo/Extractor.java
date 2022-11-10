@@ -9,10 +9,23 @@ public class Extractor extends GeneradorDeGas{
         this.zanganosAsignados = 0;
     }
 
+    @Override
+    public void recibirDanio(int danioInflingido) {
+        this.vida -= danioInflingido;
+    }
+
     public void nuevoTurno(){
         this.turnos++;
         if (this.turnos >= turnosParaSerConstruido ){
             this.producirGas();
+        }
+
+        this.regenerar();
+    }
+
+    protected void regenerar(){
+        if (this.vida < 100){
+            this.vida += 5;
         }
     }
 
