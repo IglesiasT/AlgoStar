@@ -34,6 +34,7 @@ public abstract class ConstruccionProtoss extends Construccion{
 
     @Override
     public void nuevoTurno(){
+        this.turnos++;
         regenerar();
     }
 }

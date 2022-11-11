@@ -29,4 +29,8 @@ public class Tablero {
         }
         return casilleros;
     }
+
+    public Casillero obtenerCasillero(int i, int j) {
+        return this.tablero[i][j];
+    }
 }

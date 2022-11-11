@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 public class NexoMineral extends ConstruccionProtoss {
-    int turnos;
+    private int turnos;
     private int produccionPorTurno;
 
     public NexoMineral(){
