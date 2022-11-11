@@ -44,4 +44,8 @@ public abstract class Construccion {
     public int consumirGas(int gasAConsumir){
         return gasAConsumir - this.gasNecesarioParaConstruir;
     }
+
+    public void destruir(){
+        ubicacion.destruirConstruccion();
+    }
 }

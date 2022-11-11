@@ -115,4 +115,27 @@ public class CriaderoTest {
         assert(!criadero.sePuedeConstruirEn(casillero));
     }
 
+    @Test
+    public void seDestrulleCriaderoPeroElMohoQueda(){
+        //Arrange
+        Tablero tablero = new Tablero();
+        Casillero casillero1 = tablero.obtenerCasillero(1,1);
+        Criadero criadero = new Criadero();
+        ReservaDeReproduccion reserva = new ReservaDeReproduccion();
+
+        //Act
+        criadero.construirEnCasillero(casillero1);
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.destruir();
+        criadero.nuevoTurno();
+
+        //Assert
+        assert reserva.sePuedeConstruirEn(tablero.obtenerCasillero(1,3));
+    }
+
 }
