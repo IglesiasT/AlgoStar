@@ -33,7 +33,7 @@ public class Pilon extends ConstruccionProtoss{
 
     @Override
     public boolean sePuedeConstruirEn(Casillero casillero) {
-        return (!casillero.contiene(new Moho()));
+        return (!casillero.contiene(new Moho()) && casillero.contiene(new SinRecurso()));
     }
 
     public void destruir(){
