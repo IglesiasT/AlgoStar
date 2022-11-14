@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo;
 import java.util.ArrayList;
 
 public class Pilon extends ConstruccionProtoss{
-    ArrayList<Casillero> casillerosEnergizados;
+    ArrayList<? extends Casillero> casillerosEnergizados;
     private int radioAfectado;
 
     public Pilon(){

@@ -14,7 +14,7 @@ public class Tablero {
         }
     }
 
-    public ArrayList<Casillero> obtenerCasilleros(int radio, int fila, int columna){
+    public ArrayList<?extends Casillero> obtenerCasilleros(int radio, int fila, int columna){
 
         ArrayList<Casillero> casilleros = new ArrayList<>();
 

@@ -55,7 +55,7 @@ public class Casillero {
     public boolean contiene (EspacioDeConstruccion espacio){
         return (this.espacio.getClass() == espacio.getClass());
     }
-    public ArrayList<Casillero> obtenerCasilleros(int radio) {
+    public ArrayList<? extends Casillero> obtenerCasilleros(int radio) {
         return this.tablero.obtenerCasilleros(radio, this.fila, this.columna);
     }
 }

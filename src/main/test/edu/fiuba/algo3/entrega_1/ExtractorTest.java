@@ -25,7 +25,7 @@ public class ExtractorTest {
     public void sinZanganosAsignadosNoGeneraGas(){
         //Arrange
         Extractor extractor = new Extractor();
-        int valorEsperado = 0;
+        GasProducido valorEsperado = new GasProducido(0);
 
         //Act
         extractor.nuevoTurno();
@@ -36,7 +36,7 @@ public class ExtractorTest {
         extractor.nuevoTurno();
 
         //Assert
-        assertEquals(valorEsperado, extractor.obtenerGasProducido());
+        assertEquals(valorEsperado, extractor.obtenerGasProducido2());
     }
 
     @Test
