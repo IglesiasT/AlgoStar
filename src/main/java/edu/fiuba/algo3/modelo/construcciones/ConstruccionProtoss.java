@@ -1,4 +1,6 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.construcciones;
+
+import edu.fiuba.algo3.modelo.tablero.Casillero;
 
 public abstract class ConstruccionProtoss extends Construccion{
     protected int escudo;

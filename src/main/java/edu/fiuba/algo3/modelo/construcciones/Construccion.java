@@ -1,6 +1,7 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.construcciones;
 
-import java.util.*;
+import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
+import edu.fiuba.algo3.modelo.tablero.Casillero;
 
 public abstract class Construccion {
     protected int mineralNecesarioParaConstruir;

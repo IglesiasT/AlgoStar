@@ -1,6 +1,11 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.construcciones;
 
-public class Asimilador extends ConstruccionProtoss{
+import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
+import edu.fiuba.algo3.modelo.recursos.Gas;
+import edu.fiuba.algo3.modelo.tablero.Casillero;
+
+public class Asimilador extends ConstruccionProtoss {
     private int gasProducido;
     private int produccionPorTurno;
 

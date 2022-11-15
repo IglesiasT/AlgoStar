@@ -1,6 +1,10 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.construcciones;
 
-public class Guarida extends ConstruccionZerg{
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
+import edu.fiuba.algo3.modelo.recursos.SinRecurso;
+import edu.fiuba.algo3.modelo.tablero.Casillero;
+
+public class Guarida extends ConstruccionZerg {
     public Guarida(){
         this.mineralNecesarioParaConstruir = 200;
         this.gasNecesarioParaConstruir = 100;

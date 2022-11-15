@@ -1,4 +1,6 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.recursos;
+
+import edu.fiuba.algo3.modelo.RecursoOcupado;
 
 public abstract class Recurso {
     protected boolean ocupado;

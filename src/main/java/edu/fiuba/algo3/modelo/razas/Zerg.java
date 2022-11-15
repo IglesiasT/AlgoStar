@@ -1,4 +1,8 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.razas;
+
+import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
+import edu.fiuba.algo3.modelo.construcciones.*;
+import edu.fiuba.algo3.modelo.tablero.Casillero;
 
 import java.util.LinkedList;
 

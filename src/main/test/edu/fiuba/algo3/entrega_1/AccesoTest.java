@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.Acceso;
-import edu.fiuba.algo3.modelo.Casillero;
-import edu.fiuba.algo3.modelo.Pilon;
-import edu.fiuba.algo3.modelo.Tablero;
+import edu.fiuba.algo3.modelo.construcciones.Acceso;
+import edu.fiuba.algo3.modelo.tablero.Casillero;
+import edu.fiuba.algo3.modelo.construcciones.Pilon;
+import edu.fiuba.algo3.modelo.tablero.Tablero;
 import org.junit.jupiter.api.Test;
 
 public class AccesoTest {

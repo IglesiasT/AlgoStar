@@ -1,6 +1,13 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.construcciones;
 
-public class Extractor extends ConstruccionZerg{
+import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.MaximoDeZanganosAsignados;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
+import edu.fiuba.algo3.modelo.recursos.Gas;
+import edu.fiuba.algo3.modelo.recursos.GasProducido;
+import edu.fiuba.algo3.modelo.tablero.Casillero;
+
+public class Extractor extends ConstruccionZerg {
     private int gasProducido;
     private int capacidadMaximaDeZanganos;
     private int zanganosAsignados;
@@ -28,14 +35,14 @@ public class Extractor extends ConstruccionZerg{
         this.gasProducido += this.zanganosAsignados * 10;
     }
 
-    public void asignarZangano() throws MaximoDeZanganosAsignados{
+    public void asignarZangano() throws MaximoDeZanganosAsignados {
         if (this.zanganosAsignados >= this.capacidadMaximaDeZanganos){
             throw new MaximoDeZanganosAsignados();
         }
         this.zanganosAsignados++;
     }
 
-    public int obtenerGasProducido() throws EdificioNoEstaOperativo{
+    public int obtenerGasProducido() throws EdificioNoEstaOperativo {
         if(this.turnos < turnosParaConstruirse){
             throw new EdificioNoEstaOperativo();
         }

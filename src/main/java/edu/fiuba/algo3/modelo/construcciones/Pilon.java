@@ -1,8 +1,14 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.construcciones;
+
+import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.SinEspacio;
+import edu.fiuba.algo3.modelo.tablero.Casillero;
 
 import java.util.ArrayList;
 
-public class Pilon extends ConstruccionProtoss{
+public class Pilon extends ConstruccionProtoss {
     ArrayList<? extends Casillero> casillerosEnergizados;
     private int radioAfectado;
 

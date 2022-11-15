@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
-import edu.fiuba.algo3.modelo.NexoMineral;
+import edu.fiuba.algo3.modelo.construcciones.NexoMineral;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

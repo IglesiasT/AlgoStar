@@ -1,8 +1,14 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.construcciones;
+
+import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
+import edu.fiuba.algo3.modelo.Zangano;
+import edu.fiuba.algo3.modelo.recursos.SinRecurso;
+import edu.fiuba.algo3.modelo.tablero.Casillero;
 
 import java.util.ArrayList;
 
-public class Criadero extends ConstruccionZerg{
+public class Criadero extends ConstruccionZerg {
     private int rangoMoho;
     private int maximoDeLarvas;
     private int larvas;

@@ -1,6 +1,10 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.construcciones;
 
-public class Espiral extends ConstruccionZerg{
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
+import edu.fiuba.algo3.modelo.recursos.SinRecurso;
+import edu.fiuba.algo3.modelo.tablero.Casillero;
+
+public class Espiral extends ConstruccionZerg {
     public Espiral(){
         this.mineralNecesarioParaConstruir = 150;
         this.gasNecesarioParaConstruir = 100;
