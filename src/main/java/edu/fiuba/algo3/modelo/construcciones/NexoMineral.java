@@ -10,8 +10,10 @@ public class NexoMineral extends ConstruccionProtoss {
     private int produccionPorTurno;
 
     public NexoMineral(){
+        super();
+        this.escudo = 250;
+        this.vida = 250;
         this.produccionPorTurno = 20;
-        this.turnos = 0;
         this.turnosParaConstruirse = 4;
         this.mineralNecesarioParaConstruir = 50;
     }
