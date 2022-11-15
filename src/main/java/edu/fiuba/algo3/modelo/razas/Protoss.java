@@ -13,6 +13,13 @@ public class Protoss extends Raza{
         this.construccionesRealizadas = new LinkedList<>();
     }
 
+    public Protoss(int mineralInicial, int gasInicial){
+        super();
+        this.cantidadDeMineral = mineralInicial;
+        this.cantidadDeGas = gasInicial;
+        this.construccionesRealizadas = new LinkedList<>();
+    }
+
     public void construir(ConstruccionProtoss construccion, Casillero casilleroAConstruir){
 
         if(!construccion.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
@@ -22,8 +29,8 @@ public class Protoss extends Raza{
         construccion.construirEnCasillero(casilleroAConstruir);
 
         //Se pudo construir
-        construccion.consumirMineral(this.cantidadDeMineral);
-        construccion.consumirGas(this.cantidadDeGas);
+        this.cantidadDeMineral = construccion.consumirMineral(this.cantidadDeMineral);
+        this.cantidadDeGas = construccion.consumirGas(this.cantidadDeGas);
         this.construccionesRealizadas.add(construccion);
     }
     public void construirPilon(Casillero casilleroAConstruir){
@@ -50,12 +57,21 @@ public class Protoss extends Raza{
         this.construir(acceso, casilleroAConstruir);
     }
 
-    public void construirPuertaEstelar(Casillero casilleroAConstruir){
-        if(! this.construccionesRealizadas.contains(new Acceso())){
+    public void construirPuertoEstelar(Casillero casilleroAConstruir){
+        boolean flag = false;
+        for (ConstruccionProtoss construccion : this.construccionesRealizadas) {
+            if (construccion.getClass() == Acceso.class) {
+                flag = true;
+                break;
+            }
+
+        }
+        if (! flag){
             throw new NoSePuedeConstruir();
         }
-        PuertaEstelar puertaEstelar = new PuertaEstelar();
 
-        this.construir(puertaEstelar, casilleroAConstruir);
+        PuertoEstelar puertoEstelar = new PuertoEstelar();
+
+        this.construir(puertoEstelar, casilleroAConstruir);
     }
 }

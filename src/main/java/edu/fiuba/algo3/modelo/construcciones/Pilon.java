@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.SinEspacio;
+import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import edu.fiuba.algo3.modelo.tablero.Casillero;
 
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class Pilon extends ConstruccionProtoss {
 
     @Override
     public boolean sePuedeConstruirEn(Casillero casillero) {
-        return (!casillero.contiene(new Moho()));
+        return (!casillero.contiene(new Moho()) && casillero.contiene(new SinRecurso()));
     }
 
     public void destruir(){

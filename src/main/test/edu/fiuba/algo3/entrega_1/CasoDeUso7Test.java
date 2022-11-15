@@ -1,26 +1,32 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.Zangano;
 import edu.fiuba.algo3.modelo.construcciones.NexoMineral;
+import edu.fiuba.algo3.modelo.recursos.Mineral;
+import edu.fiuba.algo3.modelo.tablero.Casillero;
+import edu.fiuba.algo3.modelo.tablero.Tablero;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class NexoMineralTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class CasoDeUso7Test {
+
     @Test
-    public void noEstaOperativoAntesDeCuatroTurnos(){
+    public void zanganoRecolectaVeintePorTurno(){
         //Arrange
-        NexoMineral nexo = new NexoMineral();
+        Zangano zangano = new Zangano();
+        Casillero casillero = new Casillero(new Mineral(), 1, 1, new Tablero());
+        int cantidadEsperada = 10;
 
         //Act
-        nexo.nuevoTurno();
+        zangano.ubicar(casillero);
 
         //Assert
-        assertThrows(EdificioNoEstaOperativo.class, nexo::recolectarMineral);
+        assertEquals(cantidadEsperada, zangano.producir());
     }
 
     @Test
-    public void recolectaVeintePorTurno(){
+    public void nexoMineralRecolectaVeintePorTurno(){
         //Arrange
         NexoMineral nexo = new NexoMineral();
 

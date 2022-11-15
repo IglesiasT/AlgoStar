@@ -20,6 +20,6 @@ public class ProtossTest {
         casilleroAConstruir.setEspacioDeConstruccion(new RangoPilon());
 
         //Assert
-        assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirPuertaEstelar(casilleroAConstruir));
+        assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirPuertoEstelar(casilleroAConstruir));
     }
 }

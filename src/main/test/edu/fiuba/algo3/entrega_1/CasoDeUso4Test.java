@@ -2,31 +2,13 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.construcciones.Extractor;
-import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
-import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.GasProducido;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
-import edu.fiuba.algo3.modelo.tablero.Tablero;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class ExtractorTest {
-
-    @Test
-    public void extractorNoEstaOperativoAntesDeSeisTurnos(){
-        //Arrange
-        Extractor extractor = new Extractor();
-
-        //Act
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-
-        //Assert
-        assertThrows(EdificioNoEstaOperativo.class, extractor::obtenerGasProducido);
-    }
-
+public class CasoDeUso4Test {
     @Test
     public void sinZanganosAsignadosNoGeneraGas(){
         //Arrange
@@ -130,77 +112,5 @@ public class ExtractorTest {
 
         //Assert
         assertThrows(MaximoDeZanganosAsignados.class, extractor::asignarZangano);
-    }
-
-    @Test
-    public void seReduceLaVidaAlSerDaniado(){
-        //Arrange
-        Extractor extractor = new Extractor();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        int valorEsperado = 50;
-
-        //Act
-        extractor.recibirDanio(50);
-
-        //Assert
-        assertEquals(valorEsperado, extractor.obtenerVida());
-    }
-
-    @Test
-    public void alSerDaniadoRegeneraVidaHastaCien(){
-        //Arrange
-        Extractor extractor = new Extractor();
-
-        int valorEsperado = 100;
-
-        //Act
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.recibirDanio(5);
-        extractor.nuevoTurno();
-
-        //Assert
-        assertEquals(valorEsperado, extractor.obtenerVida());
-    }
-
-    @Test
-    public void sePuedeConstruirEnUnCasilleroConGasYMoho(){
-        Extractor extractor = new Extractor();
-
-        Casillero casillero = new Casillero(new Gas(), 1, 1, new Tablero());
-        casillero.setEspacioDeConstruccion(new Moho());
-
-        assert(extractor.sePuedeConstruirEn(casillero));
-    }
-
-    @Test
-    public void sePuedeConstruirConLosRecursosSuficientes(){
-        //Arrange
-        Extractor extractor = new Extractor();
-        int cantidadMineral = 100;
-        int cantidadGas = 40;
-
-        //Act and Assert
-        assert extractor.recursosSuficientes(cantidadMineral, cantidadGas);
-    }
-
-    @Test
-    public void noSePuedeConstruirSinLosRecursosSuficientes(){
-        //Arrange
-        Extractor extractor = new Extractor();
-        int cantidadMineral = 14;
-        int cantidadGas = 0;
-
-        //Act and Assert
-        assert (! extractor.recursosSuficientes(cantidadMineral, cantidadGas));
     }
 }

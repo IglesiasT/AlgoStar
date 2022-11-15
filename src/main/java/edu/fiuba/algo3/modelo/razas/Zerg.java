@@ -29,8 +29,8 @@ public class Zerg extends Raza{
         construccion.construirEnCasillero(casilleroAConstruir);
 
         //Se pudo construir
-        construccion.consumirMineral(this.cantidadDeMineral);
-        construccion.consumirGas(this.cantidadDeGas);
+        this.cantidadDeMineral = construccion.consumirMineral(this.cantidadDeMineral);
+        this.cantidadDeGas = construccion.consumirGas(this.cantidadDeGas);
         this.construccionesRealizadas.add(construccion);
     }
     public void construirCriadero(Casillero casilleroAConstruir){
@@ -52,6 +52,17 @@ public class Zerg extends Raza{
     }
 
     public void construirGuarida(Casillero casilleroAConstruir){
+        boolean flag = false;
+        for (ConstruccionZerg construccion : this.construccionesRealizadas) {
+            if (construccion.getClass() == ReservaDeReproduccion.class) {
+                flag = true;
+                break;
+            }
+
+        }
+        if (! flag){
+            throw new NoSePuedeConstruir();
+        }
         Guarida guarida = new Guarida();
 
         this.construir(guarida, casilleroAConstruir);
@@ -60,8 +71,9 @@ public class Zerg extends Raza{
     public void construirEspiral(Casillero casilleroAConstruir){
         boolean flag = false;
         for (ConstruccionZerg construccion : this.construccionesRealizadas) {
-            if (construccion.getClass() == Guarida.class ) {
+            if (construccion.getClass() == Guarida.class) {
                 flag = true;
+                break;
             }
 
         }

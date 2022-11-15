@@ -18,9 +18,9 @@ public class Tablero {
 
         ArrayList<Casillero> casilleros = new ArrayList<>();
 
-        for (int i = fila - radio; i < fila + radio; i++) {
+        for (int i = fila - radio; i <= fila + radio; i++) {
             if(! (i < 0 || i > 20)){
-                for (int j = columna - radio; j < columna + radio; j++) {
+                for (int j = columna - radio; j <= columna + radio; j++) {
                     if(! (j < 0 || j > 20)){
                         casilleros.add(this.tablero[i][j]);
                     }

@@ -4,8 +4,8 @@ import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import edu.fiuba.algo3.modelo.tablero.Casillero;
 
-public class PuertaEstelar extends ConstruccionProtoss {
-    public PuertaEstelar(){
+public class PuertoEstelar extends ConstruccionProtoss {
+    public PuertoEstelar(){
         this.mineralNecesarioParaConstruir = 150;
         this.gasNecesarioParaConstruir = 150;
         this.turnosParaConstruirse = 10;
