@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.entrega_2;
 
-import edu.fiuba.algo3.modelo.construcciones.Asimilador;
-import edu.fiuba.algo3.modelo.construcciones.NexoMineral;
-import edu.fiuba.algo3.modelo.construcciones.Pilon;
+import edu.fiuba.algo3.modelo.construcciones.*;
 import edu.fiuba.algo3.modelo.construcciones.unidades.*;
 import org.junit.jupiter.api.Test;
 
@@ -92,5 +90,72 @@ public class CasoDeUso18Test {
 
         // Assert
         assertEquals(valorEsperado, asimilador.obtenerEscudo());
+    }
+
+    // Unidades Protoss
+    @Test
+    public void zealotInflinge8DeDanioEnTierra(){
+        // Arrange
+        Zealot zealot = new Zealot();
+        ReservaDeReproduccion reserva = new ReservaDeReproduccion();
+        int valorEsperado = 992;    //1000 vida - 8 ataque
+
+        // Act
+        zealot.atacar(reserva);
+
+        // Assert
+        assertEquals(valorEsperado, reserva.obtenerVida());
+    }
+    @Test
+    public void dragonInflinge20DeDanioEnTierra(){
+        // Arrange
+        Dragon dragon = new Dragon();
+        Criadero criadero = new Criadero();
+        int valorEsperado = 480;    //500 vida - 20 ataque
+
+        // Act
+        dragon.atacar(criadero);
+
+        // Assert
+        assertEquals(valorEsperado, criadero.obtenerVida());
+    }
+    @Test
+    public void dragonInflinge20DeDanioEnAire(){
+        // Arrange
+        Dragon dragon = new Dragon();
+        Guardian guardian = new Guardian();
+        int valorEsperado = 80;    //100 vida - 20 ataque
+
+        // Act
+        dragon.atacar(guardian);
+
+        // Assert
+        assertEquals(valorEsperado, guardian.obtenerVida());
+    }
+    @Test
+    public void scoutInflinge8DeDanioEnTierra(){
+        // Arrange
+        Scout scout = new Scout();
+        Criadero criadero = new Criadero();
+        int valorEsperado = 492;    //500 vida - 8 ataque
+
+        // Act
+        scout.atacar(criadero);
+
+        // Assert
+        assertEquals(valorEsperado, criadero.obtenerVida());
+    }
+    @Test
+    public void scoutInflinge14DeDanioEnAire(){
+        // Arrange
+        Scout scout = new Scout();
+        Mutalisco mutalisco = new Mutalisco();
+        int valorEsperado = 106;    //120 vida - 14 ataque
+
+        // Act
+        scout.atacar(mutalisco);
+
+        // Assert
+        assertEquals(valorEsperado, mutalisco.obtenerVida());
     }
 }
