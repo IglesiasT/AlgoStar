@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_2;
 
+import edu.fiuba.algo3.modelo.construcciones.Asimilador;
 import edu.fiuba.algo3.modelo.construcciones.NexoMineral;
 import edu.fiuba.algo3.modelo.construcciones.Pilon;
 import edu.fiuba.algo3.modelo.construcciones.unidades.*;
@@ -79,4 +80,17 @@ public class CasoDeUso18Test {
         assertEquals(valorEsperado, scout.obtenerEscudo());
     }
 
+    @Test
+    public void guardianInflinge25DeDanioEnTierra(){
+        // Arrange
+        Guardian guardian = new Guardian();
+        Asimilador asimilador = new Asimilador();
+        int valorEsperado = 425;    //450 escudo - 25 ataque
+
+        // Act
+        guardian.atacar(asimilador);
+
+        // Assert
+        assertEquals(valorEsperado, asimilador.obtenerEscudo());
+    }
 }
