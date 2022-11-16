@@ -64,4 +64,19 @@ public class CasoDeUso18Test {
         // Assert
         assertEquals(valorEsperado, zealot.obtenerEscudo());
     }
+
+    @Test
+    public void mutaliscoInflinge9DeDanioEnAire(){
+        // Arrange
+        Mutalisco mutalisco = new Mutalisco();
+        Scout scout = new Scout();
+        int valorEsperado = 91;    //100 escudo - 9 ataque
+
+        // Act
+        mutalisco.atacar(scout);
+
+        // Assert
+        assertEquals(valorEsperado, scout.obtenerEscudo());
+    }
+
 }
