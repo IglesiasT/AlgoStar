@@ -34,16 +34,14 @@ public class CasoDeUso21Test {
         Casillero casillero2 = tablero.obtenerCasillero(1,2);
         Casillero casillero3 = tablero.obtenerCasillero(1,3);
         Casillero casillero4 = tablero.obtenerCasillero(1,4);
-        Casillero casillero5 = tablero.obtenerCasillero(1,5);
-        Casillero casillero6 = tablero.obtenerCasillero(1,6);
 
 
         razaZerg.construirReservaDeProduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
         razaZerg.construirEspiral(casillero4);
-        Mutalisco mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion(),casillero5);
+        Mutalisco mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
 
-        assertThrows(NoSePuedeEngendrar.class, () -> razaZerg.evolucionarMutalisco(mutalisco,casillero6));
+        assertThrows(NoSePuedeEngendrar.class, () -> razaZerg.evolucionarMutalisco(mutalisco));
 
     }
 
@@ -65,16 +63,14 @@ public class CasoDeUso21Test {
         Casillero casillero2 = tablero.obtenerCasillero(1,2);
         Casillero casillero3 = tablero.obtenerCasillero(1,3);
         Casillero casillero4 = tablero.obtenerCasillero(1,4);
-        Casillero casillero5 = tablero.obtenerCasillero(1,5);
-        Casillero casillero6 = tablero.obtenerCasillero(1,6);
 
 
         razaZerg.construirReservaDeProduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
         razaZerg.construirEspiral(casillero4);
-        Mutalisco mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion(),casillero5);
+        Mutalisco mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
 
-        assertDoesNotThrow(() -> razaZerg.evolucionarMutalisco(mutalisco,casillero6));
+        assertDoesNotThrow(() -> razaZerg.evolucionarMutalisco(mutalisco));
 
     }
 

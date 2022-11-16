@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades;
 
+import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.construcciones.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.ConstruccionZerg;
 
@@ -12,6 +13,9 @@ public abstract class UnidadZerg extends ConstruccionZerg {
     protected int rangoDeAtaque;
 
     public void atacar(ConstruccionProtoss construccionEnemiga){
+        if (turnos < this.turnosParaConstruirse){
+            throw new EdificioNoEstaOperativo();
+        }
         int danio = this.danioPorSuperficie.get(construccionEnemiga.obtenerSuperficie());
         construccionEnemiga.recibirDanio(danio);
     }

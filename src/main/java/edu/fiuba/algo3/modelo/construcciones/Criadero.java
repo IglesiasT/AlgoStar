@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.modelo.construcciones;
 
 import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Hidralisco;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Mutalisco;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Zerling;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.Zangano;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
@@ -70,6 +72,22 @@ public class Criadero extends ConstruccionZerg {
         }
         this.larvas--;
         return new Mutalisco();
+    }
+
+    public Hidralisco engendrarHidralisco() throws EdificioNoEstaOperativo {
+        if (turnos < this.turnosParaConstruirse){
+            throw new EdificioNoEstaOperativo();
+        }
+        this.larvas--;
+        return new Hidralisco();
+    }
+
+    public Zerling engendrarZerling() throws EdificioNoEstaOperativo {
+        if (turnos < this.turnosParaConstruirse){
+            throw new EdificioNoEstaOperativo();
+        }
+        this.larvas--;
+        return new Zerling();
     }
 
 

@@ -3,9 +3,7 @@ package edu.fiuba.algo3.modelo.razas;
 import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.NoSePuedeEngendrar;
 import edu.fiuba.algo3.modelo.construcciones.*;
-import edu.fiuba.algo3.modelo.construcciones.unidades.Guardian;
-import edu.fiuba.algo3.modelo.construcciones.unidades.Mutalisco;
-import edu.fiuba.algo3.modelo.construcciones.unidades.UnidadZerg;
+import edu.fiuba.algo3.modelo.construcciones.unidades.*;
 import edu.fiuba.algo3.modelo.tablero.Casillero;
 
 import java.util.LinkedList;
@@ -41,7 +39,10 @@ public class Zerg extends Raza{
     }
 
     public void nuevoTurno(){
-        for (ConstruccionZerg construccion: construccionesRealizadas){
+        LinkedList<ConstruccionZerg> construccionesTotales = new LinkedList<>();
+        construccionesTotales.addAll(this.construccionesRealizadas);
+        construccionesTotales.addAll(this.unidadesEngendradas);
+        for (ConstruccionZerg construccion: construccionesTotales){
             construccion.nuevoTurno();
         }
     }
@@ -99,7 +100,7 @@ public class Zerg extends Raza{
         this.construir(espiral, casilleroAConstruir);
     }
 
-    public Mutalisco engendrarMutalisco(Criadero criaderoAUsar,Casillero casilleroAUbicar){
+    public Mutalisco engendrarMutalisco(Criadero criaderoAUsar){
         boolean flag = false;
         for (ConstruccionZerg construccion : this.construccionesRealizadas) {
             if (construccion.getClass() == Espiral.class) {
@@ -115,24 +116,80 @@ public class Zerg extends Raza{
         if(!unidad.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
             throw new NoSePuedeConstruir();
         }
+        unidad = criaderoAUsar.engendrarMutalisco();
 
         //Se pudo engendrar
-        unidad = criaderoAUsar.engendrarMutalisco();
+        this.unidadesEngendradas.add(unidad);
+        this.cantidadDeMineral = unidad.consumirMineral(this.cantidadDeMineral);
+        this.cantidadDeGas = unidad.consumirGas(this.cantidadDeGas);
+
+
+
+        return unidad;
+    }
+
+    public Hidralisco engendrarHidralisco(Criadero criaderoAUsar){
+        boolean flag = false;
+        for (ConstruccionZerg construccion : this.construccionesRealizadas) {
+            if (construccion.getClass() == Guarida.class) {
+                flag = true;
+                break;
+            }
+
+        }
+        if (! flag){
+            throw new NoSePuedeEngendrar();
+        }
+        Hidralisco unidad = new Hidralisco();
+        if(!unidad.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
+            throw new NoSePuedeConstruir();
+        }
+        unidad = criaderoAUsar.engendrarHidralisco();
+
+        //Se pudo engendrar
         this.unidadesEngendradas.add(unidad);
         this.cantidadDeMineral = unidad.consumirMineral(this.cantidadDeMineral);
         this.cantidadDeGas = unidad.consumirGas(this.cantidadDeGas);
 
         return unidad;
-
     }
 
-    public void evolucionarMutalisco(Mutalisco mutaliscoAEvolucionar, Casillero casilleroAUbicar){
+    public Zerling engendrarZerling(Criadero criaderoAUsar){
+        boolean flag = false;
+        for (ConstruccionZerg construccion : this.construccionesRealizadas) {
+            if (construccion.getClass() == ReservaDeReproduccion.class) {
+                flag = true;
+                break;
+            }
+
+        }
+        if (! flag){
+            throw new NoSePuedeEngendrar();
+        }
+        Zerling unidad = new Zerling();
+        if(!unidad.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
+            throw new NoSePuedeConstruir();
+        }
+        unidad = criaderoAUsar.engendrarZerling();
+
+        //Se pudo engendrar
+        this.unidadesEngendradas.add(unidad);
+        this.cantidadDeMineral = unidad.consumirMineral(this.cantidadDeMineral);
+        this.cantidadDeGas = unidad.consumirGas(this.cantidadDeGas);
+
+        return unidad;
+    }
+
+    public Guardian evolucionarMutalisco(Mutalisco mutaliscoAEvolucionar){
         Guardian unidad = new Guardian();
         if(!unidad.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
             throw new NoSePuedeEngendrar();
         }
         unidad = mutaliscoAEvolucionar.evolucionar();
-        //esto lo deberia hacer el mutalisco
-        unidadesEngendradas.remove(mutaliscoAEvolucionar);
+        //esto lo deberia hacer el mutalisco creo
+        this.unidadesEngendradas.remove(mutaliscoAEvolucionar);
+        this.unidadesEngendradas.add(unidad);
+
+        return unidad;
     }
 }
