@@ -11,9 +11,8 @@ public class Zangano {
         this.ubicacion = null;
     }
 
-    public void ubicar(Casillero nuevaUbicacion){
-        if(nuevaUbicacion.obtenerConstruccion().getClass() != Extractor.class)
-            nuevaUbicacion.obtenerRecurso().ocupar();
+    public void ubicar(Casillero nuevaUbicacion) {
+        nuevaUbicacion.obtenerRecurso().ocupar();
         this.ubicacion = nuevaUbicacion;
     }
 
