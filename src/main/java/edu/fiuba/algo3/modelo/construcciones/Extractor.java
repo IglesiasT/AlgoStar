@@ -44,6 +44,7 @@ public class Extractor extends ConstruccionZerg {
         if (this.zanganosAsignados.size() >= this.capacidadMaximaDeZanganos){
             throw new MaximoDeZanganosAsignados();
         }
+        this.ubicacion.obtenerRecurso().liberar();
         zangano.ubicar(this.ubicacion);
         this.zanganosAsignados.add(zangano);
     }

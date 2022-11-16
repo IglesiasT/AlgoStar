@@ -2,7 +2,11 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.construcciones.Extractor;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
+import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.GasProducido;
+import edu.fiuba.algo3.modelo.tablero.Casillero;
+import edu.fiuba.algo3.modelo.tablero.Tablero;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,8 +18,11 @@ public class CasoDeUso4Test {
         //Arrange
         Extractor extractor = new Extractor();
         GasProducido valorEsperado = new GasProducido(0);
+        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
+        casillero.setEspacioDeConstruccion(new Moho());
 
         //Act
+        extractor.construirEnCasillero(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
@@ -32,8 +39,11 @@ public class CasoDeUso4Test {
         //Arrange
         Extractor extractor = new Extractor();
         GasProducido gasProducidoEsperado = new GasProducido(10);
+        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
+        casillero.setEspacioDeConstruccion(new Moho());
 
         //Act
+        extractor.construirEnCasillero(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
@@ -41,7 +51,7 @@ public class CasoDeUso4Test {
         extractor.nuevoTurno();
         extractor.nuevoTurno();
 
-        extractor.asignarZangano();
+        extractor.asignarZangano(new Zangano());
         extractor.nuevoTurno(); //El gas correspondiente debe generarse por turno
 
         //Assert
@@ -53,8 +63,11 @@ public class CasoDeUso4Test {
         //Arrange
         Extractor extractor = new Extractor();
         GasProducido gasProducidoEsperado = new GasProducido(20);
+        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
+        casillero.setEspacioDeConstruccion(new Moho());
 
         //Act
+        extractor.construirEnCasillero(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
@@ -62,8 +75,8 @@ public class CasoDeUso4Test {
         extractor.nuevoTurno();
         extractor.nuevoTurno();
 
-        extractor.asignarZangano();
-        extractor.asignarZangano();
+        extractor.asignarZangano(new Zangano());
+        extractor.asignarZangano(new Zangano());
         extractor.nuevoTurno(); //El gas correspondiente debe generarse por turno
 
         //Assert
@@ -75,8 +88,11 @@ public class CasoDeUso4Test {
         //Arrange
         Extractor extractor = new Extractor();
         GasProducido gasProducidoEsperado = new GasProducido(30);
+        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
+        casillero.setEspacioDeConstruccion(new Moho());
 
         //Act
+        extractor.construirEnCasillero(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
@@ -84,9 +100,9 @@ public class CasoDeUso4Test {
         extractor.nuevoTurno();
         extractor.nuevoTurno();
 
-        extractor.asignarZangano();
-        extractor.asignarZangano();
-        extractor.asignarZangano();
+        extractor.asignarZangano(new Zangano());
+        extractor.asignarZangano(new Zangano());
+        extractor.asignarZangano(new Zangano());
         extractor.nuevoTurno(); //El gas correspondiente debe generarse por turno
 
         //Assert
@@ -97,8 +113,11 @@ public class CasoDeUso4Test {
     public void noSePuedeAsignarMasDeTresZanganos(){
         //Arrange
         Extractor extractor = new Extractor();
+        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
+        casillero.setEspacioDeConstruccion(new Moho());
 
         //Act
+        extractor.construirEnCasillero(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
@@ -106,11 +125,11 @@ public class CasoDeUso4Test {
         extractor.nuevoTurno();
         extractor.nuevoTurno();
 
-        extractor.asignarZangano();
-        extractor.asignarZangano();
-        extractor.asignarZangano();
+        extractor.asignarZangano(new Zangano());
+        extractor.asignarZangano(new Zangano());
+        extractor.asignarZangano(new Zangano());
 
         //Assert
-        assertThrows(MaximoDeZanganosAsignados.class, extractor::asignarZangano);
+        assertThrows(MaximoDeZanganosAsignados.class,()-> extractor.asignarZangano(new Zangano()));
     }
 }
