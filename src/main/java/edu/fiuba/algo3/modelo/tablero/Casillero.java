@@ -56,6 +56,8 @@ public class Casillero {
         return this.recurso;
     }
 
+    public Construccion obtenerConstruccion(){ return this.construccion;}
+
     public boolean contiene (Recurso recurso){
         return (this.recurso.getClass() == recurso.getClass());
     }
