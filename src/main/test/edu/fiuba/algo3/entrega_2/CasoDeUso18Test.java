@@ -3,6 +3,7 @@ package edu.fiuba.algo3.entrega_2;
 import edu.fiuba.algo3.modelo.construcciones.NexoMineral;
 import edu.fiuba.algo3.modelo.construcciones.Pilon;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Hidralisco;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Scout;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Zerling;
 import org.junit.jupiter.api.Test;
 
@@ -36,5 +37,19 @@ public class CasoDeUso18Test {
 
         // Assert
         assertEquals(valorEsperado, pilon.obtenerEscudo());
+    }
+
+    @Test
+    public void hidraliscoInflinge10DeDanioEnAire(){
+        // Arrange
+        Hidralisco hidralisco = new Hidralisco();
+        Scout scout = new Scout();
+        int valorEsperado = 90;    //100 escudo - 10 ataque
+
+        // Act
+        hidralisco.atacar(scout);
+
+        // Assert
+        assertEquals(valorEsperado, scout.obtenerEscudo());
     }
 }
