@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class UnidadZerg extends ConstruccionZerg {
-    protected String superficie;
     protected Map<String, Integer> danioPorSuperficie = new HashMap<>();
     protected int rangoDeAtaque;
 
