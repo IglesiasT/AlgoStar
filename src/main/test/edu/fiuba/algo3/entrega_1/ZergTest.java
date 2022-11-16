@@ -46,8 +46,11 @@ public class ZergTest {
         Zerg razaZerg = new Zerg(1000, 1000);
         Casillero casilleroAConstruir1 = new Casillero(1, 1, new Tablero());
         Casillero casilleroAConstruir2 = new Casillero(1, 4, new Tablero());
+        Casillero casilleroAConstruir3 = new Casillero(1, 6, new Tablero());
 
         //Act
+        casilleroAConstruir3.setEspacioDeConstruccion(new Moho());
+        razaZerg.construirReservaDeProduccion(casilleroAConstruir3);
         casilleroAConstruir1.setEspacioDeConstruccion(new Moho());
         razaZerg.construirGuarida(casilleroAConstruir1);
         casilleroAConstruir2.setEspacioDeConstruccion(new Moho());
