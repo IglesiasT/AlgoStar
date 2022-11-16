@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.construcciones.Extractor;
 import edu.fiuba.algo3.modelo.recursos.Recurso;
 import edu.fiuba.algo3.modelo.tablero.Casillero;
 
@@ -11,9 +12,11 @@ public class Zangano {
     }
 
     public void ubicar(Casillero nuevaUbicacion){
-        nuevaUbicacion.obtenerRecurso().ocupar();
+        if(nuevaUbicacion.obtenerConstruccion().getClass() != Extractor.class)
+            nuevaUbicacion.obtenerRecurso().ocupar();
         this.ubicacion = nuevaUbicacion;
     }
+
 
     public int producir(){
         Recurso recurso = this.ubicacion.obtenerRecurso();
