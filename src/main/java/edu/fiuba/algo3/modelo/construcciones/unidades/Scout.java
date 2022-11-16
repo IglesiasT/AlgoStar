@@ -6,7 +6,8 @@ public class Scout extends UnidadProtoss{
 
     public Scout(){
         super();
-        this.danioBase = 8;
+        this.danioPorSuperficie.put("Tierra", 8);
+        this.danioPorSuperficie.put("Aire", 14);
         this.escudo = 100;
         this.vida = 150;
         this.turnosParaConstruirse = 9;

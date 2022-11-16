@@ -3,12 +3,16 @@ package edu.fiuba.algo3.modelo.construcciones.unidades;
 import edu.fiuba.algo3.modelo.construcciones.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.ConstruccionZerg;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public abstract class UnidadProtoss extends ConstruccionProtoss {
-    protected int danioBase;
     protected String superficie;
     protected int rangoDeAtaque;
+    protected Map<String, Integer> danioPorSuperficie = new HashMap<>();
 
     public void atacar(ConstruccionZerg construccionEnemiga){
-        construccionEnemiga.recibirDanio(this.danioBase);
+        int danio = this.danioPorSuperficie.get(construccionEnemiga.obtenerSuperficie());
+        construccionEnemiga.recibirDanio(danio);
     }
 }
