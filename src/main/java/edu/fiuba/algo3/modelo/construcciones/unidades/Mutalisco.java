@@ -6,7 +6,8 @@ public class Mutalisco extends UnidadZerg{
 
 
     public Mutalisco(){
-        this.danioBase = 9;
+        this.danioPorSuperficie.put("Tierra", 9);
+        this.danioPorSuperficie.put("Aire", 9);
         this.vida = 120;
         this.turnosParaConstruirse = 7;
         this.rangoDeAtaque = 3;
