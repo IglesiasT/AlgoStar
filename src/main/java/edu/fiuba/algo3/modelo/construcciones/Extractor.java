@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.construcciones;
 
 import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.MaximoDeZanganosAsignados;
-import edu.fiuba.algo3.modelo.Zangano;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Zangano;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.GasProducido;
