@@ -2,6 +2,7 @@ package edu.fiuba.algo3.entrega_2;
 
 import edu.fiuba.algo3.modelo.ObjetivoInvalido;
 import edu.fiuba.algo3.modelo.construcciones.Pilon;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Guardian;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Scout;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Zangano;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Zerling;
@@ -25,5 +26,14 @@ public class CasoDeUso19Test {
 
         // Act and Assert
         assertThrows(ObjetivoInvalido.class, () -> zerling.atacar(new Scout()));
+    }
+
+    @Test
+    public void guardianNoPuedeAtacarAire(){
+        // Arrange
+        Guardian guardian = new Guardian();
+
+        // Act and Assert
+        assertThrows(ObjetivoInvalido.class, () -> guardian.atacar(new Scout()));
     }
 }
