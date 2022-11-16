@@ -16,12 +16,13 @@ public class Criadero extends ConstruccionZerg {
     private int turnos;
 
     public Criadero (){
+        super();
         this.maximoDeLarvas = 3;
         this.larvas = this.maximoDeLarvas;
-        this.turnos = 0;
         this.turnosParaConstruirse = 4;
         this.mineralNecesarioParaConstruir = 50;
         this.rangoMoho = 4;
+        this.vida = 500;
     }
 
     public int larvasRestantes() {
