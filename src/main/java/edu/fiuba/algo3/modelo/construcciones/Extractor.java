@@ -42,18 +42,10 @@ public class Extractor extends ConstruccionZerg {
         this.zanganosAsignados++;
     }
 
-    public int obtenerGasProducido() throws EdificioNoEstaOperativo {
-        if(this.turnos < turnosParaConstruirse){
-            throw new EdificioNoEstaOperativo();
-        }
-        return this.gasProducido;
-
-    }
-    public GasProducido obtenerGasProducido2() throws EdificioNoEstaOperativo{
+    public GasProducido obtenerGasProducido() throws EdificioNoEstaOperativo{
         if(this.turnos < turnosParaConstruirse){
             throw new EdificioNoEstaOperativo();
         }
         return new GasProducido(this.gasProducido);
-
     }
 }

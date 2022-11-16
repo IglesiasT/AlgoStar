@@ -24,14 +24,14 @@ public class CasoDeUso4Test {
         extractor.nuevoTurno();
 
         //Assert
-        assertEquals(valorEsperado, extractor.obtenerGasProducido2());
+        assertEquals(valorEsperado, extractor.obtenerGasProducido());
     }
 
     @Test
     public void unZanganoAsignadoGeneraDiezDeGas(){
         //Arrange
         Extractor extractor = new Extractor();
-        int valorEsperado = 10;
+        GasProducido gasProducidoEsperado = new GasProducido(10);
 
         //Act
         extractor.nuevoTurno();
@@ -45,14 +45,14 @@ public class CasoDeUso4Test {
         extractor.nuevoTurno(); //El gas correspondiente debe generarse por turno
 
         //Assert
-        assertEquals(valorEsperado, extractor.obtenerGasProducido());
+        assertEquals(gasProducidoEsperado, extractor.obtenerGasProducido());
     }
 
     @Test
     public void dosZanganosAsignadosGeneranVeinteDeGas(){
         //Arrange
         Extractor extractor = new Extractor();
-        int valorEsperado = 20;
+        GasProducido gasProducidoEsperado = new GasProducido(20);
 
         //Act
         extractor.nuevoTurno();
@@ -67,14 +67,14 @@ public class CasoDeUso4Test {
         extractor.nuevoTurno(); //El gas correspondiente debe generarse por turno
 
         //Assert
-        assertEquals(valorEsperado, extractor.obtenerGasProducido());
+        assertEquals(gasProducidoEsperado, extractor.obtenerGasProducido());
     }
 
     @Test
     public void tresZanganosAsignadosGeneranTreintaDeGas(){
         //Arrange
         Extractor extractor = new Extractor();
-        int valorEsperado = 30;
+        GasProducido gasProducidoEsperado = new GasProducido(30);
 
         //Act
         extractor.nuevoTurno();
@@ -90,7 +90,7 @@ public class CasoDeUso4Test {
         extractor.nuevoTurno(); //El gas correspondiente debe generarse por turno
 
         //Assert
-        assertEquals(valorEsperado, extractor.obtenerGasProducido());
+        assertEquals(gasProducidoEsperado, extractor.obtenerGasProducido());
     }
 
     @Test
