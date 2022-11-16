@@ -18,7 +18,7 @@ public class Pilon extends ConstruccionProtoss {
         this.turnosParaConstruirse = 5;
         this.radioAfectado = 3;
         this.casillerosEnergizados  = new ArrayList<>();
-        this.escudo = 300;
+        this.escudo = new Escudo(300);
         this.vida = 300;
         this.mineralNecesarioParaConstruir = 100;
     }

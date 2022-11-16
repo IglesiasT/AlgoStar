@@ -8,8 +8,8 @@ import java.util.Map;
 
 public abstract class UnidadProtoss extends ConstruccionProtoss {
     protected String superficie;
-    protected int rangoDeAtaque;
     protected Map<String, Integer> danioPorSuperficie = new HashMap<>();
+    protected int rangoDeAtaque;
 
     public void atacar(ConstruccionZerg construccionEnemiga){
         int danio = this.danioPorSuperficie.get(construccionEnemiga.obtenerSuperficie());

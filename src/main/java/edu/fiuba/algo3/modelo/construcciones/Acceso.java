@@ -9,7 +9,7 @@ public class Acceso extends ConstruccionProtoss {
     public Acceso(){
         this.mineralNecesarioParaConstruir = 150;
         this.turnosParaConstruirse = 8;
-        this.escudo = 500;
+        this.escudo = new Escudo(500);
         this.vida = 500;
     }
 

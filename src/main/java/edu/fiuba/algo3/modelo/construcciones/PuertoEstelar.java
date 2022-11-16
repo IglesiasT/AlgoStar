@@ -9,7 +9,7 @@ public class PuertoEstelar extends ConstruccionProtoss {
         this.mineralNecesarioParaConstruir = 150;
         this.gasNecesarioParaConstruir = 150;
         this.turnosParaConstruirse = 10;
-        this.escudo = 600;
+        this.escudo = new Escudo(600);
         this.vida = 600;
     }
 
