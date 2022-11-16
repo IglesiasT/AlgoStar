@@ -2,19 +2,22 @@ package edu.fiuba.algo3.modelo.construcciones;
 
 import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.MaximoDeZanganosAsignados;
+import edu.fiuba.algo3.modelo.Zangano;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.GasProducido;
 import edu.fiuba.algo3.modelo.tablero.Casillero;
 
+import java.util.ArrayList;
+
 public class Extractor extends ConstruccionZerg {
     private int gasProducido;
     private int capacidadMaximaDeZanganos;
-    private int zanganosAsignados;
+    private ArrayList<Zangano> zanganosAsignados;
     public Extractor(){
         this.turnosParaConstruirse = 6;
         this.capacidadMaximaDeZanganos = 3;
-        this.zanganosAsignados = 0;
+        this.zanganosAsignados = new ArrayList<>();
         this.gasProducido = 0;
         this.mineralNecesarioParaConstruir = 100;
     }
@@ -32,14 +35,17 @@ public class Extractor extends ConstruccionZerg {
     }
 
     protected void producirGas(){
-        this.gasProducido += this.zanganosAsignados * 10;
+        for (Zangano zangano: this.zanganosAsignados) {
+            this.gasProducido += zangano.producir();
+        }
     }
 
-    public void asignarZangano() throws MaximoDeZanganosAsignados {
-        if (this.zanganosAsignados >= this.capacidadMaximaDeZanganos){
+    public void asignarZangano(Zangano zangano) throws MaximoDeZanganosAsignados {
+        if (this.zanganosAsignados.size() >= this.capacidadMaximaDeZanganos){
             throw new MaximoDeZanganosAsignados();
         }
-        this.zanganosAsignados++;
+        zangano.ubicar(this.ubicacion);
+        this.zanganosAsignados.add(zangano);
     }
 
     public GasProducido obtenerGasProducido() throws EdificioNoEstaOperativo{
