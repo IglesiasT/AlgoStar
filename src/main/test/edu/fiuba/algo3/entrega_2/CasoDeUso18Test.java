@@ -19,6 +19,8 @@ public class CasoDeUso18Test {
         int valorEsperado = 246;    //250 escudo - 4 ataque
 
         // Act
+        zerling.nuevoTurno();
+        zerling.nuevoTurno();
         zerling.atacar(nexoMineral);
 
         // Assert
@@ -33,6 +35,10 @@ public class CasoDeUso18Test {
         int valorEsperado = 290;    //290 escudo - 10 ataque
 
         // Act
+        hidralisco.nuevoTurno();
+        hidralisco.nuevoTurno();
+        hidralisco.nuevoTurno();
+        hidralisco.nuevoTurno();
         hidralisco.atacar(pilon);
 
         // Assert
@@ -47,6 +53,10 @@ public class CasoDeUso18Test {
         int valorEsperado = 90;    //100 escudo - 10 ataque
 
         // Act
+        hidralisco.nuevoTurno();
+        hidralisco.nuevoTurno();
+        hidralisco.nuevoTurno();
+        hidralisco.nuevoTurno();
         hidralisco.atacar(scout);
 
         // Assert
