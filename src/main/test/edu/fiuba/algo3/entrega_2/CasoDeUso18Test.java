@@ -3,6 +3,7 @@ package edu.fiuba.algo3.entrega_2;
 import edu.fiuba.algo3.modelo.construcciones.NexoMineral;
 import edu.fiuba.algo3.modelo.construcciones.Pilon;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Hidralisco;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Mutalisco;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Scout;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Zerling;
 import org.junit.jupiter.api.Test;
@@ -51,5 +52,19 @@ public class CasoDeUso18Test {
 
         // Assert
         assertEquals(valorEsperado, scout.obtenerEscudo());
+    }
+
+    @Test
+    public void mutaliscoInflinge9DeDanioEnTierra(){
+        // Arrange
+        Mutalisco mutalisco = new Mutalisco();
+        Zealot zealot = new Zealot();
+        int valorEsperado = 51;    //60 escudo - 9 ataque
+
+        // Act
+        mutalisco.atacar(zealot);
+
+        // Assert
+        assertEquals(valorEsperado, zealot.obtenerEscudo());
     }
 }
