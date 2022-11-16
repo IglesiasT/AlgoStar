@@ -11,6 +11,8 @@ public class Asimilador extends ConstruccionProtoss {
 
     public Asimilador(){
         super();
+        this.escudo = 450;
+        this.vida = 450;
         this.gasProducido = 0;
         this.turnosParaConstruirse = 6;
         this.mineralNecesarioParaConstruir = 100;
