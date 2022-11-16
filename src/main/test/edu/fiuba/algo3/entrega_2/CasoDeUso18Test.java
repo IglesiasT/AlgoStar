@@ -68,6 +68,13 @@ public class CasoDeUso18Test {
         int valorEsperado = 51;    //60 escudo - 9 ataque
 
         // Act
+        mutalisco.nuevoTurno();
+        mutalisco.nuevoTurno();
+        mutalisco.nuevoTurno();
+        mutalisco.nuevoTurno();
+        mutalisco.nuevoTurno();
+        mutalisco.nuevoTurno();
+        mutalisco.nuevoTurno();
         mutalisco.atacar(zealot);
 
         // Assert
@@ -82,6 +89,13 @@ public class CasoDeUso18Test {
         int valorEsperado = 91;    //100 escudo - 9 ataque
 
         // Act
+        mutalisco.nuevoTurno();
+        mutalisco.nuevoTurno();
+        mutalisco.nuevoTurno();
+        mutalisco.nuevoTurno();
+        mutalisco.nuevoTurno();
+        mutalisco.nuevoTurno();
+        mutalisco.nuevoTurno();
         mutalisco.atacar(scout);
 
         // Assert
@@ -96,6 +110,10 @@ public class CasoDeUso18Test {
         int valorEsperado = 425;    //450 escudo - 25 ataque
 
         // Act
+        guardian.nuevoTurno();
+        guardian.nuevoTurno();
+        guardian.nuevoTurno();
+        guardian.nuevoTurno();
         guardian.atacar(asimilador);
 
         // Assert

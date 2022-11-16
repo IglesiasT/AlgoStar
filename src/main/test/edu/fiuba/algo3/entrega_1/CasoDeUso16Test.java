@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.construcciones.Asimilador;
 import edu.fiuba.algo3.modelo.construcciones.Extractor;
 import edu.fiuba.algo3.modelo.construcciones.NexoMineral;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Zangano;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.recursos.Gas;

@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.Hidralisco;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Mutalisco;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Zerling;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
-import edu.fiuba.algo3.modelo.Zangano;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Zangano;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import edu.fiuba.algo3.modelo.tablero.Casillero;
 
