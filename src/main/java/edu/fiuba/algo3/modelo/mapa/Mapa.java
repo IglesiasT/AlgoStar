@@ -2,9 +2,13 @@ package edu.fiuba.algo3.modelo.mapa;
 
 import edu.fiuba.algo3.modelo.areas.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Mapa {
     private Casillero[][] tablero;
+
+    private Base baseUno;
+    private Base baseDos;
 
     public Mapa(){
         this.tablero = new Casillero[20][20];
@@ -13,6 +17,17 @@ public class Mapa {
                 this.tablero[i][j] = new Casillero(new AreaTerrestre(), i, j, this);
             }
         }
+        cargarBases();
+    }
+
+    private void cargarBases(){
+        int filaUno = (int)((new Random()).nextDouble() * 5 + 0);
+        int columnaUno = (int)((new Random()).nextDouble() * 5 + 0);
+        this.baseUno = new Base(this.tablero[filaUno][columnaUno]);
+
+        int filaDos = 19 - filaUno;
+        int columnaDos = 19 - columnaUno;
+        this.baseDos = new Base(this.tablero[filaDos][columnaDos]);
     }
 
     public ArrayList<?extends Casillero> obtenerCasilleros(int radio, int fila, int columna){
@@ -33,5 +48,12 @@ public class Mapa {
 
     public Casillero obtenerCasillero(int i, int j) {
         return this.tablero[i][j];
+    }
+
+    public Base obtenerBaseUno(){
+        return baseUno;
+    }
+    public Base obtenerBaseDos(){
+        return baseDos;
     }
 }

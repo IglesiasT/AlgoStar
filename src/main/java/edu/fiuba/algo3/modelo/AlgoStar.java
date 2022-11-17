@@ -46,7 +46,10 @@ public class AlgoStar {
         }
 
         jugadores.add ( new Jugador (DatosJugadorUno[0], DatosJugadorUno[1], DatosJugadorUno[2]) ) ;
+        jugadores.get(1).setBaseInicial(mapa.obtenerBaseUno());
         jugadores.add ( new Jugador (DatosJugadorDos[0], DatosJugadorDos[1], DatosJugadorDos[2]) ) ;
+        jugadores.get(2).setBaseInicial(mapa.obtenerBaseDos());
+
     }
 
 }
