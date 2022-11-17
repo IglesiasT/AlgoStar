@@ -12,7 +12,6 @@ public class Zealot extends UnidadProtoss{
         this.turnosParaConstruirse = 4;
         this.rangoDeAtaque = 1;
         this.mineralNecesarioParaConstruir = 100;
-        this.superficie = new AreaTerrestre();
     }
     @Override
     public boolean sePuedeConstruirEn(Casillero casillero) {

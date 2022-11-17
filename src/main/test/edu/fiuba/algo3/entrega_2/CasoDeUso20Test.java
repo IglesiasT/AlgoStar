@@ -16,7 +16,7 @@ public class CasoDeUso20Test {
         Zerling unidad = new Zerling();
         Casillero casillero = new Casillero(new AreaEspacial(), 1, 1, new Mapa());
 
-        assertThrows(NoSePuedeMover.class, () -> unidad.Moverse(casillero));
+        assertThrows(NoSePuedeMover.class, () -> unidad.moverse(casillero));
     }
 
     @Test
@@ -24,7 +24,7 @@ public class CasoDeUso20Test {
         Hidralisco unidad = new Hidralisco();
         Casillero casillero = new Casillero(new AreaEspacial(), 1, 1, new Mapa());
 
-        assertThrows(NoSePuedeMover.class, () -> unidad.Moverse(casillero));
+        assertThrows(NoSePuedeMover.class, () -> unidad.moverse(casillero));
     }
 
     @Test
@@ -32,7 +32,7 @@ public class CasoDeUso20Test {
         Zealot unidad = new Zealot();
         Casillero casillero = new Casillero(new AreaEspacial(), 1, 1, new Mapa());
 
-        assertThrows(NoSePuedeMover.class, () -> unidad.Moverse(casillero));
+        assertThrows(NoSePuedeMover.class, () -> unidad.moverse(casillero));
     }
 
 
@@ -41,7 +41,7 @@ public class CasoDeUso20Test {
         Dragon unidad = new Dragon();
         Casillero casillero = new Casillero(new AreaEspacial(), 1, 1, new Mapa());
 
-        assertThrows(NoSePuedeMover.class, () -> unidad.Moverse(casillero));
+        assertThrows(NoSePuedeMover.class, () -> unidad.moverse(casillero));
     }
 
 
@@ -50,7 +50,7 @@ public class CasoDeUso20Test {
         Mutalisco unidad = new Mutalisco();
         Casillero casillero = new Casillero(new AreaEspacial(), 1, 1, new Mapa());
 
-        assertDoesNotThrow(() ->unidad.Moverse(casillero));
+        assertDoesNotThrow(() ->unidad.moverse(casillero));
     }
 
 
@@ -59,7 +59,7 @@ public class CasoDeUso20Test {
         Guardian unidad = new Guardian();
         Casillero casillero = new Casillero(new AreaEspacial(), 1, 1, new Mapa());
 
-        assertDoesNotThrow(() ->unidad.Moverse(casillero));
+        assertDoesNotThrow(() ->unidad.moverse(casillero));
     }
 
     @Test
@@ -67,7 +67,7 @@ public class CasoDeUso20Test {
         Scout unidad = new Scout();
         Casillero casillero = new Casillero(new AreaEspacial(), 1, 1, new Mapa());
 
-        assertDoesNotThrow(() ->unidad.Moverse(casillero));
+        assertDoesNotThrow(() ->unidad.moverse(casillero));
     }
 
 }

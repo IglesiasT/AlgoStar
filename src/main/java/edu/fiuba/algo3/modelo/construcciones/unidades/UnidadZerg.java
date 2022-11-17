@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades;
 
 import edu.fiuba.algo3.modelo.NoSePuedeMover;
-import edu.fiuba.algo3.modelo.areas.*;
 import edu.fiuba.algo3.modelo.ObjetivoInvalido;
 import edu.fiuba.algo3.modelo.construcciones.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.ConstruccionZerg;
@@ -12,11 +11,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class UnidadZerg extends ConstruccionZerg {
-
-    protected Area superficie;
-    protected Map<String, Integer> danioPorSuperficie = new HashMap<>();
+    protected Map<String, Integer> danioPorSuperficie;
 
     protected int rangoDeAtaque;
+
+    public UnidadZerg(){
+        super();
+        this.rangoDeAtaque = 1;
+        this.danioPorSuperficie = new HashMap<>();
+    }
 
     public void atacar(ConstruccionProtoss construccionEnemiga){
         if (turnos < this.turnosParaConstruirse) {
@@ -29,8 +32,8 @@ public abstract class UnidadZerg extends ConstruccionZerg {
         construccionEnemiga.recibirDanio(danio);
     }
 
-    public void Moverse(Casillero casillero) {
-        if (!casillero.puedeMoverse(this.superficie)) {
+    public void moverse(Casillero casillero) {
+        if (!casillero.puedeMoverse(this.area)) {
             throw new NoSePuedeMover();
         }
         this.ubicacion = casillero;
