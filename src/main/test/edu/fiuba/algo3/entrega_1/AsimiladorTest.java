@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.mapa.*;
+import edu.fiuba.algo3.modelo.recursos.GasProducido;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,7 +33,7 @@ public class AsimiladorTest {
         //Arrange
         Asimilador asimilador = new Asimilador();
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
-        int valorEsperado = 20;
+        GasProducido gasProducidoEsperado = new GasProducido(20);
 
         //Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
@@ -46,7 +47,7 @@ public class AsimiladorTest {
         asimilador.nuevoTurno();    //Una vez construido, empieza a generar gas
 
         //Assert
-        assertEquals(valorEsperado, asimilador.obtenerGasProducido());
+        assertEquals(gasProducidoEsperado, asimilador.obtenerGasProducido());
     }
 
     @Test

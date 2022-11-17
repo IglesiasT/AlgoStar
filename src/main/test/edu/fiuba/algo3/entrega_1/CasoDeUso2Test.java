@@ -243,7 +243,7 @@ public class CasoDeUso2Test {
         nexo.nuevoTurno();
 
         //Assert
-        assertThrows(EdificioNoEstaOperativo.class, nexo::recolectarMineral);
+        assertThrows(EdificioNoEstaOperativo.class, nexo::obtenerMineralProducido);
     }
 
     @Test
@@ -258,7 +258,7 @@ public class CasoDeUso2Test {
         nexo.nuevoTurno();
 
         //Assert
-        assertDoesNotThrow(nexo::recolectarMineral);
+        assertDoesNotThrow(nexo::obtenerMineralProducido);
     }
 
     @Test

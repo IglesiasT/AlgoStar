@@ -12,16 +12,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ZanganoTest {
 
     @Test
-    public void recolectaVeintePorTurno(){
+    public void recolectaDiezPorTurno(){
         //Arrange
         Zangano zangano = new Zangano();
-
         Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(), 1, 1, new Mapa());
-
         int cantidadEsperada = 10;
 
         //Act
         zangano.ubicar(casillero);
+        zangano.nuevoTurno();
 
         //Assert
         assertEquals(cantidadEsperada, zangano.producir());

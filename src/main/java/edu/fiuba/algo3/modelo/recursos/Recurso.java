@@ -14,11 +14,13 @@ public abstract class Recurso {
         return this.cantidad;
     }
     public int recolectar(int recoleccionPorTurno) {
-        if(this.cantidad >= recoleccionPorTurno){
-            this.cantidad -= recoleccionPorTurno;
-            return recoleccionPorTurno;
+        this.cantidad -= recoleccionPorTurno;
+        if(this.cantidad <= 0) {
+            int recursoRecolectado = recoleccionPorTurno + this.cantidad;
+            this.cantidad = 0;
+            return recursoRecolectado;
         }
-        return 0;
+        return recoleccionPorTurno;
     }
 
     public void ocupar(){

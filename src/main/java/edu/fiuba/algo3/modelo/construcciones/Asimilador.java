@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.construcciones;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.recursos.GasProducido;
 
 public class Asimilador extends ConstruccionProtoss {
     private int gasProducido;
@@ -24,17 +25,17 @@ public class Asimilador extends ConstruccionProtoss {
     }
 
     public void nuevoTurno(){
-        this.turnos++;
+        super.nuevoTurno();
         if (this.turnos >= turnosParaConstruirse ){
             this.producirGas();
         }
     }
 
-    public int obtenerGasProducido(){
+    public GasProducido obtenerGasProducido(){
         if(this.turnos < this.turnosParaConstruirse){
             throw new EdificioNoEstaOperativo();
         }
-        return this.gasProducido;
+        return new GasProducido(this.gasProducido);
     }
 
     public void producirGas(){
