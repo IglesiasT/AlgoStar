@@ -10,6 +10,7 @@ public class Mutalisco extends UnidadZerg{
         this.danioPorSuperficie.put("Tierra", 9);
         this.danioPorSuperficie.put("Aire", 9);
         this.vida = 120;
+        this.vidaMaxima = 120;
         this.turnosParaConstruirse = 7;
         this.rangoDeAtaque = 3;
         this.superficie = new AreaEspacial();

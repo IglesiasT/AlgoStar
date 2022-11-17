@@ -9,6 +9,7 @@ public class Zangano extends UnidadZerg {
     public Zangano(){
         super();
         this.vida = 25;
+        this.vidaMaxima = 25;
         this.turnosParaConstruirse = 1;
         this.mineralNecesarioParaConstruir = 25;
     }

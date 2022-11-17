@@ -49,9 +49,4 @@ public abstract class UnidadZerg extends ConstruccionZerg {
         }
         this.ubicacion = casillero;
     }
-
-    @Override
-    protected void regenerar(){
-
-    }
 }

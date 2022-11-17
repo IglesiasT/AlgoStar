@@ -10,6 +10,7 @@ public class Espiral extends ConstruccionZerg {
         this.gasNecesarioParaConstruir = 100;
         this.turnosParaConstruirse = 10;
         this.vida = 1300;
+        this.vidaMaxima = 1300;
     }
 
     @Override

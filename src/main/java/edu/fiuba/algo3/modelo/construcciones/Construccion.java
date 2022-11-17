@@ -7,7 +7,9 @@ public abstract class Construccion {
     protected int mineralNecesarioParaConstruir;
     protected int gasNecesarioParaConstruir;
     protected int turnosParaConstruirse;
+
     protected int vida;
+
     protected int turnos;
     protected Casillero ubicacion;
     protected String superficie;

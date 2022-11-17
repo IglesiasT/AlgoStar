@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.construcciones;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 public abstract class ConstruccionZerg extends Construccion{
+
+    protected int vidaMaxima;
     @Override
     public abstract boolean sePuedeConstruirEn(Casillero casillero);
 
@@ -16,7 +18,7 @@ public abstract class ConstruccionZerg extends Construccion{
 
     @Override
     protected void regenerar() {
-        if (this.vida < 100){
+        if (this.vida < this.vidaMaxima){
             this.vida += 5;
         }
     }

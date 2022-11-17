@@ -8,6 +8,7 @@ public class Hidralisco extends UnidadZerg{
         this.danioPorSuperficie.put("Tierra", 10);
         this.danioPorSuperficie.put("Aire", 10);
         this.vida = 80;
+        this.vidaMaxima = 80;
         this.turnosParaConstruirse = 4;
         this.rangoDeAtaque = 4;
         this.superficie = new AreaTerrestre();
