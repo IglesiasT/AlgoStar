@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.Asimilador;
 import edu.fiuba.algo3.modelo.construcciones.Extractor;
 import edu.fiuba.algo3.modelo.construcciones.NexoMineral;
@@ -21,7 +22,7 @@ public class CasoDeUso16Test {
         Extractor extractor = new Extractor();
         Asimilador asimilador = new Asimilador();
 
-        Casillero casillero = new Casillero(new Gas(), 1, 1, new Tablero());
+        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(), 1, 1, new Tablero());
         asimilador.construirEnCasillero(casillero);
 
         assert(!extractor.sePuedeConstruirEn(casillero));
@@ -32,7 +33,7 @@ public class CasoDeUso16Test {
         Extractor extractor = new Extractor();
         Asimilador asimilador = new Asimilador();
 
-        Casillero casillero = new Casillero(new Gas(), 1, 1, new Tablero());
+        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(), 1, 1, new Tablero());
         casillero.setEspacioDeConstruccion(new Moho());
         extractor.construirEnCasillero(casillero);
 
@@ -44,7 +45,7 @@ public class CasoDeUso16Test {
         Zangano zangano = new Zangano();
         NexoMineral nexo = new NexoMineral();
 
-        Casillero casillero = new Casillero(new Mineral(), 1, 1, new Tablero());
+        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(), 1, 1, new Tablero());
         casillero.setEspacioDeConstruccion(new RangoPilon());
         zangano.ubicar(casillero);
 
@@ -56,7 +57,7 @@ public class CasoDeUso16Test {
         Zangano zangano = new Zangano();
         NexoMineral nexo = new NexoMineral();
 
-        Casillero casillero = new Casillero(new Mineral(), 1, 1, new Tablero());
+        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(), 1, 1, new Tablero());
         casillero.setEspacioDeConstruccion(new RangoPilon());
         nexo.construirEnCasillero(casillero);
 

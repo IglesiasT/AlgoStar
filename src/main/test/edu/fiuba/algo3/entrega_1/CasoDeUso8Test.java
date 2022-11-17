@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.razas.Protoss;
@@ -20,7 +21,7 @@ public class CasoDeUso8Test {
         int gasNecesario = 0;
         Protoss razaProtoss = new Protoss(mineralNecesario - 20,gasNecesario);
 
-        Casillero casillero = new Casillero(new Gas(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Tablero());
 
         assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirAsimilador(casillero) );
     }
@@ -32,7 +33,7 @@ public class CasoDeUso8Test {
         int gasNecesario = 0;
         Protoss razaProtoss = new Protoss(mineralNecesario,gasNecesario);
 
-        Casillero casillero = new Casillero(new Gas(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Tablero());
 
         assertDoesNotThrow(() -> razaProtoss.construirAsimilador(casillero) );
     }
@@ -42,7 +43,7 @@ public class CasoDeUso8Test {
 
         Zerg razaZerg = new Zerg(0,0);
 
-        Casillero casillero = new Casillero(new Gas(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Tablero());
         casillero.setEspacioDeConstruccion(new Moho());
 
         assertThrows(NoSePuedeConstruir.class, () -> razaZerg.construirExtractor(casillero) );
@@ -55,7 +56,7 @@ public class CasoDeUso8Test {
         int gasNecesario = 0;
         Zerg razaZerg = new Zerg(mineralNecesario,gasNecesario);
 
-        Casillero casillero = new Casillero(new Gas(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Tablero());
         casillero.setEspacioDeConstruccion(new Moho());
 
         assertDoesNotThrow(() -> razaZerg.construirExtractor(casillero) );
@@ -66,7 +67,7 @@ public class CasoDeUso8Test {
 
         Zerg razaZerg = new Zerg(0,0);
 
-        Casillero casillero = new Casillero(1, 1, new Tablero());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Tablero());
 
         assertThrows(NoSePuedeConstruir.class, () -> razaZerg.construirCriadero(casillero) );
     }
@@ -78,7 +79,7 @@ public class CasoDeUso8Test {
         int gasNecesario = 0;
         Zerg razaZerg = new Zerg(mineralNecesario,gasNecesario);
 
-        Casillero casillero = new Casillero(1, 1, new Tablero());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Tablero());
 
         assertDoesNotThrow(() -> razaZerg.construirCriadero(casillero) );
     }
@@ -88,7 +89,7 @@ public class CasoDeUso8Test {
 
         Zerg razaZerg = new Zerg(0,0);
 
-        Casillero casillero = new Casillero(1, 1, new Tablero());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Tablero());
         casillero.setEspacioDeConstruccion(new Moho());
 
         assertThrows(NoSePuedeConstruir.class, () -> razaZerg.construirReservaDeProduccion(casillero) );
@@ -101,7 +102,7 @@ public class CasoDeUso8Test {
         int gasNecesario = 0;
         Zerg razaZerg = new Zerg(mineralNecesario,gasNecesario);
 
-        Casillero casillero = new Casillero(1, 1, new Tablero());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Tablero());
         casillero.setEspacioDeConstruccion(new Moho());
 
         assertDoesNotThrow(() -> razaZerg.construirReservaDeProduccion(casillero) );
@@ -193,7 +194,7 @@ public class CasoDeUso8Test {
     public void nexoMineralNoSePuedeConstruirSinLosRecursosSuficientes() {
         Protoss razaProtoss = new Protoss(0,0);
 
-        Casillero casillero = new Casillero(new Mineral(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(),1, 1, new Tablero());
 
         assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirNexoMineral(casillero) );
     }
@@ -205,7 +206,7 @@ public class CasoDeUso8Test {
         int gasNecesario = 0;
         Protoss razaProtoss = new Protoss(mineralNecesario,gasNecesario);
 
-        Casillero casillero = new Casillero(new Mineral(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(),1, 1, new Tablero());
 
         assertDoesNotThrow(() -> razaProtoss.construirNexoMineral(casillero) );
     }
@@ -214,7 +215,7 @@ public class CasoDeUso8Test {
     public void pilonNoSePuedeConstruirSinLosRecursosSuficientes(){
         Protoss razaProtoss = new Protoss(0,0);
 
-        Casillero casillero = new Casillero(1, 1, new Tablero());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Tablero());
 
         assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirPilon(casillero) );
     }
@@ -226,7 +227,7 @@ public class CasoDeUso8Test {
         int gasNecesario = 0;
         Protoss razaProtoss = new Protoss(mineralNecesario,gasNecesario);
 
-        Casillero casillero = new Casillero(1, 1, new Tablero());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Tablero());
 
         assertDoesNotThrow(() -> razaProtoss.construirPilon(casillero) );
     }
@@ -236,7 +237,7 @@ public class CasoDeUso8Test {
 
         Protoss razaProtoss = new Protoss(0,0);
 
-        Casillero casillero = new Casillero(1, 1, new Tablero());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Tablero());
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
         assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirAcceso(casillero) );
@@ -249,7 +250,7 @@ public class CasoDeUso8Test {
         int gasNecesario = 0;
         Protoss razaProtoss = new Protoss(mineralNecesario,gasNecesario);
 
-        Casillero casillero = new Casillero(1, 1, new Tablero());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Tablero());
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
         assertDoesNotThrow(() -> razaProtoss.construirAcceso(casillero) );

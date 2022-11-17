@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.construcciones;
 
-import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.tablero.Casillero;
@@ -31,7 +30,7 @@ public class Asimilador extends ConstruccionProtoss {
 
     public int obtenerGasProducido(){
         if(this.turnos < this.turnosParaConstruirse){
-            throw new EdificioNoEstaOperativo();
+            throw new Pilon.EdificioNoEstaOperativo();
         }
         return this.gasProducido;
     }

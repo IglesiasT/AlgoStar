@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.construcciones;
 
-import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.MaximoDeZanganosAsignados;
 import edu.fiuba.algo3.modelo.Zangano;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
@@ -48,9 +47,9 @@ public class Extractor extends ConstruccionZerg {
         this.zanganosAsignados.add(zangano);
     }
 
-    public GasProducido obtenerGasProducido() throws EdificioNoEstaOperativo{
+    public GasProducido obtenerGasProducido() throws Pilon.EdificioNoEstaOperativo {
         if(this.turnos < turnosParaConstruirse){
-            throw new EdificioNoEstaOperativo();
+            throw new Pilon.EdificioNoEstaOperativo();
         }
         return new GasProducido(this.gasProducido);
     }

@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
+import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.tablero.Casillero;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.tablero.Tablero;
@@ -14,7 +15,7 @@ public class ZanganoTest {
     public void recolectaVeintePorTurno(){
         //Arrange
         Zangano zangano = new Zangano();
-        Casillero casillero = new Casillero(new Mineral(), 1, 1, new Tablero());
+        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(), 1, 1, new Tablero());
         int cantidadEsperada = 10;
 
         //Act

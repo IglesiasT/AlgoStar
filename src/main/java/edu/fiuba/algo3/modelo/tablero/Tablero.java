@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.tablero;
 
+import edu.fiuba.algo3.modelo.areas.*;
 import java.util.ArrayList;
 
 public class Tablero {
@@ -9,7 +10,7 @@ public class Tablero {
         this.tablero = new Casillero[20][20];
         for (int i = 0; i < 20; i++){
             for (int j = 0; j < 20; j++){
-                this.tablero[i][j] = new Casillero(i, j, this);
+                this.tablero[i][j] = new Casillero(new AreaTerrestre(), i, j, this);
             }
         }
     }

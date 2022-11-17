@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.construcciones;
 
-import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.Zangano;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
@@ -27,9 +26,9 @@ public class Criadero extends ConstruccionZerg {
         return this.larvas;
     }
 
-    public Zangano engendrarZangano() throws EdificioNoEstaOperativo {
+    public Zangano engendrarZangano() throws Pilon.EdificioNoEstaOperativo {
         if (turnos < this.turnosParaConstruirse){
-            throw new EdificioNoEstaOperativo();
+            throw new Pilon.EdificioNoEstaOperativo();
         }
         this.larvas--;
         return new Zangano();

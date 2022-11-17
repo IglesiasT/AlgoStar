@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.LinkedList;
-import edu.fiuba.algo3.modelo.razas.*;
+
+import edu.fiuba.algo3.modelo.jugador.DatosRepetidos;
+import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.tablero.*;
 import java.util.Scanner;
 

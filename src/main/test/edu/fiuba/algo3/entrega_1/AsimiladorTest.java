@@ -1,7 +1,8 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.Asimilador;
+import edu.fiuba.algo3.modelo.construcciones.Pilon;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.tablero.Casillero;
@@ -15,7 +16,7 @@ public class AsimiladorTest {
     public void asimiladorNoEstaOperativoAntesDeSeisTurnos(){
         //Arrange
         Asimilador asimilador = new Asimilador();
-        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
+        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Tablero());
 
         //Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
@@ -24,14 +25,14 @@ public class AsimiladorTest {
         asimilador.nuevoTurno();
 
         //Assert
-        assertThrows(EdificioNoEstaOperativo.class, asimilador::obtenerGasProducido);
+        assertThrows(Pilon.EdificioNoEstaOperativo.class, asimilador::obtenerGasProducido);
     }
 
     @Test
     public void generaVeinteDeGas(){
         //Arrange
         Asimilador asimilador = new Asimilador();
-        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
+        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Tablero());
         int valorEsperado = 20;
 
         //Act
@@ -53,7 +54,7 @@ public class AsimiladorTest {
     public void AsimiladorSePuedeConstruirEnCasilleroConGas() {
         Asimilador asimilador = new Asimilador();
 
-        Casillero casillero = new Casillero(new Gas(), 1, 1, new Tablero());
+        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(), 1, 1, new Tablero());
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
         assert(asimilador.sePuedeConstruirEn(casillero));
@@ -63,7 +64,7 @@ public class AsimiladorTest {
     public void AsimiladorNoSePuedeConstruirEnCasilleroSinGas() {
         Asimilador asimilador = new Asimilador();
 
-        Casillero casillero = new Casillero(1, 1, new Tablero());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Tablero());
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
         assert(!asimilador.sePuedeConstruirEn(casillero));

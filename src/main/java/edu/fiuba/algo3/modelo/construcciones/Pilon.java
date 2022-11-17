@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.construcciones;
 
-import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.SinEspacio;
@@ -56,5 +55,8 @@ public class Pilon extends ConstruccionProtoss {
         if (this.turnos >= this.turnosParaConstruirse){
             this.energizar();
         }
+    }
+
+    public static class EdificioNoEstaOperativo extends RuntimeException{
     }
 }
