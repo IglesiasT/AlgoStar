@@ -1,27 +1,22 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades;
 
 import edu.fiuba.algo3.modelo.NoSePuedeMover;
-import edu.fiuba.algo3.modelo.areas.*;
 import edu.fiuba.algo3.modelo.ObjetivoInvalido;
+import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.construcciones.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.ConstruccionZerg;
-import edu.fiuba.algo3.modelo.mapa.*;
-import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class UnidadZerg extends ConstruccionZerg {
-
-    protected Area superficie;
+public abstract class UnidadProtoss extends ConstruccionProtoss {
     protected Map<String, Integer> danioPorSuperficie = new HashMap<>();
-
     protected int rangoDeAtaque;
 
-    public void atacar(ConstruccionProtoss construccionEnemiga){
-        if (turnos < this.turnosParaConstruirse) {
-            throw new EdificioNoEstaOperativo();
-        }
+    protected Area superficie;
+
+    public void atacar(ConstruccionZerg construccionEnemiga){
         if (!this.danioPorSuperficie.containsKey(construccionEnemiga.obtenerSuperficie())){
             throw new ObjetivoInvalido();
         }

@@ -2,8 +2,8 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.Criadero;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
-import edu.fiuba.algo3.modelo.tablero.Tablero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,7 +17,7 @@ public class CasoDeUso1Test {
         Criadero criadero = new Criadero();
 
         //Act
-        criadero.construirEnCasillero(new Casillero(new AreaTerrestre(),1,1, new Tablero()));
+        criadero.construirEnCasillero(new Casillero(new AreaTerrestre(),1,1, new Mapa()));
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
@@ -34,7 +34,7 @@ public class CasoDeUso1Test {
         Criadero criadero = new Criadero();
 
         //Act
-        criadero.construirEnCasillero(new Casillero(new AreaTerrestre(),1,1, new Tablero()));
+        criadero.construirEnCasillero(new Casillero(new AreaTerrestre(),1,1, new Mapa()));
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
@@ -52,7 +52,7 @@ public class CasoDeUso1Test {
         Criadero criadero = new Criadero();
 
         //Act
-        criadero.construirEnCasillero(new Casillero(new AreaTerrestre(),1,1, new Tablero()));
+        criadero.construirEnCasillero(new Casillero(new AreaTerrestre(),1,1, new Mapa()));
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
@@ -73,7 +73,9 @@ public class CasoDeUso1Test {
         Criadero criadero = new Criadero();
 
         //Act
-        criadero.construirEnCasillero(new Casillero(new AreaTerrestre(),1,1, new Tablero()));
+
+        criadero.construirEnCasillero(new Casillero(new AreaTerrestre(),1,1, new Mapa()));
+
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
@@ -95,7 +97,8 @@ public class CasoDeUso1Test {
         Criadero criadero = new Criadero();
 
         //Act
-        criadero.construirEnCasillero(new Casillero(new AreaTerrestre(),1,1, new Tablero()));
+        criadero.construirEnCasillero(new Casillero(new AreaTerrestre(),1,1, new Mapa()));
+
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
@@ -118,7 +121,7 @@ public class CasoDeUso1Test {
         Criadero criadero = new Criadero();
 
         //Act
-        criadero.construirEnCasillero(new Casillero(new AreaTerrestre(),1,1, new Tablero()));
+        criadero.construirEnCasillero(new Casillero(new AreaTerrestre(),1,1, new Mapa()));
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
@@ -141,7 +144,7 @@ public class CasoDeUso1Test {
         Criadero criadero = new Criadero();
 
         //Act
-        criadero.construirEnCasillero(new Casillero(new AreaTerrestre(),1,1, new Tablero()));
+        criadero.construirEnCasillero(new Casillero(new AreaTerrestre(),1,1, new Mapa()));
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();

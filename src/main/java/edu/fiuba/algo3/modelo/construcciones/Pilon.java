@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.SinEspacio;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 import java.util.ArrayList;
 
@@ -17,7 +17,7 @@ public class Pilon extends ConstruccionProtoss {
         this.turnosParaConstruirse = 5;
         this.radioAfectado = 3;
         this.casillerosEnergizados  = new ArrayList<>();
-        this.escudo = 300;
+        this.escudo = new Escudo(300);
         this.vida = 300;
         this.mineralNecesarioParaConstruir = 100;
     }
@@ -57,6 +57,4 @@ public class Pilon extends ConstruccionProtoss {
         }
     }
 
-    public static class EdificioNoEstaOperativo extends RuntimeException{
-    }
 }

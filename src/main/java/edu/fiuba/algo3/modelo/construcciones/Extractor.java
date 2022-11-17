@@ -1,11 +1,11 @@
 package edu.fiuba.algo3.modelo.construcciones;
 
 import edu.fiuba.algo3.modelo.MaximoDeZanganosAsignados;
-import edu.fiuba.algo3.modelo.Zangano;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Zangano;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.GasProducido;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 import java.util.ArrayList;
 
@@ -43,13 +43,14 @@ public class Extractor extends ConstruccionZerg {
         if (this.zanganosAsignados.size() >= this.capacidadMaximaDeZanganos){
             throw new MaximoDeZanganosAsignados();
         }
+        this.ubicacion.obtenerRecurso().liberar();
         zangano.ubicar(this.ubicacion);
         this.zanganosAsignados.add(zangano);
     }
 
-    public GasProducido obtenerGasProducido() throws Pilon.EdificioNoEstaOperativo {
+    public GasProducido obtenerGasProducido() throws EdificioNoEstaOperativo {
         if(this.turnos < turnosParaConstruirse){
-            throw new Pilon.EdificioNoEstaOperativo();
+            throw new EdificioNoEstaOperativo();
         }
         return new GasProducido(this.gasProducido);
     }

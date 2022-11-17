@@ -1,9 +1,10 @@
 package edu.fiuba.algo3.modelo.construcciones;
 
+import edu.fiuba.algo3.modelo.construcciones.unidades.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
-import edu.fiuba.algo3.modelo.Zangano;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Zangano;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 import java.util.ArrayList;
 
@@ -14,21 +15,22 @@ public class Criadero extends ConstruccionZerg {
     private int turnos;
 
     public Criadero (){
+        super();
         this.maximoDeLarvas = 3;
         this.larvas = this.maximoDeLarvas;
-        this.turnos = 0;
         this.turnosParaConstruirse = 4;
         this.mineralNecesarioParaConstruir = 50;
         this.rangoMoho = 4;
+        this.vida = 500;
     }
 
     public int larvasRestantes() {
         return this.larvas;
     }
 
-    public Zangano engendrarZangano() throws Pilon.EdificioNoEstaOperativo {
+    public Zangano engendrarZangano() throws EdificioNoEstaOperativo {
         if (turnos < this.turnosParaConstruirse){
-            throw new Pilon.EdificioNoEstaOperativo();
+            throw new EdificioNoEstaOperativo();
         }
         this.larvas--;
         return new Zangano();
@@ -59,6 +61,30 @@ public class Criadero extends ConstruccionZerg {
             casillero.setEspacioDeConstruccion(new Moho());
 
         }
+    }
+
+    public Mutalisco engendrarMutalisco() throws EdificioNoEstaOperativo {
+        if (turnos < this.turnosParaConstruirse){
+            throw new EdificioNoEstaOperativo();
+        }
+        this.larvas--;
+        return new Mutalisco();
+    }
+
+    public Hidralisco engendrarHidralisco() throws EdificioNoEstaOperativo {
+        if (turnos < this.turnosParaConstruirse){
+            throw new EdificioNoEstaOperativo();
+        }
+        this.larvas--;
+        return new Hidralisco();
+    }
+
+    public Zerling engendrarZerling() throws EdificioNoEstaOperativo {
+        if (turnos < this.turnosParaConstruirse){
+            throw new EdificioNoEstaOperativo();
+        }
+        this.larvas--;
+        return new Zerling();
     }
 
 

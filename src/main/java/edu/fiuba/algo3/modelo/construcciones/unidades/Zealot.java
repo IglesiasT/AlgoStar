@@ -1,20 +1,19 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades;
 
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
+import edu.fiuba.algo3.modelo.construcciones.Escudo;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
-public class Hidralisco extends UnidadZerg{
-    public Hidralisco(){
-        this.danioPorSuperficie.put("Tierra", 10);
-        this.danioPorSuperficie.put("Aire", 10);
-        this.vida = 80;
+public class Zealot extends UnidadProtoss{
+    public Zealot(){
+        super();
+        this.danioPorSuperficie.put("Tierra", 8);
+        this.escudo = new Escudo(60);
         this.turnosParaConstruirse = 4;
-        this.rangoDeAtaque = 4;
+        this.rangoDeAtaque = 1;
+        this.mineralNecesarioParaConstruir = 100;
         this.superficie = new AreaTerrestre();
-        this.mineralNecesarioParaConstruir = 75;
-        this.gasNecesarioParaConstruir = 25;
     }
-
     @Override
     public boolean sePuedeConstruirEn(Casillero casillero) {
         return false;

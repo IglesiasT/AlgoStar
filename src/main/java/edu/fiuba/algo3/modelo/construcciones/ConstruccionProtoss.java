@@ -1,17 +1,17 @@
 package edu.fiuba.algo3.modelo.construcciones;
 
-import edu.fiuba.algo3.modelo.tablero.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 public abstract class ConstruccionProtoss extends Construccion{
-    protected int escudo;
+    protected Escudo escudo;
 
     public ConstruccionProtoss(){
         super();
-        this.escudo = 100;
+        this.escudo = new Escudo(100);
     }
 
     public int obtenerEscudo(){
-        return this.escudo;
+        return this.escudo.obtenerVida();
     }
 
     @Override
@@ -19,11 +19,9 @@ public abstract class ConstruccionProtoss extends Construccion{
 
     @Override
     public void recibirDanio(int danioInflingido) {
-        this.escudo -= danioInflingido;
-        if (this.escudo < 0){
-            this.vida = this.vida + this.escudo;
-            this.escudo = 0;
-        }
+        this.escudo.recibirDanio(danioInflingido);
+
+        this.vida -= this.escudo.obtenerDanioNoMitigado();
 
         if (this.vida <= 0){
             this.ubicacion.destruirConstruccion();
@@ -31,12 +29,12 @@ public abstract class ConstruccionProtoss extends Construccion{
     }
     @Override
     protected void regenerar() {
-        this.escudo += 10;
+        this.escudo.regenerar();
     }
 
     @Override
     public void nuevoTurno(){
         this.turnos++;
-        regenerar();
+        this.regenerar();
     }
 }

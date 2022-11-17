@@ -2,8 +2,8 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.construcciones.Acceso;
 import edu.fiuba.algo3.modelo.construcciones.Pilon;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
-import edu.fiuba.algo3.modelo.tablero.Tablero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.Test;
 
 public class CasoDeUso9Test {
@@ -11,8 +11,8 @@ public class CasoDeUso9Test {
     @Test
     public void sePuedeEnElRangoDeUnPilon(){
         //Arrange
-        Tablero tablero = new Tablero();
-        Casillero casillero1 = tablero.obtenerCasillero(1,1);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
         Pilon pilon = new Pilon();
         Acceso acceso = new Acceso();
 
@@ -27,14 +27,14 @@ public class CasoDeUso9Test {
 
 
         //Assert
-        assert acceso.sePuedeConstruirEn(tablero.obtenerCasillero(1,3));
+        assert acceso.sePuedeConstruirEn(mapa.obtenerCasillero(1,3));
     }
 
     @Test
     public void elRangoDelPilonDejaDeEstarActivoAlDestruirse(){
         //Arrange
-        Tablero tablero = new Tablero();
-        Casillero casillero1 = tablero.obtenerCasillero(1,1);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
         Pilon pilon = new Pilon();
         Acceso acceso = new Acceso();
 
@@ -51,15 +51,15 @@ public class CasoDeUso9Test {
 
 
         //Assert
-        assert !acceso.sePuedeConstruirEn(tablero.obtenerCasillero(1,3));
+        assert !acceso.sePuedeConstruirEn(mapa.obtenerCasillero(1,3));
     }
 
     @Test
     public void sePuedeSeguirConstruyendoLuegoDeDestuirUnPilonSiHayOtroEnRango(){
         //Arrange
-        Tablero tablero = new Tablero();
-        Casillero casillero1 = tablero.obtenerCasillero(1,1);
-        Casillero casillero2 = tablero.obtenerCasillero(1,2);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
         Pilon pilon1 = new Pilon();
         Pilon pilon2 = new Pilon();
         Acceso acceso = new Acceso();
@@ -85,6 +85,6 @@ public class CasoDeUso9Test {
         pilon2.nuevoTurno();
 
         //Assert
-        assert acceso.sePuedeConstruirEn(tablero.obtenerCasillero(1,3));
+        assert acceso.sePuedeConstruirEn(mapa.obtenerCasillero(1,3));
     }
 }

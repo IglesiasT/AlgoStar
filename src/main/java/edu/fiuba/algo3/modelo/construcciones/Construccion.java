@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.construcciones;
 
 import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 public abstract class Construccion {
     protected int mineralNecesarioParaConstruir;
@@ -10,6 +10,7 @@ public abstract class Construccion {
     protected int vida;
     protected int turnos;
     protected Casillero ubicacion;
+    protected String superficie;
 
     public Construccion(){
         this.vida = 100;
@@ -17,6 +18,7 @@ public abstract class Construccion {
         this.gasNecesarioParaConstruir = 0;
         this.ubicacion = null;
         this.turnos = 0;
+        this.superficie = "Tierra";
     }
 
     public void construirEnCasillero(Casillero casilleroAConstruir){
@@ -48,5 +50,8 @@ public abstract class Construccion {
 
     public void destruir(){
         ubicacion.destruirConstruccion();
+    }
+    public String obtenerSuperficie(){
+        return this.superficie;
     }
 }

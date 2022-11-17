@@ -4,16 +4,16 @@ import java.util.LinkedList;
 
 import edu.fiuba.algo3.modelo.jugador.DatosRepetidos;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.modelo.tablero.*;
+import edu.fiuba.algo3.modelo.mapa.*;
 import java.util.Scanner;
 
 public class AlgoStar {
     private LinkedList <Jugador> jugadores;
-    private Tablero mapa ;
+    private Mapa mapa ;
 
     public AlgoStar (){
         this.jugadores = new LinkedList<>();
-        this.mapa = new Tablero();
+        this.mapa = new Mapa();
     }
 
     private String[] conseguirDatosDelJugador(Scanner lectura) {

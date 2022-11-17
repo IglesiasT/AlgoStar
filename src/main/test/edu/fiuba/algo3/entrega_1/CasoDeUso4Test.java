@@ -1,8 +1,14 @@
 package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.Extractor;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Zangano;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
+import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.GasProducido;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,8 +20,11 @@ public class CasoDeUso4Test {
         //Arrange
         Extractor extractor = new Extractor();
         GasProducido valorEsperado = new GasProducido(0);
+        Casillero casillero = new Casillero(new Gas(), new AreaTerrestre(), 1,1,new Mapa());
+        casillero.setEspacioDeConstruccion(new Moho());
 
         //Act
+        extractor.construirEnCasillero(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
@@ -32,8 +41,11 @@ public class CasoDeUso4Test {
         //Arrange
         Extractor extractor = new Extractor();
         GasProducido gasProducidoEsperado = new GasProducido(10);
+        Casillero casillero = new Casillero(new Gas(), new AreaTerrestre(), 1,1,new Mapa());
+        casillero.setEspacioDeConstruccion(new Moho());
 
         //Act
+        extractor.construirEnCasillero(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
@@ -53,8 +65,11 @@ public class CasoDeUso4Test {
         //Arrange
         Extractor extractor = new Extractor();
         GasProducido gasProducidoEsperado = new GasProducido(20);
+        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(), 1,1,new Mapa());
+        casillero.setEspacioDeConstruccion(new Moho());
 
         //Act
+        extractor.construirEnCasillero(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
@@ -75,8 +90,11 @@ public class CasoDeUso4Test {
         //Arrange
         Extractor extractor = new Extractor();
         GasProducido gasProducidoEsperado = new GasProducido(30);
+        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
+        casillero.setEspacioDeConstruccion(new Moho());
 
         //Act
+        extractor.construirEnCasillero(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
@@ -97,8 +115,11 @@ public class CasoDeUso4Test {
     public void noSePuedeAsignarMasDeTresZanganos(){
         //Arrange
         Extractor extractor = new Extractor();
+        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
+        casillero.setEspacioDeConstruccion(new Moho());
 
         //Act
+        extractor.construirEnCasillero(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();

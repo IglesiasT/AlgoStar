@@ -5,8 +5,8 @@ import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Zerg;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
-import edu.fiuba.algo3.modelo.tablero.Tablero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -16,8 +16,8 @@ public class CasoDeUso17Test {
     @Test
     public void guaridaNoSePuedeConstruirSinReservaDeReproduccion() {
 
-        Tablero tablero = new Tablero();
-        Casillero casillero1 = tablero.obtenerCasillero(1,1);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
 
 
         Zerg razaZerg = new Zerg(1000,1000);
@@ -30,9 +30,9 @@ public class CasoDeUso17Test {
     @Test
     public void espiralNoSePuedeConstruirSinGuarida() {
 
-        Tablero tablero = new Tablero();
-        Casillero casillero1 = tablero.obtenerCasillero(1,1);
-        Casillero casillero2 = tablero.obtenerCasillero(1,2);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
 
 
         Zerg razaZerg = new Zerg(1000,1000);
@@ -48,8 +48,8 @@ public class CasoDeUso17Test {
     @Test
     public void puertoEstelarNoSePuedeConstruirSinAcceso(){
 
-        Tablero tablero = new Tablero();
-        Casillero casillero = tablero.obtenerCasillero(1,1);
+        Mapa mapa = new Mapa();
+        Casillero casillero = mapa.obtenerCasillero(1,1);
 
         Protoss razaProtoss = new Protoss(1000,1000);
         casillero.setEspacioDeConstruccion(new RangoPilon());

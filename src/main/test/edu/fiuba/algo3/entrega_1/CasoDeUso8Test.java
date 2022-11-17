@@ -8,8 +8,8 @@ import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
-import edu.fiuba.algo3.modelo.tablero.Tablero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,7 +21,7 @@ public class CasoDeUso8Test {
         int gasNecesario = 0;
         Protoss razaProtoss = new Protoss(mineralNecesario - 20,gasNecesario);
 
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
 
         assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirAsimilador(casillero) );
     }
@@ -32,8 +32,7 @@ public class CasoDeUso8Test {
         int mineralNecesario = 100;
         int gasNecesario = 0;
         Protoss razaProtoss = new Protoss(mineralNecesario,gasNecesario);
-
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
 
         assertDoesNotThrow(() -> razaProtoss.construirAsimilador(casillero) );
     }
@@ -43,7 +42,7 @@ public class CasoDeUso8Test {
 
         Zerg razaZerg = new Zerg(0,0);
 
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
         casillero.setEspacioDeConstruccion(new Moho());
 
         assertThrows(NoSePuedeConstruir.class, () -> razaZerg.construirExtractor(casillero) );
@@ -55,8 +54,7 @@ public class CasoDeUso8Test {
         int mineralNecesario = 100;
         int gasNecesario = 0;
         Zerg razaZerg = new Zerg(mineralNecesario,gasNecesario);
-
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
         casillero.setEspacioDeConstruccion(new Moho());
 
         assertDoesNotThrow(() -> razaZerg.construirExtractor(casillero) );
@@ -67,7 +65,7 @@ public class CasoDeUso8Test {
 
         Zerg razaZerg = new Zerg(0,0);
 
-        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
 
         assertThrows(NoSePuedeConstruir.class, () -> razaZerg.construirCriadero(casillero) );
     }
@@ -79,7 +77,7 @@ public class CasoDeUso8Test {
         int gasNecesario = 0;
         Zerg razaZerg = new Zerg(mineralNecesario,gasNecesario);
 
-        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
 
         assertDoesNotThrow(() -> razaZerg.construirCriadero(casillero) );
     }
@@ -89,7 +87,7 @@ public class CasoDeUso8Test {
 
         Zerg razaZerg = new Zerg(0,0);
 
-        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         casillero.setEspacioDeConstruccion(new Moho());
 
         assertThrows(NoSePuedeConstruir.class, () -> razaZerg.construirReservaDeProduccion(casillero) );
@@ -102,7 +100,7 @@ public class CasoDeUso8Test {
         int gasNecesario = 0;
         Zerg razaZerg = new Zerg(mineralNecesario,gasNecesario);
 
-        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         casillero.setEspacioDeConstruccion(new Moho());
 
         assertDoesNotThrow(() -> razaZerg.construirReservaDeProduccion(casillero) );
@@ -111,9 +109,9 @@ public class CasoDeUso8Test {
     @Test
     public void guaridaNoSePuedeConstruirSinLosRecursosSuficientes() {
 
-        Tablero tablero = new Tablero();
-        Casillero casillero1 = tablero.obtenerCasillero(1,1);
-        Casillero casillero2 = tablero.obtenerCasillero(1,2);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
         int mineralPrerrequisitos = 150;
         int gasPrerrequisitos = 0;
 
@@ -129,9 +127,9 @@ public class CasoDeUso8Test {
     @Test
     public void guaridaSePuedeConstruirConLosRecursosSuficientes(){
 
-        Tablero tablero = new Tablero();
-        Casillero casillero1 = tablero.obtenerCasillero(1,1);
-        Casillero casillero2 = tablero.obtenerCasillero(1,2);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
         int mineralPrerrequisitos = 150;
         int gasPrerrequisitos = 0;
 
@@ -150,10 +148,10 @@ public class CasoDeUso8Test {
     @Test
     public void espiralNoSePuedeConstruirSinLosRecursosSuficientes() {
 
-        Tablero tablero = new Tablero();
-        Casillero casillero1 = tablero.obtenerCasillero(1,1);
-        Casillero casillero2 = tablero.obtenerCasillero(1,2);
-        Casillero casillero3 = tablero.obtenerCasillero(1,3);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        Casillero casillero3 = mapa.obtenerCasillero(1,3);
         int mineralPrerrequisitos = 350;
         int gasPrerrequisitos = 100;
         Zerg razaZerg = new Zerg(mineralPrerrequisitos,gasPrerrequisitos);
@@ -169,10 +167,10 @@ public class CasoDeUso8Test {
 
     @Test
     public void espiralSePuedeConstruirConLosRecursosSuficientes(){
-        Tablero tablero = new Tablero();
-        Casillero casillero1 = tablero.obtenerCasillero(1,1);
-        Casillero casillero2 = tablero.obtenerCasillero(1,2);
-        Casillero casillero3 = tablero.obtenerCasillero(1,3);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        Casillero casillero3 = mapa.obtenerCasillero(1,3);
         int mineralPrerrequisitos = 350;
         int gasPrerrequisitos = 100;
         int mineralNecesario = mineralPrerrequisitos + 150;
@@ -194,8 +192,7 @@ public class CasoDeUso8Test {
     public void nexoMineralNoSePuedeConstruirSinLosRecursosSuficientes() {
         Protoss razaProtoss = new Protoss(0,0);
 
-        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(),1, 1, new Tablero());
-
+        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(),1, 1, new Mapa());
         assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirNexoMineral(casillero) );
     }
 
@@ -206,7 +203,7 @@ public class CasoDeUso8Test {
         int gasNecesario = 0;
         Protoss razaProtoss = new Protoss(mineralNecesario,gasNecesario);
 
-        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(),1, 1, new Mapa());
 
         assertDoesNotThrow(() -> razaProtoss.construirNexoMineral(casillero) );
     }
@@ -214,8 +211,7 @@ public class CasoDeUso8Test {
     @Test
     public void pilonNoSePuedeConstruirSinLosRecursosSuficientes(){
         Protoss razaProtoss = new Protoss(0,0);
-
-        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
 
         assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirPilon(casillero) );
     }
@@ -227,7 +223,7 @@ public class CasoDeUso8Test {
         int gasNecesario = 0;
         Protoss razaProtoss = new Protoss(mineralNecesario,gasNecesario);
 
-        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
 
         assertDoesNotThrow(() -> razaProtoss.construirPilon(casillero) );
     }
@@ -237,7 +233,7 @@ public class CasoDeUso8Test {
 
         Protoss razaProtoss = new Protoss(0,0);
 
-        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
         assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirAcceso(casillero) );
@@ -250,7 +246,7 @@ public class CasoDeUso8Test {
         int gasNecesario = 0;
         Protoss razaProtoss = new Protoss(mineralNecesario,gasNecesario);
 
-        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Tablero());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
         assertDoesNotThrow(() -> razaProtoss.construirAcceso(casillero) );
@@ -259,9 +255,9 @@ public class CasoDeUso8Test {
     @Test
     public void puertoEstelarNoSePuedeConstruirSinLosRecursosSuficientes(){
 
-        Tablero tablero = new Tablero();
-        Casillero casillero1 = tablero.obtenerCasillero(1,1);
-        Casillero casillero2 = tablero.obtenerCasillero(1,2);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
         int mineralPrerrequisitos = 150;
         int gasPrerrequisitos = 0;
 
@@ -276,9 +272,9 @@ public class CasoDeUso8Test {
     @Test
     public void puertoEstelarSePuedeConstruirConLosRecursosSuficientes(){
 
-        Tablero tablero = new Tablero();
-        Casillero casillero1 = tablero.obtenerCasillero(1,1);
-        Casillero casillero2 = tablero.obtenerCasillero(1,2);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
         int mineralPrerrequisitos = 150;
         int gasPrerrequisitos = 0;
         int mineralNecesario = mineralPrerrequisitos + 150;

@@ -2,8 +2,8 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.construcciones.Criadero;
 import edu.fiuba.algo3.modelo.construcciones.ReservaDeReproduccion;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
-import edu.fiuba.algo3.modelo.tablero.Tablero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.Test;
 
 public class CasoDeUso13Test {
@@ -11,8 +11,8 @@ public class CasoDeUso13Test {
     @Test
     public void seDestrulleCriaderoPeroElMohoQueda(){
         //Arrange
-        Tablero tablero = new Tablero();
-        Casillero casillero1 = tablero.obtenerCasillero(1,1);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
         Criadero criadero = new Criadero();
         ReservaDeReproduccion reserva = new ReservaDeReproduccion();
 
@@ -28,6 +28,6 @@ public class CasoDeUso13Test {
         criadero.nuevoTurno();
 
         //Assert
-        assert reserva.sePuedeConstruirEn(tablero.obtenerCasillero(1,3));
+        assert reserva.sePuedeConstruirEn(mapa.obtenerCasillero(1,3));
     }
 }

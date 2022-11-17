@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.construcciones;
 
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 public class NexoMineral extends ConstruccionProtoss {
     private int turnos;
@@ -10,7 +10,7 @@ public class NexoMineral extends ConstruccionProtoss {
 
     public NexoMineral(){
         super();
-        this.escudo = 250;
+        this.escudo = new Escudo(250);
         this.vida = 250;
         this.produccionPorTurno = 20;
         this.turnosParaConstruirse = 4;
@@ -24,7 +24,7 @@ public class NexoMineral extends ConstruccionProtoss {
 
     public int recolectarMineral(){
         if (this.turnos < this.turnosParaConstruirse ){
-            throw new Pilon.EdificioNoEstaOperativo();
+            throw new EdificioNoEstaOperativo();
         }
         return produccionPorTurno;
     }

@@ -5,7 +5,7 @@ public abstract class Raza {
     int cantidadDeGas;
 
     protected Raza(){
-        this.cantidadDeMineral = 100;
+        this.cantidadDeMineral = 200;
         this.cantidadDeGas = 0;
     }
 }
