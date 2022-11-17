@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.construcciones;
 import edu.fiuba.algo3.modelo.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 public class NexoMineral extends ConstruccionProtoss {
     private int turnos;

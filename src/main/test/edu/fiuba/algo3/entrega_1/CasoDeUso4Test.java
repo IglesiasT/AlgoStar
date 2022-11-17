@@ -6,8 +6,8 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.Zangano;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.GasProducido;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
-import edu.fiuba.algo3.modelo.tablero.Tablero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,7 +19,7 @@ public class CasoDeUso4Test {
         //Arrange
         Extractor extractor = new Extractor();
         GasProducido valorEsperado = new GasProducido(0);
-        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
+        Casillero casillero = new Casillero(new Gas(),1,1,new Mapa());
         casillero.setEspacioDeConstruccion(new Moho());
 
         //Act
@@ -40,7 +40,7 @@ public class CasoDeUso4Test {
         //Arrange
         Extractor extractor = new Extractor();
         GasProducido gasProducidoEsperado = new GasProducido(10);
-        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
+        Casillero casillero = new Casillero(new Gas(),1,1,new Mapa());
         casillero.setEspacioDeConstruccion(new Moho());
 
         //Act
@@ -64,7 +64,7 @@ public class CasoDeUso4Test {
         //Arrange
         Extractor extractor = new Extractor();
         GasProducido gasProducidoEsperado = new GasProducido(20);
-        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
+        Casillero casillero = new Casillero(new Gas(),1,1,new Mapa());
         casillero.setEspacioDeConstruccion(new Moho());
 
         //Act
@@ -89,7 +89,7 @@ public class CasoDeUso4Test {
         //Arrange
         Extractor extractor = new Extractor();
         GasProducido gasProducidoEsperado = new GasProducido(30);
-        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
+        Casillero casillero = new Casillero(new Gas(),1,1,new Mapa());
         casillero.setEspacioDeConstruccion(new Moho());
 
         //Act
@@ -114,7 +114,7 @@ public class CasoDeUso4Test {
     public void noSePuedeAsignarMasDeTresZanganos(){
         //Arrange
         Extractor extractor = new Extractor();
-        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
+        Casillero casillero = new Casillero(new Gas(),1,1,new Mapa());
         casillero.setEspacioDeConstruccion(new Moho());
 
         //Act

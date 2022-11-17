@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.SinEspacio;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 import java.util.ArrayList;
 

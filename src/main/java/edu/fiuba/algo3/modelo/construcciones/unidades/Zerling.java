@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades;
 
-import edu.fiuba.algo3.modelo.tablero.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 public class Zerling extends UnidadZerg{
     public Zerling(){

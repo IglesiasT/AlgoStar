@@ -1,11 +1,11 @@
-package edu.fiuba.algo3.modelo.tablero;
+package edu.fiuba.algo3.modelo.mapa;
 
 import java.util.ArrayList;
 
-public class Tablero {
+public class Mapa {
     private Casillero[][] tablero;
 
-    public Tablero(){
+    public Mapa(){
         this.tablero = new Casillero[20][20];
         for (int i = 0; i < 20; i++){
             for (int j = 0; j < 20; j++){

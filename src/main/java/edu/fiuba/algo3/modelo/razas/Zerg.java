@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.NoSePuedeEngendrar;
 import edu.fiuba.algo3.modelo.construcciones.*;
 import edu.fiuba.algo3.modelo.construcciones.unidades.*;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 import java.util.LinkedList;
 

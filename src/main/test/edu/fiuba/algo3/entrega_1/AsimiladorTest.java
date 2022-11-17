@@ -4,8 +4,8 @@ import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.construcciones.Asimilador;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.recursos.Gas;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
-import edu.fiuba.algo3.modelo.tablero.Tablero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,7 +15,7 @@ public class AsimiladorTest {
     public void asimiladorNoEstaOperativoAntesDeSeisTurnos(){
         //Arrange
         Asimilador asimilador = new Asimilador();
-        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
+        Casillero casillero = new Casillero(new Gas(),1,1,new Mapa());
 
         //Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
@@ -31,7 +31,7 @@ public class AsimiladorTest {
     public void generaVeinteDeGas(){
         //Arrange
         Asimilador asimilador = new Asimilador();
-        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
+        Casillero casillero = new Casillero(new Gas(),1,1,new Mapa());
         int valorEsperado = 20;
 
         //Act
@@ -53,7 +53,7 @@ public class AsimiladorTest {
     public void AsimiladorSePuedeConstruirEnCasilleroConGas() {
         Asimilador asimilador = new Asimilador();
 
-        Casillero casillero = new Casillero(new Gas(), 1, 1, new Tablero());
+        Casillero casillero = new Casillero(new Gas(), 1, 1, new Mapa());
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
         assert(asimilador.sePuedeConstruirEn(casillero));
@@ -63,7 +63,7 @@ public class AsimiladorTest {
     public void AsimiladorNoSePuedeConstruirEnCasilleroSinGas() {
         Asimilador asimilador = new Asimilador();
 
-        Casillero casillero = new Casillero(1, 1, new Tablero());
+        Casillero casillero = new Casillero(1, 1, new Mapa());
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
         assert(!asimilador.sePuedeConstruirEn(casillero));

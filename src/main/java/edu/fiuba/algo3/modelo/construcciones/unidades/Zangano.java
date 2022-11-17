@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades;
 
 import edu.fiuba.algo3.modelo.recursos.Recurso;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 public class Zangano extends UnidadZerg {
     private Casillero ubicacion;

@@ -5,8 +5,8 @@ import edu.fiuba.algo3.modelo.construcciones.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.recursos.Gas;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
-import edu.fiuba.algo3.modelo.tablero.Tablero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,7 +19,7 @@ public class CasoDeUso2Test {
         Criadero criadero = new Criadero();
 
         //Act
-        criadero.construirEnCasillero(new Casillero(1,1, new Tablero()));
+        criadero.construirEnCasillero(new Casillero(1,1, new Mapa()));
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
@@ -34,7 +34,7 @@ public class CasoDeUso2Test {
         Criadero criadero = new Criadero();
 
         //Act
-        criadero.construirEnCasillero(new Casillero(1,1, new Tablero()));
+        criadero.construirEnCasillero(new Casillero(1,1, new Mapa()));
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
@@ -48,7 +48,7 @@ public class CasoDeUso2Test {
     public void pasanOnceTurnosYReservaDeReproduccionNoEstaOperativo(){
         //Arrange
         ReservaDeReproduccion reserva = new ReservaDeReproduccion();
-        Casillero casillero = new Casillero(1,1,new Tablero());
+        Casillero casillero = new Casillero(1,1,new Mapa());
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
@@ -74,7 +74,7 @@ public class CasoDeUso2Test {
     public void pasanDoceTurnosYReservaDeReproduccionEstaOperativo(){
         //Arrange
         ReservaDeReproduccion reserva = new ReservaDeReproduccion();
-        Casillero casillero = new Casillero(1,1,new Tablero());
+        Casillero casillero = new Casillero(1,1,new Mapa());
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
@@ -100,7 +100,7 @@ public class CasoDeUso2Test {
     public void extractorNoEstaOperativoAntesDeSeisTurnos(){
         //Arrange
         Extractor extractor = new Extractor();
-        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
+        Casillero casillero = new Casillero(new Gas(),1,1,new Mapa());
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
@@ -117,7 +117,7 @@ public class CasoDeUso2Test {
     public void extractorEstaOperativoLuegoDeSeisTurnos(){
         //Arrange
         Extractor extractor = new Extractor();
-        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
+        Casillero casillero = new Casillero(new Gas(),1,1,new Mapa());
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
@@ -137,7 +137,7 @@ public class CasoDeUso2Test {
     public void pasanOnceTurnosYGuaridaNoEstaOperativo(){
         //Arrange
         Guarida guarida = new Guarida();
-        Casillero casillero = new Casillero(1,1,new Tablero());
+        Casillero casillero = new Casillero(1,1,new Mapa());
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
@@ -163,7 +163,7 @@ public class CasoDeUso2Test {
     public void pasanDoceTurnosYGuaridaEstaOperativo(){
         //Arrange
         Guarida guarida = new Guarida();
-        Casillero casillero = new Casillero(1,1,new Tablero());
+        Casillero casillero = new Casillero(1,1,new Mapa());
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
@@ -189,7 +189,7 @@ public class CasoDeUso2Test {
     public void pasanNueveTurnosYEspiralNoEstaOperativo(){
         //Arrange
         Espiral espiral = new Espiral();
-        Casillero casillero = new Casillero(1,1,new Tablero());
+        Casillero casillero = new Casillero(1,1,new Mapa());
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
@@ -213,7 +213,7 @@ public class CasoDeUso2Test {
     public void pasanDiezTurnosYEspiralEstaOperativo(){
         //Arrange
         Espiral espiral = new Espiral();
-        Casillero casillero = new Casillero(1,1,new Tablero());
+        Casillero casillero = new Casillero(1,1,new Mapa());
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
@@ -297,7 +297,7 @@ public class CasoDeUso2Test {
     public void asimiladorNoEstaOperativoAntesDeSeisTurnos(){
         //Arrange
         Asimilador asimilador = new Asimilador();
-        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
+        Casillero casillero = new Casillero(new Gas(),1,1,new Mapa());
 
         //Act
         asimilador.construirEnCasillero(casillero);
@@ -314,7 +314,7 @@ public class CasoDeUso2Test {
     public void asimiladorEstaOperativoLuegoDeSeisTurnos(){
         //Arrange
         Asimilador asimilador = new Asimilador();
-        Casillero casillero = new Casillero(new Gas(),1,1,new Tablero());
+        Casillero casillero = new Casillero(new Gas(),1,1,new Mapa());
 
         //Act;
         asimilador.construirEnCasillero(casillero);
@@ -333,7 +333,7 @@ public class CasoDeUso2Test {
     public void accesoNoEstaOperativoAntesDeOchoTurnos(){
         //Arrange
         Acceso acceso = new Acceso();
-        Casillero casillero = new Casillero(1,1,new Tablero());
+        Casillero casillero = new Casillero(1,1,new Mapa());
 
         //Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
@@ -353,7 +353,7 @@ public class CasoDeUso2Test {
     public void accesoEstaOperativoLuegoDeOchoTurnos(){
         //Arrange
         Acceso acceso = new Acceso();
-        Casillero casillero = new Casillero(1,1,new Tablero());
+        Casillero casillero = new Casillero(1,1,new Mapa());
 
         //Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
@@ -375,7 +375,7 @@ public class CasoDeUso2Test {
     public void puertoEstelarNoEstaOperativoAntesDeDiezTurnos(){
         //Arrange
         PuertoEstelar puertoEstelar = new PuertoEstelar();
-        Casillero casillero = new Casillero(1,1,new Tablero());
+        Casillero casillero = new Casillero(1,1,new Mapa());
 
         //Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
@@ -397,7 +397,7 @@ public class CasoDeUso2Test {
     public void puertoEstelarEstaOperativoLuegoDeDiezTurnos(){
         //Arrange
         PuertoEstelar puertoEstelar = new PuertoEstelar();
-        Casillero casillero = new Casillero(1,1,new Tablero());
+        Casillero casillero = new Casillero(1,1,new Mapa());
 
         //Act
         casillero.setEspacioDeConstruccion(new RangoPilon());

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades;
 
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 public class Scout extends UnidadProtoss{
 

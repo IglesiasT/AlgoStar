@@ -3,8 +3,8 @@ package edu.fiuba.algo3.entrega_1;
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.razas.Zerg;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
-import edu.fiuba.algo3.modelo.tablero.Tablero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -16,8 +16,8 @@ public class ZergTest {
     public void sinRecursosNoSePuedeConstruir(){
         //Arrange
         Zerg razaZerg = new Zerg();
-        Casillero casilleroAConstruir1 = new Casillero(1, 1, new Tablero());
-        Casillero casilleroAConstruir2 = new Casillero(1, 2, new Tablero());
+        Casillero casilleroAConstruir1 = new Casillero(1, 1, new Mapa());
+        Casillero casilleroAConstruir2 = new Casillero(1, 2, new Mapa());
 
         //Act
         razaZerg.construirCriadero(casilleroAConstruir1);
@@ -31,7 +31,7 @@ public class ZergTest {
     public void noSePuedeCrearEspiralSinGuarida(){
         //Arrange
         Zerg razaZerg = new Zerg();
-        Casillero casilleroAConstruir = new Casillero(1, 1, new Tablero());
+        Casillero casilleroAConstruir = new Casillero(1, 1, new Mapa());
 
         //Act
         casilleroAConstruir.setEspacioDeConstruccion(new Moho());
@@ -44,9 +44,9 @@ public class ZergTest {
     public void sePuedeCrearEspiralConGuarida(){
         //Arrange
         Zerg razaZerg = new Zerg(1000, 1000);
-        Casillero casilleroAConstruir1 = new Casillero(1, 1, new Tablero());
-        Casillero casilleroAConstruir2 = new Casillero(1, 4, new Tablero());
-        Casillero casilleroAConstruir3 = new Casillero(1, 6, new Tablero());
+        Casillero casilleroAConstruir1 = new Casillero(1, 1, new Mapa());
+        Casillero casilleroAConstruir2 = new Casillero(1, 4, new Mapa());
+        Casillero casilleroAConstruir3 = new Casillero(1, 6, new Mapa());
 
         //Act
         casilleroAConstruir3.setEspacioDeConstruccion(new Moho());

@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.tablero;
+package edu.fiuba.algo3.modelo.mapa;
 
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
@@ -12,23 +12,23 @@ import java.util.ArrayList;
 public class Casillero {
     private int fila;
     private int columna;
-    private Tablero tablero;
+    private Mapa mapa;
     private Recurso recurso;
     private EspacioDeConstruccion espacio;
     private Construccion construccion;
 
-    public Casillero(int fila, int columna, Tablero tablero){
+    public Casillero(int fila, int columna, Mapa mapa){
         this.fila = fila;
         this.columna = columna;
-        this.tablero = tablero;
+        this.mapa = mapa;
         this.recurso = new SinRecurso();
         this.espacio = new SinEspacio();
         this.construccion = null;
     }
-    public Casillero(Recurso recurso, int fila, int columna, Tablero tablero){
+    public Casillero(Recurso recurso, int fila, int columna, Mapa mapa){
         this.fila = fila;
         this.columna = columna;
-        this.tablero = tablero;
+        this.mapa = mapa;
         this.recurso = recurso;
         this.espacio = new SinEspacio();
         this.construccion = null;
@@ -65,6 +65,6 @@ public class Casillero {
         return (this.espacio.getClass() == espacio.getClass());
     }
     public ArrayList<? extends Casillero> obtenerCasilleros(int radio) {
-        return this.tablero.obtenerCasilleros(radio, this.fila, this.columna);
+        return this.mapa.obtenerCasilleros(radio, this.fila, this.columna);
     }
 }

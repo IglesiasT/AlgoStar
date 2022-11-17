@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.construcciones;
 
-import edu.fiuba.algo3.modelo.tablero.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 public abstract class ConstruccionProtoss extends Construccion{
     protected Escudo escudo;

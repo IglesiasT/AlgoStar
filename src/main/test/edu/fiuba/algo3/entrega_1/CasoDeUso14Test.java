@@ -4,8 +4,8 @@ import edu.fiuba.algo3.modelo.construcciones.Acceso;
 import edu.fiuba.algo3.modelo.construcciones.Criadero;
 import edu.fiuba.algo3.modelo.construcciones.Pilon;
 import edu.fiuba.algo3.modelo.construcciones.ReservaDeReproduccion;
-import edu.fiuba.algo3.modelo.tablero.Casillero;
-import edu.fiuba.algo3.modelo.tablero.Tablero;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.Test;
 
 public class CasoDeUso14Test {
@@ -13,9 +13,9 @@ public class CasoDeUso14Test {
     @Test
     public void pilonNoEnergizaCasillerosConMoho(){
         //Arrange
-        Tablero tablero = new Tablero();
-        Casillero casillero1 = tablero.obtenerCasillero(1,1);
-        Casillero casillero2 = tablero.obtenerCasillero(1,7);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        Casillero casillero2 = mapa.obtenerCasillero(1,7);
         Criadero criadero = new Criadero();
         Pilon pilon = new Pilon();
         Acceso acceso = new Acceso();
@@ -37,15 +37,15 @@ public class CasoDeUso14Test {
 
 
         //Assert
-        assert !acceso.sePuedeConstruirEn(tablero.obtenerCasillero(1,4));
+        assert !acceso.sePuedeConstruirEn(mapa.obtenerCasillero(1,4));
     }
 
     @Test
     public void mohoCreceAunEstandoEnElRangoDeUnPilon(){
         //Arrange
-        Tablero tablero = new Tablero();
-        Casillero casillero1 = tablero.obtenerCasillero(1,1);
-        Casillero casillero2 = tablero.obtenerCasillero(1,7);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        Casillero casillero2 = mapa.obtenerCasillero(1,7);
         Criadero criadero = new Criadero();
         Pilon pilon = new Pilon();
         ReservaDeReproduccion reserva = new ReservaDeReproduccion();
@@ -68,6 +68,6 @@ public class CasoDeUso14Test {
 
 
         //Assert
-        assert reserva.sePuedeConstruirEn(tablero.obtenerCasillero(1,2));
+        assert reserva.sePuedeConstruirEn(mapa.obtenerCasillero(1,2));
     }
 }
