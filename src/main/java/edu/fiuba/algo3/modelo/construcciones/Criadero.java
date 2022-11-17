@@ -22,6 +22,7 @@ public class Criadero extends ConstruccionZerg {
         this.mineralNecesarioParaConstruir = 50;
         this.rangoMoho = 4;
         this.vida = 500;
+        this.vidaMaxima = 500;
     }
 
     public int larvasRestantes() {

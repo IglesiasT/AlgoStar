@@ -9,14 +9,17 @@ public abstract class Construccion {
     protected int mineralNecesarioParaConstruir;
     protected int gasNecesarioParaConstruir;
     protected int turnosParaConstruirse;
+    protected int vidaMaxima;
     protected int vida;
+
     protected int turnos;
     protected Casillero ubicacion;
     protected String superficie;
     protected Area area;
 
     public Construccion(){
-        this.vida = 100;
+        this.vidaMaxima = 100;
+        this.vida = this.vidaMaxima;
         this.mineralNecesarioParaConstruir = 0;
         this.gasNecesarioParaConstruir = 0;
         this.ubicacion = null;
@@ -60,5 +63,11 @@ public abstract class Construccion {
     }
     public String obtenerSuperficie(){
         return this.superficie;
+    }
+    public void establecerUbicacion(Casillero nuevaUbicacion){
+        this.ubicacion = nuevaUbicacion;
+    }
+    public Casillero obtenerUbicacion(){
+        return this.ubicacion;
     }
 }

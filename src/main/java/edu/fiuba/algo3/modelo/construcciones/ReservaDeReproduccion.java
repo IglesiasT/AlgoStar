@@ -10,6 +10,7 @@ public class ReservaDeReproduccion extends ConstruccionZerg {
         this.mineralNecesarioParaConstruir = 150;
         this.turnosParaConstruirse = 12;
         this.vida = 1000;
+        this.vidaMaxima = 1000;
     }
 
     @Override

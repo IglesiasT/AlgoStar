@@ -1,7 +1,10 @@
 package edu.fiuba.algo3.entrega_2;
 
+import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.*;
 import edu.fiuba.algo3.modelo.construcciones.unidades.*;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,6 +21,8 @@ public class CasoDeUso18Test {
         // Act
         zerling.nuevoTurno();
         zerling.nuevoTurno();
+        zerling.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
+        nexoMineral.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         zerling.atacar(nexoMineral);
 
         // Assert
@@ -36,6 +41,8 @@ public class CasoDeUso18Test {
         hidralisco.nuevoTurno();
         hidralisco.nuevoTurno();
         hidralisco.nuevoTurno();
+        hidralisco.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
+        pilon.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         hidralisco.atacar(pilon);
 
         // Assert
@@ -54,6 +61,8 @@ public class CasoDeUso18Test {
         hidralisco.nuevoTurno();
         hidralisco.nuevoTurno();
         hidralisco.nuevoTurno();
+        hidralisco.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
+        scout.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         hidralisco.atacar(scout);
 
         // Assert
@@ -75,6 +84,8 @@ public class CasoDeUso18Test {
         mutalisco.nuevoTurno();
         mutalisco.nuevoTurno();
         mutalisco.nuevoTurno();
+        mutalisco.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
+        zealot.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         mutalisco.atacar(zealot);
 
         // Assert
@@ -96,6 +107,8 @@ public class CasoDeUso18Test {
         mutalisco.nuevoTurno();
         mutalisco.nuevoTurno();
         mutalisco.nuevoTurno();
+        mutalisco.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
+        scout.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         mutalisco.atacar(scout);
 
         // Assert
@@ -114,6 +127,8 @@ public class CasoDeUso18Test {
         guardian.nuevoTurno();
         guardian.nuevoTurno();
         guardian.nuevoTurno();
+        guardian.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
+        asimilador.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         guardian.atacar(asimilador);
 
         // Assert
@@ -129,6 +144,8 @@ public class CasoDeUso18Test {
         int valorEsperado = 992;    //1000 vida - 8 ataque
 
         // Act
+        zealot.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
+        reserva.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         zealot.atacar(reserva);
 
         // Assert
@@ -142,6 +159,8 @@ public class CasoDeUso18Test {
         int valorEsperado = 480;    //500 vida - 20 ataque
 
         // Act
+        dragon.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
+        criadero.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         dragon.atacar(criadero);
 
         // Assert
@@ -155,6 +174,8 @@ public class CasoDeUso18Test {
         int valorEsperado = 80;    //100 vida - 20 ataque
 
         // Act
+        dragon.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
+        guardian.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         dragon.atacar(guardian);
 
         // Assert
@@ -168,6 +189,8 @@ public class CasoDeUso18Test {
         int valorEsperado = 492;    //500 vida - 8 ataque
 
         // Act
+        scout.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
+        criadero.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         scout.atacar(criadero);
 
         // Assert
@@ -181,6 +204,8 @@ public class CasoDeUso18Test {
         int valorEsperado = 106;    //120 vida - 14 ataque
 
         // Act
+        mutalisco.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
+        scout.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         scout.atacar(mutalisco);
 
         // Assert

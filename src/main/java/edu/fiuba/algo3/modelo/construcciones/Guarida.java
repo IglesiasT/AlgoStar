@@ -10,6 +10,7 @@ public class Guarida extends ConstruccionZerg {
         this.gasNecesarioParaConstruir = 100;
         this.turnosParaConstruirse = 12;
         this.vida = 1250;
+        this.vidaMaxima = 1250;
     }
 
     @Override

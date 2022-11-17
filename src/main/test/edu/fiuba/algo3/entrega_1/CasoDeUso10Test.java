@@ -17,7 +17,7 @@ public class CasoDeUso10Test {
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
-        int valorEsperado = 50;
+        int valorEsperado = 700;
 
         //Act
         extractor.recibirDanio(50);
@@ -31,7 +31,7 @@ public class CasoDeUso10Test {
         //Arrange
         Extractor extractor = new Extractor();
 
-        int valorEsperado = 100;
+        int valorEsperado = 750;
 
         //Act
         extractor.nuevoTurno();

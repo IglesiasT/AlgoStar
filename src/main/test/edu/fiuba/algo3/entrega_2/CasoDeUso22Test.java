@@ -79,8 +79,11 @@ public class CasoDeUso22Test {
     @Test
     public void zerlingPuedeAtacarDespuesDeQuePaseElTiempoDeConstruccion(){
         Zerg razaZerg = new Zerg(1000,1000);
+        NexoMineral nexoMineral = new NexoMineral();
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
+
+        nexoMineral.establecerUbicacion(mapa.obtenerCasillero(1, 3));
         razaZerg.construirCriadero(casillero1);
 
         razaZerg.nuevoTurno();
@@ -93,11 +96,11 @@ public class CasoDeUso22Test {
         razaZerg.construirReservaDeProduccion(casillero2);
 
         Zerling zerling = razaZerg.engendrarZerling((Criadero) casillero1.obtenerConstruccion());
-
+        zerling.establecerUbicacion(casillero2);
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
 
-        assertDoesNotThrow(() -> zerling.atacar(new NexoMineral()));
+        assertDoesNotThrow(() -> zerling.atacar(nexoMineral));
     }
 
     @Test
@@ -169,7 +172,10 @@ public class CasoDeUso22Test {
     public void hidraliscoPuedeAtacarDespuesDeQuePaseElTiempoDeConstruccion(){
         Zerg razaZerg = new Zerg(1000,1000);
         Mapa mapa = new Mapa();
+        NexoMineral nexoMineral = new NexoMineral();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
+
+        nexoMineral.establecerUbicacion(mapa.obtenerCasillero(2,2));
         razaZerg.construirCriadero(casillero1);
 
         razaZerg.nuevoTurno();
@@ -184,13 +190,13 @@ public class CasoDeUso22Test {
         razaZerg.construirGuarida(casillero3);
 
         Hidralisco hidralisco = razaZerg.engendrarHidralisco((Criadero) casillero1.obtenerConstruccion());
-
+        hidralisco.establecerUbicacion(casillero3);
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
 
-        assertDoesNotThrow(() -> hidralisco.atacar(new NexoMineral()));
+        assertDoesNotThrow(() -> hidralisco.atacar(nexoMineral));
     }
 
     @Test
@@ -272,8 +278,10 @@ public class CasoDeUso22Test {
         Zerg razaZerg = new Zerg(1000,1000);
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
-        razaZerg.construirCriadero(casillero1);
+        NexoMineral nexoMineral = new NexoMineral();
 
+        razaZerg.construirCriadero(casillero1);
+        nexoMineral.establecerUbicacion(mapa.obtenerCasillero(3,3));
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
@@ -289,7 +297,7 @@ public class CasoDeUso22Test {
         razaZerg.construirEspiral(casillero4);
 
         Mutalisco mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
-
+        mutalisco.establecerUbicacion(casillero4);
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
@@ -298,7 +306,7 @@ public class CasoDeUso22Test {
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
 
-        assertDoesNotThrow(() -> mutalisco.atacar(new NexoMineral()));
+        assertDoesNotThrow(() -> mutalisco.atacar(nexoMineral));
     }
 
     @Test
@@ -342,6 +350,9 @@ public class CasoDeUso22Test {
         Zerg razaZerg = new Zerg(1000,1000);
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        NexoMineral nexoMineral = new NexoMineral();
+
+        nexoMineral.establecerUbicacion(mapa.obtenerCasillero(3,3));
         razaZerg.construirCriadero(casillero1);
 
         razaZerg.nuevoTurno();
@@ -369,13 +380,14 @@ public class CasoDeUso22Test {
         razaZerg.nuevoTurno();
 
         Guardian guardian = razaZerg.evolucionarMutalisco(mutalisco);
+        guardian.establecerUbicacion(casillero4);
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
 
-        assertDoesNotThrow(() -> guardian.atacar(new NexoMineral()));
+        assertDoesNotThrow(() -> guardian.atacar(nexoMineral));
     }
 
 
