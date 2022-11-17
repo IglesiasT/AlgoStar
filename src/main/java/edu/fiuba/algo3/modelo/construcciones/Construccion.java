@@ -39,7 +39,10 @@ public abstract class Construccion {
         return this.vida;
     }
 
-    public abstract void nuevoTurno();
+    public void nuevoTurno(){
+        this.turnos++;
+        this.regenerar();
+    }
     public int consumirMineral(int mineralAConsumir){
         return mineralAConsumir - this.mineralNecesarioParaConstruir;
     }
