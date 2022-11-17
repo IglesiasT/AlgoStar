@@ -21,6 +21,6 @@ public class Scout extends UnidadProtoss{
     }
     @Override
     public boolean sePuedeConstruirEn(Casillero casillero) {
-        return false;
+        return true;
     }
 }

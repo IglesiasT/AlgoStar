@@ -144,6 +144,10 @@ public class CasoDeUso18Test {
         int valorEsperado = 992;    //1000 vida - 8 ataque
 
         // Act
+        zealot.nuevoTurno();
+        zealot.nuevoTurno();
+        zealot.nuevoTurno();
+        zealot.nuevoTurno();
         zealot.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
         reserva.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         zealot.atacar(reserva);
@@ -159,6 +163,12 @@ public class CasoDeUso18Test {
         int valorEsperado = 480;    //500 vida - 20 ataque
 
         // Act
+        dragon.nuevoTurno();
+        dragon.nuevoTurno();
+        dragon.nuevoTurno();
+        dragon.nuevoTurno();
+        dragon.nuevoTurno();
+        dragon.nuevoTurno();
         dragon.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
         criadero.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         dragon.atacar(criadero);
@@ -174,6 +184,12 @@ public class CasoDeUso18Test {
         int valorEsperado = 80;    //100 vida - 20 ataque
 
         // Act
+        dragon.nuevoTurno();
+        dragon.nuevoTurno();
+        dragon.nuevoTurno();
+        dragon.nuevoTurno();
+        dragon.nuevoTurno();
+        dragon.nuevoTurno();
         dragon.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
         guardian.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         dragon.atacar(guardian);
@@ -189,6 +205,15 @@ public class CasoDeUso18Test {
         int valorEsperado = 492;    //500 vida - 8 ataque
 
         // Act
+        scout.nuevoTurno();
+        scout.nuevoTurno();
+        scout.nuevoTurno();
+        scout.nuevoTurno();
+        scout.nuevoTurno();
+        scout.nuevoTurno();
+        scout.nuevoTurno();
+        scout.nuevoTurno();
+        scout.nuevoTurno();
         scout.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
         criadero.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         scout.atacar(criadero);
@@ -204,6 +229,15 @@ public class CasoDeUso18Test {
         int valorEsperado = 106;    //120 vida - 14 ataque
 
         // Act
+        scout.nuevoTurno();
+        scout.nuevoTurno();
+        scout.nuevoTurno();
+        scout.nuevoTurno();
+        scout.nuevoTurno();
+        scout.nuevoTurno();
+        scout.nuevoTurno();
+        scout.nuevoTurno();
+        scout.nuevoTurno();
         mutalisco.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
         scout.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         scout.atacar(mutalisco);

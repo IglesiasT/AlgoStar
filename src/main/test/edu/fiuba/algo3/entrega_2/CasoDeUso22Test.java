@@ -5,10 +5,10 @@ import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.construcciones.Criadero;
 import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.construcciones.NexoMineral;
-import edu.fiuba.algo3.modelo.construcciones.unidades.Guardian;
-import edu.fiuba.algo3.modelo.construcciones.unidades.Hidralisco;
-import edu.fiuba.algo3.modelo.construcciones.unidades.Mutalisco;
-import edu.fiuba.algo3.modelo.construcciones.unidades.Zerling;
+import edu.fiuba.algo3.modelo.construcciones.ReservaDeReproduccion;
+import edu.fiuba.algo3.modelo.construcciones.unidades.*;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
+import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
@@ -19,6 +19,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CasoDeUso22Test {
 
+
+    //Unidades Zerg
     @Test
     public void zerlingNoSePuedeEngendrarSinReservaDeReproduccion(){
         Zerg razaZerg = new Zerg(1000,1000);
@@ -389,6 +391,315 @@ public class CasoDeUso22Test {
 
         assertDoesNotThrow(() -> guardian.atacar(nexoMineral));
     }
+
+
+
+    //Unidades Protoss
+
+    @Test
+    public void zealotNoSePuedeConstruirSinAcceso(){
+        Protoss razaProtoss = new Protoss(1000,1000);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        razaProtoss.construirPilon(casillero1);
+
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+
+
+        assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirZealot(mapa.obtenerCasillero(1,2)));
+
+    }
+
+    @Test
+    public void zealotSePuedeConstruirConAcceso(){
+        Protoss razaProtoss = new Protoss(1000,1000);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        razaProtoss.construirPilon(casillero1);
+
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        Casillero casillero3 = mapa.obtenerCasillero(1,3);
+
+        razaProtoss.construirAcceso(casillero2);
+
+        assertDoesNotThrow(() -> razaProtoss.construirZealot(casillero3));
+
+    }
+
+    @Test
+    public void zealotNoPuedeAtacarAntesDeQuePaseElTiempoDeConstruccion(){
+        Protoss razaProtoss = new Protoss(1000,1000);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        razaProtoss.construirPilon(casillero1);
+
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        Casillero casillero3 = mapa.obtenerCasillero(1,3);
+
+        razaProtoss.construirAcceso(casillero2);
+
+        Zealot zealot = razaProtoss.construirZealot(casillero3);
+
+        assertThrows(EdificioNoEstaOperativo.class, () -> zealot.atacar(new Criadero()));
+    }
+
+    @Test
+    public void zealotPuedeAtacarDespuesDeQuePaseElTiempoDeConstruccion(){
+        Protoss razaProtoss = new Protoss(1000,1000);
+        Mapa mapa = new Mapa();
+        ReservaDeReproduccion reserva = new ReservaDeReproduccion();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        casillero2.setEspacioDeConstruccion(new Moho());
+        reserva.construirEnCasillero(casillero2);
+        razaProtoss.construirPilon(casillero1);
+
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+
+        Casillero casillero3 = mapa.obtenerCasillero(1,3);
+        Casillero casillero4 = mapa.obtenerCasillero(2,1);
+
+
+        razaProtoss.construirAcceso(casillero3);
+
+        Zealot zealot = razaProtoss.construirZealot(casillero4);
+
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+
+        assertDoesNotThrow(() -> zealot.atacar(reserva));
+    }
+
+    @Test
+    public void dragonNoSePuedeConstruirSinAcceso(){
+        Protoss razaProtoss = new Protoss(1000,1000);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        razaProtoss.construirPilon(casillero1);
+
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+
+
+        assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirDragon(mapa.obtenerCasillero(1,2)));
+
+    }
+
+    @Test
+    public void dragonSePuedeConstruirConAcceso(){
+        Protoss razaProtoss = new Protoss(1000,1000);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        razaProtoss.construirPilon(casillero1);
+
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        Casillero casillero3 = mapa.obtenerCasillero(1,3);
+
+        razaProtoss.construirAcceso(casillero2);
+
+        assertDoesNotThrow(() -> razaProtoss.construirDragon(casillero3));
+
+    }
+
+    @Test
+    public void dragonNoPuedeAtacarAntesDeQuePaseElTiempoDeConstruccion(){
+        Protoss razaProtoss = new Protoss(1000,1000);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        razaProtoss.construirPilon(casillero1);
+
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        Casillero casillero3 = mapa.obtenerCasillero(1,3);
+
+        razaProtoss.construirAcceso(casillero2);
+
+        Dragon dragon = razaProtoss.construirDragon(casillero3);
+
+        assertThrows(EdificioNoEstaOperativo.class, () -> dragon.atacar(new Criadero()));
+    }
+
+    @Test
+    public void dragonPuedeAtacarDespuesDeQuePaseElTiempoDeConstruccion(){
+        Protoss razaProtoss = new Protoss(1000,1000);
+        Mapa mapa = new Mapa();
+        ReservaDeReproduccion reserva = new ReservaDeReproduccion();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        casillero2.setEspacioDeConstruccion(new Moho());
+        reserva.construirEnCasillero(casillero2);
+        razaProtoss.construirPilon(casillero1);
+
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+
+        Casillero casillero3 = mapa.obtenerCasillero(1,3);
+        Casillero casillero4 = mapa.obtenerCasillero(2,1);
+
+        razaProtoss.construirAcceso(casillero3);
+
+        Dragon dragon = razaProtoss.construirDragon(casillero4);
+
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+
+        assertDoesNotThrow(() -> dragon.atacar(reserva));
+    }
+
+    @Test
+    public void scoutNoSePuedeConstruirSinPuertoEstelar(){
+        Protoss razaProtoss = new Protoss(1000,1000);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        razaProtoss.construirPilon(casillero1);
+
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        Casillero casillero3 = mapa.obtenerCasillero(1,3);
+
+        razaProtoss.construirAcceso(casillero2);
+
+
+        assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirScout(casillero3));
+
+    }
+
+    @Test
+    public void scoutSePuedeConstruirConPuertoEstelar(){
+        Protoss razaProtoss = new Protoss(1000,1000);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        razaProtoss.construirPilon(casillero1);
+
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        Casillero casillero3 = mapa.obtenerCasillero(1,3);
+        Casillero casillero4 = mapa.obtenerCasillero(2,1);
+
+        razaProtoss.construirAcceso(casillero2);
+        razaProtoss.construirPuertoEstelar(casillero3);
+
+        assertDoesNotThrow(() -> razaProtoss.construirScout(casillero4));
+
+    }
+
+    @Test
+    public void scoutNoPuedeAtacarAntesDeQuePaseElTiempoDeConstruccion(){
+        Protoss razaProtoss = new Protoss(1000,1000);
+        Mapa mapa = new Mapa();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        razaProtoss.construirPilon(casillero1);
+
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        Casillero casillero3 = mapa.obtenerCasillero(1,3);
+        Casillero casillero4 = mapa.obtenerCasillero(2,1);
+
+        razaProtoss.construirAcceso(casillero2);
+        razaProtoss.construirPuertoEstelar(casillero3);
+
+        Scout scout = razaProtoss.construirScout(casillero4);
+
+        assertThrows(EdificioNoEstaOperativo.class, () -> scout.atacar(new Criadero()));
+    }
+
+    @Test
+    public void scoutPuedeAtacarDespuesDeQuePaseElTiempoDeConstruccion(){
+        Protoss razaProtoss = new Protoss(1000,1000);
+        Mapa mapa = new Mapa();
+        ReservaDeReproduccion reserva = new ReservaDeReproduccion();
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        casillero2.setEspacioDeConstruccion(new Moho());
+        reserva.construirEnCasillero(casillero2);
+        razaProtoss.construirPilon(casillero1);
+
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+
+        Casillero casillero3 = mapa.obtenerCasillero(1,3);
+        Casillero casillero4 = mapa.obtenerCasillero(2,1);
+        Casillero casillero5 = mapa.obtenerCasillero(2,2);
+
+        razaProtoss.construirAcceso(casillero3);
+        razaProtoss.construirPuertoEstelar(casillero4);
+
+        Scout scout = razaProtoss.construirScout(casillero5);
+
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+
+        assertDoesNotThrow(() -> scout.atacar(reserva));
+    }
+
 
 
 }

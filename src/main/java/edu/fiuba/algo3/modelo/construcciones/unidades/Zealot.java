@@ -15,6 +15,6 @@ public class Zealot extends UnidadProtoss{
     }
     @Override
     public boolean sePuedeConstruirEn(Casillero casillero) {
-        return false;
+        return true;
     }
 }

@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.ObjetivoFueraDeRango;
 import edu.fiuba.algo3.modelo.ObjetivoInvalido;
 import edu.fiuba.algo3.modelo.construcciones.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.ConstruccionZerg;
+import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 import java.util.HashMap;
@@ -29,6 +30,9 @@ public abstract class UnidadProtoss extends ConstruccionProtoss {
     }
 
     public void atacar(ConstruccionZerg construccionEnemiga){
+        if (turnos < this.turnosParaConstruirse) {
+            throw new EdificioNoEstaOperativo();
+        }
         if (!this.danioPorSuperficie.containsKey(construccionEnemiga.obtenerSuperficie())){
             throw new ObjetivoInvalido();
         }
