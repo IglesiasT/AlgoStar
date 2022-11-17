@@ -14,13 +14,13 @@ public class Scout extends UnidadProtoss{
         this.vida = 150;
         this.turnosParaConstruirse = 9;
         this.rangoDeAtaque = 4;
-        this.superficie = new AreaEspacial();
         this.mineralNecesarioParaConstruir = 300;
         this.gasNecesarioParaConstruir = 150;
-        this.superficie = new AreaEspacial();
+        this.superficie = "Aire";
+        this.area = new AreaEspacial();
     }
     @Override
     public boolean sePuedeConstruirEn(Casillero casillero) {
-        return false;
+        return true;
     }
 }

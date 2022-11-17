@@ -1,26 +1,31 @@
 package edu.fiuba.algo3.modelo.construcciones;
 
 import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
+import edu.fiuba.algo3.modelo.areas.Area;
+import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 public abstract class Construccion {
     protected int mineralNecesarioParaConstruir;
     protected int gasNecesarioParaConstruir;
     protected int turnosParaConstruirse;
-
+    protected int vidaMaxima;
     protected int vida;
 
     protected int turnos;
     protected Casillero ubicacion;
     protected String superficie;
+    protected Area area;
 
     public Construccion(){
-        this.vida = 100;
+        this.vidaMaxima = 100;
+        this.vida = this.vidaMaxima;
         this.mineralNecesarioParaConstruir = 0;
         this.gasNecesarioParaConstruir = 0;
         this.ubicacion = null;
         this.turnos = 0;
         this.superficie = "Tierra";
+        this.area = new AreaTerrestre();
     }
 
     public void construirEnCasillero(Casillero casilleroAConstruir){
@@ -41,7 +46,10 @@ public abstract class Construccion {
         return this.vida;
     }
 
-    public abstract void nuevoTurno();
+    public void nuevoTurno(){
+        this.turnos++;
+        this.regenerar();
+    }
     public int consumirMineral(int mineralAConsumir){
         return mineralAConsumir - this.mineralNecesarioParaConstruir;
     }
@@ -56,7 +64,9 @@ public abstract class Construccion {
     public String obtenerSuperficie(){
         return this.superficie;
     }
-
+    public void establecerUbicacion(Casillero nuevaUbicacion){
+        this.ubicacion = nuevaUbicacion;
+    }
     public Casillero obtenerUbicacion(){
         return this.ubicacion;
     }

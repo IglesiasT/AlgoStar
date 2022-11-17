@@ -14,10 +14,9 @@ public class Dragon extends UnidadProtoss{
         this.rangoDeAtaque = 4;
         this.mineralNecesarioParaConstruir = 125;
         this.gasNecesarioParaConstruir = 50;
-        this.superficie = new AreaTerrestre();
     }
     @Override
     public boolean sePuedeConstruirEn(Casillero casillero) {
-        return false;
+        return true;
     }
 }

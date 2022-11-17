@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades;
 
 import edu.fiuba.algo3.modelo.NoSePuedeMover;
+
 import edu.fiuba.algo3.modelo.ObjetivoFueraDeRango;
-import edu.fiuba.algo3.modelo.areas.*;
 import edu.fiuba.algo3.modelo.ObjetivoInvalido;
 import edu.fiuba.algo3.modelo.construcciones.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.ConstruccionZerg;
@@ -13,18 +13,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class UnidadZerg extends ConstruccionZerg {
-
-    protected Area superficie;
-    protected Map<String, Integer> danioPorSuperficie = new HashMap<>();
+    protected Map<String, Integer> danioPorSuperficie;
 
     protected int rangoDeAtaque;
 
+    public UnidadZerg() {
+        super();
+        this.rangoDeAtaque = 1;
+        this.danioPorSuperficie = new HashMap<>();
+    }
     protected boolean enRangoDeAtaque(Casillero ubicacion){
         return ((ubicacion.obtenerFila() <= this.ubicacion.obtenerFila()+this.rangoDeAtaque &&
                 ubicacion.obtenerFila() >= this.ubicacion.obtenerFila()-this.rangoDeAtaque)
                 &&
                 (ubicacion.obtenerColumna() <= this.ubicacion.obtenerColumna()+this.rangoDeAtaque) &&
                 ubicacion.obtenerColumna() >= this.ubicacion.obtenerColumna()-this.rangoDeAtaque);
+
     }
 
     public void atacar(ConstruccionProtoss construccionEnemiga){
@@ -44,7 +48,7 @@ public abstract class UnidadZerg extends ConstruccionZerg {
     }
 
     public void moverse(Casillero casillero) {
-        if (!casillero.puedeMoverse(this.superficie)) {
+        if (!casillero.puedeMoverse(this.area)) {
             throw new NoSePuedeMover();
         }
         this.ubicacion = casillero;

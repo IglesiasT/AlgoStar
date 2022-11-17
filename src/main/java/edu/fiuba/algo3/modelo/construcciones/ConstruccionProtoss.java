@@ -15,9 +15,6 @@ public abstract class ConstruccionProtoss extends Construccion{
     }
 
     @Override
-    public abstract boolean sePuedeConstruirEn(Casillero casillero);
-
-    @Override
     public void recibirDanio(int danioInflingido) {
         this.escudo.recibirDanio(danioInflingido);
 
@@ -32,9 +29,4 @@ public abstract class ConstruccionProtoss extends Construccion{
         this.escudo.regenerar();
     }
 
-    @Override
-    public void nuevoTurno(){
-        this.turnos++;
-        this.regenerar();
-    }
 }

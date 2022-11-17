@@ -52,7 +52,13 @@ public class CasoDeUso19Test {
         // Arrange
         Zealot zealot = new Zealot();
 
-        // Act and Assert
+        //Act
+        zealot.nuevoTurno();
+        zealot.nuevoTurno();
+        zealot.nuevoTurno();
+        zealot.nuevoTurno();
+
+        //Assert
         assertThrows(ObjetivoInvalido.class, () -> zealot.atacar(new Mutalisco()));
     }
 }
