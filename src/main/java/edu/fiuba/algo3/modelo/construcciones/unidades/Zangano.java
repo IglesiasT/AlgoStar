@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades;
 
-import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.recursos.Recurso;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
@@ -14,14 +13,6 @@ public class Zangano extends UnidadZerg {
         this.mineralNecesarioParaConstruir = 25;
     }
 
-    @Override
-    public void nuevoTurno(){
-        super.nuevoTurno();
-        if (this.turnos > turnosParaConstruirse ){
-            this.producir();
-        }
-    }
-
     public void ubicar(Casillero nuevaUbicacion) {
         nuevaUbicacion.obtenerRecurso().ocupar();
         this.ubicacion = nuevaUbicacion;
@@ -29,9 +20,6 @@ public class Zangano extends UnidadZerg {
 
 
     public int producir(){
-        if(this.turnos < turnosParaConstruirse){
-            throw new EdificioNoEstaOperativo();
-        }
         Recurso recurso = this.ubicacion.obtenerRecurso();
         return recurso.recolectar(10);
     }

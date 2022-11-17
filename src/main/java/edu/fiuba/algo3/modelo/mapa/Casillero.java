@@ -78,4 +78,11 @@ public class Casillero {
         return this.mapa.obtenerCasilleros(radio, this.fila, this.columna);
     }
 
+    public int obtenerColumna() {
+        return columna;
+    }
+
+    public int obtenerFila(){
+        return fila;
+    }
 }

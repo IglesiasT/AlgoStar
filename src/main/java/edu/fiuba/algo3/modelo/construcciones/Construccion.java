@@ -54,4 +54,8 @@ public abstract class Construccion {
     public String obtenerSuperficie(){
         return this.superficie;
     }
+
+    public Casillero obtenerUbicacion(){
+        return this.ubicacion;
+    }
 }
