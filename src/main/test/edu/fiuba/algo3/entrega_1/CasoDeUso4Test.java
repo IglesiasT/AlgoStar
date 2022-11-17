@@ -41,7 +41,7 @@ public class CasoDeUso4Test {
         extractor.nuevoTurno();
         extractor.nuevoTurno();
 
-        extractor.asignarZangano();
+        extractor.asignarZangano(new Zangano());
         extractor.nuevoTurno(); //El gas correspondiente debe generarse por turno
 
         //Assert
@@ -62,8 +62,8 @@ public class CasoDeUso4Test {
         extractor.nuevoTurno();
         extractor.nuevoTurno();
 
-        extractor.asignarZangano();
-        extractor.asignarZangano();
+        extractor.asignarZangano(new Zangano());
+        extractor.asignarZangano(new Zangano());
         extractor.nuevoTurno(); //El gas correspondiente debe generarse por turno
 
         //Assert
@@ -84,9 +84,9 @@ public class CasoDeUso4Test {
         extractor.nuevoTurno();
         extractor.nuevoTurno();
 
-        extractor.asignarZangano();
-        extractor.asignarZangano();
-        extractor.asignarZangano();
+        extractor.asignarZangano(new Zangano());
+        extractor.asignarZangano(new Zangano());
+        extractor.asignarZangano(new Zangano());
         extractor.nuevoTurno(); //El gas correspondiente debe generarse por turno
 
         //Assert
@@ -106,11 +106,11 @@ public class CasoDeUso4Test {
         extractor.nuevoTurno();
         extractor.nuevoTurno();
 
-        extractor.asignarZangano();
-        extractor.asignarZangano();
-        extractor.asignarZangano();
+        extractor.asignarZangano(new Zangano());
+        extractor.asignarZangano(new Zangano());
+        extractor.asignarZangano(new Zangano());
 
         //Assert
-        assertThrows(MaximoDeZanganosAsignados.class, extractor::asignarZangano);
+        assertThrows(MaximoDeZanganosAsignados.class, ()-> extractor.asignarZangano(new Zangano()));
     }
 }

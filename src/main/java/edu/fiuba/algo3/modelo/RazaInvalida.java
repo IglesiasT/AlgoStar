@@ -1,2 +1,4 @@
-package edu.fiuba.algo3.modelo;public class RazaInvalida {
+package edu.fiuba.algo3.modelo;
+
+public class RazaInvalida extends RuntimeException {
 }
