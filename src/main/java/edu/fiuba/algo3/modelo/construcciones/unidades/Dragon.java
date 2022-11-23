@@ -17,8 +17,4 @@ public class Dragon extends UnidadProtoss{
         this.recursosNecesarios.agregar(new Mineral(125));
         this.recursosNecesarios.agregar(new Gas(50));
     }
-    @Override
-    public boolean sePuedeConstruirEn(Casillero casillero) {
-        return true;
-    }
 }

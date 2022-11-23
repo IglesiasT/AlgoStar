@@ -22,12 +22,6 @@ public class Mutalisco extends UnidadZerg{
         this.area = new AreaEspacial();
     }
 
-    @Override
-    public boolean sePuedeConstruirEn(Casillero casillero) {
-        //ni idea como es lo del aire
-        return true;
-    }
-
     public Guardian evolucionar(){
         return new Guardian();
     }

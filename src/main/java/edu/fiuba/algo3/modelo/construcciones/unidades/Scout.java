@@ -21,8 +21,4 @@ public class Scout extends UnidadProtoss{
         this.superficie = "Aire";
         this.area = new AreaEspacial();
     }
-    @Override
-    public boolean sePuedeConstruirEn(Casillero casillero) {
-        return true;
-    }
 }

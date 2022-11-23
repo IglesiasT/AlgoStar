@@ -17,9 +17,4 @@ public class Guardian extends UnidadZerg{
         this.area = new AreaEspacial();
     }
 
-
-    @Override
-    public boolean sePuedeConstruirEn(Casillero casillero) {
-        return true;
-    }
 }

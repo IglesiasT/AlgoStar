@@ -15,11 +15,6 @@ public class ReservaDeReproduccion extends ConstruccionZerg {
         this.vidaMaxima = 1000;
     }
 
-    @Override
-    public boolean sePuedeConstruirEn(Casillero casillero) {
-        return (casillero.contiene(new Moho()) && casillero.contiene(new SinRecurso()));
-    }
-
     public void evolucionarAZerling(){
         if (turnos < this.turnosParaConstruirse){
             throw new EdificioNoEstaOperativo();

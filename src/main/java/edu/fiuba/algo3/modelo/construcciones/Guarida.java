@@ -15,11 +15,6 @@ public class Guarida extends ConstruccionZerg {
         this.vidaMaxima = 1250;
     }
 
-    @Override
-    public boolean sePuedeConstruirEn(Casillero casillero) {
-        return (casillero.contiene(new Moho()) && casillero.contiene(new SinRecurso()));
-    }
-
     public void evolucionarAHidralisco(){
         if (turnos < this.turnosParaConstruirse){
             throw new EdificioNoEstaOperativo();
