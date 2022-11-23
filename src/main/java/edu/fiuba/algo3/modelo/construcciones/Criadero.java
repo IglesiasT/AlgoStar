@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.construcciones;
 import edu.fiuba.algo3.modelo.construcciones.unidades.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Zangano;
+import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
@@ -52,6 +53,17 @@ public class Criadero extends ConstruccionZerg {
         }
     }
 
+    private UnidadZerg engendrar(UnidadZerg unidad, ListadoDeRecursos recursos) throws EdificioNoEstaOperativo{
+        if (turnos < this.turnosParaConstruirse){
+            throw new EdificioNoEstaOperativo();
+        }
+
+        unidad.construir(this.ubicacion, recursos);
+        this.larvas--;
+
+        return unidad;
+    }
+
     @Override
     public boolean sePuedeConstruirEn(Casillero casillero) {
         return (casillero.contiene(new SinRecurso()));
@@ -65,29 +77,15 @@ public class Criadero extends ConstruccionZerg {
         }
     }
 
-    public Mutalisco engendrarMutalisco() throws EdificioNoEstaOperativo {
-        if (turnos < this.turnosParaConstruirse){
-            throw new EdificioNoEstaOperativo();
-        }
-        this.larvas--;
-        return new Mutalisco();
+    public Mutalisco engendrarMutalisco(ListadoDeRecursos recursos) throws EdificioNoEstaOperativo {
+        return (Mutalisco) this.engendrar(new Mutalisco(), recursos);
     }
 
-    public Hidralisco engendrarHidralisco() throws EdificioNoEstaOperativo {
-        if (turnos < this.turnosParaConstruirse){
-            throw new EdificioNoEstaOperativo();
-        }
-        this.larvas--;
-        return new Hidralisco();
+    public Hidralisco engendrarHidralisco(ListadoDeRecursos recursos) throws EdificioNoEstaOperativo {
+        return (Hidralisco) this.engendrar(new Hidralisco(), recursos);
     }
 
-    public Zerling engendrarZerling() throws EdificioNoEstaOperativo {
-        if (turnos < this.turnosParaConstruirse){
-            throw new EdificioNoEstaOperativo();
-        }
-        this.larvas--;
-        return new Zerling();
+    public Zerling engendrarZerling(ListadoDeRecursos recursos) throws EdificioNoEstaOperativo {
+        return (Zerling) this.engendrar(new Zerling(), recursos);
     }
-
-
 }

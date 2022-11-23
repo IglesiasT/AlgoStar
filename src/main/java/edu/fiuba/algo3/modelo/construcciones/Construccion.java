@@ -5,10 +5,6 @@ import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
-import edu.fiuba.algo3.modelo.recursos.Recurso;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public abstract class Construccion {
     protected int turnosParaConstruirse;

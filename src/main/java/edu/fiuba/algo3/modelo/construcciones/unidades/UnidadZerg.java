@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades;
 
+import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.NoSePuedeMover;
 
 import edu.fiuba.algo3.modelo.ObjetivoFueraDeRango;
@@ -8,6 +9,7 @@ import edu.fiuba.algo3.modelo.construcciones.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.mapa.*;
 import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +23,16 @@ public abstract class UnidadZerg extends ConstruccionZerg {
         super();
         this.rangoDeAtaque = 1;
         this.danioPorSuperficie = new HashMap<>();
+    }
+
+    @Override
+    public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
+        if (! recursos.contieneTodos(this.recursosNecesarios)) {
+            throw new NoSePuedeConstruir();
+        }
+
+        this.recursosNecesarios.consumir(recursos);
+        this.ubicacion = casilleroAConstruir;
     }
     protected boolean enRangoDeAtaque(Casillero ubicacion){
         return ((ubicacion.obtenerFila() <= this.ubicacion.obtenerFila()+this.rangoDeAtaque &&
