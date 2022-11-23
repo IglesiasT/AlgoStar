@@ -20,7 +20,7 @@ public class AsimiladorTest {
 
         //Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
-        asimilador.construirEnCasillero(casillero);
+        //asimilador.construir(casillero);
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
 
@@ -37,7 +37,7 @@ public class AsimiladorTest {
 
         //Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
-        asimilador.construirEnCasillero(casillero);
+        //asimilador.construir(casillero);
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();

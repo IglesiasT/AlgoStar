@@ -36,7 +36,7 @@ public class CasoDeUso7Test {
         Casillero casillero = new Casillero(new Mineral(), new AreaTerrestre(),1,1,new Mapa());
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
-        nexo.construirEnCasillero(casillero);
+        nexo.construir(casillero);
         nexo.nuevoTurno();
         nexo.nuevoTurno();
         nexo.nuevoTurno();

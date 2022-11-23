@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.recursos.GasProducido;
+import edu.fiuba.algo3.modelo.recursos.Mineral;
 
 public class Asimilador extends ConstruccionProtoss {
     private int gasProducido;
@@ -15,7 +16,8 @@ public class Asimilador extends ConstruccionProtoss {
         this.vida = 450;
         this.gasProducido = 0;
         this.turnosParaConstruirse = 6;
-        this.mineralNecesarioParaConstruir = 100;
+        this.recursosNecesarios.add(new Gas(100)); //no va
+        this.recursosNecesarios.add(new Mineral(100));
         this.produccionPorTurno = 20;
     }
 

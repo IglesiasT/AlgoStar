@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.construcciones;
 import edu.fiuba.algo3.modelo.construcciones.unidades.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Zangano;
+import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
@@ -19,7 +20,7 @@ public class Criadero extends ConstruccionZerg {
         this.maximoDeLarvas = 3;
         this.larvas = this.maximoDeLarvas;
         this.turnosParaConstruirse = 4;
-        this.mineralNecesarioParaConstruir = 50;
+        this.recursosNecesarios.add(new Mineral(50));
         this.rangoMoho = 4;
         this.vida = 500;
         this.vidaMaxima = 500;

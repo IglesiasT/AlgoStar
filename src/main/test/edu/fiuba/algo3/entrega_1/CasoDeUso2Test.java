@@ -18,7 +18,7 @@ public class CasoDeUso2Test {
         Criadero criadero = new Criadero();
 
         //Act
-        criadero.construirEnCasillero(new Casillero(new AreaTerrestre(), 1 ,1, new Mapa()));
+        criadero.construir(new Casillero(new AreaTerrestre(), 1 ,1, new Mapa()));
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
@@ -33,7 +33,7 @@ public class CasoDeUso2Test {
         Criadero criadero = new Criadero();
 
         //Act
-        criadero.construirEnCasillero(new Casillero(new AreaTerrestre(),1,1, new Mapa()));
+        criadero.construir(new Casillero(new AreaTerrestre(),1,1, new Mapa()));
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
@@ -51,7 +51,7 @@ public class CasoDeUso2Test {
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
-        reserva.construirEnCasillero(casillero);
+        reserva.construir(casillero);
         reserva.nuevoTurno();
         reserva.nuevoTurno();
         reserva.nuevoTurno();
@@ -77,7 +77,7 @@ public class CasoDeUso2Test {
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
-        reserva.construirEnCasillero(casillero);
+        reserva.construir(casillero);
         reserva.nuevoTurno();
         reserva.nuevoTurno();
         reserva.nuevoTurno();
@@ -103,7 +103,7 @@ public class CasoDeUso2Test {
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
-        extractor.construirEnCasillero(casillero);
+        extractor.construir(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
@@ -120,7 +120,7 @@ public class CasoDeUso2Test {
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
-        extractor.construirEnCasillero(casillero);
+        extractor.construir(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
@@ -140,7 +140,7 @@ public class CasoDeUso2Test {
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
-        guarida.construirEnCasillero(casillero);
+        guarida.construir(casillero);
         guarida.nuevoTurno();
         guarida.nuevoTurno();
         guarida.nuevoTurno();
@@ -166,7 +166,7 @@ public class CasoDeUso2Test {
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
-        guarida.construirEnCasillero(casillero);
+        guarida.construir(casillero);
         guarida.nuevoTurno();
         guarida.nuevoTurno();
         guarida.nuevoTurno();
@@ -192,7 +192,7 @@ public class CasoDeUso2Test {
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
-        espiral.construirEnCasillero(casillero);
+        espiral.construir(casillero);
         espiral.nuevoTurno();
         espiral.nuevoTurno();
         espiral.nuevoTurno();
@@ -216,7 +216,7 @@ public class CasoDeUso2Test {
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
-        espiral.construirEnCasillero(casillero);
+        espiral.construir(casillero);
         espiral.nuevoTurno();
         espiral.nuevoTurno();
         espiral.nuevoTurno();
@@ -299,7 +299,7 @@ public class CasoDeUso2Test {
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
 
         //Act
-        asimilador.construirEnCasillero(casillero);
+        asimilador.construir(casillero);
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
@@ -316,7 +316,7 @@ public class CasoDeUso2Test {
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
 
         //Act;
-        asimilador.construirEnCasillero(casillero);
+        asimilador.construir(casillero);
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
@@ -336,7 +336,7 @@ public class CasoDeUso2Test {
 
         //Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
-        acceso.construirEnCasillero(casillero);
+        acceso.construir(casillero);
         acceso.nuevoTurno();
         acceso.nuevoTurno();
         acceso.nuevoTurno();
@@ -356,7 +356,7 @@ public class CasoDeUso2Test {
 
         //Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
-        acceso.construirEnCasillero(casillero);
+        acceso.construir(casillero);
         acceso.nuevoTurno();
         acceso.nuevoTurno();
         acceso.nuevoTurno();
@@ -378,7 +378,7 @@ public class CasoDeUso2Test {
 
         //Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
-        puertoEstelar.construirEnCasillero(casillero);
+        puertoEstelar.construir(casillero);
         puertoEstelar.nuevoTurno();
         puertoEstelar.nuevoTurno();
         puertoEstelar.nuevoTurno();
@@ -400,7 +400,7 @@ public class CasoDeUso2Test {
 
         //Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
-        puertoEstelar.construirEnCasillero(casillero);
+        puertoEstelar.construir(casillero);
         puertoEstelar.nuevoTurno();
         puertoEstelar.nuevoTurno();
         puertoEstelar.nuevoTurno();

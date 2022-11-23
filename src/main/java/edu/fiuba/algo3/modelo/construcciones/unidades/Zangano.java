@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades;
 
+import edu.fiuba.algo3.modelo.recursos.Gas;
+import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.recursos.Recurso;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
@@ -11,7 +13,7 @@ public class Zangano extends UnidadZerg {
         this.vida = 25;
         this.vidaMaxima = 25;
         this.turnosParaConstruirse = 1;
-        this.mineralNecesarioParaConstruir = 25;
+        this.recursosNecesarios.add(new Mineral(25));
     }
 
     public void ubicar(Casillero nuevaUbicacion) {

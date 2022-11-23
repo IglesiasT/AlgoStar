@@ -18,7 +18,7 @@ public class CasoDeUso6Test {
         Criadero criadero = new Criadero();
 
         //Act
-        criadero.construirEnCasillero(casillero1);
+        criadero.construir(casillero1);
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
@@ -45,7 +45,7 @@ public class CasoDeUso6Test {
         Criadero criadero = new Criadero();
 
         //Act
-        criadero.construirEnCasillero(casillero1);
+        criadero.construir(casillero1);
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
@@ -72,7 +72,7 @@ public class CasoDeUso6Test {
         Criadero criadero = new Criadero();
 
         //Act
-        criadero.construirEnCasillero(casillero1);
+        criadero.construir(casillero1);
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();

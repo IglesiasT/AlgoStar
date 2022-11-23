@@ -18,7 +18,7 @@ public class AccesoTest {
         Acceso acceso = new Acceso();
 
         //Act
-        pilon1.construirEnCasillero(casillero1);
+        pilon1.construir(casillero1);
         pilon1.nuevoTurno();
         pilon1.nuevoTurno();
         pilon1.nuevoTurno();
@@ -26,7 +26,7 @@ public class AccesoTest {
         pilon1.nuevoTurno();
         pilon1.nuevoTurno();
 
-        pilon2.construirEnCasillero(casillero2);
+        pilon2.construir(casillero2);
         pilon2.nuevoTurno();
         pilon2.nuevoTurno();
         pilon2.nuevoTurno();

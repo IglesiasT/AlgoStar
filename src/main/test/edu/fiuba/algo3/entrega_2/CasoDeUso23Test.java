@@ -1,14 +1,9 @@
 package edu.fiuba.algo3.entrega_2;
 
-import edu.fiuba.algo3.modelo.NoSePuedeEngendrar;
 import edu.fiuba.algo3.modelo.ObjetivoFueraDeRango;
-import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
-import edu.fiuba.algo3.modelo.construcciones.Criadero;
 import edu.fiuba.algo3.modelo.construcciones.Pilon;
-import edu.fiuba.algo3.modelo.construcciones.unidades.UnidadProtoss;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Zealot;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Zerling;
-import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +19,7 @@ public class CasoDeUso23Test {
         Zerling unidad = new Zerling();
         unidad.moverse(mapa.obtenerCasillero(1,1));
         Pilon pilon = new Pilon();
-        pilon.construirEnCasillero(mapa.obtenerCasillero(10, 10));
+        pilon.construir(mapa.obtenerCasillero(10, 10));
 
         pilon.nuevoTurno();
         pilon.nuevoTurno();
@@ -47,7 +42,7 @@ public class CasoDeUso23Test {
         Zerling unidad = new Zerling();
         unidad.moverse(mapa.obtenerCasillero(1,1));
         Pilon pilon = new Pilon();
-        pilon.construirEnCasillero(mapa.obtenerCasillero(1, 2));
+        pilon.construir(mapa.obtenerCasillero(1, 2));
 
         pilon.nuevoTurno();
         pilon.nuevoTurno();

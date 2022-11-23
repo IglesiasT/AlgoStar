@@ -17,9 +17,8 @@ public class NexoMineral extends ConstruccionProtoss {
         this.vida = 250;
         this.produccionPorTurno = 20;
         this.turnosParaConstruirse = 4;
-        this.mineralNecesarioParaConstruir = 50;
+        this.recursosNecesarios.add(new Mineral(50));
         this.mineralProducido = 0;
-
     }
 
     @Override

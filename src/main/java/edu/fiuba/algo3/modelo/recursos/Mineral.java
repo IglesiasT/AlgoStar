@@ -5,4 +5,10 @@ public class Mineral extends Recurso{
         super();
         this.cantidad = 2000;
     }
+
+    public Mineral(int cantidad){
+        super();
+        this.cantidad = cantidad;
+    }
+
 }

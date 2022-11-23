@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.GasProducido;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.recursos.Mineral;
 
 import java.util.ArrayList;
 
@@ -18,7 +19,7 @@ public class Extractor extends ConstruccionZerg {
         this.capacidadMaximaDeZanganos = 3;
         this.zanganosAsignados = new ArrayList<>();
         this.gasProducido = 0;
-        this.mineralNecesarioParaConstruir = 100;
+        this.recursosNecesarios.add(new Mineral(100));
         this.vida = 750;
         this.vidaMaxima = 750;
     }
