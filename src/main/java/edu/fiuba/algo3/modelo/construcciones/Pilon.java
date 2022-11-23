@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.construcciones;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.SinEspacio;
+import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
@@ -33,8 +34,8 @@ public class Pilon extends ConstruccionProtoss {
             }
         }
     }
-    public void construir(Casillero casilleroAConstruir){
-        //super.construir(casilleroAConstruir);
+    public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
+        super.construir(casilleroAConstruir, recursos);
         this.casillerosEnergizados = this.ubicacion.obtenerCasilleros(this.radioAfectado);
     }
 

@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.construcciones;
 
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
+import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
@@ -19,5 +20,13 @@ public class Acceso extends ConstruccionProtoss {
             throw new EdificioNoEstaOperativo();
         }
         // recibir coleccion de unidades protoss y cambiar ubicacion de todas
+    }
+
+    @Override
+    public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
+        if (! casilleroAConstruir.contiene(new RangoPilon())){  // Sacar if usando patron State
+            throw new FueraDeRangoDePilon();
+        }
+        super.construir(casilleroAConstruir, recursos);
     }
 }
