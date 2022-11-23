@@ -4,9 +4,10 @@ import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.recursos.GasProducido;
+import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 
-public class Asimilador extends ConstruccionProtoss {
+public class Asimilador extends ConstruccionProtoss implements ProductorDeGas {
     private int gasProducido;
     private int produccionPorTurno;
 

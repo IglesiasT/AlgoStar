@@ -10,7 +10,7 @@ import edu.fiuba.algo3.modelo.recursos.Mineral;
 
 import java.util.ArrayList;
 
-public class Extractor extends ConstruccionZerg {
+public class Extractor extends ConstruccionZerg implements ProductorDeGas{
     private int gasProducido;
     private int capacidadMaximaDeZanganos;
     private ArrayList<Zangano> zanganosAsignados;
@@ -36,7 +36,7 @@ public class Extractor extends ConstruccionZerg {
         }
     }
 
-    protected void producirGas(){
+    public void producirGas(){
         for (Zangano zangano: this.zanganosAsignados) {
             this.gasProducido += zangano.producir();
         }
