@@ -14,11 +14,6 @@ public class Acceso extends ConstruccionProtoss {
         this.vida = 500;
     }
 
-    @Override
-    public boolean sePuedeConstruirEn(Casillero casillero) {
-        return (casillero.contiene(new RangoPilon()) && casillero.contiene(new SinRecurso()));
-    }
-
     public void transportarTropas() {
         if (turnos < this.turnosParaConstruirse){
             throw new EdificioNoEstaOperativo();

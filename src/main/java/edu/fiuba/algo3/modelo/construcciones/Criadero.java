@@ -63,11 +63,6 @@ public class Criadero extends ConstruccionZerg {
 
         return unidad;
     }
-
-    @Override
-    public boolean sePuedeConstruirEn(Casillero casillero) {
-        return (casillero.contiene(new SinRecurso()));
-    }
     public void expandirMoho(){
         ArrayList<Casillero> casillerosInfectados = new ArrayList<>(this.ubicacion.obtenerCasilleros(this.rangoMoho));
 

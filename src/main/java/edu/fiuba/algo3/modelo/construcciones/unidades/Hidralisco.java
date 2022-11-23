@@ -17,9 +17,4 @@ public class Hidralisco extends UnidadZerg{
         this.recursosNecesarios.agregar(new Mineral(75));
         this.recursosNecesarios.agregar(new Gas(25));
     }
-
-    @Override
-    public boolean sePuedeConstruirEn(Casillero casillero) {
-        return false;
-    }
 }

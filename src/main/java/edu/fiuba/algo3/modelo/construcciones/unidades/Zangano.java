@@ -27,8 +27,4 @@ public class Zangano extends UnidadZerg {
         return recurso.recolectar(10);
     }
 
-    @Override
-    public boolean sePuedeConstruirEn(Casillero casillero) {
-        return false;
-    }
 }

@@ -38,11 +38,6 @@ public class Pilon extends ConstruccionProtoss {
         this.casillerosEnergizados = this.ubicacion.obtenerCasilleros(this.radioAfectado);
     }
 
-    @Override
-    public boolean sePuedeConstruirEn(Casillero casillero) {
-        return (!casillero.contiene(new Moho()) && casillero.contiene(new SinRecurso()));
-    }
-
     public void destruir(){
         for (Casillero casillero: this.casillerosEnergizados) {
             if (! casillero.contiene(new Moho())){

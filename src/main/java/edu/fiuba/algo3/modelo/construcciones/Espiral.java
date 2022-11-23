@@ -15,11 +15,6 @@ public class Espiral extends ConstruccionZerg {
         this.vida = this.vidaMaxima;
     }
 
-    @Override
-    public boolean sePuedeConstruirEn(Casillero casillero) {
-        return (casillero.contiene(new Moho()) && casillero.contiene(new SinRecurso()));
-    }
-
     public void evolucionarAMutalisco(){
         if (turnos < this.turnosParaConstruirse){
             throw new EdificioNoEstaOperativo();
