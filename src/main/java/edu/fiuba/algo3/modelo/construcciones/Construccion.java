@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Recurso;
 
 import java.util.HashSet;
@@ -13,7 +14,7 @@ public abstract class Construccion {
     protected int turnosParaConstruirse;
     protected int vidaMaxima;
     protected int vida;
-    protected Set<Recurso> recursosNecesarios;
+    protected ListadoDeRecursos recursosNecesarios;
 
     protected int turnos;
     protected Casillero ubicacion;
@@ -27,18 +28,15 @@ public abstract class Construccion {
         this.turnos = 0;
         this.superficie = "Tierra";
         this.area = new AreaTerrestre();
-        this.recursosNecesarios = new HashSet<>();
+        this.recursosNecesarios = new ListadoDeRecursos();
     }
 
-    public void construir(Casillero casilleroAConstruir, Set<Recurso> recursos){
-        if (! recursos.containsAll(this.recursosNecesarios)) {      // esta dando siempre false
+    public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
+        if (! recursos.contieneTodos(this.recursosNecesarios)) {
             throw new NoSePuedeConstruir();
         }
 
-        for (Recurso recurso : recursos) {
-            recurso.consumir(this.recursosNecesarios);
-        }
-
+        this.recursosNecesarios.consumir(recursos);
         casilleroAConstruir.establecerConstruccion(this);
         this.ubicacion = casilleroAConstruir;
     }
