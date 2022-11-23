@@ -73,7 +73,7 @@ public class CasoDeUso8Test {
     @Test
     public void criaderoSePuedeConstruirConLosRecursosSuficientes(){
 
-        int mineralNecesario = 50;
+        int mineralNecesario = 200;
         int gasNecesario = 0;
         Zerg razaZerg = new Zerg(mineralNecesario,gasNecesario);
 

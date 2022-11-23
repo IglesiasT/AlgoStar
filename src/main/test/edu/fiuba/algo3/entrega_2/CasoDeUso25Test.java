@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CasoDeUso25Test {
@@ -56,5 +57,15 @@ public class CasoDeUso25Test {
         System.setIn(in);
 
         assertThrows(DatosRepetidos.class, () -> juego.comenzarJuego());
+    }
+
+    @Test
+    public void sePuedeCrearLosJugadoresConDatosValidos() {
+        AlgoStar juego = new AlgoStar();
+        String input = "Amparo\nVioleta\nZerg\nAmparoMaria\nRojo\nProtoss\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        assertDoesNotThrow(() ->juego.comenzarJuego());
     }
 }

@@ -37,6 +37,7 @@ public abstract class Construccion {
     }
 
     public abstract boolean sePuedeConstruirEn (Casillero casillero);
+
     public boolean recursosSuficientes(int cantidadMineral, int cantidadGas){
         return (cantidadMineral >= this.mineralNecesarioParaConstruir && cantidadGas >= this.gasNecesarioParaConstruir);
     }

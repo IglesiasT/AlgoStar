@@ -19,11 +19,9 @@ public class ZergTest {
         Zerg razaZerg = new Zerg();
 
         Casillero casilleroAConstruir1 = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
-        Casillero casilleroAConstruir2 = new Casillero(new AreaTerrestre(),1, 2, new Mapa());
 
         //Act
         razaZerg.construirCriadero(casilleroAConstruir1);
-        razaZerg.construirCriadero(casilleroAConstruir2);
 
         //Assert
         assertThrows(NoSePuedeConstruir.class, () -> razaZerg.construirCriadero(casilleroAConstruir1));

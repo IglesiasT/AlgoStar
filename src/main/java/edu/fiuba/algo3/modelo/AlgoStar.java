@@ -1,19 +1,26 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
+import edu.fiuba.algo3.modelo.estados.EstadoDeJuego;
+import edu.fiuba.algo3.modelo.estados.Jugando;
+import edu.fiuba.algo3.modelo.estados.Terminado;
 import edu.fiuba.algo3.modelo.jugador.DatosRepetidos;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.*;
 import java.util.Scanner;
 
 public class AlgoStar {
-    private LinkedList <Jugador> jugadores;
+    private ArrayList<Jugador> jugadores;
     private Mapa mapa ;
+    private EstadoDeJuego estado;
+
+    private int turnos;
 
     public AlgoStar (){
-        this.jugadores = new LinkedList<>();
+        this.jugadores = new ArrayList<>();
         this.mapa = new Mapa();
+        this.turnos = 0;
     }
 
     private String[] conseguirDatosDelJugador(Scanner lectura) {
@@ -46,10 +53,26 @@ public class AlgoStar {
         }
 
         jugadores.add ( new Jugador (DatosJugadorUno[0], DatosJugadorUno[1], DatosJugadorUno[2]) ) ;
-        jugadores.get(1).setBaseInicial(mapa.obtenerBaseUno());
+        jugadores.get(0).setBaseInicial(mapa.obtenerBaseUno());
         jugadores.add ( new Jugador (DatosJugadorDos[0], DatosJugadorDos[1], DatosJugadorDos[2]) ) ;
-        jugadores.get(2).setBaseInicial(mapa.obtenerBaseDos());
+        jugadores.get(1).setBaseInicial(mapa.obtenerBaseDos());
 
+        this.estado = new Jugando();
+    }
+
+    public void siguienteTurno(){
+        this.estado.jugar() ;
+        this.turnos++;
+        this.estado = this.terminar_juego(this.estado);
+    }
+
+    private EstadoDeJuego terminar_juego (EstadoDeJuego estado) {
+        for (Jugador jugador : this.jugadores){
+            if ( (jugador.construcciones() == 0) && (this.turnos >= 2) ) {
+                return new Terminado();
+            }
+        }
+        return estado;
     }
 
 }

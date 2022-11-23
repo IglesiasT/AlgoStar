@@ -15,7 +15,7 @@ public class CasoDeUso21Test {
 
     @Test
     public void mutaliscoNoPuedeEvolucionarSinLosRecursosSuficientes(){
-        int mineralPrerrequisitos = 650;
+        int mineralPrerrequisitos = 800;
         int gasPrerrequisitos = 300;
 
         Zerg razaZerg = new Zerg(mineralPrerrequisitos,gasPrerrequisitos);
@@ -44,7 +44,7 @@ public class CasoDeUso21Test {
 
     @Test
     public void mutaliscoPuedeEvolucionarConLosRecursosSuficientes(){
-        int mineralPrerrequisitos = 700;
+        int mineralPrerrequisitos = 900;
         int gasPrerrequisitos = 400;
 
         Zerg razaZerg = new Zerg(mineralPrerrequisitos,gasPrerrequisitos);

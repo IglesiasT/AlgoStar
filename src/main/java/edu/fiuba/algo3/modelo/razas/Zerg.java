@@ -192,4 +192,8 @@ public class Zerg extends Raza{
 
         return unidad;
     }
+
+    public int construcciones() {
+        return construccionesRealizadas.size();
+    }
 }

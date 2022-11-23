@@ -8,4 +8,5 @@ public abstract class Raza {
         this.cantidadDeMineral = 200;
         this.cantidadDeGas = 0;
     }
+    public abstract int construcciones();
 }

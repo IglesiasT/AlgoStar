@@ -139,4 +139,8 @@ public class Protoss extends Raza{
         this.construir(scout, casilleroAConstruir);
         return scout;
     }
+
+    public int construcciones() {
+        return construccionesRealizadas.size();
+    }
 }

@@ -31,4 +31,8 @@ public class Jugador {
     public void setBaseInicial(Base baseInicial){
         this.baseInicial = baseInicial;
     }
+
+    public int construcciones(){
+        return this.raza.construcciones();
+    }
 }
