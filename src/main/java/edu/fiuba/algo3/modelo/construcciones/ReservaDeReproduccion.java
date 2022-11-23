@@ -8,7 +8,7 @@ import edu.fiuba.algo3.modelo.mapa.Casillero;
 public class ReservaDeReproduccion extends ConstruccionZerg {
 
     public ReservaDeReproduccion(){
-        this.recursosNecesarios.add(new Mineral(150));
+        this.recursosNecesarios.agregar(new Mineral(150));
         this.turnosParaConstruirse = 12;
         this.vida = 1000;
         this.vidaMaxima = 1000;

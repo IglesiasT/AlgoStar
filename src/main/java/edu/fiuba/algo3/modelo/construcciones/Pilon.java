@@ -20,7 +20,7 @@ public class Pilon extends ConstruccionProtoss {
         this.casillerosEnergizados  = new ArrayList<>();
         this.escudo = new Escudo(300);
         this.vida = 300;
-        this.recursosNecesarios.add(new Mineral(100));
+        this.recursosNecesarios.agregar(new Mineral(100));
     }
 
     public void energizar(){

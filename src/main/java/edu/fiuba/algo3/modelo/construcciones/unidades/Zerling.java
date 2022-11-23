@@ -11,7 +11,7 @@ public class Zerling extends UnidadZerg{
         this.vidaMaxima = 35;
         this.turnosParaConstruirse = 2;
         this.rangoDeAtaque = 1;
-        this.recursosNecesarios.add(new Mineral(25));
+        this.recursosNecesarios.agregar(new Mineral(25));
     }
 
     @Override

@@ -14,8 +14,8 @@ public class Hidralisco extends UnidadZerg{
         this.vida = this.vidaMaxima;
         this.turnosParaConstruirse = 4;
         this.rangoDeAtaque = 4;
-        this.recursosNecesarios.add(new Mineral(75));
-        this.recursosNecesarios.add(new Gas(25));
+        this.recursosNecesarios.agregar(new Mineral(75));
+        this.recursosNecesarios.agregar(new Gas(25));
     }
 
     @Override

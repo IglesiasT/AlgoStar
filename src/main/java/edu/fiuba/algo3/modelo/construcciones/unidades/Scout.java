@@ -16,8 +16,8 @@ public class Scout extends UnidadProtoss{
         this.vida = 150;
         this.turnosParaConstruirse = 9;
         this.rangoDeAtaque = 4;
-        this.recursosNecesarios.add(new Mineral(300));
-        this.recursosNecesarios.add(new Gas(150));
+        this.recursosNecesarios.agregar(new Mineral(300));
+        this.recursosNecesarios.agregar(new Gas(150));
         this.superficie = "Aire";
         this.area = new AreaEspacial();
     }

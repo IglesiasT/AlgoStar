@@ -71,21 +71,11 @@ public class Zerg extends Raza{
     }
 
     public void construirEspiral(Casillero casilleroAConstruir){
-        boolean flag = false;
-        for (ConstruccionZerg construccion : this.construccionesRealizadas) {
-            if (construccion.getClass() == Guarida.class) {
-                flag = true;
-                break;
-            }
-
-        }
-        if (! flag){
+        if (! this.construccionesRealizadas.contains(new Guarida())){
             throw new NoSePuedeConstruir();
         }
 
-        Espiral espiral = new Espiral();
-
-        this.construir(espiral, casilleroAConstruir);
+        this.construir(new Espiral(), casilleroAConstruir);
     }
 
     public Mutalisco engendrarMutalisco(Criadero criaderoAUsar){

@@ -20,7 +20,7 @@ public class Criadero extends ConstruccionZerg {
         this.maximoDeLarvas = 3;
         this.larvas = this.maximoDeLarvas;
         this.turnosParaConstruirse = 4;
-        this.recursosNecesarios.add(new Mineral(50));
+        this.recursosNecesarios.agregar(new Mineral(50));
         this.rangoMoho = 4;
         this.vida = 500;
         this.vidaMaxima = 500;

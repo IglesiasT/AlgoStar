@@ -14,8 +14,8 @@ public class Dragon extends UnidadProtoss{
         this.escudo = new Escudo(80);
         this.turnosParaConstruirse = 6;
         this.rangoDeAtaque = 4;
-        this.recursosNecesarios.add(new Mineral(125));
-        this.recursosNecesarios.add(new Gas(50));
+        this.recursosNecesarios.agregar(new Mineral(125));
+        this.recursosNecesarios.agregar(new Gas(50));
     }
     @Override
     public boolean sePuedeConstruirEn(Casillero casillero) {

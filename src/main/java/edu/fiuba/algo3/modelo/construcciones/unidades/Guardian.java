@@ -12,8 +12,8 @@ public class Guardian extends UnidadZerg{
         this.vida = 100;
         this.turnosParaConstruirse = 4;
         this.rangoDeAtaque = 10;
-        this.recursosNecesarios.add(new Mineral(50));
-        this.recursosNecesarios.add(new Gas(100));
+        this.recursosNecesarios.agregar(new Mineral(50));
+        this.recursosNecesarios.agregar(new Gas(100));
         this.area = new AreaEspacial();
     }
 

@@ -16,8 +16,8 @@ public class Mutalisco extends UnidadZerg{
         this.vida = this.vidaMaxima;
         this.turnosParaConstruirse = 7;
         this.rangoDeAtaque = 3;
-        this.recursosNecesarios.add(new Mineral(100));
-        this.recursosNecesarios.add(new Gas(100));
+        this.recursosNecesarios.agregar(new Mineral(100));
+        this.recursosNecesarios.agregar(new Gas(100));
         this.superficie = "Aire";
         this.area = new AreaEspacial();
     }

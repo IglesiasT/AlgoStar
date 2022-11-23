@@ -16,8 +16,7 @@ public class Asimilador extends ConstruccionProtoss {
         this.vida = 450;
         this.gasProducido = 0;
         this.turnosParaConstruirse = 6;
-        this.recursosNecesarios.add(new Gas(100)); //no va
-        this.recursosNecesarios.add(new Mineral(100));
+        this.recursosNecesarios.agregar(new Mineral(100));
         this.produccionPorTurno = 20;
     }
 
