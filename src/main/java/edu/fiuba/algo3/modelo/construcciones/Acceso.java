@@ -18,4 +18,11 @@ public class Acceso extends ConstruccionProtoss {
     public boolean sePuedeConstruirEn(Casillero casillero) {
         return (casillero.contiene(new RangoPilon()) && casillero.contiene(new SinRecurso()));
     }
+
+    public void transportarTropas() {
+        if (turnos < this.turnosParaConstruirse){
+            throw new EdificioNoEstaOperativo();
+        }
+        // recibir coleccion de unidades protoss y cambiar ubicacion de todas
+    }
 }

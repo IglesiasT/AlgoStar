@@ -19,4 +19,11 @@ public class Guarida extends ConstruccionZerg {
     public boolean sePuedeConstruirEn(Casillero casillero) {
         return (casillero.contiene(new Moho()) && casillero.contiene(new SinRecurso()));
     }
+
+    public void evolucionarAHidralisco(){
+        if (turnos < this.turnosParaConstruirse){
+            throw new EdificioNoEstaOperativo();
+        }
+        // recibir Larva y cambiar estado a Hidralisco
+    }
 }
