@@ -18,7 +18,6 @@ public class CasoDeUso2Test {
         Criadero criadero = new Criadero();
 
         //Act
-        criadero.construir(new Casillero(new AreaTerrestre(), 1 ,1, new Mapa()));
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
@@ -31,9 +30,10 @@ public class CasoDeUso2Test {
     public void pasanCuatroTurnosYCriaderoEstaOperativo(){
         //Arrange
         Criadero criadero = new Criadero();
+        Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
 
         //Act
-        criadero.construir(new Casillero(new AreaTerrestre(),1,1, new Mapa()));
+        criadero.establecerUbicacion(casillero);
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
@@ -51,7 +51,8 @@ public class CasoDeUso2Test {
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
-        reserva.construir(casillero);
+        reserva.establecerUbicacion(casillero);
+
         reserva.nuevoTurno();
         reserva.nuevoTurno();
         reserva.nuevoTurno();
@@ -66,18 +67,18 @@ public class CasoDeUso2Test {
 
 
         //Assert
-        //assertThrows(EdificioNoEstaOperativo.class, reserva::evolucionarLarva);
+        assertThrows(EdificioNoEstaOperativo.class, reserva::evolucionarAZerling);
     }
 
     @Test
     public void pasanDoceTurnosYReservaDeReproduccionEstaOperativo(){
-        //Arrange
+        // Arrange
         ReservaDeReproduccion reserva = new ReservaDeReproduccion();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
 
-        //Act
+        // Act
         casillero.setEspacioDeConstruccion(new Moho());
-        reserva.construir(casillero);
+        reserva.establecerUbicacion(casillero);
         reserva.nuevoTurno();
         reserva.nuevoTurno();
         reserva.nuevoTurno();
@@ -91,36 +92,36 @@ public class CasoDeUso2Test {
         reserva.nuevoTurno();
         reserva.nuevoTurno();
 
-        //Assert
-        //assertDoesNotThrow(reserva::evolucionarLarva);
+        // Assert
+        assertDoesNotThrow(reserva::evolucionarAZerling);
     }
 
     @Test
     public void extractorNoEstaOperativoAntesDeSeisTurnos(){
-        //Arrange
+        // Arrange
         Extractor extractor = new Extractor();
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
 
-        //Act
+        // Act
         casillero.setEspacioDeConstruccion(new Moho());
-        extractor.construir(casillero);
+        extractor.establecerUbicacion(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
 
-        //Assert
+        // Assert
         assertThrows(EdificioNoEstaOperativo.class, extractor::obtenerGasProducido);
     }
 
     @Test
     public void extractorEstaOperativoLuegoDeSeisTurnos(){
-        //Arrange
+        // Arrange
         Extractor extractor = new Extractor();
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
-        extractor.construir(casillero);
+        extractor.establecerUbicacion(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
@@ -134,13 +135,13 @@ public class CasoDeUso2Test {
 
     @Test
     public void pasanOnceTurnosYGuaridaNoEstaOperativo(){
-        //Arrange
+        // Arrange
         Guarida guarida = new Guarida();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
 
-        //Act
+        // Act
         casillero.setEspacioDeConstruccion(new Moho());
-        guarida.construir(casillero);
+        guarida.establecerUbicacion(casillero);
         guarida.nuevoTurno();
         guarida.nuevoTurno();
         guarida.nuevoTurno();
@@ -154,17 +155,17 @@ public class CasoDeUso2Test {
         guarida.nuevoTurno();
 
 
-        //Assert
-        //assertThrows(EdificioNoEstaOperativo.class, guarida::evolucionarLarva);
+        // Assert
+        assertThrows(EdificioNoEstaOperativo.class, guarida::evolucionarAHidralisco);
     }
 
     @Test
     public void pasanDoceTurnosYGuaridaEstaOperativo(){
-        //Arrange
+        // Arrange
         Guarida guarida = new Guarida();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
 
-        //Act
+        // Act
         casillero.setEspacioDeConstruccion(new Moho());
         guarida.construir(casillero);
         guarida.nuevoTurno();
@@ -180,19 +181,19 @@ public class CasoDeUso2Test {
         guarida.nuevoTurno();
         guarida.nuevoTurno();
 
-        //Assert
-        //assertDoesNotThrow(guarida::evolucionarLarva);
+        // Assert
+        assertDoesNotThrow(guarida::evolucionarAHidralisco);
     }
 
     @Test
     public void pasanNueveTurnosYEspiralNoEstaOperativo(){
-        //Arrange
+        // Arrange
         Espiral espiral = new Espiral();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
 
-        //Act
+        // Act
         casillero.setEspacioDeConstruccion(new Moho());
-        espiral.construir(casillero);
+        espiral.establecerUbicacion(casillero);
         espiral.nuevoTurno();
         espiral.nuevoTurno();
         espiral.nuevoTurno();
@@ -204,19 +205,19 @@ public class CasoDeUso2Test {
         espiral.nuevoTurno();
 
 
-        //Assert
-        //assertThrows(EdificioNoEstaOperativo.class, espiral::evolucionarLarva);
+        // Assert
+        assertThrows(EdificioNoEstaOperativo.class, espiral::evolucionarAMutalisco);
     }
 
     @Test
     public void pasanDiezTurnosYEspiralEstaOperativo(){
-        //Arrange
+        // Arrange
         Espiral espiral = new Espiral();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
 
-        //Act
+        // Act
         casillero.setEspacioDeConstruccion(new Moho());
-        espiral.construir(casillero);
+        espiral.establecerUbicacion(casillero);
         espiral.nuevoTurno();
         espiral.nuevoTurno();
         espiral.nuevoTurno();
@@ -228,95 +229,95 @@ public class CasoDeUso2Test {
         espiral.nuevoTurno();
         espiral.nuevoTurno();
 
-        //Assert
-        //assertDoesNotThrow(espiral::evolucionarLarva);
+        // Assert
+        assertDoesNotThrow(espiral::evolucionarAMutalisco);
     }
 
     @Test
     public void nexoMineralNoEstaOperativoAntesDeCuatroTurnos(){
-        //Arrange
+        // Arrange
         NexoMineral nexo = new NexoMineral();
 
-        //Act
+        // Act
         nexo.nuevoTurno();
         nexo.nuevoTurno();
         nexo.nuevoTurno();
 
-        //Assert
+        // Assert
         assertThrows(EdificioNoEstaOperativo.class, nexo::obtenerMineralProducido);
     }
 
     @Test
     public void nexoMineralEstaOperativoLuegoDeCuatroTurnos(){
-        //Arrange
+        // Arrange
         NexoMineral nexo = new NexoMineral();
 
-        //Act
+        // Act
         nexo.nuevoTurno();
         nexo.nuevoTurno();
         nexo.nuevoTurno();
         nexo.nuevoTurno();
 
-        //Assert
+        // Assert
         assertDoesNotThrow(nexo::obtenerMineralProducido);
     }
 
     @Test
     public void pilonNoEstaOperativoAntesDeCincoTurnos(){
-        //Ararnge
+        // Ararnge
         Pilon pilon = new Pilon();
 
-        //Act
+        // Act
         pilon.nuevoTurno();
         pilon.nuevoTurno();
         pilon.nuevoTurno();
         pilon.nuevoTurno();
 
-        //Assert
+        // Assert
         assertThrows(EdificioNoEstaOperativo.class, pilon::energizar);
     }
 
     @Test
     public void pilonEstaOperativoLuegoDeCincoTurnos(){
-        //Ararnge
+        // Ararnge
         Pilon pilon = new Pilon();
 
-        //Act
+        // Act
         pilon.nuevoTurno();
         pilon.nuevoTurno();
         pilon.nuevoTurno();
         pilon.nuevoTurno();
         pilon.nuevoTurno();
 
-        //Assert
+        // Assert
         assertDoesNotThrow(pilon::energizar);
     }
 
     @Test
     public void asimiladorNoEstaOperativoAntesDeSeisTurnos(){
-        //Arrange
+        // Arrange
         Asimilador asimilador = new Asimilador();
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
 
-        //Act
-        asimilador.construir(casillero);
+        // Act
+        asimilador.establecerUbicacion(casillero);
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
 
-        //Assert
+        // Assert
         assertThrows(EdificioNoEstaOperativo.class, asimilador::obtenerGasProducido);
     }
     @Test
     public void asimiladorEstaOperativoLuegoDeSeisTurnos(){
-        //Arrange
+        // Arrange
         Asimilador asimilador = new Asimilador();
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
 
-        //Act;
-        asimilador.construir(casillero);
+        // Act;
+        asimilador.establecerUbicacion(casillero);
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
@@ -324,19 +325,19 @@ public class CasoDeUso2Test {
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
 
-        //Assert
+        // Assert
         assertDoesNotThrow(asimilador::obtenerGasProducido);
     }
 
     @Test
     public void accesoNoEstaOperativoAntesDeOchoTurnos(){
-        //Arrange
+        // Arrange
         Acceso acceso = new Acceso();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
 
-        //Act
+        // Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
-        acceso.construir(casillero);
+        acceso.establecerUbicacion(casillero);
         acceso.nuevoTurno();
         acceso.nuevoTurno();
         acceso.nuevoTurno();
@@ -345,18 +346,18 @@ public class CasoDeUso2Test {
         acceso.nuevoTurno();
         acceso.nuevoTurno();
 
-        //Assert
-        //assertThrows(EdificioNoEstaOperativo.class, acceso::transportarTropas);
+        // Assert
+        assertThrows(EdificioNoEstaOperativo.class, acceso::transportarTropas);
     }
     @Test
     public void accesoEstaOperativoLuegoDeOchoTurnos(){
-        //Arrange
+        // Arrange
         Acceso acceso = new Acceso();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
 
-        //Act
+        // Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
-        acceso.construir(casillero);
+        acceso.establecerUbicacion(casillero);
         acceso.nuevoTurno();
         acceso.nuevoTurno();
         acceso.nuevoTurno();
@@ -366,19 +367,19 @@ public class CasoDeUso2Test {
         acceso.nuevoTurno();
         acceso.nuevoTurno();
 
-        //Assert
-        //assertDoesNotThrow(acceso::transportarTropas);
+        // Assert
+        assertDoesNotThrow(acceso::transportarTropas);
     }
 
     @Test
     public void puertoEstelarNoEstaOperativoAntesDeDiezTurnos(){
-        //Arrange
+        // Arrange
         PuertoEstelar puertoEstelar = new PuertoEstelar();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
 
-        //Act
+        // Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
-        puertoEstelar.construir(casillero);
+        puertoEstelar.establecerUbicacion(casillero);
         puertoEstelar.nuevoTurno();
         puertoEstelar.nuevoTurno();
         puertoEstelar.nuevoTurno();
@@ -389,18 +390,18 @@ public class CasoDeUso2Test {
         puertoEstelar.nuevoTurno();
         puertoEstelar.nuevoTurno();
 
-        //Assert
-        //assertThrows(EdificioNoEstaOperativo.class, puertoEstelar::transportarTropas);
+        // Assert
+        assertThrows(EdificioNoEstaOperativo.class, puertoEstelar::transportarTropas);
     }
     @Test
     public void puertoEstelarEstaOperativoLuegoDeDiezTurnos(){
-        //Arrange
+        // Arrange
         PuertoEstelar puertoEstelar = new PuertoEstelar();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
 
-        //Act
+        // Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
-        puertoEstelar.construir(casillero);
+        puertoEstelar.establecerUbicacion(casillero);
         puertoEstelar.nuevoTurno();
         puertoEstelar.nuevoTurno();
         puertoEstelar.nuevoTurno();
@@ -412,7 +413,7 @@ public class CasoDeUso2Test {
         puertoEstelar.nuevoTurno();
         puertoEstelar.nuevoTurno();
 
-        //Assert
-        //assertDoesNotThrow(puertoEstelar::transportarTropas);
+        // Assert
+        assertDoesNotThrow(puertoEstelar::transportarTropas);
     }
 }
