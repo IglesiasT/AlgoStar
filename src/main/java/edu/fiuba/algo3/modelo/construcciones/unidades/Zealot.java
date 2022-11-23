@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades;
 
-import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.recursos.Mineral;
 
 public class Zealot extends UnidadProtoss{
     public Zealot(){
@@ -11,7 +11,7 @@ public class Zealot extends UnidadProtoss{
         this.escudo = new Escudo(60);
         this.turnosParaConstruirse = 4;
         this.rangoDeAtaque = 1;
-        this.mineralNecesarioParaConstruir = 100;
+        this.recursosNecesarios.agregar(new Mineral(100));
     }
     @Override
     public boolean sePuedeConstruirEn(Casillero casillero) {

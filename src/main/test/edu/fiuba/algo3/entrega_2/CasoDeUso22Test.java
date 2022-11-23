@@ -51,7 +51,7 @@ public class CasoDeUso22Test {
 
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
 
-        razaZerg.construirReservaDeProduccion(casillero2);
+        razaZerg.construirReservaDeReproduccion(casillero2);
 
         assertDoesNotThrow(() -> razaZerg.engendrarZerling((Criadero) casillero1.obtenerConstruccion()));
 
@@ -71,7 +71,7 @@ public class CasoDeUso22Test {
 
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
 
-        razaZerg.construirReservaDeProduccion(casillero2);
+        razaZerg.construirReservaDeReproduccion(casillero2);
 
         Zerling zerling = razaZerg.engendrarZerling((Criadero) casillero1.obtenerConstruccion());
 
@@ -95,7 +95,7 @@ public class CasoDeUso22Test {
 
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
 
-        razaZerg.construirReservaDeProduccion(casillero2);
+        razaZerg.construirReservaDeReproduccion(casillero2);
 
         Zerling zerling = razaZerg.engendrarZerling((Criadero) casillero1.obtenerConstruccion());
         zerling.establecerUbicacion(casillero2);
@@ -119,7 +119,7 @@ public class CasoDeUso22Test {
 
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
 
-        razaZerg.construirReservaDeProduccion(casillero2);
+        razaZerg.construirReservaDeReproduccion(casillero2);
 
         assertThrows(NoSePuedeEngendrar.class, () -> razaZerg.engendrarHidralisco((Criadero) casillero1.obtenerConstruccion()));
 
@@ -140,7 +140,7 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
 
-        razaZerg.construirReservaDeProduccion(casillero2);
+        razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
 
         assertDoesNotThrow(() -> razaZerg.engendrarHidralisco((Criadero) casillero1.obtenerConstruccion()));
@@ -162,7 +162,7 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
 
-        razaZerg.construirReservaDeProduccion(casillero2);
+        razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
 
         Hidralisco hidralisco = razaZerg.engendrarHidralisco((Criadero) casillero1.obtenerConstruccion());
@@ -188,7 +188,7 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
 
-        razaZerg.construirReservaDeProduccion(casillero2);
+        razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
 
         Hidralisco hidralisco = razaZerg.engendrarHidralisco((Criadero) casillero1.obtenerConstruccion());
@@ -217,7 +217,7 @@ public class CasoDeUso22Test {
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
 
 
-        razaZerg.construirReservaDeProduccion(casillero2);
+        razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
 
         assertThrows(NoSePuedeEngendrar.class, () -> razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion()));
@@ -241,7 +241,7 @@ public class CasoDeUso22Test {
         Casillero casillero4 = mapa.obtenerCasillero(1,4);
 
 
-        razaZerg.construirReservaDeProduccion(casillero2);
+        razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
         razaZerg.construirEspiral(casillero4);
 
@@ -266,7 +266,7 @@ public class CasoDeUso22Test {
         Casillero casillero4 = mapa.obtenerCasillero(1,4);
 
 
-        razaZerg.construirReservaDeProduccion(casillero2);
+        razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
         razaZerg.construirEspiral(casillero4);
 
@@ -294,7 +294,7 @@ public class CasoDeUso22Test {
         Casillero casillero4 = mapa.obtenerCasillero(1,4);
 
 
-        razaZerg.construirReservaDeProduccion(casillero2);
+        razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
         razaZerg.construirEspiral(casillero4);
 
@@ -328,7 +328,7 @@ public class CasoDeUso22Test {
         Casillero casillero4 = mapa.obtenerCasillero(1,4);
 
 
-        razaZerg.construirReservaDeProduccion(casillero2);
+        razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
         razaZerg.construirEspiral(casillero4);
 
@@ -367,7 +367,7 @@ public class CasoDeUso22Test {
         Casillero casillero4 = mapa.obtenerCasillero(1,4);
 
 
-        razaZerg.construirReservaDeProduccion(casillero2);
+        razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
         razaZerg.construirEspiral(casillero4);
 
@@ -462,12 +462,13 @@ public class CasoDeUso22Test {
     @Test
     public void zealotPuedeAtacarDespuesDeQuePaseElTiempoDeConstruccion(){
         Protoss razaProtoss = new Protoss(1000,1000);
+        Zerg razaZerg = new Zerg();
         Mapa mapa = new Mapa();
         ReservaDeReproduccion reserva = new ReservaDeReproduccion();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setEspacioDeConstruccion(new Moho());
-        reserva.construirEnCasillero(casillero2);
+        razaZerg.construirReservaDeReproduccion(casillero2);
         razaProtoss.construirPilon(casillero1);
 
         razaProtoss.nuevoTurno();
@@ -557,20 +558,22 @@ public class CasoDeUso22Test {
 
     @Test
     public void dragonPuedeAtacarDespuesDeQuePaseElTiempoDeConstruccion(){
+        // Arrange
         Protoss razaProtoss = new Protoss(1000,1000);
+        Zerg razaZerg = new Zerg();
         Mapa mapa = new Mapa();
-        ReservaDeReproduccion reserva = new ReservaDeReproduccion();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
+
+        // Act
         casillero2.setEspacioDeConstruccion(new Moho());
-        reserva.construirEnCasillero(casillero2);
+        razaZerg.construirReservaDeReproduccion(casillero2);
         razaProtoss.construirPilon(casillero1);
 
-        razaProtoss.nuevoTurno();
-        razaProtoss.nuevoTurno();
-        razaProtoss.nuevoTurno();
-        razaProtoss.nuevoTurno();
-        razaProtoss.nuevoTurno();
+        for (int i = 0; i < 12; i++) {
+            razaProtoss.nuevoTurno();
+            razaZerg.nuevoTurno();
+        }
 
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         Casillero casillero4 = mapa.obtenerCasillero(2,1);
@@ -586,7 +589,7 @@ public class CasoDeUso22Test {
         razaProtoss.nuevoTurno();
         razaProtoss.nuevoTurno();
 
-        assertDoesNotThrow(() -> dragon.atacar(reserva));
+        assertDoesNotThrow(() -> dragon.atacar(new ReservaDeReproduccion()));
     }
 
     @Test
@@ -664,12 +667,13 @@ public class CasoDeUso22Test {
     @Test
     public void scoutPuedeAtacarDespuesDeQuePaseElTiempoDeConstruccion(){
         Protoss razaProtoss = new Protoss(1000,1000);
+        Zerg razaZerg = new Zerg();
         Mapa mapa = new Mapa();
         ReservaDeReproduccion reserva = new ReservaDeReproduccion();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setEspacioDeConstruccion(new Moho());
-        reserva.construirEnCasillero(casillero2);
+        razaZerg.construirReservaDeReproduccion(casillero2);
         razaProtoss.construirPilon(casillero1);
 
         razaProtoss.nuevoTurno();

@@ -17,9 +17,7 @@ public class Protoss extends Raza{
     }
 
     public Protoss(int mineralInicial, int gasInicial){
-        super();
-        this.cantidadDeMineral = mineralInicial;
-        this.cantidadDeGas = gasInicial;
+        super(mineralInicial, gasInicial);
         this.construccionesRealizadas = new LinkedList<>();
     }
 
@@ -29,17 +27,9 @@ public class Protoss extends Raza{
         }
     }
 
-    public void construir(ConstruccionProtoss construccion, Casillero casilleroAConstruir){
+    private void construir(ConstruccionProtoss construccion, Casillero casilleroAConstruir){
 
-        if(!construccion.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
-            throw new NoSePuedeConstruir();
-        }
-
-        construccion.construirEnCasillero(casilleroAConstruir);
-
-        //Se pudo construir
-        this.cantidadDeMineral = construccion.consumirMineral(this.cantidadDeMineral);
-        this.cantidadDeGas = construccion.consumirGas(this.cantidadDeGas);
+        construccion.construir(casilleroAConstruir, this.recursos);
         this.construccionesRealizadas.add(construccion);
     }
     public void construirPilon(Casillero casilleroAConstruir){
@@ -55,9 +45,7 @@ public class Protoss extends Raza{
     }
 
     public void construirAsimilador(Casillero casilleroAConstruir) {
-        Asimilador asimilador = new Asimilador();
-
-        this.construir(asimilador, casilleroAConstruir);
+        this.construir(new Asimilador(), casilleroAConstruir);
     }
 
     public void construirAcceso(Casillero casilleroAConstruir){

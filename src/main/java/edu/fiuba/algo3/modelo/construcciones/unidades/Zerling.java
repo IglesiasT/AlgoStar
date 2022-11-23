@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades;
 
 import edu.fiuba.algo3.modelo.mapa.*;
+import edu.fiuba.algo3.modelo.recursos.Mineral;
+
 public class Zerling extends UnidadZerg{
     public Zerling(){
         super();
@@ -9,7 +11,7 @@ public class Zerling extends UnidadZerg{
         this.vidaMaxima = 35;
         this.turnosParaConstruirse = 2;
         this.rangoDeAtaque = 1;
-        this.mineralNecesarioParaConstruir = 25;
+        this.recursosNecesarios.agregar(new Mineral(25));
     }
 
     @Override

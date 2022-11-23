@@ -17,7 +17,7 @@ public class CasoDeUso13Test {
         ReservaDeReproduccion reserva = new ReservaDeReproduccion();
 
         //Act
-        criadero.construirEnCasillero(casillero1);
+        criadero.construir(casillero1);
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();

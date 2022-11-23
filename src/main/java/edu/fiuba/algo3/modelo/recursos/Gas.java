@@ -6,4 +6,13 @@ public class Gas extends Recurso{
         super();
         this.cantidad = 5000;
     }
+    public Gas(int cantidad){
+        super();
+        this.cantidad = cantidad;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return this.getClass() == o.getClass();
+    }
 }

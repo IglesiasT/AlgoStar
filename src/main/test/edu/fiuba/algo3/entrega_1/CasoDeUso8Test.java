@@ -2,6 +2,7 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
+import edu.fiuba.algo3.modelo.construcciones.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.razas.Protoss;
@@ -10,6 +11,7 @@ import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.recursos.RecursosInsuficientes;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,226 +19,237 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CasoDeUso8Test {
     @Test
     public void asimiladorNoSePuedeConstruirSinLosRecursosSuficientes() {
-        int mineralNecesario = 100;
-        int gasNecesario = 0;
-        Protoss razaProtoss = new Protoss(mineralNecesario - 20,gasNecesario);
-
+        // Arrange
+        Protoss razaProtoss = new Protoss(0,0);
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
 
-        assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirAsimilador(casillero) );
+        // Act and Assert
+        assertThrows(RecursosInsuficientes.class, () -> razaProtoss.construirAsimilador(casillero) );
     }
 
     @Test
     public void asimiladorSePuedeConstruirConLosRecursosSuficientes(){
-
-        int mineralNecesario = 100;
-        int gasNecesario = 0;
-        Protoss razaProtoss = new Protoss(mineralNecesario,gasNecesario);
+        // Arrange
+        Protoss razaProtoss = new Protoss();
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
 
-        assertDoesNotThrow(() -> razaProtoss.construirAsimilador(casillero) );
+        // Act
+        razaProtoss.construirAsimilador(casillero);
+
+        // Assert
+        assertEquals(Asimilador.class, casillero.obtenerConstruccion().getClass());
     }
 
     @Test
     public void extractorNoSePuedeConstruirSinLosRecursosSuficientes() {
-
+        // Arrange
         Zerg razaZerg = new Zerg(0,0);
-
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+
+        // Act
         casillero.setEspacioDeConstruccion(new Moho());
 
-        assertThrows(NoSePuedeConstruir.class, () -> razaZerg.construirExtractor(casillero) );
+        // Assert
+        assertThrows(RecursosInsuficientes.class, () -> razaZerg.construirExtractor(casillero) );
     }
 
     @Test
     public void extractorSePuedeConstruirConLosRecursosSuficientes(){
-
-        int mineralNecesario = 100;
-        int gasNecesario = 0;
-        Zerg razaZerg = new Zerg(mineralNecesario,gasNecesario);
+        // Arrange
+        Zerg razaZerg = new Zerg();
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
-        casillero.setEspacioDeConstruccion(new Moho());
 
-        assertDoesNotThrow(() -> razaZerg.construirExtractor(casillero) );
+        // Act
+        casillero.setEspacioDeConstruccion(new Moho());
+        razaZerg.construirExtractor(casillero);
+
+        // Assert
+        assertEquals(Extractor.class, casillero.obtenerConstruccion().getClass());
     }
 
     @Test
     public void criaderoNoSePuedeConstruirSinLosRecursosSuficientes() {
-
+        // Arrange
         Zerg razaZerg = new Zerg(0,0);
-
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
 
-        assertThrows(NoSePuedeConstruir.class, () -> razaZerg.construirCriadero(casillero) );
+        // Act and Assert
+        assertThrows(RecursosInsuficientes.class, () -> razaZerg.construirCriadero(casillero) );
     }
 
     @Test
     public void criaderoSePuedeConstruirConLosRecursosSuficientes(){
-
-        int mineralNecesario = 50;
-        int gasNecesario = 0;
-        Zerg razaZerg = new Zerg(mineralNecesario,gasNecesario);
-
+        // Arrange
+        Zerg razaZerg = new Zerg();
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
 
-        assertDoesNotThrow(() -> razaZerg.construirCriadero(casillero) );
+        // Act
+        razaZerg.construirCriadero(casillero);
+
+        // Assert
+        assertEquals(Criadero.class, casillero.obtenerConstruccion().getClass());
     }
 
     @Test
     public void reservaDeReproduccionNoSePuedeConstruirSinLosRecursosSuficientes() {
-
+        // Arrange
         Zerg razaZerg = new Zerg(0,0);
-
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+
+        // Act
         casillero.setEspacioDeConstruccion(new Moho());
 
-        assertThrows(NoSePuedeConstruir.class, () -> razaZerg.construirReservaDeProduccion(casillero) );
+        // Assert
+        assertThrows(RecursosInsuficientes.class, () -> razaZerg.construirReservaDeReproduccion(casillero) );
     }
 
     @Test
     public void reservaDeReproduccionSePuedeConstruirConLosRecursosSuficientes(){
-
-        int mineralNecesario = 150;
-        int gasNecesario = 0;
-        Zerg razaZerg = new Zerg(mineralNecesario,gasNecesario);
-
+        // Arrange
+        Zerg razaZerg = new Zerg();
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
-        casillero.setEspacioDeConstruccion(new Moho());
 
-        assertDoesNotThrow(() -> razaZerg.construirReservaDeProduccion(casillero) );
+        // Act
+        casillero.setEspacioDeConstruccion(new Moho());
+        razaZerg.construirReservaDeReproduccion(casillero);
+
+        // Assert
+        assertEquals(ReservaDeReproduccion.class, casillero.obtenerConstruccion().getClass());
     }
 
     @Test
     public void guaridaNoSePuedeConstruirSinLosRecursosSuficientes() {
-
+        // Arrange
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
-        int mineralPrerrequisitos = 150;
-        int gasPrerrequisitos = 0;
+        Zerg razaZerg = new Zerg(150,0);
 
-        Zerg razaZerg = new Zerg(mineralPrerrequisitos,gasPrerrequisitos);
-
+        // Act
         casillero1.setEspacioDeConstruccion(new Moho());
         casillero2.setEspacioDeConstruccion(new Moho());
-        razaZerg.construirReservaDeProduccion(casillero1);
+        razaZerg.construirReservaDeReproduccion(casillero1);
 
-        assertThrows(NoSePuedeConstruir.class, () -> razaZerg.construirGuarida(casillero2) );
+        // Assert
+        assertThrows(RecursosInsuficientes.class, () -> razaZerg.construirGuarida(casillero2) );
     }
 
     @Test
     public void guaridaSePuedeConstruirConLosRecursosSuficientes(){
-
+        // Arrange
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
-        int mineralPrerrequisitos = 150;
-        int gasPrerrequisitos = 0;
+        Zerg razaZerg = new Zerg(1000, 1000);
 
-        int mineralNecesario = mineralPrerrequisitos + 200;
-        int gasNecesario = gasPrerrequisitos + 100;
-        Zerg razaZerg = new Zerg(mineralNecesario,gasNecesario);
-
+        // Act
         casillero1.setEspacioDeConstruccion(new Moho());
         casillero2.setEspacioDeConstruccion(new Moho());
-        razaZerg.construirReservaDeProduccion(casillero1);
+        razaZerg.construirReservaDeReproduccion(casillero1);
+        razaZerg.construirGuarida(casillero2);
 
-
-        assertDoesNotThrow(() -> razaZerg.construirGuarida(casillero2) );
+        // Assert
+        assertEquals(Guarida.class, casillero2.obtenerConstruccion().getClass());
     }
 
     @Test
     public void espiralNoSePuedeConstruirSinLosRecursosSuficientes() {
-
+        // Arrange
+        Zerg razaZerg = new Zerg(350,100);
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
-        int mineralPrerrequisitos = 350;
-        int gasPrerrequisitos = 100;
-        Zerg razaZerg = new Zerg(mineralPrerrequisitos,gasPrerrequisitos);
 
+        // Act
         casillero1.setEspacioDeConstruccion(new Moho());
         casillero2.setEspacioDeConstruccion(new Moho());
         casillero3.setEspacioDeConstruccion(new Moho());
-        razaZerg.construirReservaDeProduccion(casillero1);
+        razaZerg.construirReservaDeReproduccion(casillero1);
         razaZerg.construirGuarida(casillero2);
 
-        assertThrows(NoSePuedeConstruir.class, () -> razaZerg.construirEspiral(casillero3) );
+        // Assert
+        assertThrows(RecursosInsuficientes.class, () -> razaZerg.construirEspiral(casillero3) );
     }
 
     @Test
     public void espiralSePuedeConstruirConLosRecursosSuficientes(){
+        // Arrange
+        Zerg razaZerg = new Zerg(2000,2000);
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
-        int mineralPrerrequisitos = 350;
-        int gasPrerrequisitos = 100;
-        int mineralNecesario = mineralPrerrequisitos + 150;
-        int gasNecesario = gasPrerrequisitos + 100;
-        Zerg razaZerg = new Zerg(mineralNecesario,gasNecesario);
 
+        // Act
         casillero1.setEspacioDeConstruccion(new Moho());
         casillero2.setEspacioDeConstruccion(new Moho());
         casillero3.setEspacioDeConstruccion(new Moho());
-        razaZerg.construirReservaDeProduccion(casillero1);
+        razaZerg.construirReservaDeReproduccion(casillero1);
         razaZerg.construirGuarida(casillero2);
+        razaZerg.construirEspiral(casillero3);
 
-
-
-        assertDoesNotThrow(() -> razaZerg.construirEspiral(casillero3) );
+        // Assert
+        assertEquals(Espiral.class, casillero3.obtenerConstruccion().getClass());
     }
 
     @Test
     public void nexoMineralNoSePuedeConstruirSinLosRecursosSuficientes() {
+        // Arrange
         Protoss razaProtoss = new Protoss(0,0);
-
         Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(),1, 1, new Mapa());
-        assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirNexoMineral(casillero) );
+
+        // Act and Assert
+        assertThrows(RecursosInsuficientes.class, () -> razaProtoss.construirNexoMineral(casillero) );
     }
 
     @Test
     public void nexoMineralSePuedeConstruirConLosRecursosSuficientes(){
-
-        int mineralNecesario = 50;
-        int gasNecesario = 0;
-        Protoss razaProtoss = new Protoss(mineralNecesario,gasNecesario);
-
+        // Arrange
+        Protoss razaProtoss = new Protoss();
         Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(),1, 1, new Mapa());
 
-        assertDoesNotThrow(() -> razaProtoss.construirNexoMineral(casillero) );
+        // Act
+        razaProtoss.construirNexoMineral(casillero);
+
+        // Assert
+        assertEquals(NexoMineral.class, casillero.obtenerConstruccion().getClass());
     }
 
     @Test
     public void pilonNoSePuedeConstruirSinLosRecursosSuficientes(){
+        // Arrange
         Protoss razaProtoss = new Protoss(0,0);
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
 
-        assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirPilon(casillero) );
+        // Act and Assert
+        assertThrows(RecursosInsuficientes.class, () -> razaProtoss.construirPilon(casillero) );
     }
 
     @Test
     public void pilonSePuedeConstruirConLosRecursosSuficientes(){
-
-        int mineralNecesario = 100;
-        int gasNecesario = 0;
-        Protoss razaProtoss = new Protoss(mineralNecesario,gasNecesario);
-
+        // Arrange
+        Protoss razaProtoss = new Protoss();
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
 
-        assertDoesNotThrow(() -> razaProtoss.construirPilon(casillero) );
+        // Act
+        razaProtoss.construirPilon(casillero);
+
+        // Assert
+        assertEquals(Pilon.class, casillero.obtenerConstruccion().getClass());
     }
 
     @Test
     public void accesoNoSePuedeConstruirSinLosRecursosSuficientes(){
-
+        // Arrange
         Protoss razaProtoss = new Protoss(0,0);
-
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+
+        // Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
-        assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirAcceso(casillero) );
+        // Assert
+        assertThrows(RecursosInsuficientes.class, () -> razaProtoss.construirAcceso(casillero));
     }
 
     @Test
@@ -254,38 +267,36 @@ public class CasoDeUso8Test {
 
     @Test
     public void puertoEstelarNoSePuedeConstruirSinLosRecursosSuficientes(){
-
+        // Arrrange
+        Protoss razaProtoss = new Protoss(150,0);
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
-        int mineralPrerrequisitos = 150;
-        int gasPrerrequisitos = 0;
 
-        Protoss razaProtoss = new Protoss(mineralPrerrequisitos,gasPrerrequisitos);
+        // Act
         casillero1.setEspacioDeConstruccion(new RangoPilon());
         casillero2.setEspacioDeConstruccion(new RangoPilon());
         razaProtoss.construirAcceso(casillero1);
 
-        assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirPuertoEstelar(casillero2) );
+        // Assert
+        assertThrows(RecursosInsuficientes.class, () -> razaProtoss.construirPuertoEstelar(casillero2) );
     }
 
     @Test
     public void puertoEstelarSePuedeConstruirConLosRecursosSuficientes(){
-
+        // Arrange
+        Protoss razaProtoss = new Protoss(4000,4000);
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
-        int mineralPrerrequisitos = 150;
-        int gasPrerrequisitos = 0;
-        int mineralNecesario = mineralPrerrequisitos + 150;
-        int gasNecesario = gasPrerrequisitos + 150;
 
-        Protoss razaProtoss = new Protoss(mineralNecesario,gasNecesario);
+        // Act
         casillero1.setEspacioDeConstruccion(new RangoPilon());
         casillero2.setEspacioDeConstruccion(new RangoPilon());
         razaProtoss.construirAcceso(casillero1);
+        razaProtoss.construirPuertoEstelar(casillero2);
 
-
-        assertDoesNotThrow(() -> razaProtoss.construirPuertoEstelar(casillero2) );
+        // Assert
+        assertEquals(PuertoEstelar.class, casillero2.obtenerConstruccion().getClass());
     }
 }

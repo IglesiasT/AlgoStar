@@ -30,7 +30,7 @@ public class CasoDeUso15Test {
         Zangano zangano3 = new Zangano();
 
         //Act
-        extractor.construirEnCasillero(casillero);
+        extractor.construir(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
@@ -62,7 +62,7 @@ public class CasoDeUso15Test {
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
 
         //Act
-        asimilador.construirEnCasillero(casillero);
+        asimilador.construir(casillero);
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
@@ -109,7 +109,7 @@ public class CasoDeUso15Test {
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
         //Act
-        nexo.construirEnCasillero(casillero);
+        nexo.construir(casillero);
         nexo.nuevoTurno();
         nexo.nuevoTurno();
         nexo.nuevoTurno();
