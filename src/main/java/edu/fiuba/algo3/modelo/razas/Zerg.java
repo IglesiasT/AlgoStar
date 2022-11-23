@@ -14,27 +14,18 @@ public class Zerg extends Raza{
     public Zerg(){
         super();
         this.construccionesRealizadas = new LinkedList<>();
+        this.unidadesEngendradas = new LinkedList<>();
     }
 
     public Zerg(int mineralInicial, int gasInicial){
-        super();
-        this.cantidadDeMineral = mineralInicial;
-        this.cantidadDeGas = gasInicial;
+        super(mineralInicial, gasInicial);
         this.construccionesRealizadas = new LinkedList<>();
         this.unidadesEngendradas = new LinkedList<>();
     }
 
-    public void construir(ConstruccionZerg construccion, Casillero casilleroAConstruir){
+    private void construir(ConstruccionZerg construccion, Casillero casilleroAConstruir){
 
-        if(!construccion.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
-            throw new NoSePuedeConstruir();
-        }
-
-        construccion.construirEnCasillero(casilleroAConstruir);
-
-        //Se pudo construir
-        this.cantidadDeMineral = construccion.consumirMineral(this.cantidadDeMineral);
-        this.cantidadDeGas = construccion.consumirGas(this.cantidadDeGas);
+        construccion.construir(casilleroAConstruir, this.recursos);
         this.construccionesRealizadas.add(construccion);
     }
 
@@ -47,10 +38,7 @@ public class Zerg extends Raza{
         }
     }
     public void construirCriadero(Casillero casilleroAConstruir){
-        Criadero criadero = new Criadero();
-
-        this.construir(criadero, casilleroAConstruir);
-
+        this.construir(new Criadero(), casilleroAConstruir);
     }
 
     public void construirExtractor(Casillero casilleroAConstruir) {
@@ -59,7 +47,7 @@ public class Zerg extends Raza{
         this.construir(extractor, casilleroAConstruir);
     }
 
-    public void construirReservaDeProduccion(Casillero casilleroAConstruir){
+    public void construirReservaDeReproduccion(Casillero casilleroAConstruir){
         ReservaDeReproduccion reserva = new ReservaDeReproduccion();
 
         this.construir(reserva, casilleroAConstruir);
@@ -113,15 +101,15 @@ public class Zerg extends Raza{
             throw new NoSePuedeEngendrar();
         }
         Mutalisco unidad = new Mutalisco();
-        if(!unidad.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
-            throw new NoSePuedeConstruir();
-        }
-        unidad = criaderoAUsar.engendrarMutalisco();
-
-        //Se pudo engendrar
-        this.unidadesEngendradas.add(unidad);
-        this.cantidadDeMineral = unidad.consumirMineral(this.cantidadDeMineral);
-        this.cantidadDeGas = unidad.consumirGas(this.cantidadDeGas);
+//        if(!unidad.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
+//            throw new NoSePuedeConstruir();
+//        }
+//        unidad = criaderoAUsar.engendrarMutalisco();
+//
+//        //Se pudo engendrar
+//        this.unidadesEngendradas.add(unidad);
+//        this.cantidadDeMineral = unidad.consumirMineral(this.cantidadDeMineral);
+//        this.cantidadDeGas = unidad.consumirGas(this.cantidadDeGas);
 
 
 
@@ -141,15 +129,15 @@ public class Zerg extends Raza{
             throw new NoSePuedeEngendrar();
         }
         Hidralisco unidad = new Hidralisco();
-        if(!unidad.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
-            throw new NoSePuedeConstruir();
-        }
-        unidad = criaderoAUsar.engendrarHidralisco();
-
-        //Se pudo engendrar
-        this.unidadesEngendradas.add(unidad);
-        this.cantidadDeMineral = unidad.consumirMineral(this.cantidadDeMineral);
-        this.cantidadDeGas = unidad.consumirGas(this.cantidadDeGas);
+//        if(!unidad.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
+//            throw new NoSePuedeConstruir();
+//        }
+//        unidad = criaderoAUsar.engendrarHidralisco();
+//
+//        //Se pudo engendrar
+//        this.unidadesEngendradas.add(unidad);
+//        this.cantidadDeMineral = unidad.consumirMineral(this.cantidadDeMineral);
+//        this.cantidadDeGas = unidad.consumirGas(this.cantidadDeGas);
 
         return unidad;
     }
@@ -167,24 +155,24 @@ public class Zerg extends Raza{
             throw new NoSePuedeEngendrar();
         }
         Zerling unidad = new Zerling();
-        if(!unidad.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
-            throw new NoSePuedeConstruir();
-        }
-        unidad = criaderoAUsar.engendrarZerling();
-
-        //Se pudo engendrar
-        this.unidadesEngendradas.add(unidad);
-        this.cantidadDeMineral = unidad.consumirMineral(this.cantidadDeMineral);
-        this.cantidadDeGas = unidad.consumirGas(this.cantidadDeGas);
+//        if(!unidad.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
+//            throw new NoSePuedeConstruir();
+//        }
+//        unidad = criaderoAUsar.engendrarZerling();
+//
+//        //Se pudo engendrar
+//        this.unidadesEngendradas.add(unidad);
+//        this.cantidadDeMineral = unidad.consumirMineral(this.cantidadDeMineral);
+//        this.cantidadDeGas = unidad.consumirGas(this.cantidadDeGas);
 
         return unidad;
     }
 
     public Guardian evolucionarMutalisco(Mutalisco mutaliscoAEvolucionar){
         Guardian unidad = new Guardian();
-        if(!unidad.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
-            throw new NoSePuedeEngendrar();
-        }
+//        if(!unidad.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
+//            throw new NoSePuedeEngendrar();
+//        }
         unidad = mutaliscoAEvolucionar.evolucionar();
         //esto lo deberia hacer el mutalisco creo
         this.unidadesEngendradas.remove(mutaliscoAEvolucionar);

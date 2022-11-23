@@ -4,13 +4,16 @@ import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.recursos.Recurso;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public abstract class Construccion {
-    protected int mineralNecesarioParaConstruir;
-    protected int gasNecesarioParaConstruir;
     protected int turnosParaConstruirse;
     protected int vidaMaxima;
     protected int vida;
+    protected Set<Recurso> recursosNecesarios;
 
     protected int turnos;
     protected Casillero ubicacion;
@@ -20,26 +23,30 @@ public abstract class Construccion {
     public Construccion(){
         this.vidaMaxima = 100;
         this.vida = this.vidaMaxima;
-        this.mineralNecesarioParaConstruir = 0;
-        this.gasNecesarioParaConstruir = 0;
         this.ubicacion = null;
         this.turnos = 0;
         this.superficie = "Tierra";
         this.area = new AreaTerrestre();
+        this.recursosNecesarios = new HashSet<>();
     }
 
-    public void construirEnCasillero(Casillero casilleroAConstruir){
-        if (!this.sePuedeConstruirEn(casilleroAConstruir)) {
+    public void construir(Casillero casilleroAConstruir, Set<Recurso> recursos){
+        if (! recursos.containsAll(this.recursosNecesarios)) {      // esta dando siempre false
             throw new NoSePuedeConstruir();
         }
+
+        for (Recurso recurso : recursos) {
+            recurso.consumir(this.recursosNecesarios);
+        }
+
         casilleroAConstruir.establecerConstruccion(this);
         this.ubicacion = casilleroAConstruir;
     }
-
-    public abstract boolean sePuedeConstruirEn (Casillero casillero);
-    public boolean recursosSuficientes(int cantidadMineral, int cantidadGas){
-        return (cantidadMineral >= this.mineralNecesarioParaConstruir && cantidadGas >= this.gasNecesarioParaConstruir);
+    public void construir(Casillero casillero){
+        // temporal para que los otros tests compilen
     }
+
+    public abstract boolean sePuedeConstruirEn (Casillero casillero);   //luego del refactor esta siendo usado solo en tests
     public abstract void recibirDanio(int danioInflingido);
     protected abstract void regenerar();
     public int obtenerVida(){
@@ -49,13 +56,6 @@ public abstract class Construccion {
     public void nuevoTurno(){
         this.turnos++;
         this.regenerar();
-    }
-    public int consumirMineral(int mineralAConsumir){
-        return mineralAConsumir - this.mineralNecesarioParaConstruir;
-    }
-
-    public int consumirGas(int gasAConsumir){
-        return gasAConsumir - this.gasNecesarioParaConstruir;
     }
 
     public void destruir(){
