@@ -40,7 +40,6 @@ public abstract class Construccion {
     public void construir(Casillero casillero){
         // temporal para que los otros tests compilen
     }
-    //public abstract boolean sePuedeConstruirEn (Casillero casillero);   //luego del refactor esta siendo usado solo en tests
     public abstract void recibirDanio(int danioInflingido);
     protected abstract void regenerar();
     public int obtenerVida(){
