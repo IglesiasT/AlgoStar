@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.Mutalisco;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.recursos.RecursosInsuficientes;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -38,7 +39,7 @@ public class CasoDeUso21Test {
         razaZerg.construirEspiral(casillero4);
         Mutalisco mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
 
-        assertThrows(NoSePuedeEngendrar.class, () -> razaZerg.evolucionarMutalisco(mutalisco));
+        assertThrows(RecursosInsuficientes.class, () -> razaZerg.evolucionarMutaliscoAGuardian(mutalisco));
 
     }
 
@@ -67,7 +68,7 @@ public class CasoDeUso21Test {
         razaZerg.construirEspiral(casillero4);
         Mutalisco mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
 
-        assertDoesNotThrow(() -> razaZerg.evolucionarMutalisco(mutalisco));
+        assertDoesNotThrow(() -> razaZerg.evolucionarMutaliscoAGuardian(mutalisco));
 
     }
 

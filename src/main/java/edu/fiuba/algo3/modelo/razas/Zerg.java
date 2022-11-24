@@ -42,8 +42,10 @@ public class Zerg extends Raza{
         this.construir(new Extractor(), casilleroAConstruir);
     }
 
-    public void construirReservaDeReproduccion(Casillero casilleroAConstruir){
-        this.construir(new ReservaDeReproduccion(), casilleroAConstruir);
+    public ReservaDeReproduccion construirReservaDeReproduccion(Casillero casilleroAConstruir){
+        ReservaDeReproduccion reserva = new ReservaDeReproduccion();
+        this.construir(reserva, casilleroAConstruir);
+        return reserva;
     }
 
     public void construirGuarida(Casillero casilleroAConstruir){
@@ -134,17 +136,24 @@ public class Zerg extends Raza{
         return zerling;
     }
 
-    public Guardian evolucionarMutalisco(Mutalisco mutaliscoAEvolucionar){
-        Guardian unidad = new Guardian();
+//    public Guardian evolucionarMutalisco(Mutalisco mutaliscoAEvolucionar){
+//        Guardian unidad = new Guardian();
 //        if(!unidad.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
 //            throw new NoSePuedeEngendrar();
 //        }
-        unidad = mutaliscoAEvolucionar.evolucionar();
+//        unidad = mutaliscoAEvolucionar.evolucionar();
         //esto lo deberia hacer el mutalisco creo
-        this.unidadesEngendradas.remove(mutaliscoAEvolucionar);
-        this.unidadesEngendradas.add(unidad);
+//        this.unidadesEngendradas.remove(mutaliscoAEvolucionar);
+//        this.unidadesEngendradas.add(unidad);
 
-        return unidad;
+//        return unidad;
+//    }
+
+    public void evolucionarMutaliscoAGuardian(Mutalisco mutaliscoAEvolucionar){
+        mutaliscoAEvolucionar.evolucionarAGuardian(recursos);
+    }
+    public void evolucionarMutaliscoADevorador(Mutalisco mutaliscoAEvolucionar){
+        mutaliscoAEvolucionar.evolucionarADevorador(recursos);
     }
 
     public int construcciones() {

@@ -7,19 +7,27 @@ import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
+import edu.fiuba.algo3.modelo.recursos.Mineral;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class CasoDeUso5Test {
-
-
     @Test
     public void extractorSePuedeConstruirEnUnCasilleroConMoho(){
+        // Arrange
         Extractor extractor = new Extractor();
-
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(), 1, 1, new Mapa());
-        casillero.setEspacioDeConstruccion(new Moho());
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
 
-//        assert(extractor.sePuedeConstruirEn(casillero));
+        // Act
+        recursos.agregar(new Mineral());
+        casillero.setEspacioDeConstruccion(new Moho());
+        extractor.construir(casillero, recursos);
+
+        // Assert
+        assertEquals(Extractor.class, casillero.obtenerConstruccion().getClass());
     }
 
     @Test
