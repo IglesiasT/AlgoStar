@@ -2,10 +2,7 @@ package edu.fiuba.algo3.entrega_2;
 
 
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.construcciones.Criadero;
-import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
-import edu.fiuba.algo3.modelo.construcciones.NexoMineral;
-import edu.fiuba.algo3.modelo.construcciones.ReservaDeReproduccion;
+import edu.fiuba.algo3.modelo.construcciones.*;
 import edu.fiuba.algo3.modelo.construcciones.unidades.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.razas.Protoss;
@@ -33,7 +30,7 @@ public class CasoDeUso22Test {
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
 
-        assertThrows(NoSePuedeEngendrar.class, () -> razaZerg.engendrarZerling((Criadero) casillero1.obtenerConstruccion()));
+        assertThrows(ConstruccionPreviaNoConstruida.class, () -> razaZerg.engendrarZerling((Criadero) casillero1.obtenerConstruccion()));
 
     }
 
@@ -121,7 +118,7 @@ public class CasoDeUso22Test {
 
         razaZerg.construirReservaDeReproduccion(casillero2);
 
-        assertThrows(NoSePuedeEngendrar.class, () -> razaZerg.engendrarHidralisco((Criadero) casillero1.obtenerConstruccion()));
+        assertThrows(ConstruccionPreviaNoConstruida.class, () -> razaZerg.engendrarHidralisco((Criadero) casillero1.obtenerConstruccion()));
 
     }
 
@@ -220,7 +217,7 @@ public class CasoDeUso22Test {
         razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
 
-        assertThrows(NoSePuedeEngendrar.class, () -> razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion()));
+        assertThrows(ConstruccionPreviaNoConstruida.class, () -> razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion()));
 
     }
 
@@ -342,9 +339,9 @@ public class CasoDeUso22Test {
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
 
-        Guardian guardian = razaZerg.evolucionarMutalisco(mutalisco);
+        razaZerg.evolucionarMutaliscoAGuardian(mutalisco);
 
-        assertThrows(EdificioNoEstaOperativo.class, () -> guardian.atacar(new NexoMineral()));
+        assertThrows(EdificioNoEstaOperativo.class, () -> mutalisco.atacar(new NexoMineral()));
     }
 
     @Test
@@ -381,15 +378,14 @@ public class CasoDeUso22Test {
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
 
-        Guardian guardian = razaZerg.evolucionarMutalisco(mutalisco);
-        guardian.establecerUbicacion(casillero4);
+        razaZerg.evolucionarMutaliscoAGuardian(mutalisco);
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
 
-        assertDoesNotThrow(() -> guardian.atacar(nexoMineral));
+        assertDoesNotThrow(() -> mutalisco.atacar(nexoMineral));
     }
 
 
@@ -464,11 +460,10 @@ public class CasoDeUso22Test {
         Protoss razaProtoss = new Protoss(1000,1000);
         Zerg razaZerg = new Zerg();
         Mapa mapa = new Mapa();
-        ReservaDeReproduccion reserva = new ReservaDeReproduccion();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setEspacioDeConstruccion(new Moho());
-        razaZerg.construirReservaDeReproduccion(casillero2);
+        ReservaDeReproduccion reserva = razaZerg.construirReservaDeReproduccion(casillero2);
         razaProtoss.construirPilon(casillero1);
 
         razaProtoss.nuevoTurno();
@@ -560,7 +555,7 @@ public class CasoDeUso22Test {
     public void dragonPuedeAtacarDespuesDeQuePaseElTiempoDeConstruccion(){
         // Arrange
         Protoss razaProtoss = new Protoss(1000,1000);
-        Zerg razaZerg = new Zerg();
+        Zerg razaZerg = new Zerg(1000,1000);
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
@@ -577,6 +572,7 @@ public class CasoDeUso22Test {
 
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         Casillero casillero4 = mapa.obtenerCasillero(2,1);
+        Casillero casillero5 = mapa.obtenerCasillero(2,2);
 
         razaProtoss.construirAcceso(casillero3);
 
@@ -589,7 +585,7 @@ public class CasoDeUso22Test {
         razaProtoss.nuevoTurno();
         razaProtoss.nuevoTurno();
 
-        assertDoesNotThrow(() -> dragon.atacar(new ReservaDeReproduccion()));
+        assertDoesNotThrow(() -> dragon.atacar(razaZerg.construirReservaDeReproduccion(casillero5)));
     }
 
     @Test
@@ -666,10 +662,9 @@ public class CasoDeUso22Test {
 
     @Test
     public void scoutPuedeAtacarDespuesDeQuePaseElTiempoDeConstruccion(){
-        Protoss razaProtoss = new Protoss(1000,1000);
-        Zerg razaZerg = new Zerg();
+        Protoss razaProtoss = new Protoss(10000,10000);
+        Zerg razaZerg = new Zerg(10000,10000);
         Mapa mapa = new Mapa();
-        ReservaDeReproduccion reserva = new ReservaDeReproduccion();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setEspacioDeConstruccion(new Moho());
@@ -685,6 +680,7 @@ public class CasoDeUso22Test {
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         Casillero casillero4 = mapa.obtenerCasillero(2,1);
         Casillero casillero5 = mapa.obtenerCasillero(2,2);
+        Casillero casillero6 = mapa.obtenerCasillero(3,1);
 
         razaProtoss.construirAcceso(casillero3);
         razaProtoss.construirPuertoEstelar(casillero4);
@@ -701,7 +697,7 @@ public class CasoDeUso22Test {
         razaProtoss.nuevoTurno();
         razaProtoss.nuevoTurno();
 
-        assertDoesNotThrow(() -> scout.atacar(reserva));
+        assertDoesNotThrow(() -> scout.atacar(razaZerg.construirReservaDeReproduccion(casillero6)));
     }
 
 

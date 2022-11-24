@@ -3,9 +3,10 @@ package edu.fiuba.algo3.modelo.construcciones.unidades;
 import edu.fiuba.algo3.modelo.areas.AreaEspacial;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.recursos.Gas;
+import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 
-public class Devorador extends UnidadZerg{
+public class Devorador extends UnidadZerg implements EstadoMutalisco{
 
 
     public Devorador(){
