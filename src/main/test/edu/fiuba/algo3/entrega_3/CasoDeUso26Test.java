@@ -286,5 +286,7 @@ public class CasoDeUso26Test {
 
         assertEquals(valorEsperado , raza.obtenerOcupacionActual());
     }
+
+
 }
 

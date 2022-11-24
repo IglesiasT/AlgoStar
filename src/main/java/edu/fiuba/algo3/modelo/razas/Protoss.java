@@ -149,4 +149,17 @@ public class Protoss extends Raza{
     public int construcciones() {
         return construccionesRealizadas.size();
     }
+
+    public void destruir (ConstruccionProtoss construccionADestruir) {
+        for (ConstruccionProtoss construccion : this.construccionesRealizadas) {
+            if (construccion.getClass() == construccionADestruir.getClass()) {
+                construccion.destruir();
+                if (construccion.getClass() == Pilon.class){
+                    this.maximoSuministro = this.maximoSuministro -5 ;
+                }
+            }
+        }
+    }
+
+
 }

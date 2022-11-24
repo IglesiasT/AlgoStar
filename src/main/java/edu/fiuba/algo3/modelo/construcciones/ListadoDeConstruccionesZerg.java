@@ -33,4 +33,12 @@ public class ListadoDeConstruccionesZerg {
     public int size() {
         return this.construcciones.size();
     }
+
+    public void destruir (ConstruccionZerg construccionADestruir) {
+        for (ConstruccionZerg construccion : this.construcciones) {
+            if (construccion.getClass() == construccionADestruir.getClass()) {
+                construccion.destruir();
+            }
+        }
+    }
 }

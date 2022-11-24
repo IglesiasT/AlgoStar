@@ -150,4 +150,22 @@ public class Zerg extends Raza{
     public int construcciones() {
         return construccionesRealizadas.size();
     }
+
+    public void destruir(ConstruccionZerg construccionADestruir){
+        this.construccionesRealizadas.destruir(construccionADestruir);
+    }
+    public void destruir(Criadero construccionADestruir){
+        this.construccionesRealizadas.destruir(construccionADestruir);
+        this.maximoSuministro = this.maximoSuministro -5 ;
+    }
+
+    public void destruir (UnidadZerg unidadZerg) {
+        this.unidadesEngendradas.remove(unidadZerg) ;
+    }
+
+    public void destruir (AmoSupremo unidadZerg) {
+        this.unidadesEngendradas.remove(unidadZerg) ;
+        this.maximoSuministro = this.maximoSuministro -5;
+    }
+
 }
