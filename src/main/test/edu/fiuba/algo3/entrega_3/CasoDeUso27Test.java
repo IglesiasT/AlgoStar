@@ -1,17 +1,22 @@
 package edu.fiuba.algo3.entrega_3;
 
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.areas.AreaEspacial;
+import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
+import edu.fiuba.algo3.modelo.construcciones.Asimilador;
 import edu.fiuba.algo3.modelo.construcciones.Criadero;
 import edu.fiuba.algo3.modelo.construcciones.NexoMineral;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Devorador;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Guardian;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Mutalisco;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Scout;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.recursos.RecursosInsuficientes;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CasoDeUso27Test {
 
@@ -74,6 +79,44 @@ public class CasoDeUso27Test {
         Mutalisco mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
 
         assertDoesNotThrow(() -> razaZerg.evolucionarMutaliscoADevorador(mutalisco));
+
+    }
+
+    @Test
+    public void devoradorInflinge15DeDanioEnAire(){
+        // Arrange
+        Devorador devorador = new Devorador();
+        Scout scout = new Scout();
+        int valorEsperado = 85;    //100 escudo - 15 ataque
+
+        // Act
+        devorador.nuevoTurno();
+        devorador.nuevoTurno();
+        devorador.nuevoTurno();
+        devorador.nuevoTurno();
+        devorador.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
+        scout.establecerUbicacion(new Casillero(new AreaEspacial(), 1, 2, new Mapa()));
+        devorador.atacar(scout);
+
+        // Assert
+        assertEquals(valorEsperado, scout.obtenerEscudo());
+    }
+
+    @Test
+    public void devoradorNoPuedeAtacarTierra(){
+        // Arrange
+        Devorador devorador = new Devorador();
+        Asimilador asimilador = new Asimilador();
+
+        // Act
+        devorador.nuevoTurno();
+        devorador.nuevoTurno();
+        devorador.nuevoTurno();
+        devorador.nuevoTurno();
+        devorador.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
+        asimilador.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
+
+        assertThrows(ObjetivoInvalido.class,() -> devorador.atacar(asimilador));
 
     }
 
