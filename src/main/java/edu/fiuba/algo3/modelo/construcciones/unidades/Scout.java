@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.construcciones.unidades;
 import edu.fiuba.algo3.modelo.areas.AreaEspacial;
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.recursos.Gas;
+import edu.fiuba.algo3.modelo.recursos.Mineral;
 
 public class Scout extends UnidadProtoss{
 
@@ -14,14 +16,10 @@ public class Scout extends UnidadProtoss{
         this.vida = 150;
         this.turnosParaConstruirse = 9;
         this.rangoDeAtaque = 4;
-        this.mineralNecesarioParaConstruir = 300;
-        this.gasNecesarioParaConstruir = 150;
+        this.recursosNecesarios.agregar(new Mineral(300));
+        this.recursosNecesarios.agregar(new Gas(150));
         this.superficie = "Aire";
         this.area = new AreaEspacial();
         this.suministro = 4;
-    }
-    @Override
-    public boolean sePuedeConstruirEn(Casillero casillero) {
-        return true;
     }
 }

@@ -4,8 +4,10 @@ import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.recursos.GasProducido;
+import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
+import edu.fiuba.algo3.modelo.recursos.Mineral;
 
-public class Asimilador extends ConstruccionProtoss {
+public class Asimilador extends ConstruccionProtoss implements ProductorDeGas {
     private int gasProducido;
     private int produccionPorTurno;
 
@@ -15,13 +17,8 @@ public class Asimilador extends ConstruccionProtoss {
         this.vida = 450;
         this.gasProducido = 0;
         this.turnosParaConstruirse = 6;
-        this.mineralNecesarioParaConstruir = 100;
+        this.recursosNecesarios.agregar(new Mineral(100));
         this.produccionPorTurno = 20;
-    }
-
-    @Override
-    public boolean sePuedeConstruirEn(Casillero casillero) {
-        return (casillero.contiene(new Gas()) && !casillero.contiene(new Moho()));
     }
 
     public void nuevoTurno(){

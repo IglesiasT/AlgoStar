@@ -24,7 +24,7 @@ public class CasoDeUso4Test {
         casillero.setEspacioDeConstruccion(new Moho());
 
         //Act
-        extractor.construirEnCasillero(casillero);
+        extractor.construir(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
@@ -46,7 +46,7 @@ public class CasoDeUso4Test {
         Zangano zangano = new Zangano();
 
         //Act
-        extractor.construirEnCasillero(casillero);
+        extractor.construir(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
@@ -74,7 +74,7 @@ public class CasoDeUso4Test {
         Zangano zangano2 = new Zangano();
 
         //Act
-        extractor.construirEnCasillero(casillero);
+        extractor.construir(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
@@ -105,7 +105,7 @@ public class CasoDeUso4Test {
         Zangano zangano3 = new Zangano();
 
         //Act
-        extractor.construirEnCasillero(casillero);
+        extractor.construir(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
@@ -137,7 +137,7 @@ public class CasoDeUso4Test {
         Zangano zangano3 = new Zangano();
 
         //Act
-        extractor.construirEnCasillero(casillero);
+        extractor.construir(casillero);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();

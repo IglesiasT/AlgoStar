@@ -40,7 +40,7 @@ public class CasoDeUso17Test {
         casillero1.setEspacioDeConstruccion(new Moho());
         casillero2.setEspacioDeConstruccion(new Moho());
 
-        razaZerg.construirReservaDeProduccion(casillero1);
+        razaZerg.construirReservaDeReproduccion(casillero1);
 
         assertThrows(NoSePuedeConstruir.class, () -> razaZerg.construirEspiral(casillero2) );
     }

@@ -2,6 +2,9 @@ package edu.fiuba.algo3.modelo.construcciones;
 
 public abstract class ConstruccionZerg extends Construccion{
 
+    public ConstruccionZerg(){
+        super();
+    }
     @Override
     public void recibirDanio(int danioInflingido) {
         this.vida -= danioInflingido;

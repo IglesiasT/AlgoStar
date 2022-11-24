@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades;
 
-import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
-import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.recursos.Gas;
+import edu.fiuba.algo3.modelo.recursos.Mineral;
 
 public class Hidralisco extends UnidadZerg{
     public Hidralisco(){
@@ -12,13 +12,8 @@ public class Hidralisco extends UnidadZerg{
         this.vida = this.vidaMaxima;
         this.turnosParaConstruirse = 4;
         this.rangoDeAtaque = 4;
-        this.mineralNecesarioParaConstruir = 75;
-        this.gasNecesarioParaConstruir = 25;
         this.suministro = 2;
-    }
-
-    @Override
-    public boolean sePuedeConstruirEn(Casillero casillero) {
-        return false;
+        this.recursosNecesarios.agregar(new Mineral(75));
+        this.recursosNecesarios.agregar(new Gas(25));
     }
 }

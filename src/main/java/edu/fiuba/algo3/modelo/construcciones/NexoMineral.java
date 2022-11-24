@@ -17,14 +17,8 @@ public class NexoMineral extends ConstruccionProtoss {
         this.vida = 250;
         this.produccionPorTurno = 20;
         this.turnosParaConstruirse = 4;
-        this.mineralNecesarioParaConstruir = 50;
+        this.recursosNecesarios.agregar(new Mineral(50));
         this.mineralProducido = 0;
-
-    }
-
-    @Override
-    public boolean sePuedeConstruirEn(Casillero casillero) {
-        return (casillero.contiene(new Mineral()) && !casillero.contiene(new Moho()));
     }
 
     private void recolectarMineral(){

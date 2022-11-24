@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.construcciones;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.SinEspacio;
+import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
+import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
@@ -19,7 +21,7 @@ public class Pilon extends ConstruccionProtoss {
         this.casillerosEnergizados  = new ArrayList<>();
         this.escudo = new Escudo(300);
         this.vida = 300;
-        this.mineralNecesarioParaConstruir = 100;
+        this.recursosNecesarios.agregar(new Mineral(100));
     }
 
     public void energizar(){
@@ -32,14 +34,9 @@ public class Pilon extends ConstruccionProtoss {
             }
         }
     }
-    public void construirEnCasillero(Casillero casilleroAConstruir){
-        super.construirEnCasillero(casilleroAConstruir);
+    public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
+        super.construir(casilleroAConstruir, recursos);
         this.casillerosEnergizados = this.ubicacion.obtenerCasilleros(this.radioAfectado);
-    }
-
-    @Override
-    public boolean sePuedeConstruirEn(Casillero casillero) {
-        return (!casillero.contiene(new Moho()) && casillero.contiene(new SinRecurso()));
     }
 
     public void destruir(){

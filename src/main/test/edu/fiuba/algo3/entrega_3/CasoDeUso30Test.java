@@ -48,11 +48,11 @@ public class CasoDeUso30Test {
         casillero2.setEspacioDeConstruccion(new Moho());
         casillero3.setEspacioDeConstruccion(new Moho());
         Criadero criadero = new Criadero();
-        criadero.construirEnCasillero(mapa.obtenerCasillero(1, 4));
+        criadero.establecerUbicacion(mapa.obtenerCasillero(1, 4));
 
         Zerg raza = new Zerg(5525, 5200);
 
-        raza.construirReservaDeProduccion(casillero);
+        raza.construirReservaDeReproduccion(casillero);
         raza.construirGuarida(casillero2);
         raza.construirEspiral(casillero3);
 

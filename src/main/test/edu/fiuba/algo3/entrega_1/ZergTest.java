@@ -53,7 +53,7 @@ public class ZergTest {
 
         //Act
         casilleroAConstruir3.setEspacioDeConstruccion(new Moho());
-        razaZerg.construirReservaDeProduccion(casilleroAConstruir3);
+        razaZerg.construirReservaDeReproduccion(casilleroAConstruir3);
         casilleroAConstruir1.setEspacioDeConstruccion(new Moho());
         razaZerg.construirGuarida(casilleroAConstruir1);
         casilleroAConstruir2.setEspacioDeConstruccion(new Moho());

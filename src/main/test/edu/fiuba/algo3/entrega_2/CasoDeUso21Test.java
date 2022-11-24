@@ -33,7 +33,7 @@ public class CasoDeUso21Test {
         Casillero casillero4 = mapa.obtenerCasillero(1,4);
 
 
-        razaZerg.construirReservaDeProduccion(casillero2);
+        razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
         razaZerg.construirEspiral(casillero4);
         Mutalisco mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
@@ -62,7 +62,7 @@ public class CasoDeUso21Test {
         Casillero casillero4 = mapa.obtenerCasillero(1,4);
 
 
-        razaZerg.construirReservaDeProduccion(casillero2);
+        razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
         razaZerg.construirEspiral(casillero4);
         Mutalisco mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
