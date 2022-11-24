@@ -12,6 +12,7 @@ public class Zealot extends UnidadProtoss{
         this.turnosParaConstruirse = 4;
         this.rangoDeAtaque = 1;
         this.mineralNecesarioParaConstruir = 100;
+        this.suministro = 2;
     }
     @Override
     public boolean sePuedeConstruirEn(Casillero casillero) {

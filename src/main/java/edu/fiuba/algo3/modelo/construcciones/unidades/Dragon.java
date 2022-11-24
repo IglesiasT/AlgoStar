@@ -14,6 +14,7 @@ public class Dragon extends UnidadProtoss{
         this.rangoDeAtaque = 4;
         this.mineralNecesarioParaConstruir = 125;
         this.gasNecesarioParaConstruir = 50;
+        this.suministro = 3;
     }
     @Override
     public boolean sePuedeConstruirEn(Casillero casillero) {

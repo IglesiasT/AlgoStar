@@ -87,6 +87,4 @@ public class Criadero extends ConstruccionZerg {
         this.larvas--;
         return new Zerling();
     }
-
-
 }

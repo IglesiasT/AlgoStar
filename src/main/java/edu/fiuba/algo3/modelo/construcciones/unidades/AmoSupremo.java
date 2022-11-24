@@ -12,6 +12,7 @@ public class AmoSupremo extends UnidadZerg{
         this.mineralNecesarioParaConstruir = 50;
         this.gasNecesarioParaConstruir = 0;
         this.area = new AreaEspacial();
+        this.suministro = 0;
     }
 
 

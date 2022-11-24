@@ -118,12 +118,15 @@ public class Zerg extends Raza{
         }
         unidad = criaderoAUsar.engendrarMutalisco();
 
+        if ((suministro + unidad.consumirSuministro(0)) > this.maximoSuministro) {
+            throw new SuministroAgotado() ;
+        }
+
         //Se pudo engendrar
         this.unidadesEngendradas.add(unidad);
         this.cantidadDeMineral = unidad.consumirMineral(this.cantidadDeMineral);
         this.cantidadDeGas = unidad.consumirGas(this.cantidadDeGas);
-
-
+        this.suministro = unidad.consumirSuministro(this.suministro) ;
 
         return unidad;
     }
@@ -146,10 +149,15 @@ public class Zerg extends Raza{
         }
         unidad = criaderoAUsar.engendrarHidralisco();
 
+        if ((suministro + unidad.consumirSuministro(0)) > this.maximoSuministro) {
+            throw new SuministroAgotado() ;
+        }
+
         //Se pudo engendrar
         this.unidadesEngendradas.add(unidad);
         this.cantidadDeMineral = unidad.consumirMineral(this.cantidadDeMineral);
         this.cantidadDeGas = unidad.consumirGas(this.cantidadDeGas);
+        this.suministro = unidad.consumirSuministro(this.suministro) ;
 
         return unidad;
     }
@@ -172,10 +180,15 @@ public class Zerg extends Raza{
         }
         unidad = criaderoAUsar.engendrarZerling();
 
+        if ((suministro + unidad.consumirSuministro(0)) > this.maximoSuministro) {
+            throw new SuministroAgotado() ;
+        }
+
         //Se pudo engendrar
         this.unidadesEngendradas.add(unidad);
         this.cantidadDeMineral = unidad.consumirMineral(this.cantidadDeMineral);
         this.cantidadDeGas = unidad.consumirGas(this.cantidadDeGas);
+        this.suministro = unidad.consumirSuministro(this.suministro) ;
 
         return unidad;
     }

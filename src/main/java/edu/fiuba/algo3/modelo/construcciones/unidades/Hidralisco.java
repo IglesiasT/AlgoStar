@@ -14,6 +14,7 @@ public class Hidralisco extends UnidadZerg{
         this.rangoDeAtaque = 4;
         this.mineralNecesarioParaConstruir = 75;
         this.gasNecesarioParaConstruir = 25;
+        this.suministro = 2;
     }
 
     @Override

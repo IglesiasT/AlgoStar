@@ -14,6 +14,7 @@ import java.util.Map;
 public abstract class UnidadProtoss extends ConstruccionProtoss {
     protected Map<String, Integer> danioPorSuperficie;
     protected int rangoDeAtaque;
+    protected int suministro;
 
     public UnidadProtoss(){
         super();
@@ -50,5 +51,9 @@ public abstract class UnidadProtoss extends ConstruccionProtoss {
             throw new NoSePuedeMover();
         }
         this.ubicacion = casillero;
+    }
+
+    public int consumirSuministro(int suministroAConsumir){
+        return suministroAConsumir + this.suministro;
     }
 }

@@ -12,6 +12,7 @@ public class Zangano extends UnidadZerg {
         this.vidaMaxima = 25;
         this.turnosParaConstruirse = 1;
         this.mineralNecesarioParaConstruir = 25;
+        this.suministro = 1;
     }
 
     public void ubicar(Casillero nuevaUbicacion) {

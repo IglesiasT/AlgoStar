@@ -10,6 +10,7 @@ public class Zerling extends UnidadZerg{
         this.turnosParaConstruirse = 2;
         this.rangoDeAtaque = 1;
         this.mineralNecesarioParaConstruir = 25;
+        this.suministro = 1;
     }
 
     @Override

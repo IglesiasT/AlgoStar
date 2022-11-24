@@ -18,6 +18,7 @@ public class Mutalisco extends UnidadZerg{
         this.gasNecesarioParaConstruir = 100;
         this.superficie = "Aire";
         this.area = new AreaEspacial();
+        this.suministro = 4;
     }
 
     @Override

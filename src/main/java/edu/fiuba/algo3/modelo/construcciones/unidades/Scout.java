@@ -18,6 +18,7 @@ public class Scout extends UnidadProtoss{
         this.gasNecesarioParaConstruir = 150;
         this.superficie = "Aire";
         this.area = new AreaEspacial();
+        this.suministro = 4;
     }
     @Override
     public boolean sePuedeConstruirEn(Casillero casillero) {

@@ -16,6 +16,7 @@ public abstract class UnidadZerg extends ConstruccionZerg {
     protected Map<String, Integer> danioPorSuperficie;
 
     protected int rangoDeAtaque;
+    protected int suministro;
 
     public UnidadZerg() {
         super();
@@ -52,5 +53,9 @@ public abstract class UnidadZerg extends ConstruccionZerg {
             throw new NoSePuedeMover();
         }
         this.ubicacion = casillero;
+    }
+
+    public int consumirSuministro(int suministroAConsumir){
+        return suministroAConsumir + this.suministro;
     }
 }

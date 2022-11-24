@@ -98,7 +98,12 @@ public class Protoss extends Raza{
 
         Zealot zealot = new Zealot();
 
+        if ((suministro + zealot.consumirSuministro(0)) > this.maximoSuministro) {
+            throw new SuministroAgotado() ;
+        }
         this.construir(zealot, casilleroAConstruir);
+        this.suministro = zealot.consumirSuministro(this.suministro) ;
+
         return zealot;
     }
 
@@ -117,7 +122,13 @@ public class Protoss extends Raza{
 
         Dragon dragon = new Dragon();
 
+        if ((suministro + dragon.consumirSuministro(0)) > this.maximoSuministro) {
+            throw new SuministroAgotado() ;
+        }
+
         this.construir(dragon, casilleroAConstruir);
+        this.suministro = dragon.consumirSuministro(this.suministro) ;
+
         return dragon;
     }
 
@@ -136,7 +147,13 @@ public class Protoss extends Raza{
 
         Scout scout = new Scout();
 
+        if ((suministro + scout.consumirSuministro(0)) > this.maximoSuministro) {
+            throw new SuministroAgotado() ;
+        }
+
         this.construir(scout, casilleroAConstruir);
+        this.suministro = scout.consumirSuministro(this.suministro) ;
+
         return scout;
     }
 
