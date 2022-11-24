@@ -31,13 +31,13 @@ public class CasoDeUso1Test {
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(225));
         criadero.construir(casillero, recursos);
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
-        criadero.engendrarZangano();
+        criadero.engendrarZangano(recursos);
 
         // Assert
         assertEquals(valorEsperado, criadero.larvasRestantes());
@@ -52,7 +52,7 @@ public class CasoDeUso1Test {
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(225));
 
         criadero.construir(casillero, recursos);
         criadero.nuevoTurno();
@@ -60,7 +60,7 @@ public class CasoDeUso1Test {
         criadero.nuevoTurno();
         criadero.nuevoTurno();
 
-        criadero.engendrarZangano();
+        criadero.engendrarZangano(recursos);
         criadero.nuevoTurno();
 
         // Assert
@@ -77,7 +77,7 @@ public class CasoDeUso1Test {
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(250));
         criadero.construir(casillero, recursos);
 
         criadero.nuevoTurno();
@@ -85,8 +85,8 @@ public class CasoDeUso1Test {
         criadero.nuevoTurno();
         criadero.nuevoTurno();
 
-        criadero.engendrarZangano();
-        criadero.engendrarZangano();
+        criadero.engendrarZangano(recursos);
+        criadero.engendrarZangano(recursos);
         criadero.nuevoTurno();
 
         // Assert
@@ -103,15 +103,15 @@ public class CasoDeUso1Test {
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(250));
         criadero.construir(casillero, recursos);
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
 
-        criadero.engendrarZangano();
-        criadero.engendrarZangano();
+        criadero.engendrarZangano(recursos);
+        criadero.engendrarZangano(recursos);
         criadero.nuevoTurno();
         criadero.nuevoTurno();
 
@@ -129,16 +129,16 @@ public class CasoDeUso1Test {
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(275));
         criadero.construir(casillero, recursos);
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
 
-        criadero.engendrarZangano();
-        criadero.engendrarZangano();
-        criadero.engendrarZangano();
+        criadero.engendrarZangano(recursos);
+        criadero.engendrarZangano(recursos);
+        criadero.engendrarZangano(recursos);
         criadero.nuevoTurno();
 
         //Assert
@@ -155,16 +155,16 @@ public class CasoDeUso1Test {
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(275));
         criadero.construir(casillero, recursos);
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
 
-        criadero.engendrarZangano();
-        criadero.engendrarZangano();
-        criadero.engendrarZangano();
+        criadero.engendrarZangano(recursos);
+        criadero.engendrarZangano(recursos);
+        criadero.engendrarZangano(recursos);
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();

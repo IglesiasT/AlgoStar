@@ -4,8 +4,11 @@ import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
+import edu.fiuba.algo3.modelo.estados.JuegoFinalizado;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.mapa.*;
+import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
+import edu.fiuba.algo3.modelo.recursos.Mineral;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,7 +26,7 @@ public class CasoDeUso2Test {
         criadero.nuevoTurno();
 
         //Assert
-        assertThrows(EdificioNoEstaOperativo.class, criadero::engendrarZangano);
+        assertThrows(EdificioNoEstaOperativo.class, () -> criadero.engendrarZangano(new ListadoDeRecursos()));
     }
 
     @Test
@@ -31,6 +34,8 @@ public class CasoDeUso2Test {
         //Arrange
         Criadero criadero = new Criadero();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+        recursos.agregar(new Mineral(25));
 
         //Act
         criadero.establecerUbicacion(casillero);
@@ -39,8 +44,9 @@ public class CasoDeUso2Test {
         criadero.nuevoTurno();
         criadero.nuevoTurno();
 
+
         //Assert
-        assertDoesNotThrow(criadero::engendrarZangano);
+        assertDoesNotThrow(() ->criadero.engendrarZangano(recursos));
     }
 
     @Test

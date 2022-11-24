@@ -35,6 +35,7 @@ public class Zerg extends Raza{
     }
     public void construirCriadero(Casillero casilleroAConstruir){
         this.construir(new Criadero(), casilleroAConstruir);
+        this.maximoSuministro = this.maximoSuministro +5;
     }
 
     public void construirExtractor(Casillero casilleroAConstruir) {
@@ -61,17 +62,40 @@ public class Zerg extends Raza{
         this.construir(new Espiral(), casilleroAConstruir);
     }
 
+
+    public AmoSupremo engendrarAmoSupremo(Criadero criaderoAUsar) {
+        if ((suministro + (new AmoSupremo()).consumirSuministro(0)) > this.maximoSuministro) {
+            throw new SuministroAgotado() ;
+        }
+        AmoSupremo amoSupremo = criaderoAUsar.engendrarAmoSupremo(this.recursos);
+        this.unidadesEngendradas.add(amoSupremo);
+        this.suministro = amoSupremo.consumirSuministro(this.suministro) ;
+        this.maximoSuministro = this.maximoSuministro + 5 ;
+        return amoSupremo;
+    }
+    public Zangano engendrarZangano(Criadero criaderoAUsar) {
+        if ((suministro + (new Zangano()).consumirSuministro(0)) > this.maximoSuministro) {
+            throw new SuministroAgotado() ;
+        }
+
+        Zangano zangano = criaderoAUsar.engendrarZangano(this.recursos);
+        this.unidadesEngendradas.add(zangano);
+
+        this.suministro = zangano.consumirSuministro(this.suministro) ;
+
+        return zangano;
+    }
+
     public Mutalisco engendrarMutalisco(Criadero criaderoAUsar){
         if (! this.construccionesRealizadas.contiene(new Espiral())){
             throw new ConstruccionPreviaNoConstruida();
         }
 
-        Mutalisco mutalisco = criaderoAUsar.engendrarMutalisco(this.recursos);
-
-        if ((suministro + mutalisco.consumirSuministro(0)) > this.maximoSuministro) {
+        if ((suministro + (new Mutalisco()).consumirSuministro(0)) > this.maximoSuministro) {
             throw new SuministroAgotado() ;
         }
 
+        Mutalisco mutalisco = criaderoAUsar.engendrarMutalisco(this.recursos);
         this.unidadesEngendradas.add(mutalisco);
         this.suministro = mutalisco.consumirSuministro(this.suministro) ;
 
@@ -83,12 +107,11 @@ public class Zerg extends Raza{
             throw new ConstruccionPreviaNoConstruida();
         }
 
-        Hidralisco hidralisco = criaderoAUsar.engendrarHidralisco(this.recursos);
-
-        if ((suministro + hidralisco.consumirSuministro(0)) > this.maximoSuministro) {
+        if ((suministro + (new Hidralisco()).consumirSuministro(0)) > this.maximoSuministro) {
             throw new SuministroAgotado() ;
         }
 
+        Hidralisco hidralisco = criaderoAUsar.engendrarHidralisco(this.recursos);
         this.suministro = hidralisco.consumirSuministro(this.suministro) ;
         this.unidadesEngendradas.add(hidralisco);
 
@@ -100,12 +123,11 @@ public class Zerg extends Raza{
             throw new ConstruccionPreviaNoConstruida();
         }
 
-        Zerling zerling = criaderoAUsar.engendrarZerling(this.recursos);
-
-        if ((suministro + zerling.consumirSuministro(0)) > this.maximoSuministro) {
+        if ((suministro + (new Zerling()).consumirSuministro(0)) > this.maximoSuministro) {
             throw new SuministroAgotado() ;
         }
 
+        Zerling zerling = criaderoAUsar.engendrarZerling(this.recursos);
         this.suministro = zerling.consumirSuministro(this.suministro) ;
         this.unidadesEngendradas.add(zerling);
 
