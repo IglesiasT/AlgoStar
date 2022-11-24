@@ -63,9 +63,9 @@ public class Casillero {
                     throw new CasilleroSinMoho();
                 }
             }
+        } else if (this.recurso.getClass() == Gas.class) {
+            throw new NoSePuedeConstruir();
         }
-
-
 
         this.construccion = construccionAEstablecer;
         this.recurso.ocupar();
@@ -88,7 +88,7 @@ public class Casillero {
     public boolean contiene (EspacioDeConstruccion espacio){
         return (this.espacio.getClass() == espacio.getClass());
     }
-    public boolean puedeMoverse (Area tipoUnidad) {
+    public boolean puedeMoverse (Area tipoUnidad) {     // Rompe tell don't ask, ver presentacion polimorfismo hay ej parecido
         return ((tipoUnidad.getClass() == AreaEspacial.class) || ((tipoUnidad.getClass() == AreaTerrestre.class) && (this.area.getClass() == AreaTerrestre.class)) ) ;
     }
 
