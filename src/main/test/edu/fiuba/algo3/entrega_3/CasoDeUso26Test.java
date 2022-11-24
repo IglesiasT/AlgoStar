@@ -256,5 +256,35 @@ public class CasoDeUso26Test {
         assertEquals(valorEsperado , raza.obtenerOcupacionActual());
     }
 
+    @Test
+    public void construirUnPilonAumentaElSuministroSegunLoEsperado() {
+        int valorEsperado = 205;
+        Mapa mapa = new Mapa();
+        Casillero casillero = mapa.obtenerCasillero(1, 1);
+        Casillero casillero2 = mapa.obtenerCasillero(1, 2);
+        Casillero casillero3 = mapa.obtenerCasillero(1, 3);
+        casillero.setEspacioDeConstruccion(new RangoPilon());
+        casillero2.setEspacioDeConstruccion(new RangoPilon());
+
+        Protoss raza = new Protoss(15825, 7700);
+
+        raza.construirAcceso(casillero);
+        raza.construirPuertoEstelar(casillero2);
+
+        for (int i = 0; i < 50; i++) {
+            raza.construirScout(new Casillero(new AreaTerrestre(), 1 , i , mapa));
+        }
+
+        try {raza.construirZealot(casillero3);} catch (RuntimeException SuministroAgotado){};
+
+        raza.construirPilon(mapa.obtenerCasillero(1, 4));
+
+        raza.construirDragon(mapa.obtenerCasillero(1, 5));
+        raza.construirZealot(mapa.obtenerCasillero(1, 6));
+
+        try {raza.construirZealot(casillero3);} catch (RuntimeException SuministroAgotado){};
+
+        assertEquals(valorEsperado , raza.obtenerOcupacionActual());
+    }
 }
 

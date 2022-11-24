@@ -36,6 +36,7 @@ public class Protoss extends Raza{
         Pilon pilon = new Pilon();
 
         this.construir(pilon, casilleroAConstruir);
+        this.maximoSuministro = this.maximoSuministro +5 ;
     }
 
     public void construirNexoMineral(Casillero casilleroAConstruir) {
