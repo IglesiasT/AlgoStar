@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.mapa;
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
 import edu.fiuba.algo3.modelo.construcciones.ConstruccionZerg;
+import edu.fiuba.algo3.modelo.construcciones.Criadero;
 import edu.fiuba.algo3.modelo.construcciones.ProductorDeGas;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.EspacioDeConstruccion;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
@@ -55,7 +56,7 @@ public class Casillero {
 
         // Aplicar patron Visitor para limpiar estos if
         if(construccionAEstablecer instanceof ConstruccionZerg){
-            if (this.espacio.getClass() != Moho.class){
+            if (this.espacio.getClass() != Moho.class && !(construccionAEstablecer instanceof Criadero)){
                 throw new CasilleroSinMoho();
             }
         }
