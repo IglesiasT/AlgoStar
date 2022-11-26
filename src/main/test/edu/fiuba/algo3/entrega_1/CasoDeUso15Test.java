@@ -9,10 +9,7 @@ import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.recursos.Gas;
-import edu.fiuba.algo3.modelo.recursos.GasProducido;
-import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.recursos.MineralProducido;
+import edu.fiuba.algo3.modelo.recursos.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,17 +17,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CasoDeUso15Test {
     @Test
     public void extractorNoRecolectaMasGasLuegoDeAgotadoElRecurso(){
-        //Arrange
+        // Arrange
         GasProducido gasProducidoEsperado = new GasProducido(5000);
         Extractor extractor = new Extractor();
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
-        casillero.setEspacioDeConstruccion(new Moho());
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
         Zangano zangano1 = new Zangano();
         Zangano zangano2 = new Zangano();
         Zangano zangano3 = new Zangano();
 
         //Act
-        extractor.construir(casillero);
+        recursos.agregar(new Mineral());
+        casillero.setEspacioDeConstruccion(new Moho());
+        extractor.construir(casillero, recursos);
         extractor.nuevoTurno();
         extractor.nuevoTurno();
         extractor.nuevoTurno();
@@ -50,19 +49,24 @@ public class CasoDeUso15Test {
         for(int i = 0; i<167; i++){
             extractor.nuevoTurno();
         }
+
+        // Assert
         assertEquals(gasProducidoEsperado,extractor.obtenerGasProducido());
 
     }
 
     @Test
     public void asimiladorNoRecolectaMasGasLuegoDeAgotadoElRecurso(){
-        //Arrange
+        // Arrange
         GasProducido gasProducidoEsperado = new GasProducido(5000);
         Asimilador asimilador = new Asimilador();
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         //Act
-        asimilador.construir(casillero);
+        recursos.agregar(new Mineral());
+        casillero.setEspacioDeConstruccion(new Moho());
+        asimilador.construir(casillero, recursos);
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
         asimilador.nuevoTurno();
@@ -75,6 +79,8 @@ public class CasoDeUso15Test {
         for(int i = 0; i<251; i++){
             asimilador.nuevoTurno();
         }
+
+        // Assert
         assertEquals(gasProducidoEsperado,asimilador.obtenerGasProducido());
 
     }
@@ -85,9 +91,10 @@ public class CasoDeUso15Test {
         MineralProducido mineralProducidoEsperado = new MineralProducido(2000);
         Zangano zangano = new Zangano();
         Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(),1,1,new Mapa());
-        casillero.setEspacioDeConstruccion(new Moho());
+
 
         //Act
+        casillero.setEspacioDeConstruccion(new Moho());
         zangano.ubicar(casillero);
         zangano.nuevoTurno();
 
@@ -96,30 +103,35 @@ public class CasoDeUso15Test {
         for(int i = 0; i<201; i++){
             mineralProducido += zangano.producir();
         }
+
+        // Assert
         assertEquals(mineralProducidoEsperado, new MineralProducido(mineralProducido));
 
     }
 
     @Test
     public void nexoMineralNoRecolectaMasMineralLuegoDeAgotadoElRecurso(){
-        //Arrange
+        // Arrange
         MineralProducido mineralProducidoEsperado = new MineralProducido(2000);
         NexoMineral nexo = new NexoMineral();
         Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(),1,1,new Mapa());
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+
+        // Act
+        recursos.agregar(new Mineral());
         casillero.setEspacioDeConstruccion(new RangoPilon());
-
-        //Act
-        nexo.construir(casillero);
+        nexo.construir(casillero, recursos);
         nexo.nuevoTurno();
         nexo.nuevoTurno();
         nexo.nuevoTurno();
         nexo.nuevoTurno();
-
 
         // nexo recolecta 20 por turno, en 101 turnos recolecta 2020, el nodo tiene 2000
         for(int i = 0; i<101; i++){
             nexo.nuevoTurno();
         }
+
+        // Assert
         assertEquals(mineralProducidoEsperado,nexo.obtenerMineralProducido());
 
     }
