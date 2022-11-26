@@ -4,6 +4,8 @@ import edu.fiuba.algo3.modelo.construcciones.Criadero;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
+import edu.fiuba.algo3.modelo.recursos.Mineral;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -12,13 +14,16 @@ public class CasoDeUso6Test {
 
     @Test
     public void alConstruirElCriaderoEsteCreaUnRadioDeMohoDe5(){
-        //Arrange
+        // Arrange
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(10,10);
         Criadero criadero = new Criadero();
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
 
-        //Act
-        criadero.construir(casillero1);
+        // Act
+        recursos.agregar(new Mineral());
+        casillero1.setEspacioDeConstruccion(new Moho());
+        criadero.construir(casillero1, recursos);
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
@@ -26,7 +31,7 @@ public class CasoDeUso6Test {
 
         ArrayList<? extends Casillero> casillerosConMoho = mapa.obtenerCasilleros(5,10,10);
 
-        //Assert
+        // Assert
         for (Casillero casillero : casillerosConMoho){
             assert (casillero.contiene(new Moho()));
         }
@@ -43,9 +48,12 @@ public class CasoDeUso6Test {
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(10,10);
         Criadero criadero = new Criadero();
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
 
-        //Act
-        criadero.construir(casillero1);
+        // Act
+        recursos.agregar(new Mineral());
+        casillero1.setEspacioDeConstruccion(new Moho());
+        criadero.construir(casillero1, recursos);
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
@@ -70,9 +78,12 @@ public class CasoDeUso6Test {
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(10,10);
         Criadero criadero = new Criadero();
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
 
-        //Act
-        criadero.construir(casillero1);
+        // Act
+        recursos.agregar(new Mineral());
+        casillero1.setEspacioDeConstruccion(new Moho());
+        criadero.construir(casillero1, recursos);
         criadero.nuevoTurno();
         criadero.nuevoTurno();
         criadero.nuevoTurno();
