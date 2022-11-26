@@ -54,15 +54,16 @@ public class Casillero {
         }
 
         // Aplicar patron Visitor para limpiar estos if
+        if(construccionAEstablecer instanceof ConstruccionZerg){
+            if (this.espacio.getClass() != Moho.class){
+                throw new CasilleroSinMoho();
+            }
+        }
         if (construccionAEstablecer instanceof ProductorDeGas){
             if (this.recurso.getClass() != Gas.class){
                 throw new CasilleroSinGas();
             }
-            if(construccionAEstablecer instanceof ConstruccionZerg){
-                if (this.espacio.getClass() != Moho.class){
-                    throw new CasilleroSinMoho();
-                }
-            }
+
         } else if (this.recurso.getClass() == Gas.class) {
             throw new NoSePuedeConstruir();
         }
