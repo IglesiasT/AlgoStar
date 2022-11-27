@@ -170,10 +170,13 @@ public class CasoDeUso2Test {
         // Arrange
         Guarida guarida = new Guarida();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
+        recursos.agregar(new Mineral());
+        recursos.agregar(new Gas());
         casillero.setEspacioDeConstruccion(new Moho());
-        guarida.construir(casillero);
+        guarida.construir(casillero, recursos);
         guarida.nuevoTurno();
         guarida.nuevoTurno();
         guarida.nuevoTurno();

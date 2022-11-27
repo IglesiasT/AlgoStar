@@ -36,10 +36,6 @@ public abstract class Construccion {
         casilleroAConstruir.establecerConstruccion(this);
         this.ubicacion = casilleroAConstruir;
     }
-
-    public void construir(Casillero casillero){
-        // temporal para que los otros tests compilen
-    }
     public abstract void recibirDanio(int danioInflingido);
     protected abstract void regenerar();
     public int obtenerVida(){
