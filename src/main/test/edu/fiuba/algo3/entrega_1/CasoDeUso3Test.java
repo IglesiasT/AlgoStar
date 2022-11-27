@@ -70,6 +70,7 @@ public class CasoDeUso3Test {
 
         // Act
         recursos.agregar(new Mineral());
+        casillero.setEspacioDeConstruccion(new Moho());
 
         // Assert
         assertThrows(CasilleroSinGas.class, () -> extractor.construir(casillero, recursos));

@@ -2,35 +2,35 @@ package edu.fiuba.algo3.modelo.razas;
 
 import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.construcciones.*;
-import edu.fiuba.algo3.modelo.construcciones.unidades.Dragon;
-import edu.fiuba.algo3.modelo.construcciones.unidades.Scout;
-import edu.fiuba.algo3.modelo.construcciones.unidades.Zealot;
+import edu.fiuba.algo3.modelo.construcciones.unidades.*;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 import java.util.LinkedList;
 
 public class Protoss extends Raza{
-    private LinkedList<ConstruccionProtoss> construccionesRealizadas;
+    private ListadoDeConstruccionesProtoss construccionesRealizadas;
+    private LinkedList<UnidadProtoss> unidadesEngendradas;
     public Protoss(){
         super();
-        this.construccionesRealizadas = new LinkedList<>();
+        this.construccionesRealizadas = new ListadoDeConstruccionesProtoss();
     }
 
     public Protoss(int mineralInicial, int gasInicial){
         super(mineralInicial, gasInicial);
-        this.construccionesRealizadas = new LinkedList<>();
+        this.construccionesRealizadas = new ListadoDeConstruccionesProtoss();
     }
 
     public void nuevoTurno(){
-        for (ConstruccionProtoss construccion: construccionesRealizadas){
-            construccion.nuevoTurno();
+        this.construccionesRealizadas.nuevoTurno(this.recursos);
+        for (UnidadProtoss unidad : this.unidadesEngendradas) {    //delegar for en nueva clase ListadoUnidades
+            unidad.nuevoTurno();
         }
     }
 
     private void construir(ConstruccionProtoss construccion, Casillero casilleroAConstruir){
 
         construccion.construir(casilleroAConstruir, this.recursos);
-        this.construccionesRealizadas.add(construccion);
+        this.construccionesRealizadas.agregar(construccion);
     }
     public void construirPilon(Casillero casilleroAConstruir){
         Pilon pilon = new Pilon();
@@ -56,16 +56,8 @@ public class Protoss extends Raza{
     }
 
     public void construirPuertoEstelar(Casillero casilleroAConstruir){
-        boolean flag = false;
-        for (ConstruccionProtoss construccion : this.construccionesRealizadas) {
-            if (construccion.getClass() == Acceso.class) {
-                flag = true;
-                break;
-            }
-
-        }
-        if (! flag){
-            throw new NoSePuedeConstruir();
+        if (! this.construccionesRealizadas.contiene(new Acceso())){
+            throw new ConstruccionPreviaNoConstruida();
         }
 
         PuertoEstelar puertoEstelar = new PuertoEstelar();
@@ -73,16 +65,8 @@ public class Protoss extends Raza{
         this.construir(puertoEstelar, casilleroAConstruir);
     }
     public Zealot construirZealot(Casillero casilleroAConstruir){
-        boolean flag = false;
-        for (ConstruccionProtoss construccion : this.construccionesRealizadas) {
-            if (construccion.getClass() == Acceso.class) {
-                flag = true;
-                break;
-            }
-
-        }
-        if (! flag){
-            throw new NoSePuedeConstruir();
+        if (! this.construccionesRealizadas.contiene(new Acceso())){
+            throw new ConstruccionPreviaNoConstruida();
         }
 
         Zealot zealot = new Zealot();
@@ -97,16 +81,8 @@ public class Protoss extends Raza{
     }
 
     public Dragon construirDragon(Casillero casilleroAConstruir){
-        boolean flag = false;
-        for (ConstruccionProtoss construccion : this.construccionesRealizadas) {
-            if (construccion.getClass() == Acceso.class) {
-                flag = true;
-                break;
-            }
-
-        }
-        if (! flag){
-            throw new NoSePuedeConstruir();
+        if (! this.construccionesRealizadas.contiene(new Acceso())){
+            throw new ConstruccionPreviaNoConstruida();
         }
 
         Dragon dragon = new Dragon();
@@ -122,16 +98,8 @@ public class Protoss extends Raza{
     }
 
     public Scout construirScout(Casillero casilleroAConstruir){
-        boolean flag = false;
-        for (ConstruccionProtoss construccion : this.construccionesRealizadas) {
-            if (construccion.getClass() == PuertoEstelar.class) {
-                flag = true;
-                break;
-            }
-
-        }
-        if (! flag){
-            throw new NoSePuedeConstruir();
+        if (! this.construccionesRealizadas.contiene(new PuertoEstelar())){
+            throw new ConstruccionPreviaNoConstruida();
         }
 
         Scout scout = new Scout();
@@ -151,14 +119,7 @@ public class Protoss extends Raza{
     }
 
     public void destruir (ConstruccionProtoss construccionADestruir) {
-        for (ConstruccionProtoss construccion : this.construccionesRealizadas) {
-            if (construccion.getClass() == construccionADestruir.getClass()) {
-                construccion.destruir();
-                if (construccion.getClass() == Pilon.class){
-                    this.maximoSuministro = this.maximoSuministro -5 ;
-                }
-            }
-        }
+        this.construccionesRealizadas.destruir(construccionADestruir, this.maximoSuministro);
     }
 
 
