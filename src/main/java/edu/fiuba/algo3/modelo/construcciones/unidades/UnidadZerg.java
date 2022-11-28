@@ -14,7 +14,7 @@ import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class UnidadZerg extends ConstruccionZerg {
+public abstract class UnidadZerg extends ConstruccionZerg implements Unidad{
     protected Map<String, Integer> danioPorSuperficie;
 
     protected int rangoDeAtaque;
