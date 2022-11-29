@@ -1,21 +1,16 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades;
 
-import edu.fiuba.algo3.modelo.areas.AreaEspacial;
+import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.construcciones.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
-import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
-import edu.fiuba.algo3.modelo.recursos.Mineral;
 
 public class Mutalisco extends UnidadZerg{
 
     EstadoMutalisco estado;
 
     public Mutalisco(){
-        super();
         this.estado = new MutaliscoEstado();
-        this.danioAereo = 9;
-        this.danioTerrestre = 9;
     }
 
     public void evolucionarAGuardian(ListadoDeRecursos recursosDisponibles){
@@ -79,4 +74,13 @@ public class Mutalisco extends UnidadZerg{
 
     @Override
     public void nuevoTurno(){this.estado.nuevoTurno();}
+
+    @Override
+    public Area obtenerArea() {
+        return this.estado.obtenerArea();
+    }
+    @Override
+    public int obtenerVida(){
+        return this.estado.obtenerVida();
+    }
 }
