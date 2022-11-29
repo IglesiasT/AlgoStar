@@ -60,4 +60,8 @@ public abstract class Construccion {
     public Casillero obtenerUbicacion(){
         return this.ubicacion;
     }
+
+    public Area obtenerArea() {
+        return this.area;
+    }
 }
