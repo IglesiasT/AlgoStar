@@ -9,8 +9,8 @@ import edu.fiuba.algo3.modelo.recursos.Mineral;
 public class Dragon extends UnidadProtoss{
     public Dragon(){
         super();
-        this.danioPorSuperficie.put("Tierra", 20);
-        this.danioPorSuperficie.put("Aire", 20);
+        this.danioAereo = 20;
+        this.danioTerrestre = 20;
         this.escudo = new Escudo(80);
         this.turnosParaConstruirse = 6;
         this.rangoDeAtaque = 4;

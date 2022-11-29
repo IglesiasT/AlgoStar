@@ -11,7 +11,7 @@ public class Zealot extends UnidadProtoss{
     public Zealot(){
 
         super();
-        this.danioPorSuperficie.put("Tierra", 8);
+        this.danioTerrestre = 8;
         this.escudo = new Escudo(60);
         this.turnosParaConstruirse = 4;
         this.rangoDeAtaque = 1;

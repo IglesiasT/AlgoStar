@@ -2,24 +2,24 @@ package edu.fiuba.algo3.modelo.construcciones.unidades;
 
 import edu.fiuba.algo3.modelo.NoSePuedeMover;
 import edu.fiuba.algo3.modelo.ObjetivoFueraDeRango;
-import edu.fiuba.algo3.modelo.ObjetivoInvalido;
+import edu.fiuba.algo3.modelo.VisitanteAtacar;
+import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.construcciones.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public abstract class UnidadProtoss extends ConstruccionProtoss implements Unidad {
-    protected Map<String, Integer> danioPorSuperficie;
     protected int rangoDeAtaque;
     protected int suministro;
+    protected int danioAereo;
+    protected int danioTerrestre;
 
     public UnidadProtoss(){
         super();
         this.rangoDeAtaque = 1;
-        this.danioPorSuperficie = new HashMap<>();
+        this.danioAereo = 0;
+        this.danioTerrestre = 0;
     }
 
     protected boolean enRangoDeAtaque(Casillero ubicacion){
@@ -34,16 +34,15 @@ public abstract class UnidadProtoss extends ConstruccionProtoss implements Unida
         if (turnos < this.turnosParaConstruirse) {
             throw new EdificioNoEstaOperativo();
         }
-        if (!this.danioPorSuperficie.containsKey(construccionEnemiga.obtenerSuperficie())){
-            throw new ObjetivoInvalido();
-        }
 
         if (!enRangoDeAtaque(construccionEnemiga.obtenerUbicacion())){
             throw new ObjetivoFueraDeRango();
         }
 
-        int danio = this.danioPorSuperficie.get(construccionEnemiga.obtenerSuperficie());
-        construccionEnemiga.recibirDanio(danio);
+        // Se aplica patron Visitor de manera que el area sepa cuanto danio recibir
+        VisitanteAtacar ataque = new VisitanteAtacar(this.danioAereo, this.danioTerrestre);
+        Area areaConstruccion = construccionEnemiga.obtenerArea();
+        areaConstruccion.aceptar(ataque, construccionEnemiga);
     }
 
     public void moverse(Casillero casillero) {
