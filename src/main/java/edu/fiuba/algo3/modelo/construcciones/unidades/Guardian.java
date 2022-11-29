@@ -9,7 +9,7 @@ import edu.fiuba.algo3.modelo.recursos.Mineral;
 public class Guardian extends UnidadZerg implements EstadoMutalisco{
 
     public Guardian(){
-        this.danioPorSuperficie.put("Tierra", 25);
+        this.danioTerrestre = 25;
         this.vida = 100;
         this.turnosParaConstruirse = 4;
         this.rangoDeAtaque = 10;

@@ -9,8 +9,8 @@ import edu.fiuba.algo3.modelo.recursos.Mineral;
 public class MutaliscoEstado extends UnidadZerg implements EstadoMutalisco{
     public MutaliscoEstado(){
         super();
-        this.danioPorSuperficie.put("Tierra", 9);
-        this.danioPorSuperficie.put("Aire", 9);
+        this.danioAereo = 9;
+        this.danioTerrestre = 9;
         this.vidaMaxima = 120;
         this.vida = this.vidaMaxima;
         this.turnosParaConstruirse = 7;

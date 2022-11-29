@@ -14,6 +14,8 @@ public class Mutalisco extends UnidadZerg{
     public Mutalisco(){
         super();
         this.estado = new MutaliscoEstado();
+        this.danioAereo = 9;
+        this.danioTerrestre = 9;
     }
 
     public void evolucionarAGuardian(ListadoDeRecursos recursosDisponibles){

@@ -11,7 +11,7 @@ public class Devorador extends UnidadZerg implements EstadoMutalisco{
 
     public Devorador(){
         super();
-        this.danioPorSuperficie.put("Aire", 15);
+        this.danioAereo = 15;
         this.vidaMaxima = 200;
         this.vida = this.vidaMaxima;
         this.turnosParaConstruirse = 4;
