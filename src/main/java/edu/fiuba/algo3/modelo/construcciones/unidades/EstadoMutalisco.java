@@ -17,4 +17,6 @@ public interface EstadoMutalisco {
     Casillero obtenerUbicacion();
 
     void nuevoTurno();
+
+    int obtenerVida();
 }

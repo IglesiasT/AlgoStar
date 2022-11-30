@@ -22,9 +22,9 @@ public class Protoss extends Raza{
 
     public void nuevoTurno(){
         this.construccionesRealizadas.nuevoTurno(this.recursos);
-        for (UnidadProtoss unidad : this.unidadesEngendradas) {    //delegar for en nueva clase ListadoUnidades
-            unidad.nuevoTurno();
-        }
+        //for (UnidadProtoss unidad : this.unidadesEngendradas) {    //delegar for en nueva clase ListadoUnidades
+        //    unidad.nuevoTurno();
+        //}
     }
 
     private void construir(ConstruccionProtoss construccion, Casillero casilleroAConstruir){

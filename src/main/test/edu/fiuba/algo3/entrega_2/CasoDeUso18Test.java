@@ -86,6 +86,7 @@ public class CasoDeUso18Test {
         mutalisco.nuevoTurno();
         mutalisco.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
         zealot.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
+        zealot.visibilizar();
         mutalisco.atacar(zealot);
 
         // Assert

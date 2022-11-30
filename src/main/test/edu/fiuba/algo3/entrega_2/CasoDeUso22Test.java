@@ -406,7 +406,7 @@ public class CasoDeUso22Test {
         razaProtoss.nuevoTurno();
 
 
-        assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirZealot(mapa.obtenerCasillero(1,2)));
+        assertThrows(ConstruccionPreviaNoConstruida.class, () -> razaProtoss.construirZealot(mapa.obtenerCasillero(1,2)));
 
     }
 
@@ -502,7 +502,7 @@ public class CasoDeUso22Test {
         razaProtoss.nuevoTurno();
 
 
-        assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirDragon(mapa.obtenerCasillero(1,2)));
+        assertThrows(ConstruccionPreviaNoConstruida.class, () -> razaProtoss.construirDragon(mapa.obtenerCasillero(1,2)));
 
     }
 
@@ -573,6 +573,7 @@ public class CasoDeUso22Test {
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         Casillero casillero4 = mapa.obtenerCasillero(2,1);
         Casillero casillero5 = mapa.obtenerCasillero(2,2);
+        casillero5.setEspacioDeConstruccion(new Moho());
 
         razaProtoss.construirAcceso(casillero3);
 
@@ -607,7 +608,7 @@ public class CasoDeUso22Test {
         razaProtoss.construirAcceso(casillero2);
 
 
-        assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirScout(casillero3));
+        assertThrows(ConstruccionPreviaNoConstruida.class, () -> razaProtoss.construirScout(casillero3));
 
     }
 
@@ -681,6 +682,7 @@ public class CasoDeUso22Test {
         Casillero casillero4 = mapa.obtenerCasillero(2,1);
         Casillero casillero5 = mapa.obtenerCasillero(2,2);
         Casillero casillero6 = mapa.obtenerCasillero(3,1);
+        casillero6.setEspacioDeConstruccion(new Moho());
 
         razaProtoss.construirAcceso(casillero3);
         razaProtoss.construirPuertoEstelar(casillero4);
