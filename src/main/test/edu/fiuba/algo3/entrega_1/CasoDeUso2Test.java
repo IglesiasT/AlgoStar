@@ -2,9 +2,10 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.*;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.*;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
-import edu.fiuba.algo3.modelo.estados.JuegoFinalizado;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.mapa.*;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;

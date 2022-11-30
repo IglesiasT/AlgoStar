@@ -2,7 +2,13 @@ package edu.fiuba.algo3.entrega_2;
 
 import edu.fiuba.algo3.modelo.NoSePuedeMover;
 import edu.fiuba.algo3.modelo.areas.AreaEspacial;
-import edu.fiuba.algo3.modelo.construcciones.unidades.*;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Dragon;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Scout;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Zealot;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Guardian;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Hidralisco;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Mutalisco;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zerling;
 import edu.fiuba.algo3.modelo.mapa.*;
 import org.junit.jupiter.api.Test;
 

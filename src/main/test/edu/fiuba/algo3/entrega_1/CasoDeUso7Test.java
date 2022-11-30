@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
-import edu.fiuba.algo3.modelo.construcciones.unidades.Zangano;
-import edu.fiuba.algo3.modelo.construcciones.NexoMineral;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zangano;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.NexoMineral;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;

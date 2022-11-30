@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.entrega_2;
 
-import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.construcciones.Criadero;
-import edu.fiuba.algo3.modelo.construcciones.unidades.Mutalisco;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Mutalisco;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;

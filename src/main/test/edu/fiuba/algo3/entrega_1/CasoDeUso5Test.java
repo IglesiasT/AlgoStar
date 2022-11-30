@@ -1,8 +1,13 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
-import edu.fiuba.algo3.modelo.construcciones.*;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Acceso;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.FueraDeRangoDePilon;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.PuertoEstelar;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Espiral;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Extractor;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Guarida;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ReservaDeReproduccion;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.mapa.CasilleroSinMoho;

@@ -2,8 +2,8 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
-import edu.fiuba.algo3.modelo.construcciones.Extractor;
-import edu.fiuba.algo3.modelo.construcciones.unidades.Zangano;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Extractor;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zangano;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.GasProducido;

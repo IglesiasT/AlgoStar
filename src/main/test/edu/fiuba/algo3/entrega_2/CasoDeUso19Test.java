@@ -1,8 +1,13 @@
 package edu.fiuba.algo3.entrega_2;
 
 import edu.fiuba.algo3.modelo.ObjetivoInvalido;
-import edu.fiuba.algo3.modelo.construcciones.Pilon;
-import edu.fiuba.algo3.modelo.construcciones.unidades.*;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Pilon;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Scout;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Zealot;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Guardian;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Mutalisco;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zangano;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zerling;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
