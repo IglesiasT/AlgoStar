@@ -21,14 +21,14 @@ public class Zealot extends UnidadProtoss{
     }
 
     @Override
+    public void visibilizar(){
+        estado = new Visible();
+    }
+    @Override
     public void recibirDanio(int danioInflingido){
-        ArrayList<? extends Casillero> radio = this.ubicacion.obtenerCasilleros(4);
-        for (int i = 1; i < radio.size(); i++){
-            if(radio.get(i).obtenerConstruccion().getClass() == AmoSupremo.class){
-                estado = new Visible();
-            }
-        }
-        if(this.estado.getClass() == Visible.class){
+        if(estado.getClass() == Visible.class){
+            super.recibirDanio(danioInflingido);
         }
     }
+
 }

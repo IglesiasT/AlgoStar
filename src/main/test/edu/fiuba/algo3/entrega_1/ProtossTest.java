@@ -2,6 +2,7 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
+import edu.fiuba.algo3.modelo.construcciones.ConstruccionPreviaNoConstruida;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
@@ -22,6 +23,6 @@ public class ProtossTest {
         casilleroAConstruir.setEspacioDeConstruccion(new RangoPilon());
 
         //Assert
-        assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirPuertoEstelar(casilleroAConstruir));
+        assertThrows(ConstruccionPreviaNoConstruida.class, () -> razaProtoss.construirPuertoEstelar(casilleroAConstruir));
     }
 }

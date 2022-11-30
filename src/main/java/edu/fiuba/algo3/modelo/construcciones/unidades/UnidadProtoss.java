@@ -11,7 +11,7 @@ import edu.fiuba.algo3.modelo.mapa.Casillero;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class UnidadProtoss extends ConstruccionProtoss {
+public abstract class UnidadProtoss extends ConstruccionProtoss implements Unidad {
     protected Map<String, Integer> danioPorSuperficie;
     protected int rangoDeAtaque;
     protected int suministro;
@@ -51,6 +51,7 @@ public abstract class UnidadProtoss extends ConstruccionProtoss {
             throw new NoSePuedeMover();
         }
         this.ubicacion = casillero;
+        casillero.establecerUnidad(this);
     }
 
     public int consumirSuministro(int suministroAConsumir){

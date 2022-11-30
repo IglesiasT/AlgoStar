@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
+import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
@@ -12,8 +13,7 @@ import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CasoDeUso3Test {
     @Test
@@ -70,6 +70,7 @@ public class CasoDeUso3Test {
 
         // Act
         recursos.agregar(new Mineral());
+        casillero.setEspacioDeConstruccion(new Moho());
 
         // Assert
         assertThrows(CasilleroSinGas.class, () -> extractor.construir(casillero, recursos));
@@ -77,78 +78,118 @@ public class CasoDeUso3Test {
 
     @Test
     public void criaderoNoSePuedeConstruirEnUnCasilleroConGas(){
+        // Arrange
         Criadero criadero = new Criadero();
-
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
 
-        //assert(!criadero.sePuedeConstruirEn(casillero));
+        // Act
+        recursos.agregar(new Mineral());
+
+        // Assert
+        assertThrows(NoSePuedeConstruir.class, () -> criadero.construir(casillero, recursos));
     }
 
     @Test
     public void reservaDeReproduccionNoSePuedeConstruirEnUnCasilleroConGas(){
+        // Arrange
         ReservaDeReproduccion reserva = new ReservaDeReproduccion();
-
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+
+        // Act
+        recursos.agregar(new Mineral());
         casillero.setEspacioDeConstruccion(new Moho());
 
-        //assert(!reserva.sePuedeConstruirEn(casillero));
+        // Assert
+        assertThrows(NoSePuedeConstruir.class, () -> reserva.construir(casillero, recursos));
     }
 
     @Test
     public void guaridaNoSePuedeConstruirEnUnCasilleroConGas(){
+        // Arrange
         Guarida guarida = new Guarida();
-
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+
+        // Act
+        recursos.agregar(new Mineral());
         casillero.setEspacioDeConstruccion(new Moho());
 
-        //assert(!guarida.sePuedeConstruirEn(casillero));
+        // Assert
+        assertThrows(NoSePuedeConstruir.class, () -> guarida.construir(casillero, recursos));
     }
 
     @Test
     public void espiralNoSePuedeConstruirEnUnCasilleroConGas(){
+        // Arrange
         Espiral espiral = new Espiral();
-
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+
+        // Act
+        recursos.agregar(new Mineral());
         casillero.setEspacioDeConstruccion(new Moho());
 
-        //assert(!espiral.sePuedeConstruirEn(casillero));
+        // Assert
+        assertThrows(NoSePuedeConstruir.class, () -> espiral.construir(casillero, recursos));
     }
 
     @Test
     public void nexoMineralNoSePuedeConstruirEnUnCasilleroConGas(){
+        // Arrange
         NexoMineral nexo = new NexoMineral();
-
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
 
-        //assert(!nexo.sePuedeConstruirEn(casillero));
+        // Act
+        recursos.agregar(new Mineral());
+
+        // Assert
+        assertThrows(NoSePuedeConstruir.class, () -> nexo.construir(casillero, recursos));
     }
 
     @Test
     public void pilonNoSePuedeConstruirEnUnCasilleroConGas(){
+        // Arrange
         Pilon pilon = new Pilon();
-
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
 
-//        assert(!pilon.sePuedeConstruirEn(casillero));
+        // Act
+        recursos.agregar(new Mineral());
+
+        // Assert
+        assertThrows(NoSePuedeConstruir.class, () -> pilon.construir(casillero, recursos));
     }
 
     @Test
     public void accesoNoSePuedeConstruirEnUnCasilleroConGas(){
+        // Arrange
         Acceso acceso = new Acceso();
-
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+
+        // Act
+        recursos.agregar(new Mineral());
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
-//        assert(!acceso.sePuedeConstruirEn(casillero));
+        // Assert
+        assertThrows(NoSePuedeConstruir.class, () -> acceso.construir(casillero, recursos));
     }
 
     @Test
     public void puertoEstelarNoSePuedeConstruirEnUnCasilleroConGas(){
+        // Arrange
         PuertoEstelar puerto = new PuertoEstelar();
-
         Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+
+        // Act
+        recursos.agregar(new Mineral());
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
-//        assert(!puerto.sePuedeConstruirEn(casillero));
+        // Assert
+        assertThrows(NoSePuedeConstruir.class, () -> puerto.construir(casillero, recursos));
     }
 }

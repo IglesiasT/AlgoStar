@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Zangano;
 import edu.fiuba.algo3.modelo.construcciones.NexoMineral;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
+import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
@@ -31,22 +32,24 @@ public class CasoDeUso7Test {
 
     @Test
     public void nexoMineralRecolectaVeintePorTurno(){
-        //Arrange
+        // Arrange
         NexoMineral nexo = new NexoMineral();
         Casillero casillero = new Casillero(new Mineral(), new AreaTerrestre(),1,1,new Mapa());
-        casillero.setEspacioDeConstruccion(new RangoPilon());
-
-        nexo.construir(casillero);
-        nexo.nuevoTurno();
-        nexo.nuevoTurno();
-        nexo.nuevoTurno();
-        nexo.nuevoTurno();
-
         MineralProducido mineralProducidoEsperado = new MineralProducido(20);
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+
+        // Act
+        casillero.setEspacioDeConstruccion(new RangoPilon());
+        recursos.agregar(new Mineral());
+        nexo.construir(casillero, recursos);
+        nexo.nuevoTurno();
+        nexo.nuevoTurno();
+        nexo.nuevoTurno();
+        nexo.nuevoTurno();
 
         nexo.nuevoTurno();
 
-        //Act and Assert
+        // Assert
         assertEquals(mineralProducidoEsperado, nexo.obtenerMineralProducido());
     }
 }

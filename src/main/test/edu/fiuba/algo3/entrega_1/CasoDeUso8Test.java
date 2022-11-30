@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
@@ -8,6 +7,7 @@ import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.recursos.Gas;
+import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
@@ -81,9 +81,10 @@ public class CasoDeUso8Test {
     public void criaderoSePuedeConstruirConLosRecursosSuficientes(){
         // Arrange
         Zerg razaZerg = new Zerg();
-        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero = new Casillero( new AreaTerrestre(),1, 1, new Mapa());
 
         // Act
+        casillero.setEspacioDeConstruccion(new Moho());
         razaZerg.construirCriadero(casillero);
 
         // Assert
