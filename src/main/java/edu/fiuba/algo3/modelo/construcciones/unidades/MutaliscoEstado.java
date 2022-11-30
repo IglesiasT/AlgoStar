@@ -17,7 +17,6 @@ public class MutaliscoEstado extends UnidadZerg implements EstadoMutalisco{
         this.rangoDeAtaque = 3;
         this.recursosNecesarios.agregar(new Mineral(100));
         this.recursosNecesarios.agregar(new Gas(100));
-        this.superficie = "Aire";
         this.area = new AreaEspacial();
         this.suministro = 4;
     }

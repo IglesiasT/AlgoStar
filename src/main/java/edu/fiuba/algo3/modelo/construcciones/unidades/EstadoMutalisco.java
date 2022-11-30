@@ -13,7 +13,6 @@ public interface EstadoMutalisco {
     void recibirDanio(int danioInflingido);
 
     void destruir();
-    String obtenerSuperficie();
     void establecerUbicacion(Casillero nuevaUbicacion);
     Casillero obtenerUbicacion();
 

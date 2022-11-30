@@ -58,11 +58,6 @@ public class Mutalisco extends UnidadZerg{
     }
 
     @Override
-    public String obtenerSuperficie(){
-        return this.estado.obtenerSuperficie();
-    }
-
-    @Override
     public void establecerUbicacion(Casillero nuevaUbicacion){
         this.estado.establecerUbicacion(nuevaUbicacion);
     }

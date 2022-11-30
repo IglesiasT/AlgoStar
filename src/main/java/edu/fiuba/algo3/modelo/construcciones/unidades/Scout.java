@@ -18,7 +18,6 @@ public class Scout extends UnidadProtoss{
         this.rangoDeAtaque = 4;
         this.recursosNecesarios.agregar(new Mineral(300));
         this.recursosNecesarios.agregar(new Gas(150));
-        this.superficie = "Aire";
         this.area = new AreaEspacial();
         this.suministro = 4;
     }

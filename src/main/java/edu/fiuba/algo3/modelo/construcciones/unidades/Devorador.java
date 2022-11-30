@@ -18,7 +18,6 @@ public class Devorador extends UnidadZerg implements EstadoMutalisco{
         this.rangoDeAtaque = 5;
         this.recursosNecesarios.agregar(new Mineral(150));
         this.recursosNecesarios.agregar(new Gas(50));
-        this.superficie = "Aire";
         this.area = new AreaEspacial();
     }
 
