@@ -2,7 +2,9 @@
 
 # TP2 Algoritmos 3: AlgoStar 
 
-Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
+Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA. Aplicación desarrollada de manera grupal aplicando todos los conceptos vistos en el curso, utilizando un lenguaje de tipado estático con un diseño del modelo orientado a objetos y trabajando con las técnicas de TDD e Integración Continua.
+
+AlgoStar es un juego similar al famoso StarCraft pero no en tiempo real, sino por turnos. El mismo es un juego de guerra de estrategia y se basa en la construcción y administración de un imperio.
 
 ## Grupo 1
 
