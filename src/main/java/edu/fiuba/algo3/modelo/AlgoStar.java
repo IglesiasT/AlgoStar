@@ -11,6 +11,7 @@ import edu.fiuba.algo3.modelo.mapa.*;
 import java.util.Scanner;
 
 public class AlgoStar {
+    public static final int MAXIMOJUGADORES = 2;
     private ArrayList<Jugador> jugadores;
     private Mapa mapa ;
     private EstadoDeJuego estado;
