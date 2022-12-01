@@ -1,5 +1,6 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.vista.ContenedorElegirJugadores;
 import edu.fiuba.algo3.vista.ContenedorInicio;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -16,7 +17,8 @@ public class App extends Application {
     public void start(Stage stage) {
         stage.setTitle("AlgoStar");
 
-        Scene escenaInicio = new Scene(new ContenedorInicio(), 800, 800);
+        ContenedorInicio contenedorInicio = new ContenedorInicio(stage);
+        Scene escenaInicio = new Scene(contenedorInicio, 800, 800);
 
         stage.setScene(escenaInicio);
         stage.show();
