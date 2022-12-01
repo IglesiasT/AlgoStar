@@ -32,7 +32,7 @@ public class Jugador {
         this.baseInicial = baseInicial;
     }
 
-    public int construcciones(){
-        return this.raza.construcciones();
+    public int cantidadDeConstruccionesRealizadas(){
+        return this.raza.construccionesRealizadas();
     }
 }

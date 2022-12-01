@@ -36,5 +36,5 @@ public abstract class Raza {
         return this.suministro;
     }
 
-    public abstract int construcciones();
+    public abstract int construccionesRealizadas();
 }

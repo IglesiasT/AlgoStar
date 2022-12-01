@@ -71,7 +71,7 @@ public class AlgoStar {
 
     private EstadoDeJuego terminarJuego(EstadoDeJuego estado) {
         for (Jugador jugador : this.jugadores){
-            if ( (jugador.construcciones() == 0) && (this.turnos >= 2) ) {
+            if ( (jugador.cantidadDeConstruccionesRealizadas() == 0) && (this.turnos >= 2) ) {
                 return new Terminado();
             }
         }
