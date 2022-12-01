@@ -68,15 +68,14 @@ public class ContenedorElegirJugadores extends VBox {
 
     private void mostrarOpcionesColor() {
         ColorPicker colorPicker = new ColorPicker();
-        //setear color al jugador
         this.getChildren().add(colorPicker);
     }
 
     private void mostrarOpcionesRazas(){
         ObservableList<String> razas = FXCollections.observableArrayList();
-        razas.addAll("Protoss", "Zerg");    // pedir al juego las razas
+        razas.addAll("Protoss", "Zerg");
 
-        ComboBox<String> comboBoxRazas = new ComboBox(razas);
+        ComboBox<String> comboBoxRazas = new ComboBox<>(razas);
         comboBoxRazas.setValue("Elegir Raza");
 
         this.getChildren().add(comboBoxRazas);
