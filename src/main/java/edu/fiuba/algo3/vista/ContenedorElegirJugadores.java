@@ -29,7 +29,9 @@ public class ContenedorElegirJugadores extends VBox {
         etiquetaJugadores.setFont(Font.font("Verdana", FontWeight.BOLD, 40));
         etiquetaJugadores.setText("Establecer jugadores");
         etiquetaJugadores.setTextFill(Color.web("#000000"));
+        this.getChildren().add(etiquetaJugadores);
 
+        // Se pide los datos de los jugadores tantas veces como jugadores pueda haber en una partida
         for (int i = 1; i < AlgoStar.MAXIMOJUGADORES +1; i++) {
             this.mostrarPedidoDatosJugador(i);
         }
@@ -53,7 +55,7 @@ public class ContenedorElegirJugadores extends VBox {
 
         this.getChildren().addAll(label, textFieldNombreJugador);
         this.mostrarOpcionesRazas();
-
+        this.mostrarOpcionesColor();
         /*
         validar nombres
         validar razas no iguales
@@ -63,6 +65,12 @@ public class ContenedorElegirJugadores extends VBox {
         */
     }
 
+    private void mostrarOpcionesColor() {
+        ColorPicker colorPicker = new ColorPicker();
+        //setear color al jugador
+        this.getChildren().add(colorPicker);
+    }
+
     private void mostrarOpcionesRazas(){
         ObservableList<String> razas = FXCollections.observableArrayList();
         razas.addAll("Protoss", "Zerg");    // pedir al juego las razas
@@ -70,6 +78,6 @@ public class ContenedorElegirJugadores extends VBox {
         ComboBox<String> comboBoxRazas = new ComboBox(razas);
         comboBoxRazas.setValue("Elegir Raza");
 
-        this.getChildren().addAll(comboBoxRazas);
+        this.getChildren().add(comboBoxRazas);
     }
 }
