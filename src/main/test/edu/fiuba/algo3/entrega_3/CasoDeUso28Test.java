@@ -9,15 +9,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CasoDeUso28Test {
     @Test
     public void unidadEnemigaNoPuedeAtacarZealotCuandoEstaInvisible() {
+        // Arrange
         Mapa mapa = new Mapa();
         Zealot zealot = new Zealot();
-        zealot.moverse(mapa.obtenerCasillero(1, 1));
-
         Zerling zerling = new Zerling();
-        zerling.moverse(mapa.obtenerCasillero(1, 2));
 
+        // Act
+        zealot.moverse(mapa.obtenerCasillero(1, 1));
+        zerling.nuevoTurno();
+        zerling.nuevoTurno();
+        zerling.nuevoTurno();
+        zerling.moverse(mapa.obtenerCasillero(1, 2));
         zerling.atacar(zealot);
 
+        // Assert
         assertEquals(56, zealot.obtenerEscudo());
     }
 }
