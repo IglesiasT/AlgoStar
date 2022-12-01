@@ -20,6 +20,7 @@ public class ContenedorElegirJugadores extends VBox {
     public ContenedorElegirJugadores(Stage stage) {
         super();
         this.stage = stage;
+        this.juego = new AlgoStar();
 
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
