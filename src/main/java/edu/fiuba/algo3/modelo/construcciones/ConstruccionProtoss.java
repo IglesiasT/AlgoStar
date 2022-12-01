@@ -19,7 +19,8 @@ public abstract class ConstruccionProtoss extends Construccion{
         this.vida -= this.escudo.obtenerDanioNoMitigado();
 
         if (this.vida <= 0){
-            this.ubicacion.destruirConstruccion();
+            //this.ubicacion.destruirConstruccion();
+            destruir();
         }
     }
     @Override

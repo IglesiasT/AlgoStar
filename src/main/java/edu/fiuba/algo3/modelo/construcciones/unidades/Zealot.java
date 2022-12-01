@@ -12,23 +12,36 @@ public class Zealot extends UnidadProtoss{
 
         super();
         this.danioPorSuperficie.put("Tierra", 8);
-        this.escudo = new Escudo(60);
+        this.estado = new Invisible(new Escudo(60), this.vida);
+
+        //this.escudo = new Escudo(60);
         this.turnosParaConstruirse = 4;
-        this.rangoDeAtaque = 1;
+        //this.rangoDeAtaque = 1;
         this.suministro = 2;
         this.recursosNecesarios.agregar(new Mineral(100));
-        this.estado = new Invisible();
+
     }
 
     @Override
     public void visibilizar(){
-        estado = new Visible();
-    }
-    @Override
-    public void recibirDanio(int danioInflingido){
-        if(estado.getClass() == Visible.class){
-            super.recibirDanio(danioInflingido);
-        }
+        estado = this.estado.hacerVisible();
     }
 
+    public void invisibilizar(){
+        estado = this.estado.hacerInvisible();
+    }
+
+    @Override
+    public void recibirDanio(int danioInflingido){
+        this.estado.recibirDanio(danioInflingido);
+    }
+
+    @Override
+    public int obtenerEscudo(){
+        return this.estado.obtenerEscudo();
+    }
+    @Override
+    public int obtenerVida(){
+        return this.estado.obtenerVida();
+    }
 }

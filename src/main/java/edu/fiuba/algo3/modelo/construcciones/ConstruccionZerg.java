@@ -9,7 +9,8 @@ public abstract class ConstruccionZerg extends Construccion{
     public void recibirDanio(int danioInflingido) {
         this.vida -= danioInflingido;
         if (this.vida <= 0){
-            this.ubicacion.destruirConstruccion();
+            //this.ubicacion.destruirConstruccion();
+            destruir();
         }
     }
 
