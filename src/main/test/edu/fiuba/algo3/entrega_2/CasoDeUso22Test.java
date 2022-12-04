@@ -3,7 +3,15 @@ package edu.fiuba.algo3.entrega_2;
 
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.construcciones.*;
-import edu.fiuba.algo3.modelo.construcciones.unidades.*;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.NexoMineral;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ReservaDeReproduccion;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Dragon;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Scout;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Zealot;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Hidralisco;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Mutalisco;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zerling;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Zerg;
@@ -406,7 +414,7 @@ public class CasoDeUso22Test {
         razaProtoss.nuevoTurno();
 
 
-        assertThrows(ConstruccionPreviaNoConstruida.class, () -> razaProtoss.construirZealot(mapa.obtenerCasillero(1,2)));
+        assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirZealot(mapa.obtenerCasillero(1,2)));
 
     }
 
@@ -502,7 +510,7 @@ public class CasoDeUso22Test {
         razaProtoss.nuevoTurno();
 
 
-        assertThrows(ConstruccionPreviaNoConstruida.class, () -> razaProtoss.construirDragon(mapa.obtenerCasillero(1,2)));
+        assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirDragon(mapa.obtenerCasillero(1,2)));
 
     }
 
@@ -573,7 +581,6 @@ public class CasoDeUso22Test {
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         Casillero casillero4 = mapa.obtenerCasillero(2,1);
         Casillero casillero5 = mapa.obtenerCasillero(2,2);
-        casillero5.setEspacioDeConstruccion(new Moho());
 
         razaProtoss.construirAcceso(casillero3);
 
@@ -608,7 +615,7 @@ public class CasoDeUso22Test {
         razaProtoss.construirAcceso(casillero2);
 
 
-        assertThrows(ConstruccionPreviaNoConstruida.class, () -> razaProtoss.construirScout(casillero3));
+        assertThrows(NoSePuedeConstruir.class, () -> razaProtoss.construirScout(casillero3));
 
     }
 
@@ -682,7 +689,6 @@ public class CasoDeUso22Test {
         Casillero casillero4 = mapa.obtenerCasillero(2,1);
         Casillero casillero5 = mapa.obtenerCasillero(2,2);
         Casillero casillero6 = mapa.obtenerCasillero(3,1);
-        casillero6.setEspacioDeConstruccion(new Moho());
 
         razaProtoss.construirAcceso(casillero3);
         razaProtoss.construirPuertoEstelar(casillero4);
