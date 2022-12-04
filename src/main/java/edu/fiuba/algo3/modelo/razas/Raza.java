@@ -1,15 +1,11 @@
 package edu.fiuba.algo3.modelo.razas;
 
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
-import edu.fiuba.algo3.modelo.construcciones.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.recursos.Recurso;
 
-import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.Set;
 
 public abstract class Raza {
     protected ListadoDeRecursos recursos;
@@ -40,5 +36,5 @@ public abstract class Raza {
         return this.suministro;
     }
 
-    public abstract int construcciones();
+    public abstract int construccionesRealizadas();
 }

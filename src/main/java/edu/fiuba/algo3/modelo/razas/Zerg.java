@@ -1,7 +1,10 @@
 package edu.fiuba.algo3.modelo.razas;
 
 import edu.fiuba.algo3.modelo.construcciones.*;
-import edu.fiuba.algo3.modelo.construcciones.unidades.*;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.*;
+import edu.fiuba.algo3.modelo.construcciones.listadoDeConstrucciones.ListadoDeConstruccionesZerg;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.AmoSupremo;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.*;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 import java.util.LinkedList;
@@ -156,7 +159,7 @@ public class Zerg extends Raza{
         mutaliscoAEvolucionar.evolucionarADevorador(recursos);
     }
 
-    public int construcciones() {
+    public int construccionesRealizadas() {
         return construccionesRealizadas.size();
     }
 

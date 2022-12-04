@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Mapa {
+    public static final int FILAS = 20;
+    public static final int COLUMNAS = 20;
     private Casillero[][] tablero;
 
     private Base baseUno;

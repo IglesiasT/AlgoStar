@@ -8,9 +8,12 @@ import edu.fiuba.algo3.modelo.estados.Terminado;
 import edu.fiuba.algo3.modelo.jugador.DatosRepetidos;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.*;
+import edu.fiuba.algo3.modelo.razas.Raza;
+
 import java.util.Scanner;
 
 public class AlgoStar {
+    public static final int MAXIMOJUGADORES = 2;
     private ArrayList<Jugador> jugadores;
     private Mapa mapa ;
     private EstadoDeJuego estado;
@@ -63,16 +66,19 @@ public class AlgoStar {
     public void siguienteTurno(){
         this.estado.jugar() ;
         this.turnos++;
-        this.estado = this.terminar_juego(this.estado);
+        this.estado = this.terminarJuego(this.estado);
     }
 
-    private EstadoDeJuego terminar_juego (EstadoDeJuego estado) {
+    private EstadoDeJuego terminarJuego(EstadoDeJuego estado) {
         for (Jugador jugador : this.jugadores){
-            if ( (jugador.construcciones() == 0) && (this.turnos >= 2) ) {
+            if ( (jugador.cantidadDeConstruccionesRealizadas() == 0) && (this.turnos >= 2) ) {
                 return new Terminado();
             }
         }
         return estado;
     }
 
+    public void agregarJugador(String nombreJugador, Raza razaJugador){
+        //this.jugadores.add(new Jugador(nombreJugador, razaJugador));
+    }
 }

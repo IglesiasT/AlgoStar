@@ -1,4 +1,6 @@
 package edu.fiuba.algo3.modelo.areas;
 
-public abstract class Area {
+import edu.fiuba.algo3.modelo.Elemento;
+
+public abstract class Area implements Elemento {
 }

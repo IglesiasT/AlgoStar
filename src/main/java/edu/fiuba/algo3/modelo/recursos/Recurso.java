@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo.recursos;
 
-import edu.fiuba.algo3.modelo.RecursoOcupado;
-
 import java.util.Set;
 
 public abstract class Recurso {
