@@ -2,6 +2,9 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
+import edu.fiuba.algo3.modelo.areas.Area;
+import edu.fiuba.algo3.modelo.areas.AreaEspacial;
+import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.estados.EstadoDeJuego;
 import edu.fiuba.algo3.modelo.estados.Jugando;
 import edu.fiuba.algo3.modelo.estados.Terminado;
@@ -21,8 +24,11 @@ public class AlgoStar {
     private int turnos;
 
     public AlgoStar (){
+        ArrayList<Area> areasMapa = new ArrayList<Area>();
+        areasMapa.add(new AreaTerrestre());
+        areasMapa.add(new AreaEspacial());
         this.jugadores = new ArrayList<>();
-        this.mapa = new Mapa();
+        this.mapa = new Mapa(areasMapa);
         this.turnos = 0;
     }
 
@@ -80,5 +86,8 @@ public class AlgoStar {
 
     public void agregarJugador(String nombreJugador, Raza razaJugador){
         //this.jugadores.add(new Jugador(nombreJugador, razaJugador));
+    }
+    public Mapa obtenerMapa(){
+        return this.mapa;
     }
 }

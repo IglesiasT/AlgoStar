@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.AlgoStar;
 import edu.fiuba.algo3.vista.eventos.BotonNuevaPartidaEventHandler;
 import javafx.collections.FXCollections;
@@ -40,7 +41,7 @@ public class ContenedorElegirJugadores extends VBox {
         Button botonNuevaPartida = new Button();
         botonNuevaPartida.setText("Nueva partida");
 
-        Scene proximaEscena = new Scene(new ContenedorPrincipal(this.stage, this.juego), 800, 800);
+        Scene proximaEscena = new Scene(new ContenedorPrincipal(this.stage, this.juego), App.TAMANIO_CASILLERO*juego.obtenerMapa().obtenerTamanio(), App.TAMANIO_CASILLERO*juego.obtenerMapa().obtenerTamanio());
         BotonNuevaPartidaEventHandler botonNuevaPartidaEventHandler = new BotonNuevaPartidaEventHandler(stage, proximaEscena);
         botonNuevaPartida.setOnAction(botonNuevaPartidaEventHandler);
 
