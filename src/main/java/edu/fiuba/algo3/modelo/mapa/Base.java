@@ -26,10 +26,10 @@ public class Base extends Rectangle {
     private ArrayList<?extends Casillero> casilleros;
 
     public Base(Casillero ubicacion){
-        setWidth(App.TAMANIO_CASILLERO -1 );
-        setHeight(App.TAMANIO_CASILLERO -1 );
+        setWidth(App.TAMANIO_CASILLERO*(RADIO*2 +1) -1 );
+        setHeight(App.TAMANIO_CASILLERO*(RADIO*2 +1) -1 );
         setFill(Color.TRANSPARENT);
-        relocate(ubicacion.obtenerFila() * App.TAMANIO_CASILLERO,ubicacion.obtenerColumna() * App.TAMANIO_CASILLERO);
+        relocate((ubicacion.obtenerFila()-RADIO) * App.TAMANIO_CASILLERO,(ubicacion.obtenerColumna()-RADIO) * App.TAMANIO_CASILLERO);
         this.ubicacion = ubicacion;
         this.ubicacion.setArea(new AreaTerrestre());
         this.ubicacion.setRecurso(new Gas());
