@@ -1,13 +1,16 @@
 package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
-import edu.fiuba.algo3.modelo.construcciones.*;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Asimilador;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.NexoMineral;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Pilon;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.PuertoEstelar;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.recursos.Gas;
-import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
@@ -21,7 +24,7 @@ public class CasoDeUso8Test {
     public void asimiladorNoSePuedeConstruirSinLosRecursosSuficientes() {
         // Arrange
         Protoss razaProtoss = new Protoss(0,0);
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
 
         // Act and Assert
         assertThrows(RecursosInsuficientes.class, () -> razaProtoss.construirAsimilador(casillero) );
@@ -31,7 +34,7 @@ public class CasoDeUso8Test {
     public void asimiladorSePuedeConstruirConLosRecursosSuficientes(){
         // Arrange
         Protoss razaProtoss = new Protoss();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
 
         // Act
         razaProtoss.construirAsimilador(casillero);
@@ -44,7 +47,7 @@ public class CasoDeUso8Test {
     public void extractorNoSePuedeConstruirSinLosRecursosSuficientes() {
         // Arrange
         Zerg razaZerg = new Zerg(0,0);
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
 
         // Act
         casillero.setEspacioDeConstruccion(new Moho());
@@ -57,7 +60,7 @@ public class CasoDeUso8Test {
     public void extractorSePuedeConstruirConLosRecursosSuficientes(){
         // Arrange
         Zerg razaZerg = new Zerg();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
 
         // Act
         casillero.setEspacioDeConstruccion(new Moho());
@@ -198,7 +201,7 @@ public class CasoDeUso8Test {
     public void nexoMineralNoSePuedeConstruirSinLosRecursosSuficientes() {
         // Arrange
         Protoss razaProtoss = new Protoss(0,0);
-        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
 
         // Act and Assert
         assertThrows(RecursosInsuficientes.class, () -> razaProtoss.construirNexoMineral(casillero) );
@@ -208,7 +211,7 @@ public class CasoDeUso8Test {
     public void nexoMineralSePuedeConstruirConLosRecursosSuficientes(){
         // Arrange
         Protoss razaProtoss = new Protoss();
-        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
 
         // Act
         razaProtoss.construirNexoMineral(casillero);

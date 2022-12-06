@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades.visibilidad;
 
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
-import edu.fiuba.algo3.modelo.construcciones.unidades.UnidadProtoss;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.UnidadProtoss;
 
 public class Invisible extends UnidadProtoss implements Visibilidad {
     public Invisible(Escudo escudo, int vida ) {

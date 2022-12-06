@@ -2,7 +2,8 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
-import edu.fiuba.algo3.modelo.construcciones.*;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.*;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.mapa.CasilleroSinGas;
@@ -20,7 +21,7 @@ public class CasoDeUso3Test {
     public void asimiladorSePuedeConstruirEnCasilleroConGas() {
         // Arrange
         Asimilador asimilador = new Asimilador();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(), 1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
@@ -49,7 +50,7 @@ public class CasoDeUso3Test {
     public void extractorSePuedeConstruirEnUnCasilleroConGas(){
         // Arrange
         Extractor extractor = new Extractor();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(), 1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
@@ -80,7 +81,7 @@ public class CasoDeUso3Test {
     public void criaderoNoSePuedeConstruirEnUnCasilleroConGas(){
         // Arrange
         Criadero criadero = new Criadero();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
@@ -94,7 +95,7 @@ public class CasoDeUso3Test {
     public void reservaDeReproduccionNoSePuedeConstruirEnUnCasilleroConGas(){
         // Arrange
         ReservaDeReproduccion reserva = new ReservaDeReproduccion();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
@@ -109,7 +110,7 @@ public class CasoDeUso3Test {
     public void guaridaNoSePuedeConstruirEnUnCasilleroConGas(){
         // Arrange
         Guarida guarida = new Guarida();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
@@ -124,7 +125,7 @@ public class CasoDeUso3Test {
     public void espiralNoSePuedeConstruirEnUnCasilleroConGas(){
         // Arrange
         Espiral espiral = new Espiral();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
@@ -139,7 +140,7 @@ public class CasoDeUso3Test {
     public void nexoMineralNoSePuedeConstruirEnUnCasilleroConGas(){
         // Arrange
         NexoMineral nexo = new NexoMineral();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
@@ -153,7 +154,7 @@ public class CasoDeUso3Test {
     public void pilonNoSePuedeConstruirEnUnCasilleroConGas(){
         // Arrange
         Pilon pilon = new Pilon();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
@@ -167,7 +168,7 @@ public class CasoDeUso3Test {
     public void accesoNoSePuedeConstruirEnUnCasilleroConGas(){
         // Arrange
         Acceso acceso = new Acceso();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
@@ -182,7 +183,7 @@ public class CasoDeUso3Test {
     public void puertoEstelarNoSePuedeConstruirEnUnCasilleroConGas(){
         // Arrange
         PuertoEstelar puerto = new PuertoEstelar();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act

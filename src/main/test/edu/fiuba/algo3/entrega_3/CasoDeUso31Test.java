@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.entrega_3;
 
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
-import edu.fiuba.algo3.modelo.construcciones.Criadero;
-import edu.fiuba.algo3.modelo.construcciones.Pilon;
-import edu.fiuba.algo3.modelo.construcciones.unidades.AmoSupremo;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Pilon;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.AmoSupremo;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
@@ -36,7 +36,6 @@ public class CasoDeUso31Test{
         for (int i = 0; i < 50; i++) {
             raza.construirScout(new Casillero(new AreaTerrestre(), 1 , i , mapa));
         }
-
 
         try {raza.construirZealot(casillero3);} catch (RuntimeException SuministroAgotado){};
 

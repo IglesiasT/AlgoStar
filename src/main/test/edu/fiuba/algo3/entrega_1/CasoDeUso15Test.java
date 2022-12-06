@@ -1,10 +1,10 @@
 package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
-import edu.fiuba.algo3.modelo.construcciones.Asimilador;
-import edu.fiuba.algo3.modelo.construcciones.Extractor;
-import edu.fiuba.algo3.modelo.construcciones.NexoMineral;
-import edu.fiuba.algo3.modelo.construcciones.unidades.Zangano;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Asimilador;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Extractor;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.NexoMineral;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zangano;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
@@ -20,7 +20,7 @@ public class CasoDeUso15Test {
         // Arrange
         GasProducido gasProducidoEsperado = new GasProducido(5000);
         Extractor extractor = new Extractor();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
         Zangano zangano1 = new Zangano();
         Zangano zangano2 = new Zangano();
@@ -60,7 +60,7 @@ public class CasoDeUso15Test {
         // Arrange
         GasProducido gasProducidoEsperado = new GasProducido(5000);
         Asimilador asimilador = new Asimilador();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         //Act
@@ -90,7 +90,7 @@ public class CasoDeUso15Test {
         //Arrange
         MineralProducido mineralProducidoEsperado = new MineralProducido(2000);
         Zangano zangano = new Zangano();
-        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(),1,1,new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
 
 
         //Act
@@ -114,7 +114,7 @@ public class CasoDeUso15Test {
         // Arrange
         MineralProducido mineralProducidoEsperado = new MineralProducido(2000);
         NexoMineral nexo = new NexoMineral();
-        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(),1,1,new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act

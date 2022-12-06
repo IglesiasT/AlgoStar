@@ -1,12 +1,11 @@
 package edu.fiuba.algo3.modelo.mapa;
 
+import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
-import edu.fiuba.algo3.modelo.construcciones.ConstruccionZerg;
-import edu.fiuba.algo3.modelo.construcciones.Criadero;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
 import edu.fiuba.algo3.modelo.construcciones.ProductorDeGas;
-import edu.fiuba.algo3.modelo.construcciones.unidades.SinConstruccion;
-import edu.fiuba.algo3.modelo.construcciones.unidades.SinUnidad;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.EspacioDeConstruccion;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.SinEspacio;
@@ -14,10 +13,11 @@ import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.Recurso;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import edu.fiuba.algo3.modelo.areas.*;
+import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 
-public class Casillero {
+public class Casillero extends Rectangle {
     private int fila;
     private int columna;
     private Mapa mapa;
@@ -27,9 +27,12 @@ public class Casillero {
     private EspacioDeConstruccion espacio;
     private Construccion construccion;
 
-    private Construccion unidad;
-
     public Casillero(Area area, int fila, int columna, Mapa mapa){
+
+        setWidth(App.TAMANIO_CASILLERO);
+        setHeight(App.TAMANIO_CASILLERO);
+        relocate(fila * App.TAMANIO_CASILLERO,columna * App.TAMANIO_CASILLERO);
+        setFill(area.color());
         this.fila = fila;
         this.columna = columna;
         this.mapa = mapa;
@@ -37,9 +40,10 @@ public class Casillero {
         this.area = area ;
         this.espacio = new SinEspacio();
         this.construccion = null;
-        this.unidad = new SinUnidad();
     }
 
+    /*
+    no se si hace falta este
     public Casillero(Recurso recurso,Area area, int fila, int columna, Mapa mapa){
         this.fila = fila;
         this.columna = columna;
@@ -48,15 +52,12 @@ public class Casillero {
         this.area = area ;
         this.espacio = new SinEspacio();
         this.construccion = null;
-        this.unidad = new SinUnidad();
     }
+
+     */
 
     public void setEspacioDeConstruccion(EspacioDeConstruccion espacio){
         this.espacio = espacio;
-    }
-
-    public void establecerUnidad(Construccion unidadAEstablecer){
-        this.unidad = unidadAEstablecer;
     }
     public void establecerConstruccion(Construccion construccionAEstablecer){
 
@@ -94,10 +95,6 @@ public class Casillero {
 
     public Construccion obtenerConstruccion(){ return this.construccion;}
 
-    public Construccion obtenerUnidad(){
-        return this.unidad;
-    }
-
     public boolean contiene (Recurso recurso){
         return (this.recurso.getClass() == recurso.getClass());
     }
@@ -118,5 +115,14 @@ public class Casillero {
 
     public int obtenerFila(){
         return fila;
+    }
+
+    public void setRecurso(Recurso recurso){
+        this.recurso = recurso;
+    }
+
+    public void setArea(Area area){
+        this.area = area;
+        setFill(area.color());
     }
 }

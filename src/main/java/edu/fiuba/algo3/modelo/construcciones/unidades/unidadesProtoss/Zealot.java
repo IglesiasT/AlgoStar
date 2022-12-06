@@ -1,14 +1,9 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss;
 
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
-import edu.fiuba.algo3.modelo.construcciones.unidades.UnidadProtoss;
-import edu.fiuba.algo3.modelo.construcciones.unidades.visibilidad.Invisible;
 import edu.fiuba.algo3.modelo.construcciones.unidades.visibilidad.Visibilidad;
 import edu.fiuba.algo3.modelo.construcciones.unidades.visibilidad.Visible;
-import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-
-import java.util.ArrayList;
 
 public class Zealot extends UnidadProtoss {
     Visibilidad estado;

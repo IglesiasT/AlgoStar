@@ -2,9 +2,10 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.*;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.*;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
-import edu.fiuba.algo3.modelo.estados.JuegoFinalizado;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.mapa.*;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
@@ -106,7 +107,7 @@ public class CasoDeUso2Test {
     public void extractorNoEstaOperativoAntesDeSeisTurnos(){
         // Arrange
         Extractor extractor = new Extractor();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
 
         // Act
         casillero.setEspacioDeConstruccion(new Moho());
@@ -123,7 +124,7 @@ public class CasoDeUso2Test {
     public void extractorEstaOperativoLuegoDeSeisTurnos(){
         // Arrange
         Extractor extractor = new Extractor();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
@@ -306,7 +307,7 @@ public class CasoDeUso2Test {
     public void asimiladorNoEstaOperativoAntesDeSeisTurnos(){
         // Arrange
         Asimilador asimilador = new Asimilador();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
 
         // Act
         asimilador.establecerUbicacion(casillero);
@@ -323,7 +324,7 @@ public class CasoDeUso2Test {
     public void asimiladorEstaOperativoLuegoDeSeisTurnos(){
         // Arrange
         Asimilador asimilador = new Asimilador();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
 
         // Act;
         asimilador.establecerUbicacion(casillero);

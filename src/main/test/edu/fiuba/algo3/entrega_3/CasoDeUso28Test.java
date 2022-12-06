@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.entrega_3;
 
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Zealot;
-import edu.fiuba.algo3.modelo.construcciones.unidades.Zerling;
-import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.Test;
-
+import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zerling;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso28Test {

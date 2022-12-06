@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.construcciones.Acceso;
-import edu.fiuba.algo3.modelo.construcciones.Pilon;
-import edu.fiuba.algo3.modelo.construcciones.FueraDeRangoDePilon;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Acceso;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Pilon;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.FueraDeRangoDePilon;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
