@@ -114,7 +114,7 @@ public class Protoss extends Raza{
         return scout;
     }
 
-    public int construcciones() {
+    public int construccionesRealizadas() {
         return construccionesRealizadas.size();
     }
 

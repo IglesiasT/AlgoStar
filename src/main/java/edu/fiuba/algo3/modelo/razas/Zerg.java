@@ -156,7 +156,7 @@ public class Zerg extends Raza{
         mutaliscoAEvolucionar.evolucionarADevorador(recursos);
     }
 
-    public int construcciones() {
+    public int construccionesRealizadas() {
         return construccionesRealizadas.size();
     }
 
