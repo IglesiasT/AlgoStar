@@ -8,9 +8,6 @@ public class Gas extends Recurso{
 
     public Gas(){
         super();
-        setText("Δ");
-        setFill(Color.RED);
-        setFont(Font.font("Verdana", FontWeight.BOLD, 20));
         this.cantidad = 5000;
     }
     public Gas(int cantidad){

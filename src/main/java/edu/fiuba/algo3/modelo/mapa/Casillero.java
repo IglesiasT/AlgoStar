@@ -17,7 +17,7 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 
-public class Casillero extends Rectangle {
+public class Casillero {
     private int fila;
     private int columna;
     private Mapa mapa;
@@ -29,10 +29,6 @@ public class Casillero extends Rectangle {
 
     public Casillero(Area area, int fila, int columna, Mapa mapa){
 
-        setWidth(App.TAMANIO_CASILLERO);
-        setHeight(App.TAMANIO_CASILLERO);
-        relocate(fila * App.TAMANIO_CASILLERO,columna * App.TAMANIO_CASILLERO);
-        setFill(area.color());
         this.fila = fila;
         this.columna = columna;
         this.mapa = mapa;
@@ -123,6 +119,9 @@ public class Casillero extends Rectangle {
 
     public void setArea(Area area){
         this.area = area;
-        setFill(area.color());
+    }
+
+    public Area obtenerArea(){
+        return this.area;
     }
 }

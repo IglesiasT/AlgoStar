@@ -3,14 +3,6 @@ package edu.fiuba.algo3.modelo.mapa;
 import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.areas.*;
 import edu.fiuba.algo3.modelo.recursos.Recurso;
-import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -18,10 +10,6 @@ import java.util.Random;
 public class Mapa {
 
     private int tamanio;
-
-    private Group grupoDeCasilleros = new Group();
-    private Group grupoDeRecursos = new Group();
-    private Group grupoDeBases = new Group();
     private Casillero[][] tablero;
     private ArrayList<Area> areas;
 
@@ -64,16 +52,11 @@ public class Mapa {
         int fila = tamanio/2 + ((new Random()).nextInt(tamanio/2 - 1));
         int columna = ((new Random()).nextInt(tamanio/2 - 1 ));
         this.baseUno = new Base(this.tablero[fila][columna]);
-        this.baseUno.inicioJugador1();
 
         this.baseDos = new Base(this.tablero[columna][fila]);
-        this.baseDos.inicioJugador2();
 
         this.bases.add(baseUno);
         this.bases.add(baseDos);
-
-        this.grupoDeBases.getChildren().add(baseUno);
-        this.grupoDeBases.getChildren().add(baseDos);
 
     }
 
@@ -96,19 +79,6 @@ public class Mapa {
             }
         }
         return casilleros;
-    }
-
-    public void mostrarMapa(Pane root){
-        root.setPrefSize(tamanio* App.TAMANIO_CASILLERO, tamanio* App.TAMANIO_CASILLERO);
-        root.getChildren().addAll(grupoDeCasilleros,grupoDeRecursos,grupoDeBases);
-        for (int i = 0; i < tamanio; i++){
-            for (int j = 0; j < tamanio; j++){
-                grupoDeCasilleros.getChildren().add(this.tablero[i][j]);
-                Recurso recurso = this.tablero[i][j].obtenerRecurso();
-                recurso.relocate(i*App.TAMANIO_CASILLERO,j*App.TAMANIO_CASILLERO);
-                grupoDeRecursos.getChildren().add(recurso);
-            }
-        }
     }
 
     public Casillero obtenerCasillero(int i, int j) {
