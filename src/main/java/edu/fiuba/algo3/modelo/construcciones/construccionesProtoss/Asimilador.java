@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.construcciones.construccionesProtoss;
 import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
 import edu.fiuba.algo3.modelo.construcciones.ProductorDeGas;
-import edu.fiuba.algo3.modelo.recursos.GasProducido;
+import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 
 public class Asimilador extends ConstruccionProtoss implements ProductorDeGas {
@@ -27,11 +27,11 @@ public class Asimilador extends ConstruccionProtoss implements ProductorDeGas {
         }
     }
 
-    public GasProducido obtenerGasProducido(){
+    public Gas obtenerGasProducido(){
         if(this.turnos < this.turnosParaConstruirse){
             throw new EdificioNoEstaOperativo();
         }
-        return new GasProducido(this.gasProducido);
+        return new Gas(this.gasProducido);
     }
 
     public void producirGas(){

@@ -2,23 +2,15 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.AlgoStar;
-import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.areas.AreaEspacial;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.mapa.Base;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.recursos.Gas;
-import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.recursos.Recurso;
-import edu.fiuba.algo3.modelo.recursos.SinRecurso;
+import edu.fiuba.algo3.modelo.recursos.*;
 import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -27,8 +19,6 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,7 +41,7 @@ public class ContenedorPrincipal extends Pane {
         areasMapa.put(AreaEspacial.class,Color.BLUE);
 
         this.recursosTexto = new HashMap<>();
-        recursosTexto.put(Gas.class,"Δ");
+        recursosTexto.put(Volcan.class,"Δ");
         recursosTexto.put(Mineral.class,"❖");
         recursosTexto.put(SinRecurso.class,"");
 

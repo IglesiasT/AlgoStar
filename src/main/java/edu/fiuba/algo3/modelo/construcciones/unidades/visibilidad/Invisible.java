@@ -8,15 +8,12 @@ public class Invisible extends UnidadProtoss implements Visibilidad {
         this.escudo = escudo;
         this.vida = vida;
     }
-
-
     public Visibilidad hacerVisible(){
         return (new Visible(this.escudo, this.vida));
     }
     public Visibilidad hacerInvisible(){
         return this;
     }
-
     @Override
     public void recibirDanio(int danioInflingido){
 

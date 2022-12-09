@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg;
 
-import edu.fiuba.algo3.modelo.recursos.Gas;
+import edu.fiuba.algo3.modelo.recursos.Volcan;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 
 public class Hidralisco extends UnidadZerg {
@@ -12,7 +12,7 @@ public class Hidralisco extends UnidadZerg {
         this.rangoDeAtaque = 4;
         this.suministro = 2;
         this.recursosNecesarios.agregar(new Mineral(75));
-        this.recursosNecesarios.agregar(new Gas(25));
+        this.recursosNecesarios.agregar(new Volcan(25));
         this.danioTerrestre = 10;
         this.danioAereo = 10;
     }

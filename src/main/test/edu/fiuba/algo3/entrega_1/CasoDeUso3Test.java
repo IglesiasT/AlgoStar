@@ -7,7 +7,6 @@ import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.mapa.CasilleroSinGas;
-import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;

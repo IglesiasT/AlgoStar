@@ -16,13 +16,10 @@ public class Zangano extends UnidadZerg {
         this.suministro = 1;
         this.recursosNecesarios.agregar(new Mineral(25));
     }
-
     public void ubicar(Casillero nuevaUbicacion) {
         nuevaUbicacion.obtenerRecurso().ocupar();
         this.ubicacion = nuevaUbicacion;
     }
-
-
     public int producir(){
         Recurso recurso = this.ubicacion.obtenerRecurso();
         return recurso.recolectar(10);

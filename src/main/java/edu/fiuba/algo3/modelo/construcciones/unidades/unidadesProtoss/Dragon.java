@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss;
 
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.UnidadProtoss;
-import edu.fiuba.algo3.modelo.recursos.Gas;
+import edu.fiuba.algo3.modelo.recursos.Volcan;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 
 public class Dragon extends UnidadProtoss {
@@ -15,6 +14,6 @@ public class Dragon extends UnidadProtoss {
         this.rangoDeAtaque = 4;
         this.suministro = 3;
         this.recursosNecesarios.agregar(new Mineral(125));
-        this.recursosNecesarios.agregar(new Gas(50));
+        this.recursosNecesarios.agregar(new Volcan(50));
     }
 }
