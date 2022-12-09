@@ -22,7 +22,6 @@ public abstract class UnidadProtoss extends ConstruccionProtoss implements Unida
         this.danioAereo = 0;
         this.danioTerrestre = 0;
     }
-
     protected boolean enRangoDeAtaque(Casillero ubicacion){
         return ((ubicacion.obtenerFila() <= this.ubicacion.obtenerFila()+this.rangoDeAtaque &&
                 ubicacion.obtenerFila() >= this.ubicacion.obtenerFila()-this.rangoDeAtaque)
@@ -30,7 +29,6 @@ public abstract class UnidadProtoss extends ConstruccionProtoss implements Unida
                 (ubicacion.obtenerColumna() <= this.ubicacion.obtenerColumna()+this.rangoDeAtaque) &&
                 ubicacion.obtenerColumna() >= this.ubicacion.obtenerColumna()-this.rangoDeAtaque);
     }
-
     public void atacar(ConstruccionZerg construccionEnemiga){
         if (turnos < this.turnosParaConstruirse) {
             throw new EdificioNoEstaOperativo();
@@ -45,14 +43,12 @@ public abstract class UnidadProtoss extends ConstruccionProtoss implements Unida
         Area areaConstruccion = construccionEnemiga.obtenerArea();
         areaConstruccion.aceptar(ataque, construccionEnemiga);
     }
-
     public void moverse(Casillero casillero) {
         if (!casillero.puedeMoverse(this.area)) {
             throw new NoSePuedeMover();
         }
         this.ubicacion = casillero;
     }
-
     public int consumirSuministro(int suministroAConsumir){
         return suministroAConsumir + this.suministro;
     }

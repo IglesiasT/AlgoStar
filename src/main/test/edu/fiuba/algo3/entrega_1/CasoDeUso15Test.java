@@ -18,7 +18,7 @@ public class CasoDeUso15Test {
     @Test
     public void extractorNoRecolectaMasGasLuegoDeAgotadoElRecurso(){
         // Arrange
-        GasProducido gasProducidoEsperado = new GasProducido(5000);
+        Gas gasProducidoEsperado = new Gas(5000);
         Extractor extractor = new Extractor();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
@@ -58,7 +58,7 @@ public class CasoDeUso15Test {
     @Test
     public void asimiladorNoRecolectaMasGasLuegoDeAgotadoElRecurso(){
         // Arrange
-        GasProducido gasProducidoEsperado = new GasProducido(5000);
+        Gas gasProducidoEsperado = new Gas(5000);
         Asimilador asimilador = new Asimilador();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();

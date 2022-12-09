@@ -2,12 +2,9 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
-import edu.fiuba.algo3.modelo.areas.Area;
-import edu.fiuba.algo3.modelo.areas.AreaEspacial;
-import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
-import edu.fiuba.algo3.modelo.estados.EstadoDeJuego;
-import edu.fiuba.algo3.modelo.estados.Jugando;
-import edu.fiuba.algo3.modelo.estados.Terminado;
+import edu.fiuba.algo3.modelo.estadosDeJuego.EstadoDeJuego;
+import edu.fiuba.algo3.modelo.estadosDeJuego.Jugando;
+import edu.fiuba.algo3.modelo.estadosDeJuego.Terminado;
 import edu.fiuba.algo3.modelo.jugador.DatosRepetidos;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.*;

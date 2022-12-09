@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.*;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
-import edu.fiuba.algo3.modelo.recursos.Gas;
+import edu.fiuba.algo3.modelo.recursos.Volcan;
 import edu.fiuba.algo3.modelo.mapa.*;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
@@ -175,7 +175,7 @@ public class CasoDeUso2Test {
 
         // Act
         recursos.agregar(new Mineral());
-        recursos.agregar(new Gas());
+        recursos.agregar(new Volcan());
         casillero.setEspacioDeConstruccion(new Moho());
         guarida.construir(casillero, recursos);
         guarida.nuevoTurno();

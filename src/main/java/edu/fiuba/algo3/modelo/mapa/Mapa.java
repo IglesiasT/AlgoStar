@@ -18,17 +18,12 @@ import java.util.Random;
 public class Mapa {
 
     private int tamanio;
-
     private Group grupoDeCasilleros = new Group();
     private Group grupoDeRecursos = new Group();
     private Group grupoDeBases = new Group();
     private Casillero[][] tablero;
     private ArrayList<Area> areas;
-
     private ArrayList<Base> bases;
-
-    private Base baseUno;
-    private Base baseDos;
 
     public Mapa(){
         this.areas = new ArrayList<Area>();
@@ -63,11 +58,11 @@ public class Mapa {
     private void cargarBasesJugadores(){
         int fila = tamanio/2 + ((new Random()).nextInt(tamanio/2 - 1));
         int columna = ((new Random()).nextInt(tamanio/2 - 1 ));
-        this.baseUno = new Base(this.tablero[fila][columna]);
-        this.baseUno.inicioJugador1();
+        Base baseUno = new Base(this.tablero[fila][columna]);
+        baseUno.inicioJugador1();
 
-        this.baseDos = new Base(this.tablero[columna][fila]);
-        this.baseDos.inicioJugador2();
+        Base baseDos = new Base(this.tablero[columna][fila]);
+        baseDos.inicioJugador2();
 
         this.bases.add(baseUno);
         this.bases.add(baseDos);
@@ -116,10 +111,10 @@ public class Mapa {
     }
 
     public Base obtenerBaseUno(){
-        return baseUno;
+        return this.bases.get(0);
     }
     public Base obtenerBaseDos(){
-        return baseDos;
+        return this.bases.get(1);
     }
 
     public int obtenerTamanio(){

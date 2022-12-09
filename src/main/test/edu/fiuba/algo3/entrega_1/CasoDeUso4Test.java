@@ -6,7 +6,6 @@ import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Extractor;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zangano;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.recursos.Gas;
-import edu.fiuba.algo3.modelo.recursos.GasProducido;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
@@ -21,7 +20,7 @@ public class CasoDeUso4Test {
     public void sinZanganosAsignadosNoGeneraGas(){
         // Arrange
         Extractor extractor = new Extractor();
-        GasProducido valorEsperado = new GasProducido(0);
+        Gas valorEsperado = new Gas(0);
         Casillero casillero = new Casillero(new AreaTerrestre(), 1,1,new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
@@ -44,7 +43,7 @@ public class CasoDeUso4Test {
     public void unZanganoAsignadoGeneraDiezDeGas(){
         // Arrange
         Extractor extractor = new Extractor();
-        GasProducido gasProducidoEsperado = new GasProducido(10);
+        Gas gasProducidoEsperado = new Gas(10);
         Casillero casillero = new Casillero(new AreaTerrestre(), 1,1,new Mapa());
         Zangano zangano = new Zangano();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
@@ -73,7 +72,7 @@ public class CasoDeUso4Test {
     public void dosZanganosAsignadosGeneranVeinteDeGas(){
         // Arrange
         Extractor extractor = new Extractor();
-        GasProducido gasProducidoEsperado = new GasProducido(20);
+        Gas gasProducidoEsperado = new Gas(20);
         Casillero casillero = new Casillero(new AreaTerrestre(), 1,1,new Mapa());
         Zangano zangano1 = new Zangano();
         Zangano zangano2 = new Zangano();
@@ -105,7 +104,7 @@ public class CasoDeUso4Test {
     public void tresZanganosAsignadosGeneranTreintaDeGas(){
         // Arrange
         Extractor extractor = new Extractor();
-        GasProducido gasProducidoEsperado = new GasProducido(30);
+        Gas gasProducidoEsperado = new Gas(30);
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
         Zangano zangano1 = new Zangano();
         Zangano zangano2 = new Zangano();

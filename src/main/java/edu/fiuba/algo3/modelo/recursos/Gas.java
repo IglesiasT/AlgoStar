@@ -1,25 +1,24 @@
 package edu.fiuba.algo3.modelo.recursos;
 
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
+import java.util.Objects;
 
-public class Gas extends Recurso{
+public class Gas {
+    private int gasProducido;
 
-    public Gas(){
-        super();
-        setText("Δ");
-        setFill(Color.RED);
-        setFont(Font.font("Verdana", FontWeight.BOLD, 20));
-        this.cantidad = 5000;
-    }
-    public Gas(int cantidad){
-        super();
-        this.cantidad = cantidad;
+    public Gas(int gasProducido) {
+        this.gasProducido = gasProducido;
     }
 
     @Override
     public boolean equals(Object o) {
-        return this.getClass() == o.getClass();
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Gas that = (Gas) o;
+        return gasProducido == that.gasProducido;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(gasProducido);
     }
 }
