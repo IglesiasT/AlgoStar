@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.areas;
+import edu.fiuba.algo3.modelo.Visitante;
+import edu.fiuba.algo3.modelo.construcciones.Construccion;
 
-import edu.fiuba.algo3.modelo.Elemento;
+public interface Area {
+    void aceptar(Visitante visitante, Construccion construccionAAtacar);
 
-public abstract class Area implements Elemento {
 }

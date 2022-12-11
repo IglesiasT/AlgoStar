@@ -9,7 +9,6 @@ import edu.fiuba.algo3.modelo.recursos.MineralProducido;
 public class NexoMineral extends ConstruccionProtoss {
     private int turnos;
     private int produccionPorTurno;
-
     private int mineralProducido;
     public NexoMineral(){
         super();
@@ -20,14 +19,12 @@ public class NexoMineral extends ConstruccionProtoss {
         this.recursosNecesarios.agregar(new Mineral(50));
         this.mineralProducido = 0;
     }
-
     private void recolectarMineral(){
         if (this.turnos < this.turnosParaConstruirse ){
             throw new EdificioNoEstaOperativo();
         }
         this.mineralProducido += this.ubicacion.obtenerRecurso().recolectar(produccionPorTurno);
     }
-
     public MineralProducido obtenerMineralProducido(){
 
         if(this.turnos < this.turnosParaConstruirse){
@@ -36,7 +33,6 @@ public class NexoMineral extends ConstruccionProtoss {
         return new MineralProducido(this.mineralProducido);
 
     }
-
     @Override
     public void nuevoTurno(){
         super.nuevoTurno();

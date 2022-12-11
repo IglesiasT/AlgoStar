@@ -38,13 +38,10 @@ public abstract class Construccion {
     public int obtenerVida(){
         return this.vida;
     }
-
     public void nuevoTurno(){
         this.turnos++;
         this.regenerar();
     }
-
-
     public void destruir(){
         ubicacion.destruirConstruccion();
     }
@@ -54,7 +51,6 @@ public abstract class Construccion {
     public Casillero obtenerUbicacion(){
         return this.ubicacion;
     }
-
     public Area obtenerArea() {
         return this.area;
     }

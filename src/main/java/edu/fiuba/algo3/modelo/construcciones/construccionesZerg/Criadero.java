@@ -26,15 +26,12 @@ public class Criadero extends ConstruccionZerg {
         this.vida = 500;
         this.vidaMaxima = 500;
     }
-
     public int larvasRestantes() {
         return this.larvas;
     }
-
     public Zangano engendrarZangano(ListadoDeRecursos recursos) throws EdificioNoEstaOperativo {
         return (Zangano)this.engendrar(new Zangano(), recursos);
     }
-
     public void nuevoTurno(){
         super.nuevoTurno();
 
@@ -48,7 +45,6 @@ public class Criadero extends ConstruccionZerg {
             this.expandirMoho();
         }
     }
-
     private UnidadZerg engendrar(UnidadZerg unidad, ListadoDeRecursos recursos) throws EdificioNoEstaOperativo{
         if (turnos < this.turnosParaConstruirse){
             throw new EdificioNoEstaOperativo();
@@ -67,20 +63,16 @@ public class Criadero extends ConstruccionZerg {
 
         }
     }
-
     public AmoSupremo engendrarAmoSupremo(ListadoDeRecursos recursos) {
         return (AmoSupremo) this.engendrar(new AmoSupremo(), recursos);
     }
     public Mutalisco engendrarMutalisco(ListadoDeRecursos recursos) throws EdificioNoEstaOperativo {
         return (Mutalisco) this.engendrar(new Mutalisco(), recursos);
     }
-
     public Hidralisco engendrarHidralisco(ListadoDeRecursos recursos) throws EdificioNoEstaOperativo {
         return (Hidralisco) this.engendrar(new Hidralisco(), recursos);
     }
-
     public Zerling engendrarZerling(ListadoDeRecursos recursos) throws EdificioNoEstaOperativo {
         return (Zerling) this.engendrar(new Zerling(), recursos);
     }
-
 }

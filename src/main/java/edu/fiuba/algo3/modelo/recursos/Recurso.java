@@ -4,7 +4,7 @@ import javafx.scene.text.Text;
 
 import java.util.Set;
 
-public abstract class Recurso extends Text {
+public abstract class Recurso{
     protected boolean ocupado;
     protected int cantidad;
 

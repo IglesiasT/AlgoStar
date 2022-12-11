@@ -24,7 +24,6 @@ public class Pilon extends ConstruccionProtoss {
         this.vida = 300;
         this.recursosNecesarios.agregar(new Mineral(100));
     }
-
     public void energizar(){
         if (this.turnos < this.turnosParaConstruirse){
             throw new EdificioNoEstaOperativo();
@@ -39,7 +38,6 @@ public class Pilon extends ConstruccionProtoss {
         super.construir(casilleroAConstruir, recursos);
         this.casillerosEnergizados = this.ubicacion.obtenerCasilleros(this.radioAfectado);
     }
-
     public void destruir(){
         for (Casillero casillero: this.casillerosEnergizados) {
             if (! casillero.contiene(new Moho())){
@@ -47,12 +45,10 @@ public class Pilon extends ConstruccionProtoss {
             }
         }
     }
-
     public void nuevoTurno(){
         super.nuevoTurno();
         if (this.turnos >= this.turnosParaConstruirse){
             this.energizar();
         }
     }
-
 }

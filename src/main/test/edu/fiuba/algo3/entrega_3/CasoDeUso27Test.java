@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.areas.AreaEspacial;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Asimilador;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Devorador;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Devorador;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Mutalisco;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Scout;
 import edu.fiuba.algo3.modelo.mapa.Casillero;

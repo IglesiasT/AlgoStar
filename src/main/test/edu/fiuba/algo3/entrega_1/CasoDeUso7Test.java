@@ -19,7 +19,7 @@ public class CasoDeUso7Test {
     public void zanganoRecolectaDiezPorTurno(){
         //Arrange
         Zangano zangano = new Zangano();
-        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(), 1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
         int cantidadEsperada = 10;
 
         //Act
@@ -34,7 +34,7 @@ public class CasoDeUso7Test {
     public void nexoMineralRecolectaVeintePorTurno(){
         // Arrange
         NexoMineral nexo = new NexoMineral();
-        Casillero casillero = new Casillero(new Mineral(), new AreaTerrestre(),1,1,new Mapa());
+        Casillero casillero = new Casillero( new AreaTerrestre(),1,1,new Mapa());
         MineralProducido mineralProducidoEsperado = new MineralProducido(20);
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 

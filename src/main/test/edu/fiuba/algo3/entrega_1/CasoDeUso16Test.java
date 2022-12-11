@@ -8,7 +8,6 @@ import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.NexoMineral;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zangano;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
-import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
@@ -25,7 +24,7 @@ public class CasoDeUso16Test {
         // Arrange
         Extractor extractor = new Extractor();
         Asimilador asimilador = new Asimilador();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(), 1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
@@ -41,7 +40,7 @@ public class CasoDeUso16Test {
         // Arrange
         Extractor extractor = new Extractor();
         Asimilador asimilador = new Asimilador();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(), 1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
@@ -58,7 +57,7 @@ public class CasoDeUso16Test {
         // Arrange
         Zangano zangano = new Zangano();
         NexoMineral nexo = new NexoMineral();
-        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(), 1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
@@ -75,7 +74,7 @@ public class CasoDeUso16Test {
         // Arrange
         Zangano zangano = new Zangano();
         NexoMineral nexo = new NexoMineral();
-        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(), 1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act

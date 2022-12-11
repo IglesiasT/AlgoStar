@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.mapa;
 
-import edu.fiuba.algo3.App;
+
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
@@ -9,15 +9,15 @@ import edu.fiuba.algo3.modelo.construcciones.ProductorDeGas;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.EspacioDeConstruccion;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.SinEspacio;
-import edu.fiuba.algo3.modelo.recursos.Gas;
+import edu.fiuba.algo3.modelo.recursos.Volcan;
 import edu.fiuba.algo3.modelo.recursos.Recurso;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import edu.fiuba.algo3.modelo.areas.*;
-import javafx.scene.shape.Rectangle;
+
 
 import java.util.ArrayList;
 
-public class Casillero extends Rectangle {
+public class Casillero {
     private int fila;
     private int columna;
     private Mapa mapa;
@@ -29,10 +29,6 @@ public class Casillero extends Rectangle {
 
     public Casillero(Area area, int fila, int columna, Mapa mapa){
 
-        setWidth(App.TAMANIO_CASILLERO);
-        setHeight(App.TAMANIO_CASILLERO);
-        relocate(fila * App.TAMANIO_CASILLERO,columna * App.TAMANIO_CASILLERO);
-        setFill(area.color());
         this.fila = fila;
         this.columna = columna;
         this.mapa = mapa;
@@ -72,29 +68,25 @@ public class Casillero extends Rectangle {
             }
         }
         if (construccionAEstablecer instanceof ProductorDeGas){
-            if (this.recurso.getClass() != Gas.class){
+            if (this.recurso.getClass() != Volcan.class){
                 throw new CasilleroSinGas();
             }
 
-        } else if (this.recurso.getClass() == Gas.class) {
+        } else if (this.recurso.getClass() == Volcan.class) {
             throw new NoSePuedeConstruir();
         }
 
         this.construccion = construccionAEstablecer;
         this.recurso.ocupar();
     }
-
     public void destruirConstruccion(){
         this.construccion = null;
         this.recurso.liberar();
     }
-
     public Recurso obtenerRecurso() {
         return this.recurso;
     }
-
     public Construccion obtenerConstruccion(){ return this.construccion;}
-
     public boolean contiene (Recurso recurso){
         return (this.recurso.getClass() == recurso.getClass());
     }
@@ -104,25 +96,23 @@ public class Casillero extends Rectangle {
     public boolean puedeMoverse (Area tipoUnidad) {     // Rompe tell don't ask, ver presentacion polimorfismo hay ej parecido
         return ((tipoUnidad.getClass() == AreaEspacial.class) || ((tipoUnidad.getClass() == AreaTerrestre.class) && (this.area.getClass() == AreaTerrestre.class)) ) ;
     }
-
     public ArrayList<? extends Casillero> obtenerCasilleros(int radio) {
         return this.mapa.obtenerCasilleros(radio, this.fila, this.columna);
     }
-
     public int obtenerColumna() {
         return columna;
     }
-
     public int obtenerFila(){
         return fila;
     }
-
     public void setRecurso(Recurso recurso){
         this.recurso = recurso;
     }
-
     public void setArea(Area area){
         this.area = area;
-        setFill(area.color());
+    }
+
+    public Area obtenerArea(){
+        return this.area;
     }
 }

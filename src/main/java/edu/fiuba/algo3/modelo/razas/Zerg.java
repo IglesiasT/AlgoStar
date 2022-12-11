@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.razas;
 import edu.fiuba.algo3.modelo.construcciones.*;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.*;
 import edu.fiuba.algo3.modelo.construcciones.listadoDeConstrucciones.ListadoDeConstruccionesZerg;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.AmoSupremo;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.*;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
@@ -11,28 +12,24 @@ import java.util.LinkedList;
 
 public class Zerg extends Raza{
     private ListadoDeConstruccionesZerg construccionesRealizadas;
-    private LinkedList<UnidadZerg> unidadesEngendradas;
     public Zerg(){
         super();
         this.construccionesRealizadas = new ListadoDeConstruccionesZerg();
         this.unidadesEngendradas = new LinkedList<>();
     }
-
     public Zerg(int mineralInicial, int gasInicial){
         super(mineralInicial, gasInicial);
         this.construccionesRealizadas = new ListadoDeConstruccionesZerg();
         this.unidadesEngendradas = new LinkedList<>();
     }
-
     private void construir(ConstruccionZerg construccion, Casillero casilleroAConstruir){
 
         construccion.construir(casilleroAConstruir, this.recursos);
         this.construccionesRealizadas.agregar(construccion);
     }
-
     public void nuevoTurno(){
         this.construccionesRealizadas.nuevoTurno(this.recursos);
-        for (UnidadZerg unidad : this.unidadesEngendradas) {    //delegar for en nueva clase ListadoUnidades
+        for (Unidad unidad : this.unidadesEngendradas) {    //delegar for en nueva clase ListadoUnidades
             unidad.nuevoTurno();
         }
     }
@@ -40,17 +37,14 @@ public class Zerg extends Raza{
         this.construir(new Criadero(), casilleroAConstruir);
         this.maximoSuministro = this.maximoSuministro +5;
     }
-
     public void construirExtractor(Casillero casilleroAConstruir) {
         this.construir(new Extractor(), casilleroAConstruir);
     }
-
     public ReservaDeReproduccion construirReservaDeReproduccion(Casillero casilleroAConstruir){
         ReservaDeReproduccion reserva = new ReservaDeReproduccion();
         this.construir(reserva, casilleroAConstruir);
         return reserva;
     }
-
     public void construirGuarida(Casillero casilleroAConstruir){
         if (! this.construccionesRealizadas.contiene(new ReservaDeReproduccion())){
             throw new ConstruccionPreviaNoConstruida();
@@ -58,7 +52,6 @@ public class Zerg extends Raza{
 
         this.construir(new Guarida(), casilleroAConstruir);
     }
-
     public void construirEspiral(Casillero casilleroAConstruir){
         if (! this.construccionesRealizadas.contiene(new Guarida())){
             throw new ConstruccionPreviaNoConstruida();
@@ -66,8 +59,6 @@ public class Zerg extends Raza{
 
         this.construir(new Espiral(), casilleroAConstruir);
     }
-
-
     public AmoSupremo engendrarAmoSupremo(Criadero criaderoAUsar) {
         if ((suministro + (new AmoSupremo()).consumirSuministro(0)) > this.maximoSuministro) {
             throw new SuministroAgotado() ;
@@ -90,7 +81,6 @@ public class Zerg extends Raza{
 
         return zangano;
     }
-
     public Mutalisco engendrarMutalisco(Criadero criaderoAUsar){
         if (! this.construccionesRealizadas.contiene(new Espiral())){
             throw new ConstruccionPreviaNoConstruida();
@@ -106,7 +96,6 @@ public class Zerg extends Raza{
 
         return mutalisco;
     }
-
     public Hidralisco engendrarHidralisco(Criadero criaderoAUsar){
         if (! this.construccionesRealizadas.contiene(new Guarida())){
             throw new ConstruccionPreviaNoConstruida();
@@ -122,7 +111,6 @@ public class Zerg extends Raza{
 
         return hidralisco;
     }
-
     public Zerling engendrarZerling(Criadero criaderoAUsar){
         if (! this.construccionesRealizadas.contiene(new ReservaDeReproduccion())){
             throw new ConstruccionPreviaNoConstruida();
@@ -138,7 +126,6 @@ public class Zerg extends Raza{
 
         return zerling;
     }
-
 //    public Guardian evolucionarMutalisco(Mutalisco mutaliscoAEvolucionar){
 //        Guardian unidad = new Guardian();
 //        if(!unidad.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
@@ -158,11 +145,9 @@ public class Zerg extends Raza{
     public void evolucionarMutaliscoADevorador(Mutalisco mutaliscoAEvolucionar){
         mutaliscoAEvolucionar.evolucionarADevorador(recursos);
     }
-
     public int construccionesRealizadas() {
         return construccionesRealizadas.size();
     }
-
     public void destruir(ConstruccionZerg construccionADestruir){
         this.construccionesRealizadas.destruir(construccionADestruir);
     }
@@ -170,11 +155,9 @@ public class Zerg extends Raza{
         this.construccionesRealizadas.destruir(construccionADestruir);
         this.maximoSuministro = this.maximoSuministro -5 ;
     }
-
     public void destruir (UnidadZerg unidadZerg) {
         this.unidadesEngendradas.remove(unidadZerg) ;
     }
-
     public void destruir (AmoSupremo unidadZerg) {
         this.unidadesEngendradas.remove(unidadZerg) ;
         this.maximoSuministro = this.maximoSuministro -5;

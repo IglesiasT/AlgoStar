@@ -7,7 +7,6 @@ public class Jugador {
     private String nombre ;
     private String color ;
     private Raza raza ;
-
     private Base baseInicial;
 
     public Jugador(String nombre, String color , String raza) {

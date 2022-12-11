@@ -10,11 +10,9 @@ public abstract class ConstruccionProtoss extends Construccion {
         super();
         this.escudo = new Escudo(100);
     }
-
     public int obtenerEscudo(){
         return this.escudo.obtenerVida();
     }
-
     @Override
     public void recibirDanio(int danioInflingido) {
         this.escudo.recibirDanio(danioInflingido);

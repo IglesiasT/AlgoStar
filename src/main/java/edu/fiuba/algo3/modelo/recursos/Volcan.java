@@ -1,16 +1,12 @@
 package edu.fiuba.algo3.modelo.recursos;
 
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
+public class Volcan extends Recurso{
 
-public class Mineral extends Recurso{
-    public Mineral(){
+    public Volcan(){
         super();
-        this.cantidad = 2000;
+        this.cantidad = 5000;
     }
-
-    public Mineral(int cantidad){
+    public Volcan(int cantidad){
         super();
         this.cantidad = cantidad;
     }

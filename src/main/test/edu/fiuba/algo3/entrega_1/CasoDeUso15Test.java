@@ -18,9 +18,9 @@ public class CasoDeUso15Test {
     @Test
     public void extractorNoRecolectaMasGasLuegoDeAgotadoElRecurso(){
         // Arrange
-        GasProducido gasProducidoEsperado = new GasProducido(5000);
+        Gas gasProducidoEsperado = new Gas(5000);
         Extractor extractor = new Extractor();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
         Zangano zangano1 = new Zangano();
         Zangano zangano2 = new Zangano();
@@ -58,9 +58,9 @@ public class CasoDeUso15Test {
     @Test
     public void asimiladorNoRecolectaMasGasLuegoDeAgotadoElRecurso(){
         // Arrange
-        GasProducido gasProducidoEsperado = new GasProducido(5000);
+        Gas gasProducidoEsperado = new Gas(5000);
         Asimilador asimilador = new Asimilador();
-        Casillero casillero = new Casillero(new Gas(),new AreaTerrestre(),1,1,new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         //Act
@@ -90,7 +90,7 @@ public class CasoDeUso15Test {
         //Arrange
         MineralProducido mineralProducidoEsperado = new MineralProducido(2000);
         Zangano zangano = new Zangano();
-        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(),1,1,new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
 
 
         //Act
@@ -114,7 +114,7 @@ public class CasoDeUso15Test {
         // Arrange
         MineralProducido mineralProducidoEsperado = new MineralProducido(2000);
         NexoMineral nexo = new NexoMineral();
-        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(),1,1,new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act

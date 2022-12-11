@@ -29,7 +29,7 @@ public class CasilleroTest {
     public void noSePuedeConstruirNexoMineralSiHayZanganoAsignado(){
         //Arrange
 
-        Casillero casillero = new Casillero(new Mineral(),new AreaTerrestre(), 1, 1, new Mapa());
+        Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
         Zangano zangano = new Zangano();
 
         //Act

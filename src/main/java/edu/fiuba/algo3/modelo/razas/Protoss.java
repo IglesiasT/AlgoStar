@@ -3,34 +3,28 @@ package edu.fiuba.algo3.modelo.razas;
 import edu.fiuba.algo3.modelo.construcciones.*;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.*;
 import edu.fiuba.algo3.modelo.construcciones.listadoDeConstrucciones.ListadoDeConstruccionesProtoss;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Dragon;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Scout;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.UnidadProtoss;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Zealot;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
-import java.util.LinkedList;
-
 public class Protoss extends Raza{
     private ListadoDeConstruccionesProtoss construccionesRealizadas;
-    private LinkedList<UnidadProtoss> unidadesEngendradas;
     public Protoss(){
         super();
         this.construccionesRealizadas = new ListadoDeConstruccionesProtoss();
     }
-
     public Protoss(int mineralInicial, int gasInicial){
         super(mineralInicial, gasInicial);
         this.construccionesRealizadas = new ListadoDeConstruccionesProtoss();
     }
-
     public void nuevoTurno(){
         this.construccionesRealizadas.nuevoTurno(this.recursos);
-        for (UnidadProtoss unidad : this.unidadesEngendradas) {    //delegar for en nueva clase ListadoUnidades
+        for (Unidad unidad : this.unidadesEngendradas) {    //delegar for en nueva clase ListadoUnidades
             unidad.nuevoTurno();
         }
     }
-
     private void construir(ConstruccionProtoss construccion, Casillero casilleroAConstruir){
 
         construccion.construir(casilleroAConstruir, this.recursos);
@@ -42,23 +36,19 @@ public class Protoss extends Raza{
         this.construir(pilon, casilleroAConstruir);
         this.maximoSuministro = this.maximoSuministro +5 ;
     }
-
     public void construirNexoMineral(Casillero casilleroAConstruir) {
         NexoMineral nexo = new NexoMineral();
 
         this.construir(nexo, casilleroAConstruir);
     }
-
     public void construirAsimilador(Casillero casilleroAConstruir) {
         this.construir(new Asimilador(), casilleroAConstruir);
     }
-
     public void construirAcceso(Casillero casilleroAConstruir){
         Acceso acceso = new Acceso();
 
         this.construir(acceso, casilleroAConstruir);
     }
-
     public void construirPuertoEstelar(Casillero casilleroAConstruir){
         if (! this.construccionesRealizadas.contiene(new Acceso())){
             throw new ConstruccionPreviaNoConstruida();
@@ -83,7 +73,6 @@ public class Protoss extends Raza{
 
         return zealot;
     }
-
     public Dragon construirDragon(Casillero casilleroAConstruir){
         if (! this.construccionesRealizadas.contiene(new Acceso())){
             throw new ConstruccionPreviaNoConstruida();
@@ -100,7 +89,6 @@ public class Protoss extends Raza{
 
         return dragon;
     }
-
     public Scout construirScout(Casillero casilleroAConstruir){
         if (! this.construccionesRealizadas.contiene(new PuertoEstelar())){
             throw new ConstruccionPreviaNoConstruida();
@@ -117,14 +105,10 @@ public class Protoss extends Raza{
 
         return scout;
     }
-
     public int construccionesRealizadas() {
         return construccionesRealizadas.size();
     }
-
     public void destruir (ConstruccionProtoss construccionADestruir) {
         this.construccionesRealizadas.destruir(construccionADestruir, this.maximoSuministro);
     }
-
-
 }

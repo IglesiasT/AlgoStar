@@ -1,32 +1,32 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.recursos.Gas;
+import edu.fiuba.algo3.modelo.recursos.Volcan;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class GasTest {
+public class VolcanTest {
 
     @Test
     public void seRecolectaLaCantidadDeGasIndicada(){
         //Arrange
-        Gas gas = new Gas();
+        Volcan volcan = new Volcan();
         int valorEsperado = 20;
 
         //Act and Assert
-        assertEquals(valorEsperado, gas.recolectar(20));
+        assertEquals(valorEsperado, volcan.recolectar(20));
     }
 
     @Test
     public void luegoDeRecolectarsePorCompletoNoSeRecolectaMasGas(){
         //Arrange
-        Gas gas = new Gas();
+        Volcan volcan = new Volcan();
         int valorEsperado = 0;
 
         //Act
-        gas.recolectar(5000);
+        volcan.recolectar(5000);
 
         //Assert
-        assertEquals(valorEsperado, gas.recolectar(20));
+        assertEquals(valorEsperado, volcan.recolectar(20));
     }
 }
