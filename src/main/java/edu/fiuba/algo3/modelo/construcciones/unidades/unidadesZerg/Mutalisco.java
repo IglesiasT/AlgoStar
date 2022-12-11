@@ -14,7 +14,7 @@ public class Mutalisco extends UnidadZerg {
     }
     public void evolucionarAGuardian(ListadoDeRecursos recursosDisponibles){
         Guardian guardian = new Guardian();
-        guardian.construir(this.ubicacion,recursosDisponibles);
+        guardian.construir(this.estado.obtenerUbicacion(),recursosDisponibles);
         this.estado = guardian;
 
     }

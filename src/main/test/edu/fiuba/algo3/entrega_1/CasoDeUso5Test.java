@@ -27,6 +27,7 @@ public class CasoDeUso5Test {
         // Arrange
         Extractor extractor = new Extractor();
         Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
+        casillero.setRecurso(new Volcan());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
@@ -43,6 +44,7 @@ public class CasoDeUso5Test {
         // Arrange
         Extractor extractor = new Extractor();
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        casillero.setRecurso(new Volcan());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act

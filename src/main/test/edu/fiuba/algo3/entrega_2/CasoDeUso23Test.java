@@ -1,12 +1,15 @@
 package edu.fiuba.algo3.entrega_2;
 
 import edu.fiuba.algo3.modelo.ObjetivoFueraDeRango;
+import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Pilon;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Zealot;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zerling;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
+import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -24,8 +27,14 @@ public class CasoDeUso23Test {
 
         // Act
         recursos.agregar(new Mineral());
-        unidad.moverse(mapa.obtenerCasillero(1,1));
-        pilon.construir(mapa.obtenerCasillero(10, 10), recursos);
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        casillero1.setRecurso(new SinRecurso());
+        casillero1.setArea(new AreaTerrestre());
+        Casillero casillero2 = mapa.obtenerCasillero(9,9);
+        casillero2.setRecurso(new SinRecurso());
+        casillero2.setArea(new AreaTerrestre());
+        unidad.moverse(casillero1);
+        pilon.construir(casillero2, recursos);
         pilon.nuevoTurno();
         pilon.nuevoTurno();
         pilon.nuevoTurno();
@@ -49,9 +58,15 @@ public class CasoDeUso23Test {
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
+        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        casillero1.setRecurso(new SinRecurso());
+        casillero1.setArea(new AreaTerrestre());
+        Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        casillero2.setRecurso(new SinRecurso());
+        casillero2.setArea(new AreaTerrestre());
         recursos.agregar(new Mineral());
-        unidad.moverse(mapa.obtenerCasillero(1,1));
-        pilon.construir(mapa.obtenerCasillero(1, 2), recursos);
+        unidad.moverse(casillero1);
+        pilon.construir(casillero2,recursos);
 
         pilon.nuevoTurno();
         pilon.nuevoTurno();
@@ -73,9 +88,15 @@ public class CasoDeUso23Test {
         Mapa mapa = new Mapa();
 
         Zealot unidad = new Zealot();
-        unidad.moverse(mapa.obtenerCasillero(7,7));
+        Casillero casillero1 = mapa.obtenerCasillero(7,7);
+        casillero1.setRecurso(new SinRecurso());
+        casillero1.setArea(new AreaTerrestre());
+        unidad.moverse(casillero1);
         Zerling unidadEnemiga = new Zerling();
-        unidadEnemiga.moverse(mapa.obtenerCasillero(1,1));
+        Casillero casillero2 = mapa.obtenerCasillero(1,1);
+        casillero2.setRecurso(new SinRecurso());
+        casillero2.setArea(new AreaTerrestre());
+        unidadEnemiga.moverse(casillero2);
 
         unidad.nuevoTurno();
         unidad.nuevoTurno();
@@ -95,9 +116,15 @@ public class CasoDeUso23Test {
         Mapa mapa = new Mapa();
 
         Zealot unidad = new Zealot();
-        unidad.moverse(mapa.obtenerCasillero(7,7));
+        Casillero casillero1 = mapa.obtenerCasillero(7,7);
+        casillero1.setRecurso(new SinRecurso());
+        casillero1.setArea(new AreaTerrestre());
+        unidad.moverse(casillero1);
         Zerling unidadEnemiga = new Zerling();
-        unidadEnemiga.moverse(mapa.obtenerCasillero(8,7));
+        Casillero casillero2 = mapa.obtenerCasillero(8,7);
+        casillero2.setRecurso(new SinRecurso());
+        casillero2.setArea(new AreaTerrestre());
+        unidadEnemiga.moverse(casillero2);
 
         unidad.nuevoTurno();
         unidad.nuevoTurno();

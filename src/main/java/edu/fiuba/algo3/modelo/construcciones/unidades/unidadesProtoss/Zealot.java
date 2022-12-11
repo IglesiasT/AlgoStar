@@ -16,6 +16,7 @@ public class Zealot extends UnidadProtoss {
         this.suministro = 2;
         this.recursosNecesarios.agregar(new Mineral(100));
         this.estado = new Visible(this.escudo, this.vida);
+        this.danioTerrestre = 8;
     }
     @Override
     public void recibirDanio(int danioInflingido) {

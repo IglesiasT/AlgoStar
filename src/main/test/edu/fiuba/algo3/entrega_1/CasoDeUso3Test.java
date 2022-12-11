@@ -11,6 +11,7 @@ import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
+import edu.fiuba.algo3.modelo.recursos.Volcan;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,6 +23,7 @@ public class CasoDeUso3Test {
         Asimilador asimilador = new Asimilador();
         Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
+        casillero.setRecurso(new Volcan());
 
         // Act
         recursos.agregar(new Mineral());
@@ -51,6 +53,7 @@ public class CasoDeUso3Test {
         Extractor extractor = new Extractor();
         Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
+        casillero.setRecurso(new Volcan());
 
         // Act
         recursos.agregar(new Mineral());
@@ -82,6 +85,7 @@ public class CasoDeUso3Test {
         Criadero criadero = new Criadero();
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
+        casillero.setRecurso(new Volcan());
 
         // Act
         recursos.agregar(new Mineral());
@@ -96,6 +100,7 @@ public class CasoDeUso3Test {
         ReservaDeReproduccion reserva = new ReservaDeReproduccion();
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
+        casillero.setRecurso(new Volcan());
 
         // Act
         recursos.agregar(new Mineral());
@@ -141,6 +146,7 @@ public class CasoDeUso3Test {
         NexoMineral nexo = new NexoMineral();
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
+        casillero.setRecurso(new Volcan());
 
         // Act
         recursos.agregar(new Mineral());
@@ -155,6 +161,7 @@ public class CasoDeUso3Test {
         Pilon pilon = new Pilon();
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
+        casillero.setRecurso(new Volcan());
 
         // Act
         recursos.agregar(new Mineral());
@@ -169,6 +176,7 @@ public class CasoDeUso3Test {
         Acceso acceso = new Acceso();
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
+        casillero.setRecurso(new Volcan());
 
         // Act
         recursos.agregar(new Mineral());

@@ -21,9 +21,10 @@ public class Protoss extends Raza{
     }
     public void nuevoTurno(){
         this.construccionesRealizadas.nuevoTurno(this.recursos);
-        for (Unidad unidad : this.unidadesEngendradas) {    //delegar for en nueva clase ListadoUnidades
-            unidad.nuevoTurno();
-        }
+        //for (Unidad unidad : this.unidadesEngendradas) {    //delegar for en nueva clase ListadoUnidades
+        //    unidad.nuevoTurno();
+        //}
+        // ^ esto rompe todo
     }
     private void construir(ConstruccionProtoss construccion, Casillero casilleroAConstruir){
 
@@ -109,6 +110,6 @@ public class Protoss extends Raza{
         return construccionesRealizadas.size();
     }
     public void destruir (ConstruccionProtoss construccionADestruir) {
-        this.construccionesRealizadas.destruir(construccionADestruir, this.maximoSuministro);
+        this.maximoSuministro=this.construccionesRealizadas.destruir(construccionADestruir, this.maximoSuministro);
     }
 }
