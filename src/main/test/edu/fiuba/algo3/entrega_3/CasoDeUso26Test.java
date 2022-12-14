@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Zerg;
+import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,9 +20,8 @@ public class CasoDeUso26Test {
     @Test
     public void engendrarUnAmoSupremoConsumeElSuministroEsperado() {
         int valorEsperado = 0;
-        Mapa mapa = new Mapa();
         Criadero criadero = new Criadero();
-        criadero.establecerUbicacion(mapa.obtenerCasillero(1, 4));
+        criadero.establecerUbicacion(new Casillero(new AreaTerrestre(),1, 1, new Mapa()));
 
         Zerg raza = new Zerg(50, 0);
 
@@ -36,9 +36,8 @@ public class CasoDeUso26Test {
     @Test
     public void engendrarUnZanganoConsumeElSuministroEsperado() {
         int valorEsperado = 1;
-        Mapa mapa = new Mapa();
         Criadero criadero = new Criadero();
-        criadero.establecerUbicacion(mapa.obtenerCasillero(1, 4));
+        criadero.establecerUbicacion(new Casillero(new AreaTerrestre(),1, 1, new Mapa()));
 
         Zerg raza = new Zerg(25, 0);
 
@@ -55,6 +54,8 @@ public class CasoDeUso26Test {
         int valorEsperado = 1;
         Mapa mapa = new Mapa();
         Casillero casillero = mapa.obtenerCasillero(1, 1);
+        casillero.setRecurso(new SinRecurso());
+        casillero.setArea(new AreaTerrestre());
         casillero.setEspacioDeConstruccion(new Moho());
         Criadero criadero = new Criadero();
         criadero.establecerUbicacion(mapa.obtenerCasillero(1, 4));
@@ -77,11 +78,18 @@ public class CasoDeUso26Test {
         int valorEsperado = 2;
         Mapa mapa = new Mapa();
         Casillero casillero = mapa.obtenerCasillero(1, 1);
+        casillero.setRecurso(new SinRecurso());
+        casillero.setArea(new AreaTerrestre());
         Casillero casillero2 = mapa.obtenerCasillero(1, 2);
+        casillero2.setRecurso(new SinRecurso());
+        casillero2.setArea(new AreaTerrestre());
         casillero.setEspacioDeConstruccion(new Moho());
         casillero2.setEspacioDeConstruccion(new Moho());
         Criadero criadero = new Criadero();
-        criadero.establecerUbicacion(mapa.obtenerCasillero(1, 4));
+        Casillero casillero3 = mapa.obtenerCasillero(1, 4);
+        casillero3.setRecurso(new SinRecurso());
+        casillero3.setArea(new AreaTerrestre());
+        criadero.establecerUbicacion(casillero3);
 
         Zerg raza = new Zerg(425, 125);
 
@@ -102,8 +110,14 @@ public class CasoDeUso26Test {
         int valorEsperado = 4;
         Mapa mapa = new Mapa();
         Casillero casillero = mapa.obtenerCasillero(1, 1);
+        casillero.setRecurso(new SinRecurso());
+        casillero.setArea(new AreaTerrestre());
         Casillero casillero2 = mapa.obtenerCasillero(1, 2);
+        casillero2.setRecurso(new SinRecurso());
+        casillero2.setArea(new AreaTerrestre());
         Casillero casillero3 = mapa.obtenerCasillero(1, 3);
+        casillero3.setRecurso(new SinRecurso());
+        casillero3.setArea(new AreaTerrestre());
         casillero.setEspacioDeConstruccion(new Moho());
         casillero2.setEspacioDeConstruccion(new Moho());
         casillero3.setEspacioDeConstruccion(new Moho());
@@ -131,6 +145,8 @@ public class CasoDeUso26Test {
         int valorEsperado = 2;
         Mapa mapa = new Mapa();
         Casillero casillero = mapa.obtenerCasillero(1, 1);
+        casillero.setRecurso(new SinRecurso());
+        casillero.setArea(new AreaTerrestre());
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
         Protoss raza = new Protoss(300, 150);
@@ -146,6 +162,8 @@ public class CasoDeUso26Test {
         int valorEsperado = 3;
         Mapa mapa = new Mapa();
         Casillero casillero = mapa.obtenerCasillero(1, 1);
+        casillero.setRecurso(new SinRecurso());
+        casillero.setArea(new AreaTerrestre());
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
         Protoss raza = new Protoss(300, 150);
@@ -159,19 +177,27 @@ public class CasoDeUso26Test {
     @Test
     public void engendrarUnScoutConsumeElSuministroEsperado() {
         int valorEsperado = 4;
-        Mapa mapa = new Mapa();
-        Casillero casillero = mapa.obtenerCasillero(1, 1);
-        Casillero casillero2 = mapa.obtenerCasillero(1, 2);
-        Casillero casillero3 = mapa.obtenerCasillero(1, 3);
+        Casillero casillero = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero.setArea(new AreaTerrestre());
+        casillero.setRecurso(new SinRecurso());
         casillero.setEspacioDeConstruccion(new RangoPilon());
+        Casillero casillero2 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero2.setArea(new AreaTerrestre());
+        casillero2.setRecurso(new SinRecurso());
         casillero2.setEspacioDeConstruccion(new RangoPilon());
+        Casillero casillero3 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero3.setArea(new AreaTerrestre());
+        casillero3.setRecurso(new SinRecurso());
+        casillero3.setEspacioDeConstruccion(new RangoPilon());
+
+
 
         Protoss raza = new Protoss(600, 300);
 
         raza.construirAcceso(casillero);
         raza.construirPuertoEstelar(casillero2);
 
-        raza.construirScout(new Casillero(new AreaTerrestre(), 1 , 1 , mapa));
+        raza.construirScout(casillero3);
 
         assertEquals(valorEsperado , raza.obtenerOcupacionActual());
     }
@@ -179,15 +205,20 @@ public class CasoDeUso26Test {
     @Test
     public void engendrarUnAmoSupremoAumentaElSuministroSegunLoEsperado() {
         int valorEsperado = 205;
-        Mapa mapa = new Mapa();
-        Casillero casillero = mapa.obtenerCasillero(1, 1);
-        Casillero casillero2 = mapa.obtenerCasillero(1, 2);
-        Casillero casillero3 = mapa.obtenerCasillero(1, 3);
+        Casillero casillero = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero.setArea(new AreaTerrestre());
+        casillero.setRecurso(new SinRecurso());
         casillero.setEspacioDeConstruccion(new Moho());
+        Casillero casillero2 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero2.setArea(new AreaTerrestre());
+        casillero2.setRecurso(new SinRecurso());
         casillero2.setEspacioDeConstruccion(new Moho());
+        Casillero casillero3 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero3.setArea(new AreaTerrestre());
+        casillero3.setRecurso(new SinRecurso());
         casillero3.setEspacioDeConstruccion(new Moho());
         Criadero criadero = new Criadero();
-        criadero.establecerUbicacion(mapa.obtenerCasillero(1, 4));
+        criadero.establecerUbicacion(casillero);
 
         Zerg raza = new Zerg(5700, 5300);
 
@@ -219,15 +250,24 @@ public class CasoDeUso26Test {
     @Test
     public void construirUnCriaderoAumentaElSuministroSegunLoEsperado() {
         int valorEsperado = 205;
-        Mapa mapa = new Mapa();
-        Casillero casillero = mapa.obtenerCasillero(1, 1);
-        Casillero casillero2 = mapa.obtenerCasillero(1, 2);
-        Casillero casillero3 = mapa.obtenerCasillero(1, 3);
+        Casillero casillero = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero.setArea(new AreaTerrestre());
+        casillero.setRecurso(new SinRecurso());
         casillero.setEspacioDeConstruccion(new Moho());
+        Casillero casillero2 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero2.setArea(new AreaTerrestre());
+        casillero2.setRecurso(new SinRecurso());
         casillero2.setEspacioDeConstruccion(new Moho());
+        Casillero casillero3 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero3.setArea(new AreaTerrestre());
+        casillero3.setRecurso(new SinRecurso());
         casillero3.setEspacioDeConstruccion(new Moho());
+        Casillero casillero4 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero4.setArea(new AreaTerrestre());
+        casillero4.setRecurso(new SinRecurso());
+        casillero4.setEspacioDeConstruccion(new Moho());
         Criadero criadero = new Criadero();
-        criadero.establecerUbicacion(mapa.obtenerCasillero(1, 4));
+        criadero.establecerUbicacion(casillero);
 
         Zerg raza = new Zerg(5700, 5300);
 
@@ -246,7 +286,7 @@ public class CasoDeUso26Test {
 
         try {raza.engendrarZerling(criadero);} catch (RuntimeException SuministroAgotado){};
 
-        raza.construirCriadero(mapa.obtenerCasillero(1, 5));
+        raza.construirCriadero(casillero4);
 
         raza.engendrarMutalisco(criadero);
         raza.engendrarZangano(criadero);
@@ -259,12 +299,26 @@ public class CasoDeUso26Test {
     @Test
     public void construirUnPilonAumentaElSuministroSegunLoEsperado() {
         int valorEsperado = 205;
-        Mapa mapa = new Mapa();
-        Casillero casillero = mapa.obtenerCasillero(1, 1);
-        Casillero casillero2 = mapa.obtenerCasillero(1, 2);
-        Casillero casillero3 = mapa.obtenerCasillero(1, 3);
+        Casillero casillero = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero.setArea(new AreaTerrestre());
+        casillero.setRecurso(new SinRecurso());
         casillero.setEspacioDeConstruccion(new RangoPilon());
+        Casillero casillero2 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero2.setArea(new AreaTerrestre());
+        casillero2.setRecurso(new SinRecurso());
         casillero2.setEspacioDeConstruccion(new RangoPilon());
+        Casillero casillero3 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero3.setArea(new AreaTerrestre());
+        casillero3.setRecurso(new SinRecurso());
+        casillero3.setEspacioDeConstruccion(new RangoPilon());
+        Casillero casillero4 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero2.setArea(new AreaTerrestre());
+        casillero2.setRecurso(new SinRecurso());
+        casillero2.setEspacioDeConstruccion(new RangoPilon());
+        Casillero casillero5 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero3.setArea(new AreaTerrestre());
+        casillero3.setRecurso(new SinRecurso());
+        casillero3.setEspacioDeConstruccion(new RangoPilon());
 
         Protoss raza = new Protoss(15825, 7700);
 
@@ -272,17 +326,20 @@ public class CasoDeUso26Test {
         raza.construirPuertoEstelar(casillero2);
 
         for (int i = 0; i < 50; i++) {
-            raza.construirScout(new Casillero(new AreaTerrestre(), 1 , i , mapa));
+            Casillero casilleroi = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+            casilleroi.setArea(new AreaTerrestre());
+            casilleroi.setRecurso(new SinRecurso());
+            raza.construirScout(casilleroi);
         }
 
-        try {raza.construirZealot(casillero3);} catch (RuntimeException SuministroAgotado){};
+        try {raza.construirZealot(casillero);} catch (RuntimeException SuministroAgotado){};
 
-        raza.construirPilon(mapa.obtenerCasillero(1, 4));
+        raza.construirPilon(casillero3);
 
-        raza.construirDragon(mapa.obtenerCasillero(1, 5));
-        raza.construirZealot(mapa.obtenerCasillero(1, 6));
+        raza.construirDragon(casillero4);
+        raza.construirZealot(casillero5);
 
-        try {raza.construirZealot(casillero3);} catch (RuntimeException SuministroAgotado){};
+        try {raza.construirZealot(casillero);} catch (RuntimeException SuministroAgotado){};
 
         assertEquals(valorEsperado , raza.obtenerOcupacionActual());
     }

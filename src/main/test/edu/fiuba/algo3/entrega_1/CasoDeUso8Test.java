@@ -13,6 +13,7 @@ import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.recursos.RecursosInsuficientes;
+import edu.fiuba.algo3.modelo.recursos.Volcan;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -33,6 +34,7 @@ public class CasoDeUso8Test {
         // Arrange
         Protoss razaProtoss = new Protoss();
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        casillero.setRecurso(new Volcan());
 
         // Act
         razaProtoss.construirAsimilador(casillero);
@@ -46,6 +48,7 @@ public class CasoDeUso8Test {
         // Arrange
         Zerg razaZerg = new Zerg(0,0);
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        casillero.setRecurso(new Volcan());
 
         // Act
         casillero.setEspacioDeConstruccion(new Moho());
@@ -59,6 +62,7 @@ public class CasoDeUso8Test {
         // Arrange
         Zerg razaZerg = new Zerg();
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        casillero.setRecurso(new Volcan());
 
         // Act
         casillero.setEspacioDeConstruccion(new Moho());
@@ -122,9 +126,8 @@ public class CasoDeUso8Test {
     @Test
     public void guaridaNoSePuedeConstruirSinLosRecursosSuficientes() {
         // Arrange
-        Mapa mapa = new Mapa();
-        Casillero casillero1 = mapa.obtenerCasillero(1,1);
-        Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        Casillero casillero1 = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero2 = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         Zerg razaZerg = new Zerg(150,0);
 
         // Act
@@ -139,9 +142,8 @@ public class CasoDeUso8Test {
     @Test
     public void guaridaSePuedeConstruirConLosRecursosSuficientes(){
         // Arrange
-        Mapa mapa = new Mapa();
-        Casillero casillero1 = mapa.obtenerCasillero(1,1);
-        Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        Casillero casillero1 = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero2 = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
         Zerg razaZerg = new Zerg(1000, 1000);
 
         // Act
@@ -158,10 +160,9 @@ public class CasoDeUso8Test {
     public void espiralNoSePuedeConstruirSinLosRecursosSuficientes() {
         // Arrange
         Zerg razaZerg = new Zerg(350,100);
-        Mapa mapa = new Mapa();
-        Casillero casillero1 = mapa.obtenerCasillero(1,1);
-        Casillero casillero2 = mapa.obtenerCasillero(1,2);
-        Casillero casillero3 = mapa.obtenerCasillero(1,3);
+        Casillero casillero1 = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero2 = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero3 = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
 
         // Act
         casillero1.setEspacioDeConstruccion(new Moho());
@@ -178,10 +179,9 @@ public class CasoDeUso8Test {
     public void espiralSePuedeConstruirConLosRecursosSuficientes(){
         // Arrange
         Zerg razaZerg = new Zerg(2000,2000);
-        Mapa mapa = new Mapa();
-        Casillero casillero1 = mapa.obtenerCasillero(1,1);
-        Casillero casillero2 = mapa.obtenerCasillero(1,2);
-        Casillero casillero3 = mapa.obtenerCasillero(1,3);
+        Casillero casillero1 = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero2 = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero3 = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
 
         // Act
         casillero1.setEspacioDeConstruccion(new Moho());
@@ -271,9 +271,8 @@ public class CasoDeUso8Test {
     public void puertoEstelarNoSePuedeConstruirSinLosRecursosSuficientes(){
         // Arrrange
         Protoss razaProtoss = new Protoss(150,0);
-        Mapa mapa = new Mapa();
-        Casillero casillero1 = mapa.obtenerCasillero(1,1);
-        Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        Casillero casillero1 = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero2 = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
 
         // Act
         casillero1.setEspacioDeConstruccion(new RangoPilon());
@@ -288,9 +287,8 @@ public class CasoDeUso8Test {
     public void puertoEstelarSePuedeConstruirConLosRecursosSuficientes(){
         // Arrange
         Protoss razaProtoss = new Protoss(4000,4000);
-        Mapa mapa = new Mapa();
-        Casillero casillero1 = mapa.obtenerCasillero(1,1);
-        Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        Casillero casillero1 = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        Casillero casillero2 = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
 
         // Act
         casillero1.setEspacioDeConstruccion(new RangoPilon());

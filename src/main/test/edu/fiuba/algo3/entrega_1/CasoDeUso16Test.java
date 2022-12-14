@@ -13,6 +13,7 @@ import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.recursos.RecursoOcupado;
+import edu.fiuba.algo3.modelo.recursos.Volcan;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -25,6 +26,7 @@ public class CasoDeUso16Test {
         Extractor extractor = new Extractor();
         Asimilador asimilador = new Asimilador();
         Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
+        casillero.setRecurso(new Volcan());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
@@ -41,6 +43,7 @@ public class CasoDeUso16Test {
         Extractor extractor = new Extractor();
         Asimilador asimilador = new Asimilador();
         Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
+        casillero.setRecurso(new Volcan());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
@@ -58,6 +61,7 @@ public class CasoDeUso16Test {
         Zangano zangano = new Zangano();
         NexoMineral nexo = new NexoMineral();
         Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
+        casillero.setRecurso(new Mineral());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
@@ -75,6 +79,7 @@ public class CasoDeUso16Test {
         Zangano zangano = new Zangano();
         NexoMineral nexo = new NexoMineral();
         Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
+        casillero.setRecurso(new Mineral());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act

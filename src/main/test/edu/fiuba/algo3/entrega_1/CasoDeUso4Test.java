@@ -10,6 +10,7 @@ import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
+import edu.fiuba.algo3.modelo.recursos.Volcan;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,7 +23,9 @@ public class CasoDeUso4Test {
         Extractor extractor = new Extractor();
         Gas valorEsperado = new Gas(0);
         Casillero casillero = new Casillero(new AreaTerrestre(), 1,1,new Mapa());
+        casillero.setRecurso(new Volcan());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
+
 
         // Act
         recursos.agregar(new Mineral());
@@ -45,8 +48,10 @@ public class CasoDeUso4Test {
         Extractor extractor = new Extractor();
         Gas gasProducidoEsperado = new Gas(10);
         Casillero casillero = new Casillero(new AreaTerrestre(), 1,1,new Mapa());
+        casillero.setRecurso(new Volcan());
         Zangano zangano = new Zangano();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
+
 
         // Act
         recursos.agregar(new Mineral());
@@ -74,9 +79,11 @@ public class CasoDeUso4Test {
         Extractor extractor = new Extractor();
         Gas gasProducidoEsperado = new Gas(20);
         Casillero casillero = new Casillero(new AreaTerrestre(), 1,1,new Mapa());
+        casillero.setRecurso(new Volcan());
         Zangano zangano1 = new Zangano();
         Zangano zangano2 = new Zangano();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
+
 
         // Act
         recursos.agregar(new Mineral());
@@ -106,10 +113,12 @@ public class CasoDeUso4Test {
         Extractor extractor = new Extractor();
         Gas gasProducidoEsperado = new Gas(30);
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
+        casillero.setRecurso(new Volcan());
         Zangano zangano1 = new Zangano();
         Zangano zangano2 = new Zangano();
         Zangano zangano3 = new Zangano();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
+
 
         // Act
         recursos.agregar(new Mineral());
@@ -140,6 +149,7 @@ public class CasoDeUso4Test {
         //Arrange
         Extractor extractor = new Extractor();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
+        casillero.setRecurso(new Volcan());
         Zangano zangano1 = new Zangano();
         Zangano zangano2 = new Zangano();
         Zangano zangano3 = new Zangano();

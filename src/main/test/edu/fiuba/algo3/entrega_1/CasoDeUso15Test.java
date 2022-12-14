@@ -21,6 +21,7 @@ public class CasoDeUso15Test {
         Gas gasProducidoEsperado = new Gas(5000);
         Extractor extractor = new Extractor();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
+        casillero.setRecurso(new Volcan());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
         Zangano zangano1 = new Zangano();
         Zangano zangano2 = new Zangano();
@@ -61,6 +62,7 @@ public class CasoDeUso15Test {
         Gas gasProducidoEsperado = new Gas(5000);
         Asimilador asimilador = new Asimilador();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
+        casillero.setRecurso(new Volcan());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         //Act
@@ -91,6 +93,7 @@ public class CasoDeUso15Test {
         MineralProducido mineralProducidoEsperado = new MineralProducido(2000);
         Zangano zangano = new Zangano();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
+        casillero.setRecurso(new Mineral());
 
 
         //Act
@@ -115,6 +118,7 @@ public class CasoDeUso15Test {
         MineralProducido mineralProducidoEsperado = new MineralProducido(2000);
         NexoMineral nexo = new NexoMineral();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
+        casillero.setRecurso(new Mineral());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act

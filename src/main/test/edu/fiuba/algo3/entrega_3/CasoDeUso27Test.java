@@ -8,10 +8,12 @@ import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Devorador;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Mutalisco;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Scout;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.recursos.RecursosInsuficientes;
+import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,24 +29,34 @@ public class CasoDeUso27Test {
         int gasPrerrequisitos = 300;
 
         Zerg razaZerg = new Zerg(mineralPrerrequisitos,gasPrerrequisitos);
-        Mapa mapa = new Mapa();
-        Casillero casillero1 = mapa.obtenerCasillero(1,1);
-        razaZerg.construirCriadero(casillero1);
+        Casillero casillero = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero.setArea(new AreaTerrestre());
+        casillero.setRecurso(new SinRecurso());
+        razaZerg.construirCriadero(casillero);
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
 
-        Casillero casillero2 = mapa.obtenerCasillero(1,2);
-        Casillero casillero3 = mapa.obtenerCasillero(1,3);
-        Casillero casillero4 = mapa.obtenerCasillero(1,4);
+        Casillero casillero1 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero1.setArea(new AreaTerrestre());
+        casillero1.setRecurso(new SinRecurso());
+        casillero1.setEspacioDeConstruccion(new Moho());
+        Casillero casillero2 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero2.setArea(new AreaTerrestre());
+        casillero2.setRecurso(new SinRecurso());
+        casillero2.setEspacioDeConstruccion(new Moho());
+        Casillero casillero3 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero3.setArea(new AreaTerrestre());
+        casillero3.setRecurso(new SinRecurso());
+        casillero3.setEspacioDeConstruccion(new Moho());
 
 
-        razaZerg.construirReservaDeReproduccion(casillero2);
-        razaZerg.construirGuarida(casillero3);
-        razaZerg.construirEspiral(casillero4);
-        Mutalisco mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
+        razaZerg.construirReservaDeReproduccion(casillero1);
+        razaZerg.construirGuarida(casillero2);
+        razaZerg.construirEspiral(casillero3);
+        Mutalisco mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero.obtenerConstruccion());
 
         assertThrows(RecursosInsuficientes.class, () -> razaZerg.evolucionarMutaliscoADevorador(mutalisco));
 
@@ -57,18 +69,28 @@ public class CasoDeUso27Test {
         int gasPrerrequisitos = 300 + 50;
 
         Zerg razaZerg = new Zerg(mineralPrerrequisitos,gasPrerrequisitos);
-        Mapa mapa = new Mapa();
-        Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        Casillero casillero1 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero1.setArea(new AreaTerrestre());
+        casillero1.setRecurso(new SinRecurso());
+        casillero1.setEspacioDeConstruccion(new Moho());
+        Casillero casillero2 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero2.setArea(new AreaTerrestre());
+        casillero2.setRecurso(new SinRecurso());
+        casillero2.setEspacioDeConstruccion(new Moho());
+        Casillero casillero3 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero3.setArea(new AreaTerrestre());
+        casillero3.setRecurso(new SinRecurso());
+        casillero3.setEspacioDeConstruccion(new Moho());
+        Casillero casillero4 = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        casillero4.setArea(new AreaTerrestre());
+        casillero4.setRecurso(new SinRecurso());
+        casillero4.setEspacioDeConstruccion(new Moho());
         razaZerg.construirCriadero(casillero1);
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
-
-        Casillero casillero2 = mapa.obtenerCasillero(1,2);
-        Casillero casillero3 = mapa.obtenerCasillero(1,3);
-        Casillero casillero4 = mapa.obtenerCasillero(1,4);
 
 
         razaZerg.construirReservaDeReproduccion(casillero2);
@@ -86,14 +108,20 @@ public class CasoDeUso27Test {
         Devorador devorador = new Devorador();
         Scout scout = new Scout();
         int valorEsperado = 85;    //100 escudo - 15 ataque
+        Casillero casillero1 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero1.setArea(new AreaTerrestre());;
+
+        Casillero casillero2 = new Casillero(new AreaEspacial(), 1 , 1 , new Mapa());
+        casillero2.setArea(new AreaEspacial());
 
         // Act
+
         devorador.nuevoTurno();
         devorador.nuevoTurno();
         devorador.nuevoTurno();
         devorador.nuevoTurno();
-        devorador.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
-        scout.establecerUbicacion(new Casillero(new AreaEspacial(), 1, 2, new Mapa()));
+        devorador.establecerUbicacion(casillero1);
+        scout.establecerUbicacion(casillero2);
         devorador.atacar(scout);
 
         // Assert
@@ -105,16 +133,23 @@ public class CasoDeUso27Test {
         // Arrange
         Devorador devorador = new Devorador();
         Asimilador asimilador = new Asimilador();
+        int resultadoEsperado = 900;
+        Casillero casillero1 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero1.setArea(new AreaTerrestre());;
+
+        Casillero casillero2 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        casillero2.setArea(new AreaTerrestre());
 
         // Act
         devorador.nuevoTurno();
         devorador.nuevoTurno();
         devorador.nuevoTurno();
         devorador.nuevoTurno();
-        devorador.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
-        asimilador.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
+        devorador.establecerUbicacion(casillero1);
+        asimilador.establecerUbicacion(casillero2);
+        devorador.atacar(asimilador);
 
-        assertThrows(ObjetivoInvalido.class,() -> devorador.atacar(asimilador));
+        assertEquals(asimilador.obtenerEscudo()+asimilador.obtenerVida(),resultadoEsperado);
 
     }
 

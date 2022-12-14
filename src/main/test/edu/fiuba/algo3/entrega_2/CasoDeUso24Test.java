@@ -15,11 +15,11 @@ public class CasoDeUso24Test {
         Base baseJugadorUno = mapa.obtenerBaseUno();
         Base baseJugadorDos = mapa.obtenerBaseDos();
 
-        assert(baseJugadorDos.obtenerUbicacion().obtenerFila() -
-                baseJugadorUno.obtenerUbicacion().obtenerFila() >= 10);
+        assertEquals(baseJugadorDos.obtenerUbicacion().obtenerFila(),
+                baseJugadorUno.obtenerUbicacion().obtenerColumna());
 
-        assert(baseJugadorDos.obtenerUbicacion().obtenerColumna() -
-                baseJugadorUno.obtenerUbicacion().obtenerColumna() >= 10);
+        assertEquals(baseJugadorDos.obtenerUbicacion().obtenerColumna(),
+                baseJugadorUno.obtenerUbicacion().obtenerFila());
 
     }
 

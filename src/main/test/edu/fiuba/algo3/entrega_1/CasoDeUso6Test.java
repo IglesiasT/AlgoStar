@@ -16,7 +16,7 @@ public class CasoDeUso6Test {
     public void alConstruirElCriaderoEsteCreaUnRadioDeMohoDe5(){
         // Arrange
         Mapa mapa = new Mapa();
-        Casillero casillero1 = mapa.obtenerCasillero(10,10);
+        Casillero casillero1 = mapa.obtenerCasillero(1, 1);
         Criadero criadero = new Criadero();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
@@ -29,7 +29,8 @@ public class CasoDeUso6Test {
         criadero.nuevoTurno();
         criadero.nuevoTurno();
 
-        ArrayList<? extends Casillero> casillerosConMoho = mapa.obtenerCasilleros(5,10,10);
+        ArrayList<? extends Casillero> casillerosConMoho =
+                mapa.obtenerCasilleros(5,1, 1);
 
         // Assert
         for (Casillero casillero : casillerosConMoho){
@@ -41,14 +42,11 @@ public class CasoDeUso6Test {
     @Test
     public void alConstruirElCriaderoEsteCreaUnRadioDeMohoDe5YLuegoDeUnTurnoNoSeExpande(){
         //Arrange
-        int limiteDeFilaInferiorEsperado = 4;
-        int limiteDeFilaSuperionEsperado = 16;
-        int limiteDeColumnaInferiorEsperado = 4;
-        int limiteDeColumnaSuperionEsperado = 16;
         Mapa mapa = new Mapa();
-        Casillero casillero1 = mapa.obtenerCasillero(10,10);
+        Casillero casillero1 = mapa.obtenerCasillero(1, 1);
         Criadero criadero = new Criadero();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
+        boolean todosContienenMoho = false;
 
         // Act
         recursos.agregar(new Mineral());
@@ -61,14 +59,17 @@ public class CasoDeUso6Test {
 
         criadero.nuevoTurno();
 
+        ArrayList<? extends Casillero> casillerosConMoho =
+                mapa.obtenerCasilleros(6,1, 1);
 
         //Assert
-        for (int i = 0; i < 20; i++){
-            assert !(mapa.obtenerCasillero(limiteDeFilaInferiorEsperado,i).contiene(new Moho()));
-            assert !(mapa.obtenerCasillero(limiteDeFilaSuperionEsperado,i).contiene(new Moho()));
-            assert !(mapa.obtenerCasillero(i,limiteDeColumnaInferiorEsperado).contiene(new Moho()));
-            assert !(mapa.obtenerCasillero(i,limiteDeColumnaSuperionEsperado).contiene(new Moho()));
+        for (Casillero casillero : casillerosConMoho){
+           todosContienenMoho = (casillero.contiene(new Moho()));
+           if (!todosContienenMoho)
+               break;
         }
+
+        assert !todosContienenMoho;
 
     }
 
@@ -76,7 +77,7 @@ public class CasoDeUso6Test {
     public void alConstruirElCriaderoEsteCreaUnRadioDeMohoDe5YLuegoDeDosTurnosSeExpande(){
         //Arrange
         Mapa mapa = new Mapa();
-        Casillero casillero1 = mapa.obtenerCasillero(10,10);
+        Casillero casillero1 = mapa.obtenerCasillero(1, 1);
         Criadero criadero = new Criadero();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
@@ -92,7 +93,8 @@ public class CasoDeUso6Test {
         criadero.nuevoTurno();
         criadero.nuevoTurno();
 
-        ArrayList<? extends Casillero> casillerosConMoho = mapa.obtenerCasilleros(6,10,10);
+        ArrayList<? extends Casillero> casillerosConMoho =
+                mapa.obtenerCasilleros(6,1,1);
 
         //Assert
         for (Casillero casillero : casillerosConMoho){

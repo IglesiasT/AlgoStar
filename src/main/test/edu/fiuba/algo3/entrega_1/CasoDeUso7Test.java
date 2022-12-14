@@ -9,6 +9,7 @@ import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.recursos.MineralProducido;
+import edu.fiuba.algo3.modelo.recursos.Volcan;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,6 +21,7 @@ public class CasoDeUso7Test {
         //Arrange
         Zangano zangano = new Zangano();
         Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
+        casillero.setRecurso(new Mineral());
         int cantidadEsperada = 10;
 
         //Act
@@ -35,6 +37,7 @@ public class CasoDeUso7Test {
         // Arrange
         NexoMineral nexo = new NexoMineral();
         Casillero casillero = new Casillero( new AreaTerrestre(),1,1,new Mapa());
+        casillero.setRecurso(new Mineral());
         MineralProducido mineralProducidoEsperado = new MineralProducido(20);
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 

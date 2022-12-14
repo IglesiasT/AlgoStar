@@ -30,7 +30,7 @@ public class ListadoDeConstruccionesProtoss {
     public int size() {
         return this.construcciones.size();
     }
-    public void destruir (ConstruccionProtoss construccionADestruir, int maximoSuministro) {
+    public int destruir (ConstruccionProtoss construccionADestruir, int maximoSuministro) {
         for (ConstruccionProtoss construccion : this.construcciones) {
             if (construccion.getClass() == construccionADestruir.getClass()) {
                 construccion.destruir();
@@ -39,5 +39,6 @@ public class ListadoDeConstruccionesProtoss {
                 maximoSuministro -= 5 ;
             }
         }
+        return maximoSuministro;
     }
 }

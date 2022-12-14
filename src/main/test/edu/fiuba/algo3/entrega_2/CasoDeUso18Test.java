@@ -160,6 +160,7 @@ public class CasoDeUso18Test {
         zealot.nuevoTurno();
         zealot.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
         reserva.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
+
         zealot.atacar(reserva);
 
         // Assert
