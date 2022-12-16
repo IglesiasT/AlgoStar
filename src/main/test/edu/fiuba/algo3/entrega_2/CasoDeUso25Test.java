@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.jugador.DatosRepetidos;
 import edu.fiuba.algo3.modelo.jugador.NombreInvalido;
 import edu.fiuba.algo3.modelo.jugador.RazaInvalida;
+import javafx.scene.paint.Color;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -18,54 +19,47 @@ public class CasoDeUso25Test {
 
     @Test
     public void noSePuedeCrearJugadorConNombreInvalido(){
-        assertThrows(NombreInvalido.class, () -> new Jugador("Ampi" , "Violeta" , "Zerg") );
+        assertThrows(NombreInvalido.class, () -> new Jugador("Ampi" , Color.BLUE, "Zerg") );
     }
 
     @Test
     public void noSePuedeCrearJugadorConRazaInvalida(){
-        assertThrows(RazaInvalida.class, () -> new Jugador("Amparo" , "Violeta" , "Zer") );
+        assertThrows(RazaInvalida.class, () -> new Jugador("Amparo" , Color.BLUE , "Zer") );
     }
 
     @Test
     public void noSePuedenCrearDosJugadoresConElMismoNombreEnUnJuego () {
 
         AlgoStar juego = new AlgoStar();
-        String input = "Amparo\nVioleta\nZerg\nAmparo\nRojo\nProtoss\n";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        juego.agregarJugadorUno("Amparo" , Color.BLUE, "Zerg");
 
-        assertThrows(DatosRepetidos.class, () -> juego.comenzarJuego());
+        assertThrows(DatosRepetidos.class, () -> juego.agregarJugadorDos("Amparo" , Color.RED, "Protoss"));
     }
 
     @Test
     public void noSePuedenCrearDosJugadoresConElMismoColorEnUnJuego () {
 
         AlgoStar juego = new AlgoStar();
-        String input = "Amparo\nVioleta\nZerg\nAmparo Maria\nVioleta\nProtoss\n";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        juego.agregarJugadorUno("Amparo" , Color.BLUE, "Zerg");
 
-        assertThrows(DatosRepetidos.class, () -> juego.comenzarJuego());
+        assertThrows(DatosRepetidos.class, () -> juego.agregarJugadorDos("Mariaa" , Color.BLUE, "Protoss"));
     }
 
     @Test
     public void noSePuedenCrearDosJugadoresConLaMismaRazaEnUnJuego () {
 
         AlgoStar juego = new AlgoStar();
-        String input = "Amparo\nVioleta\nZerg\nAmparo Maria\nRojo\nZerg\n";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        juego.agregarJugadorUno("Amparo" , Color.BLUE, "Zerg");
 
-        assertThrows(DatosRepetidos.class, () -> juego.comenzarJuego());
+        assertThrows(DatosRepetidos.class, () -> juego.agregarJugadorDos("Mariaa" , Color.RED, "Zerg"));
     }
 
     @Test
     public void sePuedeCrearLosJugadoresConDatosValidos() {
         AlgoStar juego = new AlgoStar();
-        String input = "Amparo\nVioleta\nZerg\nAmparoMaria\nRojo\nProtoss\n";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        juego.agregarJugadorUno("Amparo" , Color.BLUE, "Zerg");
 
-        assertDoesNotThrow(() ->juego.comenzarJuego());
+        assertDoesNotThrow(() -> juego.agregarJugadorDos("Mariaa" , Color.RED, "Protoss"));
+
     }
 }

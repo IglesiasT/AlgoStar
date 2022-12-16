@@ -8,9 +8,7 @@ import edu.fiuba.algo3.modelo.estadosDeJuego.Terminado;
 import edu.fiuba.algo3.modelo.jugador.DatosRepetidos;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.*;
-import edu.fiuba.algo3.modelo.razas.Raza;
-
-import java.util.Scanner;
+import javafx.scene.paint.Color;
 
 public class AlgoStar {
     public static final int MAXIMOJUGADORES = 2;
@@ -27,40 +25,7 @@ public class AlgoStar {
         this.turnos = 0;
     }
 
-    private String[] conseguirDatosDelJugador(Scanner lectura) {
-
-        String[] datos = new String[3];
-
-        System.out.println("\nIngrese su nombre: ");
-        datos[0] = lectura.next();
-
-        System.out.println("\nIngrese su color: ");
-        datos[1] = lectura.next();
-
-        System.out.println("\nIngrese su raza: \nZerg\nProtoss");
-        datos[2] = lectura.next();
-
-        return datos;
-    }
-
     public void comenzarJuego(){
-
-        Scanner lectura = new Scanner (System.in);
-
-        String[] DatosJugadorUno = this.conseguirDatosDelJugador(lectura);
-        String[] DatosJugadorDos = this.conseguirDatosDelJugador(lectura);
-
-        for (int i=0; i<3 ; i++) {
-            if (DatosJugadorDos[i].equals(DatosJugadorUno[i]) ) {
-                throw new DatosRepetidos();
-            }
-        }
-
-        jugadores.add ( new Jugador (DatosJugadorUno[0], DatosJugadorUno[1], DatosJugadorUno[2]) ) ;
-        jugadores.get(0).setBaseInicial(mapa.obtenerBaseUno());
-        jugadores.add ( new Jugador (DatosJugadorDos[0], DatosJugadorDos[1], DatosJugadorDos[2]) ) ;
-        jugadores.get(1).setBaseInicial(mapa.obtenerBaseDos());
-
         this.estado = new Jugando();
     }
 
@@ -79,10 +44,30 @@ public class AlgoStar {
         return estado;
     }
 
-    public void agregarJugador(String nombreJugador, Raza razaJugador){
-        //this.jugadores.add(new Jugador(nombreJugador, razaJugador));
+    public void agregarJugadorUno(String nombreJugador, Color color, String razaJugador){
+        Jugador jugadorUno = new Jugador(nombreJugador,color,razaJugador);
+        jugadorUno.setBaseInicial(this.mapa.obtenerBaseUno());
+        this.jugadores.add(jugadorUno);
+    }
+    public void agregarJugadorDos(String nombreJugador, Color color, String razaJugador){
+        Jugador jugadorDos = this.jugadores.get(0).agregarJugadorDos(nombreJugador, color, razaJugador);
+        if (jugadorDos != null){
+            this.jugadores.add(jugadorDos);
+            jugadorDos.setBaseInicial(this.mapa.obtenerBaseDos());
+        }
+        else {
+            throw new DatosRepetidos();
+        }
     }
     public Mapa obtenerMapa(){
         return this.mapa;
     }
+
+    public Jugador obtenerJugadorUno(){
+        return this.jugadores.get(0);
+    }
+    public Jugador obtenerJugadorDos(){
+        return this.jugadores.get(1);
+    }
+
 }

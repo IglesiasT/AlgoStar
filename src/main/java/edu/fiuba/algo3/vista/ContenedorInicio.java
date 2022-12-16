@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.modelo.AlgoStar;
 import edu.fiuba.algo3.vista.eventos.BotonNuevaPartidaEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -27,7 +28,7 @@ public class ContenedorInicio extends VBox {
         Button botonNuevaPartida = new Button();
         botonNuevaPartida.setText("Nueva partida");
 
-        Scene proximaEscena = new Scene(new ContenedorElegirJugadores(stage), 800, 800);
+        Scene proximaEscena = new Scene(new ContenedorElegirJugador(stage,new AlgoStar(),""), 800, 800);
         BotonNuevaPartidaEventHandler botonNuevaPartidaEventHandler = new BotonNuevaPartidaEventHandler(stage, proximaEscena);
         botonNuevaPartida.setOnAction(botonNuevaPartidaEventHandler);
 

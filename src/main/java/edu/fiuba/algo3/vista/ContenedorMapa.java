@@ -8,6 +8,8 @@ import edu.fiuba.algo3.modelo.mapa.Base;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.recursos.*;
+import edu.fiuba.algo3.vista.contenedoresAcciones.ContenedorAccion;
+import edu.fiuba.algo3.vista.eventos.SeleccionCasilleroEventHandler;
 import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
@@ -22,20 +24,26 @@ import javafx.stage.Stage;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ContenedorPrincipal extends Pane {
+public class ContenedorMapa extends Pane {
 
 
     private final Stage stage;
     private Canvas canvas;
 
+    private AlgoStar juego;
+    private ContenedorAccion accion;
+
     private Map<Class, Color> areasMapa;
     private Map<Class, String> recursosTexto;
 
     private Map<String, Color> recursosColor;
-    public ContenedorPrincipal(Stage stage, AlgoStar juego){
+    public ContenedorMapa(Stage stage, AlgoStar juego, ContenedorAccion accion){
         super();
         this.stage = stage;
         this.canvas = new Canvas();
+        this.juego = juego;
+        this.accion = accion;
+
         this.areasMapa = new HashMap<>();
         areasMapa.put(AreaTerrestre.class,Color.GREEN);
         areasMapa.put(AreaEspacial.class,Color.BLUE);
@@ -70,8 +78,8 @@ public class ContenedorPrincipal extends Pane {
         this.setPrefSize(tamanioMapa* App.TAMANIO_CASILLERO, tamanioMapa* App.TAMANIO_CASILLERO);
         this.getChildren().addAll(grupoDeCasilleros,grupoDeRecursos,grupoDeBases);
 
-        this.cargarBaseJugadorVista(crearBaseVista(mapa.obtenerBaseUno()),Color.MAGENTA,grupoDeBases);
-        this.cargarBaseJugadorVista(crearBaseVista(mapa.obtenerBaseDos()),Color.CYAN,grupoDeBases);
+        this.cargarBaseJugadorVista(crearBaseVista(mapa.obtenerBaseUno()),juego.obtenerJugadorUno().obtenerColor(),grupoDeBases);
+        this.cargarBaseJugadorVista(crearBaseVista(mapa.obtenerBaseDos()),juego.obtenerJugadorDos().obtenerColor(),grupoDeBases);
 
         for (int i = 0; i < tamanioMapa; i++){
             for (int j = 0; j < tamanioMapa; j++){
@@ -81,22 +89,6 @@ public class ContenedorPrincipal extends Pane {
             }
         }
 
-
-        /*
-        GridPane mapaVista = new GridPane();
-        mapaVista.setGridLinesVisible(true);
-
-
-        for (int i = 0; i < Mapa.FILAS; i++) {
-            for (int j = 0; j < Mapa.COLUMNAS; j++) {
-                mapaVista.add(new Rectangle(10, 10, Color.BLUE), i, j);
-            }
-        }
-
-
-        this.getChildren().add(mapaVista);
-
-         */
     }
 
     private Rectangle crearBaseVista(Base baseModelo){
@@ -104,8 +96,8 @@ public class ContenedorPrincipal extends Pane {
         baseVista.setWidth(App.TAMANIO_CASILLERO*(Base.RADIO*2 +1) -1 );
         baseVista.setHeight(App.TAMANIO_CASILLERO*(Base.RADIO*2 +1) -1 );
         baseVista.setFill(Color.TRANSPARENT);
-        baseVista.relocate((baseModelo.obtenerUbicacion().obtenerFila()-Base.RADIO) * App.TAMANIO_CASILLERO,
-                (baseModelo.obtenerUbicacion().obtenerColumna()-Base.RADIO) * App.TAMANIO_CASILLERO);
+        baseVista.relocate((baseModelo.obtenerUbicacion().obtenerFila()-Base.RADIO) * App.TAMANIO_CASILLERO+150,
+                (baseModelo.obtenerUbicacion().obtenerColumna()-Base.RADIO) * App.TAMANIO_CASILLERO+60);
 
         return baseVista;
     }
@@ -122,8 +114,9 @@ public class ContenedorPrincipal extends Pane {
         Rectangle casilleroVista = new Rectangle();
         casilleroVista.setWidth(App.TAMANIO_CASILLERO);
         casilleroVista.setHeight(App.TAMANIO_CASILLERO);
-        casilleroVista.relocate(casilleroModelo.obtenerFila() * App.TAMANIO_CASILLERO,casilleroModelo.obtenerColumna() * App.TAMANIO_CASILLERO);
+        casilleroVista.relocate(casilleroModelo.obtenerFila() * App.TAMANIO_CASILLERO +150,casilleroModelo.obtenerColumna() * App.TAMANIO_CASILLERO+60);
         casilleroVista.setFill(areasMapa.get(casilleroModelo.obtenerArea().getClass()));
+        casilleroVista.setOnMouseClicked(new SeleccionCasilleroEventHandler(this.stage,this.accion,casilleroModelo));
         return casilleroVista;
     }
 
@@ -132,8 +125,8 @@ public class ContenedorPrincipal extends Pane {
         Text recursoVista = new Text(recursosTexto.get(recursoModelo.getClass()));
         recursoVista.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
         recursoVista.setFill(recursosColor.get(recursosTexto.get(recursoModelo.getClass())));
-        recursoVista.relocate(casilleroModelo.obtenerFila()*App.TAMANIO_CASILLERO,
-                casilleroModelo.obtenerColumna()*App.TAMANIO_CASILLERO);
+        recursoVista.relocate(casilleroModelo.obtenerFila()*App.TAMANIO_CASILLERO + 150,
+                casilleroModelo.obtenerColumna()*App.TAMANIO_CASILLERO+60);
         return recursoVista;
     }
     private void mostrarMenuRecursos(){
