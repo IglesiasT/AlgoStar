@@ -90,7 +90,7 @@ public class CasoDeUso15Test {
     @Test
     public void zanganoNoRecolectaMasMineralLuegoDeAgotadoElRecurso(){
         //Arrange
-        MineralProducido mineralProducidoEsperado = new MineralProducido(2000);
+        NodoMineral mineralProducidoEsperado = new NodoMineral(2000);
         Zangano zangano = new Zangano();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
         casillero.setRecurso(new Mineral());
@@ -108,14 +108,14 @@ public class CasoDeUso15Test {
         }
 
         // Assert
-        assertEquals(mineralProducidoEsperado, new MineralProducido(mineralProducido));
+        assertEquals(mineralProducidoEsperado, new NodoMineral(mineralProducido));
 
     }
 
     @Test
     public void nexoMineralNoRecolectaMasMineralLuegoDeAgotadoElRecurso(){
         // Arrange
-        MineralProducido mineralProducidoEsperado = new MineralProducido(2000);
+        NodoMineral mineralProducidoEsperado = new NodoMineral(2000);
         NexoMineral nexo = new NexoMineral();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
         casillero.setRecurso(new Mineral());

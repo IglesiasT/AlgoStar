@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss;
 
 import edu.fiuba.algo3.modelo.NoSePuedeMover;
 import edu.fiuba.algo3.modelo.ObjetivoFueraDeRango;
-import edu.fiuba.algo3.modelo.VisitanteAtacar;
+import edu.fiuba.algo3.modelo.Atacante;
 import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
@@ -39,7 +39,7 @@ public abstract class UnidadProtoss extends ConstruccionProtoss implements Unida
         }
 
         // Se aplica patron Visitor de manera que el area sepa cuanto danio recibir
-        VisitanteAtacar ataque = new VisitanteAtacar(this.danioAereo, this.danioTerrestre);
+        Atacante ataque = new Atacante(this.danioAereo, this.danioTerrestre);
         Area areaConstruccion = construccionEnemiga.obtenerArea();
         areaConstruccion.aceptar(ataque, construccionEnemiga);
     }

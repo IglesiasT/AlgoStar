@@ -1,0 +1,42 @@
+package edu.fiuba.algo3.modelo.construcciones.listadoDeConstrucciones;
+
+import edu.fiuba.algo3.modelo.construcciones.Construccion;
+import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
+
+import java.util.LinkedList;
+
+public abstract class ListadoDeConstrucciones {
+    protected LinkedList<Construccion> construcciones;
+
+    public ListadoDeConstrucciones(){
+        this.construcciones = new LinkedList<>();
+    }
+
+    public void agregar(Construccion construccion){
+        this.construcciones.add(construccion);
+    }
+
+    public boolean contiene(Construccion construccionBuscada) {
+        for (Construccion construccion : this.construcciones) {
+            if (construccion.getClass() == construccionBuscada.getClass()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void nuevoTurno(ListadoDeRecursos recursos){
+        for (Construccion construccion: construcciones){
+            construccion.nuevoTurno();  //delegar recursos y que se vayan acumulando en caso de producir
+        }
+    }
+
+    public int size() {
+        return this.construcciones.size();
+    }
+
+    public int destruir(Construccion construccionADestruir, int maximoSuministro) {
+        return maximoSuministro;
+    }
+}
+

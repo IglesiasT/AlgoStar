@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.construcciones.*;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.*;
 import edu.fiuba.algo3.modelo.construcciones.listadoDeConstrucciones.ListadoDeConstruccionesZerg;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.AmoSupremo;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.AmoSupremo;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.*;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 

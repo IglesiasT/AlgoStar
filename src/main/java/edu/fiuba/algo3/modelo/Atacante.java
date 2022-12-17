@@ -4,11 +4,11 @@ import edu.fiuba.algo3.modelo.areas.AreaEspacial;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
 
-public class VisitanteAtacar implements Visitante{
+public class Atacante implements Visitante{
     private int danioAereo;
     private int danioTerrestre;
 
-    public VisitanteAtacar(int danioAereo, int danioTerrestre){
+    public Atacante(int danioAereo, int danioTerrestre){
         this.danioAereo = danioAereo;
         this.danioTerrestre = danioTerrestre;
     }

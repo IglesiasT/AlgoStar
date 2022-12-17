@@ -2,10 +2,10 @@ package edu.fiuba.algo3.modelo.recursos;
 
 import java.util.Objects;
 
-public class MineralProducido {
+public class NodoMineral {
     private int mineralProducido;
 
-    public MineralProducido(int mineralProducido) {
+    public NodoMineral(int mineralProducido) {
         this.mineralProducido = mineralProducido;
     }
 
@@ -13,7 +13,7 @@ public class MineralProducido {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        MineralProducido that = (MineralProducido) o;
+        NodoMineral that = (NodoMineral) o;
         return mineralProducido == that.mineralProducido;
     }
 

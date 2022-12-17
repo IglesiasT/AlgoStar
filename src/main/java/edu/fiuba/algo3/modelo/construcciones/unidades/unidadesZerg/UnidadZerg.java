@@ -50,7 +50,7 @@ public abstract class UnidadZerg extends ConstruccionZerg implements Unidad {
             throw new ObjetivoFueraDeRango();
         }
         // Se aplica patron Visitor de manera que el area sepa cuanto danio recibir
-        VisitanteAtacar ataque = new VisitanteAtacar(this.danioAereo, this.danioTerrestre);
+        Atacante ataque = new Atacante(this.danioAereo, this.danioTerrestre);
         Area areaConstruccion = construccionEnemiga.obtenerArea();
         areaConstruccion.aceptar(ataque, construccionEnemiga);
     }

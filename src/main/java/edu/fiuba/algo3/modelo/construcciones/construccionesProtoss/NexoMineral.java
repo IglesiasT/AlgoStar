@@ -2,9 +2,8 @@ package edu.fiuba.algo3.modelo.construcciones.construccionesProtoss;
 
 import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
-import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.recursos.MineralProducido;
+import edu.fiuba.algo3.modelo.recursos.NodoMineral;
 
 public class NexoMineral extends ConstruccionProtoss {
     private int turnos;
@@ -25,12 +24,12 @@ public class NexoMineral extends ConstruccionProtoss {
         }
         this.mineralProducido += this.ubicacion.obtenerRecurso().recolectar(produccionPorTurno);
     }
-    public MineralProducido obtenerMineralProducido(){
+    public NodoMineral obtenerMineralProducido(){
 
         if(this.turnos < this.turnosParaConstruirse){
             throw new EdificioNoEstaOperativo();
         }
-        return new MineralProducido(this.mineralProducido);
+        return new NodoMineral(this.mineralProducido);
 
     }
     @Override

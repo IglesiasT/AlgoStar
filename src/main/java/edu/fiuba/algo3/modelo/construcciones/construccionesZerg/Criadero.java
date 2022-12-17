@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.construcciones.construccionesZerg;
 
 import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.AmoSupremo;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.AmoSupremo;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
