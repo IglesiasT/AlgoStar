@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg;
 import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 
 public interface EstadoMutalisco {
@@ -16,7 +17,7 @@ public interface EstadoMutalisco {
     void establecerUbicacion(Casillero nuevaUbicacion);
     Casillero obtenerUbicacion();
 
-    void nuevoTurno();
+    void nuevoTurno(Raza raza);
 
     Area obtenerArea();
     int obtenerVida();

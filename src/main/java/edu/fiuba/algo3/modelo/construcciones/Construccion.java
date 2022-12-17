@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 
 public abstract class Construccion {
@@ -25,7 +26,7 @@ public abstract class Construccion {
     }
 
     public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
-        if (! recursos.contieneTodos(this.recursosNecesarios)) {
+        if (recursos.contieneTodos(this.recursosNecesarios)) {
             throw new NoSePuedeConstruir();
         }
 
@@ -38,7 +39,7 @@ public abstract class Construccion {
     public int obtenerVida(){
         return this.vida;
     }
-    public void nuevoTurno(){
+    public void nuevoTurno(Raza raza){
         this.turnos++;
         this.regenerar();
     }
@@ -54,4 +55,6 @@ public abstract class Construccion {
     public Area obtenerArea() {
         return this.area;
     }
+
+    public abstract Class obtenerRazaMadre();
 }

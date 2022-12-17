@@ -26,7 +26,7 @@ public class CasoDeUso26Test {
         Zerg raza = new Zerg(50, 0);
 
         for (int i = 0; i < 4; i++) {
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(new Zerg());
         }
 
         raza.engendrarAmoSupremo(criadero);
@@ -42,7 +42,7 @@ public class CasoDeUso26Test {
         Zerg raza = new Zerg(25, 0);
 
         for (int i = 0; i < 4; i++) {
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(new Zerg());
         }
 
         raza.engendrarZangano(criadero);
@@ -66,7 +66,7 @@ public class CasoDeUso26Test {
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(new Zerg());
         }
 
         raza.engendrarZerling(criadero);
@@ -98,7 +98,7 @@ public class CasoDeUso26Test {
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(new Zerg());
         }
 
         raza.engendrarHidralisco(criadero);
@@ -132,7 +132,7 @@ public class CasoDeUso26Test {
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(new Zerg());
         }
 
         raza.engendrarMutalisco(criadero);
@@ -228,7 +228,7 @@ public class CasoDeUso26Test {
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(new Zerg());
         }
 
         for (int i = 0; i < 50; i++) {
@@ -269,7 +269,7 @@ public class CasoDeUso26Test {
         Criadero criadero = new Criadero();
         criadero.establecerUbicacion(casillero);
 
-        Zerg raza = new Zerg(5700, 5300);
+        Zerg raza = new Zerg(5800, 5300);
 
         raza.construirReservaDeReproduccion(casillero);
         raza.construirGuarida(casillero2);
@@ -277,7 +277,7 @@ public class CasoDeUso26Test {
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(new Zerg());
         }
 
         for (int i = 0; i < 50; i++) {

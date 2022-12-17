@@ -6,4 +6,7 @@ public class SinRecurso extends Recurso{
     public int recolectar(int recolector) {
         return 0;
     }
+
+    @Override
+    public void ocupar(){}
 }

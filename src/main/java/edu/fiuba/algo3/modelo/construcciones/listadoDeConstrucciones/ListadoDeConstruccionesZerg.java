@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.construcciones.listadoDeConstrucciones;
 
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
+import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 
 import java.util.LinkedList;
@@ -25,9 +26,9 @@ public class ListadoDeConstruccionesZerg {
         return false;
     }
 
-    public void nuevoTurno(ListadoDeRecursos recursos){
+    public void nuevoTurno(Raza raza){
         for (ConstruccionZerg construccion: construcciones){
-            construccion.nuevoTurno();  //delegar recursos y que se vayan acumulando en caso de producir
+            construccion.nuevoTurno(raza);  //delegar recursos y que se vayan acumulando en caso de producir
         }
     }
 

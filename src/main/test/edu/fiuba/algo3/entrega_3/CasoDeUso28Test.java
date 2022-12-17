@@ -2,8 +2,8 @@ package edu.fiuba.algo3.entrega_3;
 
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Zealot;
-import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import org.junit.jupiter.api.Test;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
@@ -26,9 +26,9 @@ public class CasoDeUso28Test {
 
         // Act
         zealot.moverse(casillero);
-        zerling.nuevoTurno();
-        zerling.nuevoTurno();
-        zerling.nuevoTurno();
+        zerling.nuevoTurno(new Zerg());
+        zerling.nuevoTurno(new Zerg());
+        zerling.nuevoTurno(new Zerg());
         zerling.moverse(casillero2);
         zerling.atacar(zealot);
 

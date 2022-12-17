@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.entrega_3;
 
-import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.areas.AreaEspacial;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Asimilador;
@@ -116,10 +115,10 @@ public class CasoDeUso27Test {
 
         // Act
 
-        devorador.nuevoTurno();
-        devorador.nuevoTurno();
-        devorador.nuevoTurno();
-        devorador.nuevoTurno();
+        devorador.nuevoTurno(new Zerg());
+        devorador.nuevoTurno(new Zerg());
+        devorador.nuevoTurno(new Zerg());
+        devorador.nuevoTurno(new Zerg());
         devorador.establecerUbicacion(casillero1);
         scout.establecerUbicacion(casillero2);
         devorador.atacar(scout);
@@ -141,10 +140,10 @@ public class CasoDeUso27Test {
         casillero2.setArea(new AreaTerrestre());
 
         // Act
-        devorador.nuevoTurno();
-        devorador.nuevoTurno();
-        devorador.nuevoTurno();
-        devorador.nuevoTurno();
+        devorador.nuevoTurno(new Zerg());
+        devorador.nuevoTurno(new Zerg());
+        devorador.nuevoTurno(new Zerg());
+        devorador.nuevoTurno(new Zerg());
         devorador.establecerUbicacion(casillero1);
         asimilador.establecerUbicacion(casillero2);
         devorador.atacar(asimilador);

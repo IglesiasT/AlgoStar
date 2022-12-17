@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.jugador;
 
 import edu.fiuba.algo3.modelo.mapa.Base;
+import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.razas.*;
 import javafx.scene.paint.Color;
 
@@ -26,9 +27,9 @@ public class Jugador {
     private Raza stringARaza(String razaString){
         Raza razaRaza = null;
         if (razaString.equals("Zerg")) {
-            razaRaza = new Zerg();
+            razaRaza = new Zerg(200,0);
         } else if (razaString.equals("Protoss")){
-            razaRaza = new Protoss() ;
+            razaRaza = new Protoss(200,0) ;
         } else {
             throw new RazaInvalida() ;
         }
@@ -57,4 +58,8 @@ public class Jugador {
     }
     public String obtenerNombre(){ return this.nombre; }
     public Raza obtenerRaza(){ return this.raza; }
+
+    public void construir(String construccion, Casillero casillero){
+        raza.construir(construccion,casillero);
+    }
 }

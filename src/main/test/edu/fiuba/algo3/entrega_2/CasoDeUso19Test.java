@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.entrega_2;
 
-import edu.fiuba.algo3.modelo.ObjetivoInvalido;
 import edu.fiuba.algo3.modelo.areas.AreaEspacial;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
@@ -11,8 +10,11 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Zealot;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.*;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.razas.Protoss;
+import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
+import edu.fiuba.algo3.modelo.recursos.Nodo;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import org.junit.jupiter.api.Test;
 
@@ -32,14 +34,15 @@ public class CasoDeUso19Test {
         casillero2.setRecurso(new SinRecurso());
         ConstruccionProtoss construccionEnemiga = new Pilon();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         construccionEnemiga.construir(casillero2,recursos);
 
         Zangano zangano = new Zangano();
 
         // Act
-        zangano.nuevoTurno();
+
         zangano.ubicar(casillero1);
+        zangano.nuevoTurno(new Zerg());
         zangano.atacar(construccionEnemiga);
 
         // Assert
@@ -64,8 +67,8 @@ public class CasoDeUso19Test {
         zerling.moverse(casillero1);
 
         // Act
-        zerling.nuevoTurno();
-        zerling.nuevoTurno();
+        zerling.nuevoTurno(new Zerg());
+        zerling.nuevoTurno(new Zerg());
         zerling.atacar(unidadEnemiga);
 
         // Assert
@@ -90,10 +93,10 @@ public class CasoDeUso19Test {
         guardian.moverse(casillero1);
 
         // Act
-        guardian.nuevoTurno();
-        guardian.nuevoTurno();
-        guardian.nuevoTurno();
-        guardian.nuevoTurno();
+        guardian.nuevoTurno(new Zerg());
+        guardian.nuevoTurno(new Zerg());
+        guardian.nuevoTurno(new Zerg());
+        guardian.nuevoTurno(new Zerg());
         guardian.atacar(unidadEnemiga);
 
         // Assert
@@ -119,10 +122,10 @@ public class CasoDeUso19Test {
         zealot.moverse(casillero1);
 
         // Act
-        zealot.nuevoTurno();
-        zealot.nuevoTurno();
-        zealot.nuevoTurno();
-        zealot.nuevoTurno();
+        zealot.nuevoTurno(new Protoss());
+        zealot.nuevoTurno(new Protoss());
+        zealot.nuevoTurno(new Protoss());
+        zealot.nuevoTurno(new Protoss());
         zealot.atacar(unidadEnemiga);
 
         // Assert

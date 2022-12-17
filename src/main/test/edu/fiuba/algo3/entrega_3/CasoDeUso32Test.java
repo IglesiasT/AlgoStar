@@ -19,9 +19,9 @@ public class CasoDeUso32Test {
         juego.agregarJugadorDos("Mariaa" , Color.RED, "Protoss");
 
         juego.comenzarJuego() ;
-        juego.siguienteTurno();
-        juego.siguienteTurno();
+        juego.siguienteTurno(juego.obtenerJugadorUno());
+        juego.siguienteTurno(juego.obtenerJugadorDos());
 
-        assertThrows(JuegoFinalizado.class, () -> juego.siguienteTurno());
+        assertThrows(JuegoFinalizado.class, () -> juego.siguienteTurno(juego.obtenerJugadorUno()));
     }
 }

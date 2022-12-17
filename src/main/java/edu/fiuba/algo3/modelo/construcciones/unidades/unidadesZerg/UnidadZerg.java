@@ -25,7 +25,7 @@ public abstract class UnidadZerg extends ConstruccionZerg implements Unidad {
 
     @Override
     public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
-        if (! recursos.contieneTodos(this.recursosNecesarios)) {
+        if (recursos.contieneTodos(this.recursosNecesarios)) {
             throw new NoSePuedeConstruir();
         }
 

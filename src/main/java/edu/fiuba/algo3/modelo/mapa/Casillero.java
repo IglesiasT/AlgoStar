@@ -3,12 +3,14 @@ package edu.fiuba.algo3.modelo.mapa;
 
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.NexoMineral;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
 import edu.fiuba.algo3.modelo.construcciones.ProductorDeGas;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.EspacioDeConstruccion;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.SinEspacio;
+import edu.fiuba.algo3.modelo.recursos.Nodo;
 import edu.fiuba.algo3.modelo.recursos.Volcan;
 import edu.fiuba.algo3.modelo.recursos.Recurso;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
@@ -61,6 +63,10 @@ public class Casillero {
             throw new NoSePuedeConstruir();
         }
 
+        if ((construccionAEstablecer.obtenerArea().getClass() == AreaTerrestre.class)&&(this.area.getClass() != AreaTerrestre.class)){
+            throw new NoSePuedeConstruir();
+        }
+
         // Aplicar patron Visitor para limpiar estos if
         if(construccionAEstablecer instanceof ConstruccionZerg){
             if (this.espacio.getClass() != Moho.class && !(construccionAEstablecer instanceof Criadero)){
@@ -73,6 +79,15 @@ public class Casillero {
             }
 
         } else if (this.recurso.getClass() == Volcan.class) {
+            throw new NoSePuedeConstruir();
+        }
+
+        if (construccionAEstablecer instanceof NexoMineral){
+            if (this.recurso.getClass() != Nodo.class){
+                throw new CasilleroSinMineral();
+            }
+
+        } else if (this.recurso.getClass() == Nodo.class) {
             throw new NoSePuedeConstruir();
         }
 

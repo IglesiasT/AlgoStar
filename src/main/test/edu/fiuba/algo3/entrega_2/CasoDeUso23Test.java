@@ -7,8 +7,11 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Zealot;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zerling;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.razas.Protoss;
+import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
+import edu.fiuba.algo3.modelo.recursos.Nodo;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import org.junit.jupiter.api.Test;
 
@@ -26,7 +29,7 @@ public class CasoDeUso23Test {
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         casillero1.setRecurso(new SinRecurso());
         casillero1.setArea(new AreaTerrestre());
@@ -35,14 +38,14 @@ public class CasoDeUso23Test {
         casillero2.setArea(new AreaTerrestre());
         unidad.moverse(casillero1);
         pilon.construir(casillero2, recursos);
-        pilon.nuevoTurno();
-        pilon.nuevoTurno();
-        pilon.nuevoTurno();
-        pilon.nuevoTurno();
-        pilon.nuevoTurno();
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
 
-        unidad.nuevoTurno();
-        unidad.nuevoTurno();
+        unidad.nuevoTurno(new Zerg());
+        unidad.nuevoTurno(new Zerg());
 
         // Assert
         assertThrows(ObjetivoFueraDeRango.class, () -> unidad.atacar(pilon));
@@ -64,18 +67,18 @@ public class CasoDeUso23Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setRecurso(new SinRecurso());
         casillero2.setArea(new AreaTerrestre());
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         unidad.moverse(casillero1);
         pilon.construir(casillero2,recursos);
 
-        pilon.nuevoTurno();
-        pilon.nuevoTurno();
-        pilon.nuevoTurno();
-        pilon.nuevoTurno();
-        pilon.nuevoTurno();
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
 
-        unidad.nuevoTurno();
-        unidad.nuevoTurno();
+        unidad.nuevoTurno(new Zerg());
+        unidad.nuevoTurno(new Zerg());
 
         unidad.atacar(pilon);
 
@@ -98,13 +101,13 @@ public class CasoDeUso23Test {
         casillero2.setArea(new AreaTerrestre());
         unidadEnemiga.moverse(casillero2);
 
-        unidad.nuevoTurno();
-        unidad.nuevoTurno();
-        unidad.nuevoTurno();
-        unidad.nuevoTurno();
+        unidad.nuevoTurno(new Protoss());
+        unidad.nuevoTurno(new Protoss());
+        unidad.nuevoTurno(new Protoss());
+        unidad.nuevoTurno(new Protoss());
 
-        unidadEnemiga.nuevoTurno();
-        unidadEnemiga.nuevoTurno();
+        unidadEnemiga.nuevoTurno(new Zerg());
+        unidadEnemiga.nuevoTurno(new Zerg());
 
         assertThrows(ObjetivoFueraDeRango.class, () -> unidad.atacar(unidadEnemiga));
     }
@@ -126,13 +129,13 @@ public class CasoDeUso23Test {
         casillero2.setArea(new AreaTerrestre());
         unidadEnemiga.moverse(casillero2);
 
-        unidad.nuevoTurno();
-        unidad.nuevoTurno();
-        unidad.nuevoTurno();
-        unidad.nuevoTurno();
+        unidad.nuevoTurno(new Protoss());
+        unidad.nuevoTurno(new Protoss());
+        unidad.nuevoTurno(new Protoss());
+        unidad.nuevoTurno(new Protoss());
 
-        unidadEnemiga.nuevoTurno();
-        unidadEnemiga.nuevoTurno();
+        unidadEnemiga.nuevoTurno(new Zerg());
+        unidadEnemiga.nuevoTurno(new Zerg());
 
         unidad.atacar(unidadEnemiga);
         assertEquals(vidaDeEnemigoEsperada, unidadEnemiga.obtenerVida());

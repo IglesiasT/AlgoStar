@@ -29,8 +29,9 @@ public class AlgoStar {
         this.estado = new Jugando();
     }
 
-    public void siguienteTurno(){
+    public void siguienteTurno(Jugador jugador){
         this.estado.jugar() ;
+        jugador.obtenerRaza().nuevoTurno();
         this.turnos++;
         this.estado = this.terminarJuego(this.estado);
     }

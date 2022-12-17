@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.construcciones.listadoDeConstrucciones;
 
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Pilon;
+import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 
 import java.util.LinkedList;
@@ -22,9 +23,9 @@ public class ListadoDeConstruccionesProtoss {
         }
         return false;
     }
-    public void nuevoTurno(ListadoDeRecursos recursos){
+    public void nuevoTurno(Raza raza){
         for (ConstruccionProtoss construccion: construcciones){
-            construccion.nuevoTurno();  //delegar recursos y que se vayan acumulando en caso de producir
+            construccion.nuevoTurno(raza);  //delegar recursos y que se vayan acumulando en caso de producir
         }
     }
     public int size() {

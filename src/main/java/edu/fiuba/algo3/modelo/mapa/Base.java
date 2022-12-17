@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.mapa;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import edu.fiuba.algo3.modelo.recursos.Volcan;
-import edu.fiuba.algo3.modelo.recursos.Mineral;
+import edu.fiuba.algo3.modelo.recursos.Nodo;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -28,7 +28,7 @@ public class Base {
             Casillero casillero = casilleros.get((new Random()).nextInt(casilleros.size()));
             if (casillero.contiene(new SinRecurso())) {
                 casillero.setArea(new AreaTerrestre());
-                casillero.setRecurso(new Mineral());
+                casillero.setRecurso(new Nodo());
             }
         }
     }

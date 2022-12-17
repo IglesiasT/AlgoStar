@@ -2,9 +2,9 @@ package edu.fiuba.algo3.modelo.construcciones.construccionesProtoss;
 
 import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
-import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
+import edu.fiuba.algo3.modelo.razas.Raza;
+import edu.fiuba.algo3.modelo.recursos.Nodo;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.recursos.MineralProducido;
 
 public class NexoMineral extends ConstruccionProtoss {
     private int turnos;
@@ -23,22 +23,23 @@ public class NexoMineral extends ConstruccionProtoss {
         if (this.turnos < this.turnosParaConstruirse ){
             throw new EdificioNoEstaOperativo();
         }
-        this.mineralProducido += this.ubicacion.obtenerRecurso().recolectar(produccionPorTurno);
+        this.mineralProducido = this.ubicacion.obtenerRecurso().recolectar(produccionPorTurno);
     }
-    public MineralProducido obtenerMineralProducido(){
+    public Mineral obtenerMineralProducido(){
 
         if(this.turnos < this.turnosParaConstruirse){
             throw new EdificioNoEstaOperativo();
         }
-        return new MineralProducido(this.mineralProducido);
+        return new Mineral(this.mineralProducido);
 
     }
     @Override
-    public void nuevoTurno(){
-        super.nuevoTurno();
+    public void nuevoTurno(Raza raza){
+        super.nuevoTurno(raza);
         this.turnos ++;
         if (this.turnos > turnosParaConstruirse ){
             this.recolectarMineral();
+            raza.agregarRecurso(new Mineral(this.mineralProducido));
         };
     }
 }

@@ -1,21 +1,23 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.AlgoStar;
-import edu.fiuba.algo3.vista.eventos.BotonConfirmarJugadorEventHandler;
+import edu.fiuba.algo3.vista.eventos.BotonConfirmarEventHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-public class ContenedorElegirJugador extends VBox {
+public class ContenedorElegirJugador extends VBox implements Contenedor{
     private Stage stage;
     private AlgoStar juego;
 
@@ -39,6 +41,7 @@ public class ContenedorElegirJugador extends VBox {
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
         this.setPadding(new Insets(25));
+        this.setBackground(new Background(new BackgroundFill(Color.valueOf("#D0CFE0"), CornerRadii.EMPTY, Insets.EMPTY)));
 
         Label etiquetaError = new Label();
         etiquetaError.setFont(Font.font("Verdana", FontWeight.BOLD, 40));
@@ -53,7 +56,7 @@ public class ContenedorElegirJugador extends VBox {
 
         this.getChildren().addAll(botonConfirmar);
 
-        BotonConfirmarJugadorEventHandler botonConfirmarEventHandler = new BotonConfirmarJugadorEventHandler(this.stage,this);
+        BotonConfirmarEventHandler botonConfirmarEventHandler = new BotonConfirmarEventHandler(this.stage,this);
         botonConfirmar.setOnAction(botonConfirmarEventHandler);
 
 
@@ -71,6 +74,7 @@ public class ContenedorElegirJugador extends VBox {
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
         this.setPadding(new Insets(25));
+        this.setBackground(new Background(new BackgroundFill(Color.valueOf("#D0CFE0"), CornerRadii.EMPTY, Insets.EMPTY)));
 
         Label etiquetaError = new Label();
         etiquetaError.setFont(Font.font("Verdana", FontWeight.BOLD, 40));
@@ -85,7 +89,7 @@ public class ContenedorElegirJugador extends VBox {
 
         this.getChildren().addAll(botonConfirmar);
 
-        BotonConfirmarJugadorEventHandler botonConfirmarEventHandler = new BotonConfirmarJugadorEventHandler(this.stage,this);
+        BotonConfirmarEventHandler botonConfirmarEventHandler = new BotonConfirmarEventHandler(this.stage,this);
         botonConfirmar.setOnAction(botonConfirmarEventHandler);
 
     }
@@ -135,7 +139,6 @@ public class ContenedorElegirJugador extends VBox {
 
     public Scene obtenerProximaEscena() {
         if (segundoJugador){
-            /*
             try{anotarJugadorDos();
                 juego.comenzarJuego();
                 //return new Scene(new ContenedorPrincipal(this.stage, this.juego), App.TAMANIO_CASILLERO*juego.obtenerMapa().obtenerTamanio() + 150, App.TAMANIO_CASILLERO*juego.obtenerMapa().obtenerTamanio()+60);
@@ -143,10 +146,9 @@ public class ContenedorElegirJugador extends VBox {
             }catch (Exception e){
                 return new Scene(new ContenedorElegirJugador(this.stage,this.juego, "DATOS INVALIDOS",true), 800,800);
             }
-
-             */
-            anotarJugadorDos();
-            return new Scene(new ContenedorElegirAccion(this.stage,this.juego,juego.obtenerJugadorUno()),800,800);
+            //anotarJugadorDos();
+            //juego.comenzarJuego();
+            //return new Scene(new ContenedorElegirAccion(this.stage,this.juego,juego.obtenerJugadorUno()),800,800);
             //return new Scene(new ContenedorPrincipal(this.stage, this.juego), App.TAMANIO_CASILLERO * juego.obtenerMapa().obtenerTamanio(), App.TAMANIO_CASILLERO * juego.obtenerMapa().obtenerTamanio());
         }
         else

@@ -10,7 +10,8 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
 
-    public static final int TAMANIO_CASILLERO = 30;
+    //public static final int TAMANIO_CASILLERO = 30;
+    public static final int TAMANIO_CASILLERO = 60;
 
     @Override
     public void start(Stage stage) {

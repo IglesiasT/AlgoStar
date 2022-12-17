@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg;
 import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 
 public class Mutalisco extends UnidadZerg {
@@ -57,7 +58,7 @@ public class Mutalisco extends UnidadZerg {
         return this.estado.obtenerUbicacion();
     }
     @Override
-    public void nuevoTurno(){this.estado.nuevoTurno();}
+    public void nuevoTurno(Raza raza){this.estado.nuevoTurno(raza);}
     @Override
     public Area obtenerArea() {
         return this.estado.obtenerArea();

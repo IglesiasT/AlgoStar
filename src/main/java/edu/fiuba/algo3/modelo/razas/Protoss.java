@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.razas;
 
+import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.construcciones.*;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.*;
 import edu.fiuba.algo3.modelo.construcciones.listadoDeConstrucciones.ListadoDeConstruccionesProtoss;
@@ -8,6 +9,8 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Dragon;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Scout;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Zealot;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+
+import java.util.Objects;
 
 public class Protoss extends Raza{
     private ListadoDeConstruccionesProtoss construccionesRealizadas;
@@ -20,11 +23,11 @@ public class Protoss extends Raza{
         this.construccionesRealizadas = new ListadoDeConstruccionesProtoss();
     }
     public void nuevoTurno(){
-        this.construccionesRealizadas.nuevoTurno(this.recursos);
+        this.construccionesRealizadas.nuevoTurno(this);
         //for (Unidad unidad : this.unidadesEngendradas) {    //delegar for en nueva clase ListadoUnidades
         //    unidad.nuevoTurno();
         //}
-        // ^ esto rompe todo
+        // ^ esto rompe
     }
     private void construir(ConstruccionProtoss construccion, Casillero casilleroAConstruir){
 
@@ -109,6 +112,20 @@ public class Protoss extends Raza{
     public int construccionesRealizadas() {
         return construccionesRealizadas.size();
     }
+
+    @Override
+    public void construir(String construccion,Casillero casillero) {
+        if (construccion.contains("Pilon")){ construirPilon(casillero);}
+        else if (construccion.contains("Asimilador")){ construirAsimilador(casillero);}
+        else if (construccion.contains("Nexo Mineral")){construirNexoMineral(casillero);}
+        else if (construccion.contains("Acceso")) {construirAcceso(casillero);}
+        else if (construccion.contains("Puerto Estelar")) {construirPuertoEstelar(casillero);}
+        else if (construccion.contains("Zealot")) {construirZealot(casillero);}
+        else if (construccion.contains("Scout")) {construirScout(casillero);}
+        else if (construccion.contains("Dragon")) {construirDragon(casillero);}
+        else {throw new NoSePuedeConstruir();}
+    }
+
     public void destruir (ConstruccionProtoss construccionADestruir) {
         this.maximoSuministro=this.construccionesRealizadas.destruir(construccionADestruir, this.maximoSuministro);
     }

@@ -1,14 +1,16 @@
 package edu.fiuba.algo3.modelo.razas;
 
+import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.construcciones.*;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.*;
 import edu.fiuba.algo3.modelo.construcciones.listadoDeConstrucciones.ListadoDeConstruccionesZerg;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.AmoSupremo;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.AmoSupremo;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.*;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class Zerg extends Raza{
     private ListadoDeConstruccionesZerg construccionesRealizadas;
@@ -28,9 +30,9 @@ public class Zerg extends Raza{
         this.construccionesRealizadas.agregar(construccion);
     }
     public void nuevoTurno(){
-        this.construccionesRealizadas.nuevoTurno(this.recursos);
+        this.construccionesRealizadas.nuevoTurno(this);
         for (Unidad unidad : this.unidadesEngendradas) {    //delegar for en nueva clase ListadoUnidades
-            unidad.nuevoTurno();
+            unidad.nuevoTurno(this);
         }
     }
     public void construirCriadero(Casillero casilleroAConstruir){
@@ -148,6 +150,17 @@ public class Zerg extends Raza{
     public int construccionesRealizadas() {
         return construccionesRealizadas.size();
     }
+
+    @Override
+    public void construir(String construccion, Casillero casillero) {
+        if (construccion.contains("Criadero")){ construirCriadero(casillero);}
+        else if (construccion.contains("Extractor")){ construirExtractor(casillero);}
+        else if (construccion.contains("Reserva de reproduccion")){construirReservaDeReproduccion(casillero);}
+        else if (construccion.contains("Espiral")) {construirEspiral(casillero);}
+        else if (construccion.contains("Guarida")) {construirGuarida(casillero);}
+        else {throw new NoSePuedeConstruir();}
+    }
+
     public void destruir(ConstruccionZerg construccionADestruir){
         this.construccionesRealizadas.destruir(construccionADestruir);
     }
