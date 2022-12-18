@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.construcciones.construccionesProtoss;
 
-import edu.fiuba.algo3.modelo.estados.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
@@ -45,7 +44,7 @@ public class Pilon extends ConstruccionProtoss {
         }
     }
     public void nuevoTurno(Raza raza){
-        super.nuevoTurno();
+        super.nuevoTurno(raza);
         try{
             this.energizar();
         }catch (RuntimeException EdificioNoEstaOperativo){};

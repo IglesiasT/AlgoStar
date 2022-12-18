@@ -8,10 +8,10 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zerling;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.razas.Protoss;
+import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.recursos.Nodo;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import org.junit.jupiter.api.Test;
 
@@ -27,6 +27,8 @@ public class CasoDeUso23Test {
         Zerling unidad = new Zerling();
         Pilon pilon = new Pilon();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
+        Raza raza = new Zerg();
+        Raza raza2 = new Protoss();
 
         // Act
         recursos.agregar(new Mineral(2000));
@@ -38,14 +40,14 @@ public class CasoDeUso23Test {
         casillero2.setArea(new AreaTerrestre());
         unidad.moverse(casillero1);
         pilon.construir(casillero2, recursos);
-        pilon.nuevoTurno(new Protoss());
-        pilon.nuevoTurno(new Protoss());
-        pilon.nuevoTurno(new Protoss());
-        pilon.nuevoTurno(new Protoss());
-        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(raza2);
+        pilon.nuevoTurno(raza2);
+        pilon.nuevoTurno(raza2);
+        pilon.nuevoTurno(raza2);
+        pilon.nuevoTurno(raza2);
 
-        unidad.nuevoTurno();
-        unidad.nuevoTurno();
+        unidad.nuevoTurno(raza);
+        unidad.nuevoTurno(raza);
 
         // Assert
         assertThrows(ObjetivoFueraDeRango.class, () -> unidad.atacar(pilon));
@@ -59,6 +61,8 @@ public class CasoDeUso23Test {
         Zerling unidad = new Zerling();
         Pilon pilon = new Pilon();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
+        Raza raza = new Zerg();
+        Raza raza2 = new Protoss();
 
         // Act
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
@@ -71,14 +75,14 @@ public class CasoDeUso23Test {
         unidad.moverse(casillero1);
         pilon.construir(casillero2,recursos);
 
-        pilon.nuevoTurno(new Protoss());
-        pilon.nuevoTurno(new Protoss());
-        pilon.nuevoTurno(new Protoss());
-        pilon.nuevoTurno(new Protoss());
-        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(raza2);
+        pilon.nuevoTurno(raza2);
+        pilon.nuevoTurno(raza2);
+        pilon.nuevoTurno(raza2);
+        pilon.nuevoTurno(raza2);
 
-        unidad.nuevoTurno();
-        unidad.nuevoTurno();
+        unidad.nuevoTurno(raza);
+        unidad.nuevoTurno(raza);
 
         unidad.atacar(pilon);
 
@@ -89,7 +93,8 @@ public class CasoDeUso23Test {
     @Test
     public void unidadNoPuedeAtacarUnidadEnemigaSiNoEstaEnSuRangoDeAtaque(){
         Mapa mapa = new Mapa();
-
+        Raza raza = new Protoss();
+        Raza raza2 = new Zerg();
         Zealot unidad = new Zealot();
         Casillero casillero1 = mapa.obtenerCasillero(7,7);
         casillero1.setRecurso(new SinRecurso());
@@ -101,13 +106,13 @@ public class CasoDeUso23Test {
         casillero2.setArea(new AreaTerrestre());
         unidadEnemiga.moverse(casillero2);
 
-        unidad.nuevoTurno();
-        unidad.nuevoTurno();
-        unidad.nuevoTurno();
-        unidad.nuevoTurno();
+        unidad.nuevoTurno(raza);
+        unidad.nuevoTurno(raza);
+        unidad.nuevoTurno(raza);
+        unidad.nuevoTurno(raza);
 
-        unidadEnemiga.nuevoTurno();
-        unidadEnemiga.nuevoTurno();
+        unidadEnemiga.nuevoTurno(raza2);
+        unidadEnemiga.nuevoTurno(raza2);
 
         assertThrows(ObjetivoFueraDeRango.class, () -> unidad.atacar(unidadEnemiga));
     }
@@ -117,25 +122,26 @@ public class CasoDeUso23Test {
         int vidaDeEnemigoEsperada = 35 - 8;
 
         Mapa mapa = new Mapa();
-
+        Raza raza = new Protoss();
         Zealot unidad = new Zealot();
         Casillero casillero1 = mapa.obtenerCasillero(7,7);
         casillero1.setRecurso(new SinRecurso());
         casillero1.setArea(new AreaTerrestre());
         unidad.moverse(casillero1);
         Zerling unidadEnemiga = new Zerling();
+        Raza raza2 = new Zerg();
         Casillero casillero2 = mapa.obtenerCasillero(8,7);
         casillero2.setRecurso(new SinRecurso());
         casillero2.setArea(new AreaTerrestre());
         unidadEnemiga.moverse(casillero2);
 
-        unidad.nuevoTurno();
-        unidad.nuevoTurno();
-        unidad.nuevoTurno();
-        unidad.nuevoTurno();
+        unidad.nuevoTurno(raza);
+        unidad.nuevoTurno(raza);
+        unidad.nuevoTurno(raza);
+        unidad.nuevoTurno(raza);
 
-        unidadEnemiga.nuevoTurno();
-        unidadEnemiga.nuevoTurno();
+        unidadEnemiga.nuevoTurno(raza2);
+        unidadEnemiga.nuevoTurno(raza2);
 
         unidad.atacar(unidadEnemiga);
         assertEquals(vidaDeEnemigoEsperada, unidadEnemiga.obtenerVida());

@@ -4,10 +4,10 @@ import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.estados.ConstruccionFinalizada;
-import edu.fiuba.algo3.modelo.estados.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.estados.EnConstruccion;
 import edu.fiuba.algo3.modelo.estados.Estado;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 
 public abstract class Construccion {
@@ -44,7 +44,7 @@ public abstract class Construccion {
     public int obtenerVida(){
         return this.vida;
     }
-    public void nuevoTurno(){
+    public void nuevoTurno(Raza raza){
         this.turnos++;
         this.regenerar();
 

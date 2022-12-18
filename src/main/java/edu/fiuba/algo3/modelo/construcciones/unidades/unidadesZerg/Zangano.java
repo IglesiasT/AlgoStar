@@ -34,7 +34,7 @@ public class Zangano extends UnidadZerg {
     }
 
     public void nuevoTurno(Raza raza){
-        super.nuevoTurno();
+        super.nuevoTurno(raza);
         if (this.turnos > turnosParaConstruirse ){
             if (this.ubicacion.obtenerRecurso().getClass() == Nodo.class) {
                 this.producir();

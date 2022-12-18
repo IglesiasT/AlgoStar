@@ -10,6 +10,7 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Scout;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.recursos.RecursosInsuficientes;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
@@ -109,16 +110,16 @@ public class CasoDeUso27Test {
         int valorEsperado = 85;    //100 escudo - 15 ataque
         Casillero casillero1 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
         casillero1.setArea(new AreaTerrestre());;
-
+        Raza raza = new Zerg();
         Casillero casillero2 = new Casillero(new AreaEspacial(), 1 , 1 , new Mapa());
         casillero2.setArea(new AreaEspacial());
 
         // Act
 
-        devorador.nuevoTurno( );
-        devorador.nuevoTurno( );
-        devorador.nuevoTurno( );
-        devorador.nuevoTurno( );
+        devorador.nuevoTurno(raza);
+        devorador.nuevoTurno(raza);
+        devorador.nuevoTurno(raza);
+        devorador.nuevoTurno(raza);
         devorador.establecerUbicacion(casillero1);
         scout.establecerUbicacion(casillero2);
         devorador.atacar(scout);
@@ -135,15 +136,15 @@ public class CasoDeUso27Test {
         int resultadoEsperado = 900;
         Casillero casillero1 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
         casillero1.setArea(new AreaTerrestre());;
-
+        Raza raza = new Zerg();
         Casillero casillero2 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
         casillero2.setArea(new AreaTerrestre());
 
         // Act
-        devorador.nuevoTurno( );
-        devorador.nuevoTurno( );
-        devorador.nuevoTurno( );
-        devorador.nuevoTurno( );
+        devorador.nuevoTurno(raza);
+        devorador.nuevoTurno(raza);
+        devorador.nuevoTurno(raza);
+        devorador.nuevoTurno(raza);
         devorador.establecerUbicacion(casillero1);
         asimilador.establecerUbicacion(casillero2);
         devorador.atacar(asimilador);

@@ -11,10 +11,10 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.*;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.razas.Protoss;
+import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.recursos.Nodo;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import org.junit.jupiter.api.Test;
 
@@ -54,6 +54,7 @@ public class CasoDeUso19Test {
         // Arrange
         int valorEsperador = 250;
         Mapa mapa = new Mapa();
+        Raza raza = new Zerg();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         casillero1.setArea(new AreaTerrestre());
         casillero1.setRecurso(new SinRecurso());
@@ -67,8 +68,8 @@ public class CasoDeUso19Test {
         zerling.moverse(casillero1);
 
         // Act
-        zerling.nuevoTurno();
-        zerling.nuevoTurno();
+        zerling.nuevoTurno(raza);
+        zerling.nuevoTurno(raza);
         zerling.atacar(unidadEnemiga);
 
         // Assert
@@ -80,6 +81,7 @@ public class CasoDeUso19Test {
         // Arrange
         int valorEsperador = 250;
         Mapa mapa = new Mapa();
+        Raza raza = new Zerg();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         casillero1.setArea(new AreaTerrestre());
         casillero1.setRecurso(new SinRecurso());
@@ -93,10 +95,10 @@ public class CasoDeUso19Test {
         guardian.moverse(casillero1);
 
         // Act
-        guardian.nuevoTurno();
-        guardian.nuevoTurno();
-        guardian.nuevoTurno();
-        guardian.nuevoTurno();
+        guardian.nuevoTurno(raza);
+        guardian.nuevoTurno(raza);
+        guardian.nuevoTurno(raza);
+        guardian.nuevoTurno(raza);
         guardian.atacar(unidadEnemiga);
 
         // Assert
@@ -109,6 +111,7 @@ public class CasoDeUso19Test {
         // Arrange
         int valorEsperador = 120;
         Mapa mapa = new Mapa();
+        Raza raza = new Protoss();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         casillero1.setArea(new AreaTerrestre());
         casillero1.setRecurso(new SinRecurso());
@@ -122,10 +125,10 @@ public class CasoDeUso19Test {
         zealot.moverse(casillero1);
 
         // Act
-        zealot.nuevoTurno();
-        zealot.nuevoTurno();
-        zealot.nuevoTurno();
-        zealot.nuevoTurno();
+        zealot.nuevoTurno(raza);
+        zealot.nuevoTurno(raza);
+        zealot.nuevoTurno(raza);
+        zealot.nuevoTurno(raza);
         zealot.atacar(unidadEnemiga);
 
         // Assert

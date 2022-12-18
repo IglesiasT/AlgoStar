@@ -48,7 +48,7 @@ public class Jugador {
         return this.raza.construccionesRealizadas();
     }
 
-    public Jugador agregarJugadorDos(String nombreJugador, Color color, String razaJugador){
+    public Jugador crearUnJugadorDistinto(String nombreJugador, Color color, String razaJugador){
         Jugador jugadorDos = null;
         if ((!Objects.equals(this.nombre, nombreJugador))&&
                 (!Objects.equals(this.color,color))&& (!Objects.equals(this.raza.getClass(), stringARaza(razaJugador).getClass()))){

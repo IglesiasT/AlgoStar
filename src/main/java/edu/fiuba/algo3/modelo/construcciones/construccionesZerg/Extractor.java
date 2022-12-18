@@ -24,7 +24,7 @@ public class Extractor extends ConstruccionZerg implements ProductorDeGas {
         this.vidaMaxima = 750;
     }
     public void nuevoTurno(Raza raza){
-        super.nuevoTurno();
+        super.nuevoTurno(raza);
         try{
             this.producirGas();
             raza.agregarRecurso(new Gas(this.gasProducido));

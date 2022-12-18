@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.estados.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.AmoSupremo;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
+import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
@@ -40,8 +41,8 @@ public class Criadero extends ConstruccionZerg {
     public Zangano engendrarZangano(ListadoDeRecursos recursos) throws EdificioNoEstaOperativo {
         return (Zangano)this.engendrar(new Zangano(), recursos);
     }
-    public void nuevoTurno(){
-        super.nuevoTurno();
+    public void nuevoTurno(Raza raza){
+        super.nuevoTurno(raza);
 
         this.turnos++;
         if (this.larvas.size() < this.maximoDeLarvas){

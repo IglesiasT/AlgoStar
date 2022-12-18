@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.construcciones.construccionesProtoss;
 
-import edu.fiuba.algo3.modelo.estados.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.razas.Raza;
@@ -30,7 +29,7 @@ public class NexoMineral extends ConstruccionProtoss {
     }
 
     public void nuevoTurno(Raza raza){
-        super.nuevoTurno();
+        super.nuevoTurno(raza);
         this.turnos ++;
         try{
             this.recolectarMineral();

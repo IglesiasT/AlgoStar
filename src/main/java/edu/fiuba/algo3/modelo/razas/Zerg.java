@@ -28,7 +28,7 @@ public class Zerg extends Raza{
     }
     public void nuevoTurno(){
         this.construccionesRealizadas.eliminarConstruccionesDestruidas(this);
-        this.construccionesRealizadas.nuevoTurno(this.recursos);
+        this.construccionesRealizadas.nuevoTurno(this.recursos, this);
     }
     public void construirCriadero(Casillero casilleroAConstruir){
         this.construir(new Criadero(), casilleroAConstruir);

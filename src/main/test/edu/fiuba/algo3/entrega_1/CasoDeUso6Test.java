@@ -5,10 +5,10 @@ import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.recursos.Nodo;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import org.junit.jupiter.api.Test;
 
@@ -20,6 +20,7 @@ public class CasoDeUso6Test {
     public void alConstruirElCriaderoEsteCreaUnRadioDeMohoDe5(){
         // Arrange
         Mapa mapa = new Mapa();
+        Raza raza = new Zerg();
         Casillero casillero1 = mapa.obtenerCasillero(1, 1);
         casillero1.setArea(new AreaTerrestre());
         casillero1.setRecurso(new SinRecurso());
@@ -30,10 +31,10 @@ public class CasoDeUso6Test {
         recursos.agregar(new Mineral(2000));
         casillero1.setEspacioDeConstruccion(new Moho());
         criadero.construir(casillero1, recursos);
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
+        criadero.nuevoTurno(raza);
+        criadero.nuevoTurno(raza);
+        criadero.nuevoTurno(raza);
+        criadero.nuevoTurno(raza);
 
         ArrayList<? extends Casillero> casillerosConMoho =
                 mapa.obtenerCasilleros(5,1, 1);
@@ -49,6 +50,7 @@ public class CasoDeUso6Test {
     public void alConstruirElCriaderoEsteCreaUnRadioDeMohoDe5YLuegoDeUnTurnoNoSeExpande(){
         //Arrange
         Mapa mapa = new Mapa();
+        Raza raza = new Zerg();
         Casillero casillero1 = mapa.obtenerCasillero(1, 1);
         casillero1.setArea(new AreaTerrestre());
         casillero1.setRecurso(new SinRecurso());
@@ -60,12 +62,12 @@ public class CasoDeUso6Test {
         recursos.agregar(new Mineral(2000));
         casillero1.setEspacioDeConstruccion(new Moho());
         criadero.construir(casillero1, recursos);
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
+        criadero.nuevoTurno(raza);
+        criadero.nuevoTurno(raza);
+        criadero.nuevoTurno(raza);
+        criadero.nuevoTurno(raza);
 
-        criadero.nuevoTurno();
+        criadero.nuevoTurno(raza);
 
         ArrayList<? extends Casillero> casillerosConMoho =
                 mapa.obtenerCasilleros(6,1, 1);
@@ -85,6 +87,7 @@ public class CasoDeUso6Test {
     public void alConstruirElCriaderoEsteCreaUnRadioDeMohoDe5YLuegoDeDosTurnosSeExpande(){
         //Arrange
         Mapa mapa = new Mapa();
+        Raza raza = new Zerg();
         Casillero casillero1 = mapa.obtenerCasillero(1, 1);
         casillero1.setArea(new AreaTerrestre());
         casillero1.setRecurso(new SinRecurso());
@@ -95,13 +98,13 @@ public class CasoDeUso6Test {
         recursos.agregar(new Mineral(2000));
         casillero1.setEspacioDeConstruccion(new Moho());
         criadero.construir(casillero1, recursos);
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
+        criadero.nuevoTurno(raza);
+        criadero.nuevoTurno(raza);
+        criadero.nuevoTurno(raza);
+        criadero.nuevoTurno(raza);
 
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
+        criadero.nuevoTurno(raza);
+        criadero.nuevoTurno(raza);
 
         ArrayList<? extends Casillero> casillerosConMoho =
                 mapa.obtenerCasilleros(6,1,1);

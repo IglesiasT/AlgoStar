@@ -51,7 +51,7 @@ public class AlgoStar {
         this.jugadores.add(jugadorUno);
     }
     public void agregarJugadorDos(String nombreJugador, Color color, String razaJugador){
-        Jugador jugadorDos = this.jugadores.get(0).agregarJugadorDos(nombreJugador, color, razaJugador);
+        Jugador jugadorDos = this.jugadores.get(0).crearUnJugadorDistinto(nombreJugador, color, razaJugador);
         if (jugadorDos != null){
             this.jugadores.add(jugadorDos);
             jugadorDos.setBaseInicial(this.mapa.obtenerBaseDos());

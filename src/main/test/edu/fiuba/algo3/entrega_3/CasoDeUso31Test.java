@@ -82,11 +82,11 @@ public class CasoDeUso31Test{
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(raza);
         }
 
         for (int i = 0; i < 50; i++) {
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(raza);
             raza.engendrarMutalisco(criadero);
         }
 
@@ -132,11 +132,11 @@ public class CasoDeUso31Test{
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(raza);
         }
 
         for (int i = 0; i < 50; i++) {
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(raza);
             raza.engendrarMutalisco(criadero);
         }
 

@@ -33,8 +33,6 @@ public class ListadoDeRecursos {
         }
     }
 
-
-
     public void agregar(RecursoObtenido recursoAgregar){
         boolean yaAgregado = false;
         for (RecursoObtenido recurso: recursos){

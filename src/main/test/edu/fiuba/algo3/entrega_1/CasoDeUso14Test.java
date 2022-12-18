@@ -8,10 +8,10 @@ import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.razas.Protoss;
+import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.recursos.Nodo;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import org.junit.jupiter.api.Test;
 
@@ -33,21 +33,23 @@ public class CasoDeUso14Test {
         Criadero criadero = new Criadero();
         Pilon pilon = new Pilon();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
+        Raza raza = new Zerg();
+        Raza raza2 = new Protoss();
 
         // Act
         recursos.agregar(new Mineral(2000));
         criadero.construir(casillero1, recursos);
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
+        criadero.nuevoTurno(raza);
+        criadero.nuevoTurno(raza);
+        criadero.nuevoTurno(raza);
+        criadero.nuevoTurno(raza);
 
         pilon.construir(casillero2, recursos);
-        pilon.nuevoTurno(new Protoss());
-        pilon.nuevoTurno(new Protoss());
-        pilon.nuevoTurno(new Protoss());
-        pilon.nuevoTurno(new Protoss());
-        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(raza2);
+        pilon.nuevoTurno(raza2);
+        pilon.nuevoTurno(raza2);
+        pilon.nuevoTurno(raza2);
+        pilon.nuevoTurno(raza2);
 
         // Assert
         assert !casillero3.contiene(new RangoPilon());
@@ -69,23 +71,25 @@ public class CasoDeUso14Test {
         Criadero criadero = new Criadero();
         Pilon pilon = new Pilon();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
+        Raza raza = new Zerg();
+        Raza raza2 = new Protoss();
 
         // Act
         recursos.agregar(new Mineral(2000));
         criadero.construir(casillero1, recursos);
-        pilon.nuevoTurno(new Protoss());
-        pilon.nuevoTurno(new Protoss());
-        pilon.nuevoTurno(new Protoss());
-        pilon.nuevoTurno(new Protoss());
-        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(raza2);
+        pilon.nuevoTurno(raza2);
+        pilon.nuevoTurno(raza2);
+        pilon.nuevoTurno(raza2);
+        pilon.nuevoTurno(raza2);
 
         criadero.construir(casillero2, recursos);
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
+        criadero.nuevoTurno(raza);
+        criadero.nuevoTurno(raza);
+        criadero.nuevoTurno(raza);
+        criadero.nuevoTurno(raza);
+        criadero.nuevoTurno(raza);
+        criadero.nuevoTurno(raza);
 
 
         // Assert
