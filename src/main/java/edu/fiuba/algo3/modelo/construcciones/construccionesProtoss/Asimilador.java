@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.construcciones.construccionesProtoss;
 
-import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.estados.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
 import edu.fiuba.algo3.modelo.construcciones.ProductorDeGas;
 import edu.fiuba.algo3.modelo.razas.Raza;
@@ -30,9 +30,7 @@ public class Asimilador extends ConstruccionProtoss implements ProductorDeGas {
     }
 
     public Gas obtenerGasProducido(){
-        if(this.turnos < this.turnosParaConstruirse){
-            throw new EdificioNoEstaOperativo();
-        }
+        estado.jugar();
         return new Gas(this.gasProducido);
     }
 

@@ -58,14 +58,17 @@ public class Mutalisco extends UnidadZerg {
     public Casillero obtenerUbicacion(){
         return this.estado.obtenerUbicacion();
     }
-    @Override
-    public void nuevoTurno(Raza raza){this.estado.nuevoTurno(raza);}
-    @Override
+     @Override
     public Area obtenerArea() {
         return this.estado.obtenerArea();
     }
     @Override
     public int obtenerVida(){
         return this.estado.obtenerVida();
+    }
+
+    @Override
+    public void nuevoTurno(Raza raza) {
+        this.estado.nuevoTurno(raza);
     }
 }

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.construcciones.construccionesZerg;
 
 import edu.fiuba.algo3.modelo.MaximoDeZanganosAsignados;
-import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.estados.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.construcciones.ProductorDeGas;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zangano;
 import edu.fiuba.algo3.modelo.razas.Raza;
@@ -26,10 +26,10 @@ public class Extractor extends ConstruccionZerg implements ProductorDeGas {
     }
     public void nuevoTurno(Raza raza){
         super.nuevoTurno(raza);
-        if (this.turnos >= turnosParaConstruirse ){
+        try{
             this.producirGas();
             raza.agregarRecurso(new Gas(this.gasProducido));
-        }
+        }catch (RuntimeException EdificioNoEstaOperativo){};
     }
     public void producirGas(){
         this.gasProducido = 0;
@@ -44,9 +44,7 @@ public class Extractor extends ConstruccionZerg implements ProductorDeGas {
         this.zanganosAsignados.add(zangano);
     }
     public Gas obtenerGasProducido() throws EdificioNoEstaOperativo {
-        if(this.turnos < turnosParaConstruirse){
-            throw new EdificioNoEstaOperativo();
-        }
+        estado.jugar();
         return new Gas(this.gasProducido);
     }
 }

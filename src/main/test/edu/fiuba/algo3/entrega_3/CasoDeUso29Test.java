@@ -79,6 +79,7 @@ public class CasoDeUso29Test {
         }
 
         for (int i = 0; i < 50; i++) {
+            criadero.nuevoTurno(new Zerg());
             raza.engendrarMutalisco(criadero);
         }
 
@@ -88,5 +89,3 @@ public class CasoDeUso29Test {
         assertEquals(valorEsperado , raza.obtenerOcupacionActual());
     }
 }
-
-

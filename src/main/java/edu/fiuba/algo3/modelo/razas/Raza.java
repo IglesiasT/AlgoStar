@@ -46,4 +46,5 @@ public abstract class Raza {
         return recursos.obtenerRecursos();
     }
     public abstract List<Construccion> obtenerConstrucciones();
+    public abstract void destruir(Construccion construccion);
 }

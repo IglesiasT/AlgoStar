@@ -125,7 +125,7 @@ public class Protoss extends Raza{
         else {throw new NoSePuedeConstruir();}
     }
 
-    public void destruir (ConstruccionProtoss construccionADestruir) {
+    public void destruir (Construccion construccionADestruir) {
         this.maximoSuministro=this.construccionesRealizadas.destruir(construccionADestruir, this.maximoSuministro);
     }
     public void atacar(Unidad atacante, Construccion objetivo){((UnidadProtoss)atacante).atacar((ConstruccionZerg)objetivo);}

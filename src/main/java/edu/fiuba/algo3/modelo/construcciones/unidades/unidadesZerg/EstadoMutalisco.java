@@ -17,9 +17,7 @@ public interface EstadoMutalisco {
     void destruir();
     void establecerUbicacion(Casillero nuevaUbicacion);
     Casillero obtenerUbicacion();
-
     void nuevoTurno(Raza raza);
-
     Area obtenerArea();
     int obtenerVida();
 }

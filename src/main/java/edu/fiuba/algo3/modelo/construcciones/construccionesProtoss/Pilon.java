@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.construcciones.construccionesProtoss;
 
-import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
@@ -8,7 +7,6 @@ import edu.fiuba.algo3.modelo.espaciosDeConstruccion.SinEspacio;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.recursos.Nodo;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 import java.util.ArrayList;
@@ -27,9 +25,7 @@ public class Pilon extends ConstruccionProtoss {
         this.recursosNecesarios.agregar(new Mineral(100));
     }
     public void energizar(){
-        if (this.turnos < this.turnosParaConstruirse){
-            throw new EdificioNoEstaOperativo();
-        }
+        estado.jugar();
         for (Casillero casillero: this.casillerosEnergizados) {
             if (! casillero.contiene(new Moho())){
                 casillero.setEspacioDeConstruccion(new RangoPilon());
@@ -49,8 +45,8 @@ public class Pilon extends ConstruccionProtoss {
     }
     public void nuevoTurno(Raza raza){
         super.nuevoTurno(raza);
-        if (this.turnos >= this.turnosParaConstruirse){
+        try{
             this.energizar();
-        }
+        }catch (RuntimeException EdificioNoEstaOperativo){};
     }
 }

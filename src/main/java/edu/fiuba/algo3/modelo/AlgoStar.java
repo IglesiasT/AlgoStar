@@ -2,9 +2,9 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
-import edu.fiuba.algo3.modelo.estadosDeJuego.EstadoDeJuego;
-import edu.fiuba.algo3.modelo.estadosDeJuego.Jugando;
-import edu.fiuba.algo3.modelo.estadosDeJuego.Terminado;
+import edu.fiuba.algo3.modelo.estados.Estado;
+import edu.fiuba.algo3.modelo.estados.Jugando;
+import edu.fiuba.algo3.modelo.estados.Terminado;
 import edu.fiuba.algo3.modelo.jugador.DatosRepetidos;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.*;
@@ -13,7 +13,7 @@ import javafx.scene.paint.Color;
 public class AlgoStar {
     private final ArrayList<Jugador> jugadores;
     private final Mapa mapa ;
-    private EstadoDeJuego estado;
+    private Estado estado;
 
     private int turnos;
 
@@ -35,7 +35,7 @@ public class AlgoStar {
         this.estado.jugar() ;
     }
 
-    private EstadoDeJuego terminarJuego(EstadoDeJuego estado) {
+    private Estado terminarJuego(Estado estado) {
         for (Jugador jugador : this.jugadores){
             if ( (jugador.cantidadDeConstruccionesRealizadas() == 0) && (this.turnos >= 2) ) {
                 return new Terminado();

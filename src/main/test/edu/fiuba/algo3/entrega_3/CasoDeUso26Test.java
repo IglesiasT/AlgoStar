@@ -235,8 +235,10 @@ public class CasoDeUso26Test {
         }
 
         for (int i = 0; i < 50; i++) {
+            criadero.nuevoTurno(new Zerg());
             raza.engendrarMutalisco(criadero);
         }
+        criadero.nuevoTurno(new Zerg());
 
         try {raza.engendrarZerling(criadero);} catch (RuntimeException SuministroAgotado){};
 
@@ -284,6 +286,7 @@ public class CasoDeUso26Test {
         }
 
         for (int i = 0; i < 50; i++) {
+            criadero.nuevoTurno(new Zerg());
             raza.engendrarMutalisco(criadero);
         }
 

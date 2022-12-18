@@ -144,7 +144,7 @@ public class Zerg extends Raza{
         else {throw new NoSePuedeConstruir();}
     }
 
-    public void destruir(ConstruccionZerg construccionADestruir){
+    public void destruir(Construccion construccionADestruir){
         this.construccionesRealizadas.destruir(construccionADestruir);
     }
     public void destruir(Criadero construccionADestruir){

@@ -22,6 +22,4 @@ public class MutaliscoEstado extends UnidadZerg implements EstadoMutalisco {
     }
 
 
-
-
 }
