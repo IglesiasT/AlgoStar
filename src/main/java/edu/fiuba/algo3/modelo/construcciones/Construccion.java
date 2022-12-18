@@ -41,7 +41,6 @@ public abstract class Construccion {
     }
     public void nuevoTurno(){
         this.turnos++;
-        System.out.println(this.turnos);
         this.regenerar();
     }
     public void destruir(){
