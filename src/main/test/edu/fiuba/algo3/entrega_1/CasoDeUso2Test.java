@@ -22,9 +22,9 @@ public class CasoDeUso2Test {
         Criadero criadero = new Criadero();
 
         //Act
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
 
         //Assert
         assertThrows(EdificioNoEstaOperativo.class, () -> criadero.engendrarZangano(new ListadoDeRecursos()));
@@ -40,10 +40,10 @@ public class CasoDeUso2Test {
 
         //Act
         criadero.establecerUbicacion(casillero);
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
 
 
         //Assert

@@ -26,7 +26,7 @@ public class CasoDeUso26Test {
         Zerg raza = new Zerg(50, 0);
 
         for (int i = 0; i < 4; i++) {
-            criadero.nuevoTurno(new Zerg());
+            criadero.nuevoTurno();
         }
 
         raza.engendrarAmoSupremo(criadero);
@@ -42,7 +42,7 @@ public class CasoDeUso26Test {
         Zerg raza = new Zerg(25, 0);
 
         for (int i = 0; i < 4; i++) {
-            criadero.nuevoTurno(new Zerg());
+            criadero.nuevoTurno();
         }
 
         raza.engendrarZangano(criadero);
@@ -69,7 +69,7 @@ public class CasoDeUso26Test {
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno(new Zerg());
+            criadero.nuevoTurno();
         }
 
         raza.engendrarZerling(criadero);
@@ -101,7 +101,7 @@ public class CasoDeUso26Test {
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno(new Zerg());
+            criadero.nuevoTurno();
         }
 
         raza.engendrarHidralisco(criadero);
@@ -135,7 +135,7 @@ public class CasoDeUso26Test {
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno(new Zerg());
+            criadero.nuevoTurno();
         }
 
         raza.engendrarMutalisco(criadero);
@@ -231,7 +231,7 @@ public class CasoDeUso26Test {
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno(new Zerg());
+            criadero.nuevoTurno();
         }
 
         for (int i = 0; i < 50; i++) {
@@ -280,7 +280,7 @@ public class CasoDeUso26Test {
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno(new Zerg());
+            criadero.nuevoTurno();
         }
 
         for (int i = 0; i < 50; i++) {

@@ -44,8 +44,6 @@ public abstract class UnidadZerg extends ConstruccionZerg implements Unidad {
 
     public void atacar(ConstruccionProtoss construccionEnemiga){
         if (turnos < this.turnosParaConstruirse) {
-            System.out.println(turnos);
-            System.out.println(turnosParaConstruirse);
             throw new EdificioNoEstaOperativo();
         }
 

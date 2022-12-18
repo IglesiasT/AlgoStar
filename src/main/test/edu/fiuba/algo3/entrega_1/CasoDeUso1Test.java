@@ -35,10 +35,10 @@ public class CasoDeUso1Test {
         // Act
         recursos.agregar(new Mineral(225));
         criadero.construir(casillero, recursos);
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
         criadero.engendrarZangano(recursos);
 
         // Assert
@@ -57,13 +57,13 @@ public class CasoDeUso1Test {
         recursos.agregar(new Mineral(225));
 
         criadero.construir(casillero, recursos);
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
 
         criadero.engendrarZangano(recursos);
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
 
         // Assert
         assertEquals(valorEsperado, criadero.larvasRestantes());
@@ -82,14 +82,14 @@ public class CasoDeUso1Test {
         recursos.agregar(new Mineral(250));
         criadero.construir(casillero, recursos);
 
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
 
         criadero.engendrarZangano(recursos);
         criadero.engendrarZangano(recursos);
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
 
         // Assert
         assertEquals(valorEsperado, criadero.larvasRestantes());
@@ -107,15 +107,15 @@ public class CasoDeUso1Test {
         // Act
         recursos.agregar(new Mineral(250));
         criadero.construir(casillero, recursos);
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
 
         criadero.engendrarZangano(recursos);
         criadero.engendrarZangano(recursos);
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
 
         //Assert
         assertEquals(valorEsperado, criadero.larvasRestantes());
@@ -133,15 +133,15 @@ public class CasoDeUso1Test {
         // Act
         recursos.agregar(new Mineral(275));
         criadero.construir(casillero, recursos);
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
 
         criadero.engendrarZangano(recursos);
         criadero.engendrarZangano(recursos);
         criadero.engendrarZangano(recursos);
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
 
         //Assert
         assertEquals(valorEsperado, criadero.larvasRestantes());
@@ -159,17 +159,17 @@ public class CasoDeUso1Test {
         // Act
         recursos.agregar(new Mineral(275));
         criadero.construir(casillero, recursos);
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
 
         criadero.engendrarZangano(recursos);
         criadero.engendrarZangano(recursos);
         criadero.engendrarZangano(recursos);
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
 
         //Assert
         assertEquals(valorEsperado, criadero.larvasRestantes());

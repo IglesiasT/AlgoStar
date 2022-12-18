@@ -35,7 +35,7 @@ public class Criadero extends ConstruccionZerg {
     public Zangano engendrarZangano(ListadoDeRecursos recursos) throws EdificioNoEstaOperativo {
         return (Zangano)this.engendrar(new Zangano(), recursos);
     }
-    public void nuevoTurno(Raza raza){
+    public void nuevoTurno(){
         super.nuevoTurno();
 
         this.turnos++;

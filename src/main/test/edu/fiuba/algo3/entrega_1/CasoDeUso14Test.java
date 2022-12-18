@@ -37,10 +37,10 @@ public class CasoDeUso14Test {
         // Act
         recursos.agregar(new Mineral(2000));
         criadero.construir(casillero1, recursos);
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
 
         pilon.construir(casillero2, recursos);
         pilon.nuevoTurno(new Protoss());
@@ -80,12 +80,12 @@ public class CasoDeUso14Test {
         pilon.nuevoTurno(new Protoss());
 
         criadero.construir(casillero2, recursos);
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
 
 
         // Assert

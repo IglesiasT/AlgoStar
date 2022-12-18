@@ -66,4 +66,10 @@ public class Mutalisco extends UnidadZerg {
     public int obtenerVida(){
         return this.estado.obtenerVida();
     }
+
+    @Override
+    public void nuevoTurno() {
+        super.nuevoTurno();
+        this.estado.nuevoTurno();
+    }
 }

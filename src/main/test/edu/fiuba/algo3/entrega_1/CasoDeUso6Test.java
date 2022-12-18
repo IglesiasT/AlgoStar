@@ -30,10 +30,10 @@ public class CasoDeUso6Test {
         recursos.agregar(new Mineral(2000));
         casillero1.setEspacioDeConstruccion(new Moho());
         criadero.construir(casillero1, recursos);
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
 
         ArrayList<? extends Casillero> casillerosConMoho =
                 mapa.obtenerCasilleros(5,1, 1);
@@ -60,12 +60,12 @@ public class CasoDeUso6Test {
         recursos.agregar(new Mineral(2000));
         casillero1.setEspacioDeConstruccion(new Moho());
         criadero.construir(casillero1, recursos);
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
 
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
 
         ArrayList<? extends Casillero> casillerosConMoho =
                 mapa.obtenerCasilleros(6,1, 1);
@@ -95,13 +95,13 @@ public class CasoDeUso6Test {
         recursos.agregar(new Mineral(2000));
         casillero1.setEspacioDeConstruccion(new Moho());
         criadero.construir(casillero1, recursos);
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
 
-        criadero.nuevoTurno(new Zerg());
-        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno();
+        criadero.nuevoTurno();
 
         ArrayList<? extends Casillero> casillerosConMoho =
                 mapa.obtenerCasilleros(6,1,1);
