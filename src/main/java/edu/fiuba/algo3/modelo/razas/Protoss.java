@@ -27,6 +27,7 @@ public class Protoss extends Raza{
         this.construccionesRealizadas = new ListadoDeConstruccionesProtoss();
     }
     public void nuevoTurno(){
+        this.construccionesRealizadas.eliminarConstruccionesDestruidas(this);
         this.construccionesRealizadas.nuevoTurno(this);
         //for (Unidad unidad : this.unidadesEngendradas) {    //delegar for en nueva clase ListadoUnidades
         //    unidad.nuevoTurno();

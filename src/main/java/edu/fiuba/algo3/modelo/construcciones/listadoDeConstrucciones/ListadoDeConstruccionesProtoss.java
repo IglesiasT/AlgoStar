@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.construcciones.listadoDeConstrucciones;
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Pilon;
+import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 
@@ -35,17 +36,25 @@ public class ListadoDeConstruccionesProtoss implements ListadoDeConstrucciones {
         return this.construcciones.size();
     }
     public int destruir (ConstruccionProtoss construccionADestruir, int maximoSuministro) {
-        for (ConstruccionProtoss construccion : this.construcciones) {
-            if (construccion.getClass() == construccionADestruir.getClass()) {
-                construccion.destruir();
-            }
-            if (construccion.getClass() == Pilon.class){
-                maximoSuministro -= 5 ;
-            }
+
+        construccionADestruir.destruir();
+        construcciones.remove(construccionADestruir);
+
+        if (construccionADestruir.getClass() == Pilon.class){
+            maximoSuministro -= 5 ;
         }
+
         return maximoSuministro;
     }
     public List<Construccion> obtenerConstrucciones(){
         return new LinkedList<>(construcciones);
+    }
+
+    public void eliminarConstruccionesDestruidas(Protoss raza){
+        for (ConstruccionProtoss construccion: construcciones){
+            if (construccion.obtenerVida()<=0){
+                raza.destruir(construccion);
+            }
+        }
     }
 }

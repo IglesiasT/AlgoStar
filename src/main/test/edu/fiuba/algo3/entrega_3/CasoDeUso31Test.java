@@ -142,7 +142,7 @@ public class CasoDeUso31Test{
 
         raza.construirCriadero(casillero4);
 
-        raza.destruir(new Criadero());
+        raza.destruir((Criadero) casillero4.obtenerConstruccion());
 
         try {raza.engendrarZerling(criadero);} catch (RuntimeException SuministroAgotado){};
 

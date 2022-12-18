@@ -31,6 +31,7 @@ public class Zerg extends Raza{
         this.construccionesRealizadas.agregar(construccion);
     }
     public void nuevoTurno(){
+        this.construccionesRealizadas.eliminarConstruccionesDestruidas(this);
         this.construccionesRealizadas.nuevoTurno(this);
     }
     public void construirCriadero(Casillero casilleroAConstruir){
@@ -179,8 +180,6 @@ public class Zerg extends Raza{
         else if (construccion.contains("Mutalisco")){engendrarMutalisco((Criadero)casillero.obtenerConstruccion());}
         else if (construccion.contains("Amo Supremo")) {engendrarAmoSupremo((Criadero)casillero.obtenerConstruccion());}
         else if (construccion.contains("Hidralisco")) {engendrarHidralisco((Criadero)casillero.obtenerConstruccion());}
-        //else if (construccion.contains("Guardian")) {evolucionarMutaliscoAGuardian((Mutalisco) casillero.obtenerConstruccion());}
-        //else if (construccion.contains("Devorador")) {evolucionarMutaliscoADevorador((Mutalisco) casillero.obtenerConstruccion());}
         else {throw new NoSePuedeConstruir();}
     }
 
