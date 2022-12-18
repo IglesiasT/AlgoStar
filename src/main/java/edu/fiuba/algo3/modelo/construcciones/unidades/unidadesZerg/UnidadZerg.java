@@ -3,12 +3,11 @@ package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg;
 import edu.fiuba.algo3.modelo.*;
 
 import edu.fiuba.algo3.modelo.areas.Area;
-import edu.fiuba.algo3.modelo.construcciones.Construccion;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
 import edu.fiuba.algo3.modelo.mapa.*;
-import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.estados.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 
 public abstract class UnidadZerg extends ConstruccionZerg implements Unidad {

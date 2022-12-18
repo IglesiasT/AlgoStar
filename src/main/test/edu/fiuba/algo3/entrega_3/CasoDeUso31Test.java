@@ -86,6 +86,7 @@ public class CasoDeUso31Test{
         }
 
         for (int i = 0; i < 50; i++) {
+            criadero.nuevoTurno();
             raza.engendrarMutalisco(criadero);
         }
 
@@ -135,6 +136,7 @@ public class CasoDeUso31Test{
         }
 
         for (int i = 0; i < 50; i++) {
+            criadero.nuevoTurno();
             raza.engendrarMutalisco(criadero);
         }
 

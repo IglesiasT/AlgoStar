@@ -79,6 +79,7 @@ public class CasoDeUso30Test {
         }
 
         for (int i = 0; i < 50; i++) {
+            criadero.nuevoTurno();
             raza.engendrarMutalisco(criadero);
         }
 

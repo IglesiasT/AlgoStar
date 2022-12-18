@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.modelo.construcciones.construccionesZerg;
 
-import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.estados.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.recursos.Nodo;
 
 public class ReservaDeReproduccion extends ConstruccionZerg {
 
@@ -14,9 +13,7 @@ public class ReservaDeReproduccion extends ConstruccionZerg {
     }
 
     public void evolucionarAZerling(){
-        if (turnos < this.turnosParaConstruirse){
-            throw new EdificioNoEstaOperativo();
-        }
+        estado.jugar();
         // recibir Larva y cambiar estado a Zerling
     }
 }

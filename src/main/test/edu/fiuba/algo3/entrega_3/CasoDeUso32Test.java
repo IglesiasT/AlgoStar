@@ -1,12 +1,9 @@
 package edu.fiuba.algo3.entrega_3;
 
 import edu.fiuba.algo3.modelo.AlgoStar;
-import edu.fiuba.algo3.modelo.estadosDeJuego.JuegoFinalizado;
+import edu.fiuba.algo3.modelo.estados.JuegoFinalizado;
 import javafx.scene.paint.Color;
 import org.junit.jupiter.api.Test;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
