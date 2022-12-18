@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg;
 import edu.fiuba.algo3.modelo.*;
 
 import edu.fiuba.algo3.modelo.areas.Area;
+import edu.fiuba.algo3.modelo.construcciones.Construccion;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
@@ -25,12 +26,12 @@ public abstract class UnidadZerg extends ConstruccionZerg implements Unidad {
 
     @Override
     public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
-        if (! recursos.contieneTodos(this.recursosNecesarios)) {
+        if (recursos.contieneTodos(this.recursosNecesarios)) {
             throw new NoSePuedeConstruir();
         }
-
+        moverse(casilleroAConstruir);
         this.recursosNecesarios.consumir(recursos);
-        this.ubicacion = casilleroAConstruir;
+
     }
     protected boolean enRangoDeAtaque(Casillero ubicacion){
         return ((ubicacion.obtenerFila() <= this.ubicacion.obtenerFila()+this.rangoDeAtaque &&
@@ -43,6 +44,8 @@ public abstract class UnidadZerg extends ConstruccionZerg implements Unidad {
 
     public void atacar(ConstruccionProtoss construccionEnemiga){
         if (turnos < this.turnosParaConstruirse) {
+            System.out.println(turnos);
+            System.out.println(turnosParaConstruirse);
             throw new EdificioNoEstaOperativo();
         }
 
@@ -59,6 +62,9 @@ public abstract class UnidadZerg extends ConstruccionZerg implements Unidad {
         if (!casillero.puedeMoverse(this.area)) {
             throw new NoSePuedeMover();
         }
+        if(this.ubicacion != null)
+            this.ubicacion.retirarUnidad(this);
+        casillero.ubicarUnidad(this);
         this.ubicacion = casillero;
     }
 

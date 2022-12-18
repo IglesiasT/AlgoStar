@@ -1,26 +1,25 @@
 package edu.fiuba.algo3.modelo.razas;
 
+import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.construcciones.*;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.*;
 import edu.fiuba.algo3.modelo.construcciones.listadoDeConstrucciones.ListadoDeConstruccionesZerg;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.AmoSupremo;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.*;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
-
-import java.util.LinkedList;
+import java.util.List;
 
 public class Zerg extends Raza{
     private ListadoDeConstruccionesZerg construccionesRealizadas;
     public Zerg(){
         super();
         this.construccionesRealizadas = new ListadoDeConstruccionesZerg();
-        this.unidadesEngendradas = new LinkedList<>();
     }
     public Zerg(int mineralInicial, int gasInicial){
         super(mineralInicial, gasInicial);
         this.construccionesRealizadas = new ListadoDeConstruccionesZerg();
-        this.unidadesEngendradas = new LinkedList<>();
     }
     private void construir(ConstruccionZerg construccion, Casillero casilleroAConstruir){
 
@@ -28,10 +27,8 @@ public class Zerg extends Raza{
         this.construccionesRealizadas.agregar(construccion);
     }
     public void nuevoTurno(){
+        this.construccionesRealizadas.eliminarConstruccionesDestruidas(this);
         this.construccionesRealizadas.nuevoTurno(this.recursos);
-        for (Unidad unidad : this.unidadesEngendradas) {    //delegar for en nueva clase ListadoUnidades
-            unidad.nuevoTurno();
-        }
     }
     public void construirCriadero(Casillero casilleroAConstruir){
         this.construir(new Criadero(), casilleroAConstruir);
@@ -64,7 +61,7 @@ public class Zerg extends Raza{
             throw new SuministroAgotado() ;
         }
         AmoSupremo amoSupremo = criaderoAUsar.engendrarAmoSupremo(this.recursos);
-        this.unidadesEngendradas.add(amoSupremo);
+        this.construccionesRealizadas.agregar(amoSupremo);
         this.suministro = amoSupremo.consumirSuministro(this.suministro) ;
         this.maximoSuministro = this.maximoSuministro + 5 ;
         return amoSupremo;
@@ -75,7 +72,7 @@ public class Zerg extends Raza{
         }
 
         Zangano zangano = criaderoAUsar.engendrarZangano(this.recursos);
-        this.unidadesEngendradas.add(zangano);
+        this.construccionesRealizadas.agregar(zangano);
 
         this.suministro = zangano.consumirSuministro(this.suministro) ;
 
@@ -91,7 +88,7 @@ public class Zerg extends Raza{
         }
 
         Mutalisco mutalisco = criaderoAUsar.engendrarMutalisco(this.recursos);
-        this.unidadesEngendradas.add(mutalisco);
+        this.construccionesRealizadas.agregar(mutalisco);
         this.suministro = mutalisco.consumirSuministro(this.suministro) ;
 
         return mutalisco;
@@ -107,7 +104,7 @@ public class Zerg extends Raza{
 
         Hidralisco hidralisco = criaderoAUsar.engendrarHidralisco(this.recursos);
         this.suministro = hidralisco.consumirSuministro(this.suministro) ;
-        this.unidadesEngendradas.add(hidralisco);
+        this.construccionesRealizadas.agregar(hidralisco);
 
         return hidralisco;
     }
@@ -122,7 +119,7 @@ public class Zerg extends Raza{
 
         Zerling zerling = criaderoAUsar.engendrarZerling(this.recursos);
         this.suministro = zerling.consumirSuministro(this.suministro) ;
-        this.unidadesEngendradas.add(zerling);
+        this.construccionesRealizadas.agregar(zerling);
 
         return zerling;
     }
@@ -148,19 +145,47 @@ public class Zerg extends Raza{
     public int construccionesRealizadas() {
         return construccionesRealizadas.size();
     }
-    public void destruir(ConstruccionZerg construccionADestruir){
+
+    @Override
+    public void construir(String construccion, Casillero casillero) {
+        if (construccion.contains("Criadero")){ construirCriadero(casillero);}
+        else if (construccion.contains("Extractor")){ construirExtractor(casillero);}
+        else if (construccion.contains("Reserva de reproduccion")){construirReservaDeReproduccion(casillero);}
+        else if (construccion.contains("Espiral")) {construirEspiral(casillero);}
+        else if (construccion.contains("Guarida")) {construirGuarida(casillero);}
+        else {throw new NoSePuedeConstruir();}
+    }
+
+    public void destruir(Construccion construccionADestruir){
         this.construccionesRealizadas.destruir(construccionADestruir);
     }
     public void destruir(Criadero construccionADestruir){
         this.construccionesRealizadas.destruir(construccionADestruir);
         this.maximoSuministro = this.maximoSuministro -5 ;
     }
-    public void destruir (UnidadZerg unidadZerg) {
-        this.unidadesEngendradas.remove(unidadZerg) ;
-    }
+    //public void destruir (UnidadZerg unidadZerg) {
+    //    this.unidadesEngendradas.remove(unidadZerg) ;
+    //}
     public void destruir (AmoSupremo unidadZerg) {
-        this.unidadesEngendradas.remove(unidadZerg) ;
+        this.construccionesRealizadas.destruir(unidadZerg) ;
         this.maximoSuministro = this.maximoSuministro -5;
     }
+    public void engendrar(String construccion, Casillero casillero) {
+        if (construccion.contains("Zangano")){ engendrarZangano((Criadero)casillero.obtenerConstruccion());}
+        else if (construccion.contains("Zerling")){ engendrarZerling((Criadero)casillero.obtenerConstruccion());}
+        else if (construccion.contains("Mutalisco")){engendrarMutalisco((Criadero)casillero.obtenerConstruccion());}
+        else if (construccion.contains("Amo Supremo")) {engendrarAmoSupremo((Criadero)casillero.obtenerConstruccion());}
+        else if (construccion.contains("Hidralisco")) {engendrarHidralisco((Criadero)casillero.obtenerConstruccion());}
+        else {throw new NoSePuedeConstruir();}
+    }
 
+    public void evolucionar(String construccion, Mutalisco mutalisco) {
+        if (construccion.contains("Guardian")) {evolucionarMutaliscoAGuardian(mutalisco);}
+        else if (construccion.contains("Devorador")) {evolucionarMutaliscoADevorador(mutalisco);}
+        else {throw new NoSePuedeConstruir();}
+    }
+    public void atacar(Unidad atacante, Construccion objetivo){((UnidadZerg)atacante).atacar((ConstruccionProtoss)objetivo);}
+
+    @Override
+    public List<Construccion> obtenerConstrucciones() {return construccionesRealizadas.obtenerConstrucciones();}
 }

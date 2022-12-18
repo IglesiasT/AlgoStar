@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.construcciones.construccionesProtoss;
 
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
+import edu.fiuba.algo3.modelo.razas.Protoss;
 
 public abstract class ConstruccionProtoss extends Construccion {
     protected Escudo escudo;
@@ -27,5 +28,7 @@ public abstract class ConstruccionProtoss extends Construccion {
     protected void regenerar() {
         this.escudo.regenerar();
     }
+
+    public Class obtenerRazaMadre(){ return Protoss.class;}
 
 }

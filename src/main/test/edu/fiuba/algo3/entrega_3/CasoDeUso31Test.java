@@ -82,7 +82,7 @@ public class CasoDeUso31Test{
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(new Zerg());
         }
 
         for (int i = 0; i < 50; i++) {
@@ -131,7 +131,7 @@ public class CasoDeUso31Test{
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(new Zerg());
         }
 
         for (int i = 0; i < 50; i++) {
@@ -142,7 +142,7 @@ public class CasoDeUso31Test{
 
         raza.construirCriadero(casillero4);
 
-        raza.destruir(new Criadero());
+        raza.destruir((Criadero) casillero4.obtenerConstruccion());
 
         try {raza.engendrarZerling(criadero);} catch (RuntimeException SuministroAgotado){};
 

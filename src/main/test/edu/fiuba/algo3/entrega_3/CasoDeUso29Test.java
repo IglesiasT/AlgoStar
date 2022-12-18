@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Zerg;
+import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -21,8 +22,14 @@ public class CasoDeUso29Test {
         int valorEsperado = 200;
         Mapa mapa = new Mapa();
         Casillero casillero = mapa.obtenerCasillero(1, 1);
+        casillero.setArea(new AreaTerrestre());
+        casillero.setRecurso(new SinRecurso());
         Casillero casillero2 = mapa.obtenerCasillero(1, 2);
+        casillero2.setArea(new AreaTerrestre());
+        casillero2.setRecurso(new SinRecurso());
         Casillero casillero3 = mapa.obtenerCasillero(1, 3);
+        casillero3.setArea(new AreaTerrestre());
+        casillero3.setRecurso(new SinRecurso());
         casillero.setEspacioDeConstruccion(new RangoPilon());
         casillero2.setEspacioDeConstruccion(new RangoPilon());
 
@@ -46,8 +53,14 @@ public class CasoDeUso29Test {
         int valorEsperado = 200;
         Mapa mapa = new Mapa();
         Casillero casillero = mapa.obtenerCasillero(1, 1);
+        casillero.setArea(new AreaTerrestre());
+        casillero.setRecurso(new SinRecurso());
         Casillero casillero2 = mapa.obtenerCasillero(1, 2);
+        casillero2.setArea(new AreaTerrestre());
+        casillero2.setRecurso(new SinRecurso());
         Casillero casillero3 = mapa.obtenerCasillero(1, 3);
+        casillero3.setArea(new AreaTerrestre());
+        casillero3.setRecurso(new SinRecurso());
         casillero.setEspacioDeConstruccion(new Moho());
         casillero2.setEspacioDeConstruccion(new Moho());
         casillero3.setEspacioDeConstruccion(new Moho());
@@ -62,7 +75,7 @@ public class CasoDeUso29Test {
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(new Zerg());
         }
 
         for (int i = 0; i < 50; i++) {

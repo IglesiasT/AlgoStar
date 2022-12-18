@@ -1,11 +1,15 @@
 package edu.fiuba.algo3.entrega_1;
 
+import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
+import edu.fiuba.algo3.modelo.recursos.Nodo;
+import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -17,24 +21,26 @@ public class CasoDeUso6Test {
         // Arrange
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1, 1);
+        casillero1.setArea(new AreaTerrestre());
+        casillero1.setRecurso(new SinRecurso());
         Criadero criadero = new Criadero();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         casillero1.setEspacioDeConstruccion(new Moho());
         criadero.construir(casillero1, recursos);
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
+        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno(new Zerg());
 
         ArrayList<? extends Casillero> casillerosConMoho =
                 mapa.obtenerCasilleros(5,1, 1);
 
         // Assert
         for (Casillero casillero : casillerosConMoho){
-            assert (casillero.contiene(new Moho()));
+            assert !casillero.puedeMoverse(new AreaTerrestre()) || (casillero.contiene(new Moho()));
         }
 
     }
@@ -44,20 +50,22 @@ public class CasoDeUso6Test {
         //Arrange
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1, 1);
+        casillero1.setArea(new AreaTerrestre());
+        casillero1.setRecurso(new SinRecurso());
         Criadero criadero = new Criadero();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
         boolean todosContienenMoho = false;
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         casillero1.setEspacioDeConstruccion(new Moho());
         criadero.construir(casillero1, recursos);
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
+        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno(new Zerg());
 
-        criadero.nuevoTurno();
+        criadero.nuevoTurno(new Zerg());
 
         ArrayList<? extends Casillero> casillerosConMoho =
                 mapa.obtenerCasilleros(6,1, 1);
@@ -78,27 +86,29 @@ public class CasoDeUso6Test {
         //Arrange
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1, 1);
+        casillero1.setArea(new AreaTerrestre());
+        casillero1.setRecurso(new SinRecurso());
         Criadero criadero = new Criadero();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         casillero1.setEspacioDeConstruccion(new Moho());
         criadero.construir(casillero1, recursos);
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
+        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno(new Zerg());
 
-        criadero.nuevoTurno();
-        criadero.nuevoTurno();
+        criadero.nuevoTurno(new Zerg());
+        criadero.nuevoTurno(new Zerg());
 
         ArrayList<? extends Casillero> casillerosConMoho =
                 mapa.obtenerCasilleros(6,1,1);
 
         //Assert
         for (Casillero casillero : casillerosConMoho){
-            assert (casillero.contiene(new Moho()));
+            assert !casillero.puedeMoverse(new AreaTerrestre()) || (casillero.contiene(new Moho()));
         }
     }
 }

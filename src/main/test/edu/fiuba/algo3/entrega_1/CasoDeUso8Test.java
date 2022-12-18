@@ -12,6 +12,7 @@ import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.recursos.Nodo;
 import edu.fiuba.algo3.modelo.recursos.RecursosInsuficientes;
 import edu.fiuba.algo3.modelo.recursos.Volcan;
 import org.junit.jupiter.api.Test;
@@ -24,6 +25,7 @@ public class CasoDeUso8Test {
         // Arrange
         Protoss razaProtoss = new Protoss(0,0);
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        casillero.setRecurso(new Volcan());
 
         // Act and Assert
         assertThrows(RecursosInsuficientes.class, () -> razaProtoss.construirAsimilador(casillero) );
@@ -200,6 +202,7 @@ public class CasoDeUso8Test {
         // Arrange
         Protoss razaProtoss = new Protoss(0,0);
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        casillero.setRecurso(new Nodo());
 
         // Act and Assert
         assertThrows(RecursosInsuficientes.class, () -> razaProtoss.construirNexoMineral(casillero) );
@@ -210,6 +213,7 @@ public class CasoDeUso8Test {
         // Arrange
         Protoss razaProtoss = new Protoss();
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        casillero.setRecurso(new Nodo());
 
         // Act
         razaProtoss.construirNexoMineral(casillero);

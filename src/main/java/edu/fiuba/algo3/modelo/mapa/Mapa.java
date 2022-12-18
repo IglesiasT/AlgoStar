@@ -16,8 +16,8 @@ public class Mapa {
         this.areas.add(new AreaTerrestre());
         this.areas.add(new AreaEspacial());
         this.bases = new ArrayList<>();
-        int cantidadDeBasesPorLado =1 + (new Random()).nextInt(4);
-        this.tamanio=cantidadDeBasesPorLado*2*5;
+        int cantidadDeBasesPorLado =2 + (new Random()).nextInt(3);
+        this.tamanio=cantidadDeBasesPorLado*2*10;
         this.tablero = new Casillero[tamanio][tamanio];
 
         for (int i = 0; i < tamanio; i++){
@@ -42,8 +42,8 @@ public class Mapa {
     }
 
     private void cargarBasesJugadores(){
-        int fila = tamanio/2 + ((new Random()).nextInt(tamanio/2 - 1));
-        int columna = ((new Random()).nextInt(tamanio/2 - 1 ));
+        int fila = 7 + ((new Random()).nextInt(tamanio - 8));
+        int columna = ((new Random()).nextInt(fila - 6));
         Base baseUno = new Base(this.tablero[fila][columna]);
 
         Base baseDos = new Base(this.tablero[columna][fila]);

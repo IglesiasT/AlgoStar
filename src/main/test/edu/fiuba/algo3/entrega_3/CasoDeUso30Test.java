@@ -75,7 +75,7 @@ public class CasoDeUso30Test {
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(new Zerg());
         }
 
         for (int i = 0; i < 50; i++) {

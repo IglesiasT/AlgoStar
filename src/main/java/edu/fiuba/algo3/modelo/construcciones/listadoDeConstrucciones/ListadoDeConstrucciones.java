@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo.construcciones.listadoDeConstrucciones;
-
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
+import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
-
 import java.util.LinkedList;
+import java.util.List;
 
 public abstract class ListadoDeConstrucciones {
     protected LinkedList<Construccion> construcciones;
@@ -37,6 +37,17 @@ public abstract class ListadoDeConstrucciones {
 
     public int destruir(Construccion construccionADestruir, int maximoSuministro) {
         return maximoSuministro;
+    }
+    public List<Construccion> obtenerConstrucciones(){
+        return new LinkedList<>(construcciones);
+    }
+
+    public void eliminarConstruccionesDestruidas(Raza raza){
+        for (Construccion construccion: construcciones){
+            if (construccion.obtenerVida()<=0){
+                raza.destruir(construccion);
+            }
+        }
     }
 }
 

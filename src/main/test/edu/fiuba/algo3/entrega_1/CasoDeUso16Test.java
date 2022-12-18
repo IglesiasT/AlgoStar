@@ -8,12 +8,9 @@ import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.NexoMineral;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zangano;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
-import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
-import edu.fiuba.algo3.modelo.recursos.Mineral;
+import edu.fiuba.algo3.modelo.recursos.*;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.recursos.RecursoOcupado;
-import edu.fiuba.algo3.modelo.recursos.Volcan;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -30,7 +27,7 @@ public class CasoDeUso16Test {
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         asimilador.construir(casillero, recursos);
 
         // Assert
@@ -47,7 +44,7 @@ public class CasoDeUso16Test {
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         casillero.setEspacioDeConstruccion(new Moho());
         extractor.construir(casillero, recursos);
 
@@ -61,11 +58,11 @@ public class CasoDeUso16Test {
         Zangano zangano = new Zangano();
         NexoMineral nexo = new NexoMineral();
         Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
-        casillero.setRecurso(new Mineral());
+        casillero.setRecurso(new Nodo());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         casillero.setEspacioDeConstruccion(new Moho());
         zangano.ubicar(casillero);
 
@@ -79,11 +76,11 @@ public class CasoDeUso16Test {
         Zangano zangano = new Zangano();
         NexoMineral nexo = new NexoMineral();
         Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
-        casillero.setRecurso(new Mineral());
+        casillero.setRecurso(new Nodo());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         casillero.setEspacioDeConstruccion(new RangoPilon());
         nexo.construir(casillero, recursos);
 
