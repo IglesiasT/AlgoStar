@@ -3,13 +3,17 @@ package edu.fiuba.algo3.modelo.razas;
 import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.construcciones.*;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.*;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.construcciones.listadoDeConstrucciones.ListadoDeConstruccionesProtoss;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Dragon;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Scout;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.UnidadProtoss;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Zealot;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.UnidadZerg;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Protoss extends Raza{
@@ -129,4 +133,8 @@ public class Protoss extends Raza{
     public void destruir (ConstruccionProtoss construccionADestruir) {
         this.maximoSuministro=this.construccionesRealizadas.destruir(construccionADestruir, this.maximoSuministro);
     }
+    public void atacar(Unidad atacante, Construccion objetivo){((UnidadProtoss)atacante).atacar((ConstruccionZerg)objetivo);}
+
+    @Override
+    public List<Construccion> obtenerConstrucciones() {return construccionesRealizadas.obtenerConstrucciones();}
 }

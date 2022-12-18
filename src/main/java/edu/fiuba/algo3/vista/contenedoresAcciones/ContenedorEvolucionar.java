@@ -2,10 +2,9 @@ package edu.fiuba.algo3.vista.contenedoresAcciones;
 
 import edu.fiuba.algo3.modelo.AlgoStar;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Mutalisco;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
-import edu.fiuba.algo3.modelo.razas.Protoss;
-import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.vista.ContenedorError;
 import edu.fiuba.algo3.vista.ContenedorFinDeTurno;
 import edu.fiuba.algo3.vista.ContenedorMapa;
@@ -27,39 +26,22 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class ContenedorConstruir extends VBox implements ContenedorAccion {
+public class ContenedorEvolucionar extends VBox implements ContenedorAccion{
 
     private Stage stage;
     private AlgoStar juego;
     private Jugador jugador;
-
-
-    private Map<Class, ObservableList<String>> construccionesPorRaza;
-    private ComboBox<String> comboBoxConstrucciones;
-
-    private Casillero casillero;
-
-    public ContenedorConstruir(Stage stage, AlgoStar juego, Jugador jugador){
+    private ComboBox<String> comboBoxUnidades;
+    private ObservableList<String> unidades;
+    private Unidad unidad;
+    public ContenedorEvolucionar(Stage stage, AlgoStar juego, Jugador jugador){
         this.stage = stage;
         this.juego = juego;
         this.jugador = jugador;
 
-        ObservableList<String> construccionesZerg= FXCollections.observableArrayList();
-        construccionesZerg.addAll("Criadero: Δ0 ❖100 T",  "Extractor: Δ0 ❖100 T",
-                "Reserva de reproduccion: Δ0 ❖150 T", "Espiral: Δ100 ❖150 T","Guarida: Δ100 ❖200 T");
-        //construccionesZerg.addAll("Zangano", "Zerling", "Mutalisco", "Hidralisco", "Guardian", "Devorador", "Amo Supremo");
+        unidades = FXCollections.observableArrayList();
+        unidades.addAll("Mutalisco a Guardian: Δ100 ❖50", "Mutalisco a Devorador: Δ50 ❖150", "Amo Supremo: Δ0 ❖50");
 
-        ObservableList<String> construccionesProtoss = FXCollections.observableArrayList();
-        construccionesProtoss.addAll("Nexo Mineral: Δ0 ❖50 T","Pilon: Δ0 ❖100 T", "Asimilador: Δ0 ❖100 T",
-                "Acceso: Δ0 ❖150 T", "Puerto Estelar: Δ150 ❖150 T");
-        construccionesProtoss.addAll("Zealot: Δ0 ❖100 T", "Dragon: Δ50 ❖125 T", "Scout: Δ150 ❖300 A");
-
-        construccionesPorRaza = new HashMap<>();
-        construccionesPorRaza.put(Protoss.class,construccionesProtoss);
-        construccionesPorRaza.put(Zerg.class,construccionesZerg);
 
         this.setSpacing(20);
         this.setPadding(new Insets(25));
@@ -67,13 +49,13 @@ public class ContenedorConstruir extends VBox implements ContenedorAccion {
 
         Label etiquetaTitulo = new Label();
         etiquetaTitulo.setFont(Font.font("Verdana", FontWeight.BOLD, 25));
-        etiquetaTitulo.setText("MENU CONSTRUCCION");
+        etiquetaTitulo.setText("MENU EVOLUCION");
         etiquetaTitulo.setTextFill(Color.BLACK);
         this.getChildren().add(etiquetaTitulo);
 
         Label etiquetaSubtitulo = new Label();
         etiquetaSubtitulo.setFont(Font.font("Verdana", FontWeight.BOLD, 15));
-        etiquetaSubtitulo.setText("Elija la construccion que quiere comprar y la ubicacion donde la quiere construir");
+        etiquetaSubtitulo.setText("Elija la evolucion que quiere comprar y el mutalisco que quiere evolucionar");
         etiquetaSubtitulo.setTextFill(Color.BLACK);
         this.getChildren().add(etiquetaSubtitulo);
 
@@ -87,21 +69,21 @@ public class ContenedorConstruir extends VBox implements ContenedorAccion {
         BotonConfirmarEventHandler botonConfirmarEventHandler = new BotonConfirmarEventHandler(this.stage,this);
         botonConfirmar.setOnAction(botonConfirmarEventHandler);
 
-        this.pedirUbicacion();
+        this.pedirMutalisco();
 
 
 
     }
 
     private void pedirConstruccion(){
-        comboBoxConstrucciones = new ComboBox<>(construccionesPorRaza.get(jugador.obtenerRaza().getClass()));
-        comboBoxConstrucciones.setValue("Elegir construccion");
-        this.getChildren().add(comboBoxConstrucciones);
+        comboBoxUnidades = new ComboBox<>(unidades);
+        comboBoxUnidades.setValue("Elegir evolucion");
+        this.getChildren().add(comboBoxUnidades);
     }
 
-    private void pedirUbicacion(){
+    private void pedirMutalisco(){
         ScrollPane scrollPane = new ScrollPane();
-        scrollPane.setContent(new ContenedorMapa(this.stage,this.juego,this,true,false));
+        scrollPane.setContent(new ContenedorMapa(this.stage,this.juego,this,false,true));
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         scrollPane.setPannable(true);
@@ -109,17 +91,17 @@ public class ContenedorConstruir extends VBox implements ContenedorAccion {
     }
 
     @Override
-    public void setCasilleroElegido(Casillero casillero) {
-        this.casillero = casillero;
-    }
+    public void setCasilleroElegido(Casillero casillero) {}
 
     @Override
-    public void setUnidadElegida(Unidad unidad) {}
+    public void setUnidadElegida(Unidad unidad) {
+        this.unidad = unidad;
+    }
 
     @Override
     public Scene obtenerProximaEscena() {
         try {
-            jugador.construir(comboBoxConstrucciones.getValue(),casillero);
+            jugador.evolucionar(comboBoxUnidades.getValue(),(Mutalisco)unidad);
             return new Scene(new ContenedorFinDeTurno(this.stage,this.juego,this.jugador),800,800);
         }catch (Exception e){
             return new Scene(new ContenedorError(this.stage,this.juego,this.jugador),800,800);

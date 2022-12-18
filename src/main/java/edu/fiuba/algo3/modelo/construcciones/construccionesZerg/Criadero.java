@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.construcciones.construccionesZerg;
 
+import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.AmoSupremo;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.*;
@@ -61,7 +62,8 @@ public class Criadero extends ConstruccionZerg {
         ArrayList<Casillero> casillerosInfectados = new ArrayList<>(this.ubicacion.obtenerCasilleros(this.rangoMoho));
 
         for (Casillero casillero: casillerosInfectados) {
-            casillero.setEspacioDeConstruccion(new Moho());
+            if (casillero.puedeMoverse(new AreaTerrestre()))
+                casillero.setEspacioDeConstruccion(new Moho());
 
         }
     }

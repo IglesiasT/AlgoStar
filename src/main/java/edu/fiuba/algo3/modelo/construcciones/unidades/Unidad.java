@@ -8,4 +8,5 @@ public interface Unidad {
     void moverse(Casillero casilleroDestino);
 
     void nuevoTurno(Raza raza);
+    Class obtenerRazaMadre();
 }

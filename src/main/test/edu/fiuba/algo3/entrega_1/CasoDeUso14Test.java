@@ -27,6 +27,9 @@ public class CasoDeUso14Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,7);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
+        Casillero casillero3 = mapa.obtenerCasillero(1,4);
+        casillero3.setArea(new AreaTerrestre());
+        casillero3.setRecurso(new SinRecurso());
         Criadero criadero = new Criadero();
         Pilon pilon = new Pilon();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
@@ -47,7 +50,7 @@ public class CasoDeUso14Test {
         pilon.nuevoTurno(new Protoss());
 
         // Assert
-        assert !(mapa.obtenerCasillero(1,4).contiene(new RangoPilon()));
+        assert !casillero3.contiene(new RangoPilon());
     }
 
     @Test
@@ -60,6 +63,9 @@ public class CasoDeUso14Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,7);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
+        Casillero casillero3 = mapa.obtenerCasillero(1,2);
+        casillero3.setArea(new AreaTerrestre());
+        casillero3.setRecurso(new SinRecurso());
         Criadero criadero = new Criadero();
         Pilon pilon = new Pilon();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
@@ -83,6 +89,6 @@ public class CasoDeUso14Test {
 
 
         // Assert
-        assert mapa.obtenerCasillero(1,2).contiene(new Moho());
+        assert casillero3.contiene(new Moho());
     }
 }

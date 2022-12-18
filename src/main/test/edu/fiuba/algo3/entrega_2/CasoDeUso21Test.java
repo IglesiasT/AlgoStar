@@ -27,11 +27,6 @@ public class CasoDeUso21Test {
         casillero1.setArea(new AreaTerrestre());
         razaZerg.construirCriadero(casillero1);
 
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setRecurso(new SinRecurso());
         casillero2.setArea(new AreaTerrestre());
@@ -41,6 +36,11 @@ public class CasoDeUso21Test {
         Casillero casillero4 = mapa.obtenerCasillero(1,4);
         casillero4.setRecurso(new SinRecurso());
         casillero4.setArea(new AreaTerrestre());
+
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
 
         razaZerg.construirReservaDeReproduccion(casillero2);
@@ -64,11 +64,6 @@ public class CasoDeUso21Test {
         casillero1.setArea(new AreaTerrestre());
         razaZerg.construirCriadero(casillero1);
 
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setRecurso(new SinRecurso());
         casillero2.setArea(new AreaTerrestre());
@@ -78,6 +73,11 @@ public class CasoDeUso21Test {
         Casillero casillero4 = mapa.obtenerCasillero(1,4);
         casillero4.setRecurso(new SinRecurso());
         casillero4.setArea(new AreaTerrestre());
+
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
 
         razaZerg.construirReservaDeReproduccion(casillero2);

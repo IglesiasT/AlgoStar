@@ -42,9 +42,9 @@ public class CasoDeUso15Test {
         extractor.nuevoTurno(new Zerg());
         gasRecolectado.agregar(extractor.obtenerGasProducido());
 
-        extractor.asignarZangano(zangano1);
-        extractor.asignarZangano(zangano2);
-        extractor.asignarZangano(zangano3);
+        zangano1.ubicar(casillero);
+        zangano2.ubicar(casillero);
+        zangano3.ubicar(casillero);
 
         zangano1.nuevoTurno(new Zerg());
         zangano2.nuevoTurno(new Zerg());

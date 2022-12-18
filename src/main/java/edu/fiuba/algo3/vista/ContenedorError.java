@@ -2,13 +2,11 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.AlgoStar;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.vista.eventos.BotonConfirmarEventHandler;
-import javafx.collections.ObservableList;
+import edu.fiuba.algo3.controlador.eventos.BotonConfirmarEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -18,8 +16,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-
-import java.util.Map;
 
 public class ContenedorError extends VBox implements Contenedor{
 

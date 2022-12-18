@@ -17,7 +17,7 @@ public class Mapa {
         this.areas.add(new AreaEspacial());
         this.bases = new ArrayList<>();
         int cantidadDeBasesPorLado =2 + (new Random()).nextInt(3);
-        this.tamanio=cantidadDeBasesPorLado*2*5;
+        this.tamanio=cantidadDeBasesPorLado*2*10;
         this.tablero = new Casillero[tamanio][tamanio];
 
         for (int i = 0; i < tamanio; i++){

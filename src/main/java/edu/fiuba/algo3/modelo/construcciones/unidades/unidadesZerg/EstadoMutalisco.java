@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg;
 
 import edu.fiuba.algo3.modelo.areas.Area;
+import edu.fiuba.algo3.modelo.construcciones.Construccion;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.razas.Raza;

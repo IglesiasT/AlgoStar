@@ -1,12 +1,14 @@
 package edu.fiuba.algo3.modelo.construcciones.listadoDeConstrucciones;
 
+import edu.fiuba.algo3.modelo.construcciones.Construccion;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 
 import java.util.LinkedList;
+import java.util.List;
 
-public class ListadoDeConstruccionesZerg {
+public class ListadoDeConstruccionesZerg implements ListadoDeConstrucciones{
     private LinkedList<ConstruccionZerg> construcciones;
 
     public ListadoDeConstruccionesZerg(){
@@ -42,5 +44,8 @@ public class ListadoDeConstruccionesZerg {
                 construccion.destruir();
             }
         }
+    }
+    public List<Construccion> obtenerConstrucciones(){
+        return new LinkedList<>(construcciones);
     }
 }

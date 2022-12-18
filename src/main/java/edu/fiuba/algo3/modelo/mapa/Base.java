@@ -24,10 +24,12 @@ public class Base {
         this.ubicacion.setRecurso(new Volcan());
         casilleros = ubicacion.obtenerCasilleros(RADIO);
         casilleros.remove(ubicacion);
+        for (Casillero casillero: casilleros){
+            casillero.setArea(new AreaTerrestre());
+        }
         for (int i=0;i < CANTIDAD_NODOS; i++){
             Casillero casillero = casilleros.get((new Random()).nextInt(casilleros.size()));
             if (casillero.contiene(new SinRecurso())) {
-                casillero.setArea(new AreaTerrestre());
                 casillero.setRecurso(new Nodo());
             }
         }

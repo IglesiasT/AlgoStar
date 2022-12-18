@@ -7,27 +7,33 @@ import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.*;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.*;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Dragon;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Scout;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Zealot;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.*;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.mapa.Base;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.recursos.*;
 import edu.fiuba.algo3.vista.contenedoresAcciones.ContenedorAccion;
-import edu.fiuba.algo3.vista.eventos.SeleccionCasilleroEventHandler;
+import edu.fiuba.algo3.controlador.eventos.SeleccionCasilleroEventHandler;
+import edu.fiuba.algo3.controlador.eventos.SeleccionUnidadEventHandler;
+import edu.fiuba.algo3.controlador.eventos.SeleccionUnidadesEventHandler;
 import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public class ContenedorMapa extends Pane {
@@ -43,11 +49,13 @@ public class ContenedorMapa extends Pane {
     private Map<Class, String> recursosTexto;
     private Map<Class, String> construcciones;
     private Map<Class, Color> construccionesColor;
+    private Map<Class, String> unidades;
+    private Map<Class, String> unidadesDuenio;
 
     private Rectangle[][] mapaBaseVista;
 
     private Map<String, Color> recursosColor;
-    public ContenedorMapa(Stage stage, AlgoStar juego, ContenedorAccion accion){
+    public ContenedorMapa(Stage stage, AlgoStar juego, ContenedorAccion accion, boolean seleccionCasillero,boolean seleccionUnidad){
         super();
         this.stage = stage;
         this.canvas = new Canvas();
@@ -74,11 +82,16 @@ public class ContenedorMapa extends Pane {
         construccionesColor.put(juego.obtenerJugadorUno().obtenerRaza().getClass(),juego.obtenerJugadorUno().obtenerColor());
         construccionesColor.put(juego.obtenerJugadorDos().obtenerRaza().getClass(),juego.obtenerJugadorDos().obtenerColor());
 
-        this.mostrarMapa(juego.obtenerMapa());
-        //this.crearBordeMapa();
+        this.unidadesDuenio = new HashMap<>();
+        unidadesDuenio.put(juego.obtenerJugadorUno().obtenerRaza().getClass(),juego.obtenerJugadorUno().obtenerNombre());
+        unidadesDuenio.put(juego.obtenerJugadorDos().obtenerRaza().getClass(),juego.obtenerJugadorDos().obtenerNombre());
+
+        this.mostrarMapa(juego.obtenerMapa(),seleccionCasillero,seleccionUnidad);
     }
 
-    private void mostrarMapa(Mapa mapa) {
+
+
+    private void mostrarMapa(Mapa mapa, boolean seleccionCasillero,boolean seleccionUnidad) {
 
         int tamanioMapa = mapa.obtenerTamanio();
 
@@ -88,9 +101,12 @@ public class ContenedorMapa extends Pane {
         Group grupoDeRecursos = new Group();
         Group grupoDeBases = new Group();
         Group grupoDeConstrucciones = new Group();
+        Group grupoDeUnidades = new Group();
+        Group grupoDeEspacios = new Group();
 
         this.setPrefSize(tamanioMapa* App.TAMANIO_CASILLERO, tamanioMapa* App.TAMANIO_CASILLERO);
-        this.getChildren().addAll(grupoDeCasilleros,grupoDeRecursos,grupoDeBases,grupoDeConstrucciones);
+        this.getChildren().addAll(grupoDeCasilleros,grupoDeRecursos,grupoDeBases,
+                grupoDeConstrucciones,grupoDeUnidades,grupoDeEspacios);
 
         this.cargarBaseJugadorVista(crearBaseVista(mapa.obtenerBaseUno()),juego.obtenerJugadorUno().obtenerColor(),grupoDeBases);
         this.cargarBaseJugadorVista(crearBaseVista(mapa.obtenerBaseDos()),juego.obtenerJugadorDos().obtenerColor(),grupoDeBases);
@@ -98,11 +114,13 @@ public class ContenedorMapa extends Pane {
         for (int i = 0; i < tamanioMapa; i++){
             for (int j = 0; j < tamanioMapa; j++){
                 Casillero casilleroModelo = mapa.obtenerCasillero(i,j);
-                Rectangle casilleroVista = crearCasilleroVista(casilleroModelo);
+                Rectangle casilleroVista = crearCasilleroVista(casilleroModelo,seleccionCasillero);
                 mapaBaseVista[i][j] = casilleroVista;
                 grupoDeCasilleros.getChildren().add(casilleroVista);
+                grupoDeEspacios.getChildren().add(crearEspacioDeConstruccionVista(casilleroModelo));
                 grupoDeRecursos.getChildren().add(crearRecursoVista(casilleroModelo));
                 grupoDeConstrucciones.getChildren().add(crearConstruccionVista(casilleroModelo));
+                grupoDeUnidades.getChildren().add(crearUnidadVista(casilleroModelo,seleccionUnidad));
             }
         }
 
@@ -129,13 +147,14 @@ public class ContenedorMapa extends Pane {
 
     }
 
-    private Rectangle crearCasilleroVista(Casillero casilleroModelo){
+    private Rectangle crearCasilleroVista(Casillero casilleroModelo,boolean conSeleccion){
         Rectangle casilleroVista = new Rectangle();
         casilleroVista.setWidth(App.TAMANIO_CASILLERO);
         casilleroVista.setHeight(App.TAMANIO_CASILLERO);
         casilleroVista.relocate(casilleroModelo.obtenerFila() * App.TAMANIO_CASILLERO,casilleroModelo.obtenerColumna() * App.TAMANIO_CASILLERO);
         casilleroVista.setFill(areasMapa.get(casilleroModelo.obtenerArea().getClass()));
-        casilleroVista.setOnMouseClicked(new SeleccionCasilleroEventHandler(this.stage,this.accion,casilleroModelo,casilleroVista,mapaBaseVista));
+        if (conSeleccion)
+            casilleroVista.setOnMouseClicked(new SeleccionCasilleroEventHandler(this.stage,this.accion,casilleroModelo,casilleroVista,mapaBaseVista));
         return casilleroVista;
     }
 
@@ -144,8 +163,8 @@ public class ContenedorMapa extends Pane {
         Text recursoVista = new Text(recursosTexto.get(recursoModelo.getClass()));
         recursoVista.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
         recursoVista.setFill(recursosColor.get(recursosTexto.get(recursoModelo.getClass())));
-        recursoVista.relocate(casilleroModelo.obtenerFila()*App.TAMANIO_CASILLERO + 10,
-                casilleroModelo.obtenerColumna()*App.TAMANIO_CASILLERO+10);
+        recursoVista.relocate(casilleroModelo.obtenerFila()*App.TAMANIO_CASILLERO + 20,
+                casilleroModelo.obtenerColumna()*App.TAMANIO_CASILLERO+18);
         return recursoVista;
     }
 
@@ -155,11 +174,57 @@ public class ContenedorMapa extends Pane {
         if (construccionModelo != null) {
             construccionVista.setText(construcciones.get(construccionModelo.getClass()));
             construccionVista.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
-            construccionVista.setFill(construccionesColor.get(construccionModelo.obtenerRazaMadre()));
+            if(!construccionModelo.activa())
+                construccionVista.setFill(Color.GRAY);
+            else
+                construccionVista.setFill(construccionesColor.get(construccionModelo.obtenerRazaMadre()));
             construccionVista.relocate(casilleroModelo.obtenerFila() * App.TAMANIO_CASILLERO,
                     casilleroModelo.obtenerColumna() * App.TAMANIO_CASILLERO);
         }
         return construccionVista;
+    }
+
+    private Circle crearUnidadVista(Casillero casilleroModelo,boolean seleccionUnidad){
+        boolean unidadModelo = !casilleroModelo.obtenerUnidades().isEmpty();
+        Circle unidadVista = new Circle();
+        unidadVista.setFill(Color.TRANSPARENT);
+        List<MenuItem> menuItems = new LinkedList<>();
+        if (unidadModelo){
+            List<Unidad> unidadesModelo = casilleroModelo.obtenerUnidades();
+            for (Unidad unidad: unidadesModelo){
+                String[] unidadString = (unidad.getClass().toString().split("\\."));
+                MenuItem unidadOpcion = new MenuItem(unidadString[unidadString.length - 1] + " " + unidadesDuenio.get(unidad.obtenerRazaMadre()));
+                if(seleccionUnidad) {
+                    unidadOpcion.setOnAction(new SeleccionUnidadEventHandler(accion, unidad));
+                }
+                menuItems.add(unidadOpcion);
+            }
+            unidadVista.setOnMousePressed(new SeleccionUnidadesEventHandler(menuItems));
+
+
+            unidadVista.setRadius(5);
+            unidadVista.relocate(casilleroModelo.obtenerFila() * App.TAMANIO_CASILLERO+49,casilleroModelo.obtenerColumna() * App.TAMANIO_CASILLERO+5);
+            unidadVista.setFill(Color.valueOf("#FAEE87"));
+
+        }
+        return unidadVista;
+    }
+
+    private Rectangle crearEspacioDeConstruccionVista(Casillero casilleroModelo){
+        Rectangle espacioVista = new Rectangle();
+        espacioVista.setWidth(Math.sqrt(2)*App.TAMANIO_CASILLERO);
+        espacioVista.setHeight(3);
+        espacioVista.relocate(casilleroModelo.obtenerFila() * App.TAMANIO_CASILLERO-((espacioVista.getWidth()-App.TAMANIO_CASILLERO)/2),casilleroModelo.obtenerColumna() * App.TAMANIO_CASILLERO+(double)(App.TAMANIO_CASILLERO/2)-1.5);
+        if(casilleroModelo.contiene(new Moho())) {
+            espacioVista.setRotate(45);
+            espacioVista.setFill(Color.valueOf("#72AC83"));
+        }
+        else if (casilleroModelo.contiene(new RangoPilon())) {
+            espacioVista.setRotate(135);
+            espacioVista.setFill(Color.valueOf("#6478B9"));
+        }
+        else espacioVista.setFill(Color.TRANSPARENT);
+        return espacioVista;
     }
 
     private void cargarDiccionarioConstrucciones(){
@@ -174,16 +239,6 @@ public class ContenedorMapa extends Pane {
         construcciones.put(Asimilador.class,"ASIM");
         construcciones.put(Acceso.class,"ACC");
         construcciones.put(PuertoEstelar.class,"PE");
-        construcciones.put(AmoSupremo.class,"AS");
-        construcciones.put(Zangano.class,"ZAN");
-        construcciones.put(Zerling.class,"ZER");
-        construcciones.put(Hidralisco.class,"H");
-        construcciones.put(Mutalisco.class,"M");
-        construcciones.put(Guardian.class,"GN");
-        construcciones.put(Devorador.class,"DEV");
-        construcciones.put(Zealot.class,"ZEA");
-        construcciones.put(Dragon.class,"DRA");
-        construcciones.put(Scout.class,"S");
     }
 
 }

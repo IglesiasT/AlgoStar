@@ -2,7 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.AlgoStar;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.vista.eventos.BotonConfirmarEventHandler;
+import edu.fiuba.algo3.controlador.eventos.BotonConfirmarEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,8 +17,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-import java.util.Map;
-
 public class ContenedorFinDeTurno extends VBox implements Contenedor {
 
     private Stage stage;
@@ -30,8 +28,6 @@ public class ContenedorFinDeTurno extends VBox implements Contenedor {
         this.stage = stage;
         this.juego = juego;
         this.jugador = jugador;
-
-        juego.siguienteTurno(jugador);
 
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
@@ -64,6 +60,7 @@ public class ContenedorFinDeTurno extends VBox implements Contenedor {
 
     @Override
     public Scene obtenerProximaEscena() {
+        juego.siguienteTurno(jugador);
         return new Scene(new ContenedorElegirAccion(this.stage,this.juego,siguienteJugador()),800,800);
     }
 }

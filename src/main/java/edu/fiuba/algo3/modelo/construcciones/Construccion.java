@@ -57,4 +57,6 @@ public abstract class Construccion {
     }
 
     public abstract Class obtenerRazaMadre();
+
+    public boolean activa(){ return turnos >= turnosParaConstruirse;}
 }

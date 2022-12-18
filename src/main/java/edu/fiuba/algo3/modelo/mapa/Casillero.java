@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.NexoMineral;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
 import edu.fiuba.algo3.modelo.construcciones.ProductorDeGas;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.EspacioDeConstruccion;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.SinEspacio;
@@ -18,6 +19,8 @@ import edu.fiuba.algo3.modelo.areas.*;
 
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Casillero {
     private int fila;
@@ -28,6 +31,7 @@ public class Casillero {
 
     private EspacioDeConstruccion espacio;
     private Construccion construccion;
+    private List<Unidad> unidades;
 
     public Casillero(Area area, int fila, int columna, Mapa mapa){
 
@@ -38,6 +42,7 @@ public class Casillero {
         this.area = area ;
         this.espacio = new SinEspacio();
         this.construccion = null;
+        this.unidades = new LinkedList<>();
     }
 
     /*
@@ -98,6 +103,12 @@ public class Casillero {
         this.construccion = null;
         this.recurso.liberar();
     }
+    public void ubicarUnidad(Unidad unidad){
+        unidades.add(unidad);
+    }
+    public void retirarUnidad(Unidad unidad){
+        unidades.remove(unidad);
+    }
     public Recurso obtenerRecurso() {
         return this.recurso;
     }
@@ -130,4 +141,5 @@ public class Casillero {
     public Area obtenerArea(){
         return this.area;
     }
+    public List<Unidad> obtenerUnidades(){return unidades;}
 }

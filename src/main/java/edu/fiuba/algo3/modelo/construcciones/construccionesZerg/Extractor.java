@@ -41,8 +41,6 @@ public class Extractor extends ConstruccionZerg implements ProductorDeGas {
         if (this.zanganosAsignados.size() >= this.capacidadMaximaDeZanganos){
             throw new MaximoDeZanganosAsignados();
         }
-        this.ubicacion.obtenerRecurso().liberar();
-        zangano.ubicar(this.ubicacion);
         this.zanganosAsignados.add(zangano);
     }
     public Gas obtenerGasProducido() throws EdificioNoEstaOperativo {

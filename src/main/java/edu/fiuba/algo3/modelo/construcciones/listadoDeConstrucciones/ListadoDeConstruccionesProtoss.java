@@ -1,13 +1,16 @@
 package edu.fiuba.algo3.modelo.construcciones.listadoDeConstrucciones;
 
+import edu.fiuba.algo3.modelo.construcciones.Construccion;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Pilon;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
-public class ListadoDeConstruccionesProtoss {
+public class ListadoDeConstruccionesProtoss implements ListadoDeConstrucciones {
     private LinkedList<ConstruccionProtoss> construcciones;
     public ListadoDeConstruccionesProtoss(){
         this.construcciones = new LinkedList<>();
@@ -41,5 +44,8 @@ public class ListadoDeConstruccionesProtoss {
             }
         }
         return maximoSuministro;
+    }
+    public List<Construccion> obtenerConstrucciones(){
+        return new LinkedList<>(construcciones);
     }
 }

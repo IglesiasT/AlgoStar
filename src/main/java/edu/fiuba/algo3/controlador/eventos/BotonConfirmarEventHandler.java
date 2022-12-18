@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.vista.eventos;
+package edu.fiuba.algo3.controlador.eventos;
 
 import edu.fiuba.algo3.vista.Contenedor;
 import javafx.event.ActionEvent;

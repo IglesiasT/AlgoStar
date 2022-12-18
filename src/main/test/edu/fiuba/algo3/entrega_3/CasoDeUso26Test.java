@@ -57,8 +57,11 @@ public class CasoDeUso26Test {
         casillero.setRecurso(new SinRecurso());
         casillero.setArea(new AreaTerrestre());
         casillero.setEspacioDeConstruccion(new Moho());
+        Casillero casillero2 = mapa.obtenerCasillero(1, 4);
+        casillero2.setRecurso(new SinRecurso());
+        casillero2.setArea(new AreaTerrestre());
         Criadero criadero = new Criadero();
-        criadero.establecerUbicacion(mapa.obtenerCasillero(1, 4));
+        criadero.establecerUbicacion(casillero2);
 
         Zerg raza = new Zerg(175, 0);
 

@@ -1,10 +1,14 @@
 package edu.fiuba.algo3.modelo.jugador;
 
+import edu.fiuba.algo3.modelo.construcciones.Construccion;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Mutalisco;
 import edu.fiuba.algo3.modelo.mapa.Base;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.razas.*;
 import javafx.scene.paint.Color;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Jugador {
@@ -62,4 +66,11 @@ public class Jugador {
     public void construir(String construccion, Casillero casillero){
         raza.construir(construccion,casillero);
     }
+    public void engendrar(String unidad,Casillero casillero){((Zerg)raza).engendrar(unidad,casillero);}
+    public void evolucionar(String unidad, Mutalisco mutalisco){
+        ((Zerg)raza).evolucionar(unidad,mutalisco);
+    }
+    public void mover(Unidad unidad, Casillero casillero){unidad.moverse(casillero);}
+    public void atacar(Unidad atacante, Construccion objetivo){raza.atacar(atacante,objetivo);}
+    public List<Construccion> obtenerConstrucciones(){return raza.obtenerConstrucciones();}
 }

@@ -21,6 +21,9 @@ public class CasoDeUso13Test {
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         casillero1.setArea(new AreaTerrestre());
         casillero1.setRecurso(new SinRecurso());
+        Casillero casillero2 = mapa.obtenerCasillero(1,3);
+        casillero2.setArea(new AreaTerrestre());
+        casillero2.setRecurso(new SinRecurso());
         Criadero criadero = new Criadero();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
@@ -36,7 +39,9 @@ public class CasoDeUso13Test {
         criadero.destruir();
         criadero.nuevoTurno(new Zerg());
 
+
+
         // Assert
-        assert mapa.obtenerCasillero(1,3).contiene(new Moho());
+        assert casillero2.contiene(new Moho());
     }
 }

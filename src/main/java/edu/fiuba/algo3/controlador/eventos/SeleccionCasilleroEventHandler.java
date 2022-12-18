@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.vista.eventos;
+package edu.fiuba.algo3.controlador.eventos;
 
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.vista.contenedoresAcciones.ContenedorAccion;

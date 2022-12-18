@@ -1,15 +1,12 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.AlgoStar;
+import edu.fiuba.algo3.modelo.construcciones.Construccion;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.razas.Zerg;
-import edu.fiuba.algo3.vista.contenedoresAcciones.ContenedorAtacar;
-import edu.fiuba.algo3.vista.contenedoresAcciones.ContenedorConstruir;
-import edu.fiuba.algo3.vista.contenedoresAcciones.ContenedorEngendrar;
-import edu.fiuba.algo3.vista.contenedoresAcciones.ContenedorMover;
-import edu.fiuba.algo3.vista.eventos.BotonConfirmarEventHandler;
+import edu.fiuba.algo3.vista.contenedoresAcciones.*;
+import edu.fiuba.algo3.controlador.eventos.BotonConfirmarEventHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -28,6 +25,7 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ContenedorElegirAccion extends VBox implements Contenedor{
@@ -64,6 +62,9 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
         etiquetaTitulo.setTextFill(Color.BLACK);
         this.getChildren().add(etiquetaTitulo);
 
+        this.mostrarRecursos(jugador);
+        this.mostrarEstados(jugador);
+
         this.pedirAccion();
 
         Button botonConfirmar = new Button();
@@ -90,15 +91,47 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
         acciones.addAll("Mover", "Construir", "Atacar","Pasar Turno");
 
         this.escenasAcciones = new HashMap<>();
-        escenasAcciones.put("Mover",new Scene(new ContenedorMover(), App.TAMANIO_CASILLERO*juego.obtenerMapa().obtenerTamanio() + 70, App.TAMANIO_CASILLERO*juego.obtenerMapa().obtenerTamanio()+25));
+        escenasAcciones.put("Mover",new Scene(new ContenedorMover(this.stage,this.juego,jugador), 800,800));
         escenasAcciones.put("Construir",new Scene(new ContenedorConstruir(stage,juego,jugador),800,800));
-        escenasAcciones.put("Atacar",new Scene(new ContenedorAtacar(),App.TAMANIO_CASILLERO*juego.obtenerMapa().obtenerTamanio() + 70, App.TAMANIO_CASILLERO*juego.obtenerMapa().obtenerTamanio()+25));
+        escenasAcciones.put("Atacar",new Scene(new ContenedorAtacarElegirAtacante(stage,juego,jugador),800,800));
         escenasAcciones.put("Pasar Turno", new Scene(new ContenedorFinDeTurno(this.stage,this.juego,jugador),800,800));
 
         if(jugador.obtenerRaza().getClass() == Zerg.class) {
             acciones.add("Engendrar");
-            escenasAcciones.put("Engendrar",new Scene(new ContenedorEngendrar(),App.TAMANIO_CASILLERO*juego.obtenerMapa().obtenerTamanio() + 25, App.TAMANIO_CASILLERO*juego.obtenerMapa().obtenerTamanio()+170));
+            escenasAcciones.put("Engendrar",new Scene(new ContenedorEngendrar(this.stage,this.juego,jugador),800,800));
+            acciones.add("Evolucionar");
+            escenasAcciones.put("Evolucionar",new Scene(new ContenedorEvolucionar(this.stage,this.juego,jugador),800,800));
+
         }
+    }
+
+    private void mostrarRecursos(Jugador jugador){
+        Label etiquetaRecursos = new Label();
+        etiquetaRecursos.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
+        etiquetaRecursos.setText("Recursos disponibles: " + jugador.obtenerRaza().obtenerRecursos());
+        etiquetaRecursos.setTextFill(jugador.obtenerColor());
+        this.getChildren().add(etiquetaRecursos);
+    }
+
+    private void mostrarEstados(Jugador jugador){
+        List<Construccion> construcciones = jugador.obtenerConstrucciones();
+        if (!construcciones.isEmpty())
+            for (Construccion construccion: construcciones){
+                Label etiquetaConstruccion = new Label();
+                etiquetaConstruccion.setFont(Font.font("Verdana", FontWeight.BOLD, 15));
+                String[] construccionString = (construccion.getClass().toString().split("\\."));
+                if (construccion.obtenerRazaMadre() == Zerg.class)
+                    etiquetaConstruccion.setText(construccionString[construccionString.length - 1]+
+                            " V"+String.valueOf(construccion.obtenerVida()));
+                else etiquetaConstruccion.setText(construccionString[construccionString.length - 1]+
+                        " V"+ construccion.obtenerVida() + " E"+ ((ConstruccionProtoss)construccion).obtenerEscudo());
+                if (construccion.activa())
+                    etiquetaConstruccion.setTextFill(jugador.obtenerColor());
+                else etiquetaConstruccion.setTextFill(Color.GRAY);
+                etiquetaConstruccion.setWrapText(true);
+                this.getChildren().add(etiquetaConstruccion);
+            }
+
     }
 
 
