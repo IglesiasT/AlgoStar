@@ -10,30 +10,11 @@ public class ListadoDeRecursos {
         this.recursos = new LinkedList<>();
     }
 
-    public boolean contieneRecurso(RecursoObtenido recursoBuscado){
-        for(RecursoObtenido recurso : this.recursos)
-            if(recurso.getClass() == recursoBuscado.getClass()){
-                return true;
-            }
-        return false;
-    }
-
-    public boolean contieneTodos(ListadoDeRecursos recursosBuscados){
-        for (RecursoObtenido recursoBuscado : recursosBuscados.recursos) {
-            if(! this.contieneRecurso(recursoBuscado)){
-                return true;
-            }
-        }
-        return false;
-    }
-
     public void consumir(ListadoDeRecursos recursosAConsumir){
         for (RecursoObtenido recurso : recursosAConsumir.recursos) {
             recurso.consumir(this.recursos);
         }
     }
-
-
 
     public void agregar(RecursoObtenido recursoAgregar){
         boolean yaAgregado = false;

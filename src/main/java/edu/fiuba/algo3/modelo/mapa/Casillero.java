@@ -23,15 +23,15 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Casillero {
-    private int fila;
-    private int columna;
-    private Mapa mapa;
+    private final int fila;
+    private final int columna;
+    private final Mapa mapa;
     private Recurso recurso;
     private Area area;
 
     private EspacioDeConstruccion espacio;
     private Construccion construccion;
-    private List<Unidad> unidades;
+    private final List<Unidad> unidades;
 
     public Casillero(Area area, int fila, int columna, Mapa mapa){
 

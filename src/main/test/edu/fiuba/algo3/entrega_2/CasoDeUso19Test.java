@@ -14,7 +14,6 @@ import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.recursos.Nodo;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import org.junit.jupiter.api.Test;
 
@@ -41,7 +40,7 @@ public class CasoDeUso19Test {
 
         // Act
 
-        zangano.ubicar(casillero1);
+        zangano.moverse(casillero1);
         zangano.nuevoTurno(new Zerg());
         zangano.atacar(construccionEnemiga);
 

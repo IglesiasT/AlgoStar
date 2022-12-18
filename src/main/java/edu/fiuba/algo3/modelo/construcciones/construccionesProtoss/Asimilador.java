@@ -6,11 +6,10 @@ import edu.fiuba.algo3.modelo.construcciones.ProductorDeGas;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.recursos.Nodo;
 
 public class Asimilador extends ConstruccionProtoss implements ProductorDeGas {
     private int gasProducido;
-    private int produccionPorTurno;
+    private final int produccionPorTurno;
 
     public Asimilador(){
         super();

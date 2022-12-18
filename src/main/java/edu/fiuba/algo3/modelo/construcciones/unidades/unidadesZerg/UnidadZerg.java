@@ -3,7 +3,6 @@ package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg;
 import edu.fiuba.algo3.modelo.*;
 
 import edu.fiuba.algo3.modelo.areas.Area;
-import edu.fiuba.algo3.modelo.construcciones.Construccion;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
@@ -26,12 +25,20 @@ public abstract class UnidadZerg extends ConstruccionZerg implements Unidad {
 
     @Override
     public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
+        /*
         if (recursos.contieneTodos(this.recursosNecesarios)) {
             throw new NoSePuedeConstruir();
         }
         moverse(casilleroAConstruir);
         this.recursosNecesarios.consumir(recursos);
 
+         */
+        try {
+            moverse(casilleroAConstruir);
+            this.recursosNecesarios.consumir(recursos);
+        }catch(Exception e){
+            throw e;
+        }
     }
     protected boolean enRangoDeAtaque(Casillero ubicacion){
         return ((ubicacion.obtenerFila() <= this.ubicacion.obtenerFila()+this.rangoDeAtaque &&
@@ -51,7 +58,7 @@ public abstract class UnidadZerg extends ConstruccionZerg implements Unidad {
             throw new ObjetivoFueraDeRango();
         }
         // Se aplica patron Visitor de manera que el area sepa cuanto danio recibir
-        VisitanteAtacar ataque = new VisitanteAtacar(this.danioAereo, this.danioTerrestre);
+        Atacante ataque = new Atacante(this.danioAereo, this.danioTerrestre);
         Area areaConstruccion = construccionEnemiga.obtenerArea();
         areaConstruccion.aceptar(ataque, construccionEnemiga);
     }

@@ -11,9 +11,8 @@ import edu.fiuba.algo3.modelo.mapa.*;
 import javafx.scene.paint.Color;
 
 public class AlgoStar {
-    public static final int MAXIMOJUGADORES = 2;
-    private ArrayList<Jugador> jugadores;
-    private Mapa mapa ;
+    private final ArrayList<Jugador> jugadores;
+    private final Mapa mapa ;
     private EstadoDeJuego estado;
 
     private int turnos;
@@ -30,10 +29,10 @@ public class AlgoStar {
     }
 
     public void siguienteTurno(Jugador jugador){
-        this.estado.jugar() ;
         jugador.obtenerRaza().nuevoTurno();
         this.turnos++;
         this.estado = this.terminarJuego(this.estado);
+        this.estado.jugar() ;
     }
 
     private EstadoDeJuego terminarJuego(EstadoDeJuego estado) {
@@ -43,6 +42,15 @@ public class AlgoStar {
             }
         }
         return estado;
+    }
+    public Jugador obtenerGanador() {
+        for (Jugador jugador : this.jugadores){
+            if ( (jugador.cantidadDeConstruccionesRealizadas() == 0) && (this.turnos >= 2) ) {
+                jugadores.remove(jugador);
+                return jugadores.get(0);
+            }
+        }
+        return null;
     }
 
     public void agregarJugadorUno(String nombreJugador, Color color, String razaJugador){

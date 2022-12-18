@@ -74,7 +74,7 @@ public class CasoDeUso2Test {
 
 
         //Assert
-        assertThrows(EdificioNoEstaOperativo.class, reserva::evolucionarAZerling);
+        assert(!reserva.activa());
     }
 
     @Test
@@ -100,7 +100,7 @@ public class CasoDeUso2Test {
         reserva.nuevoTurno(new Zerg());
 
         // Assert
-        assertDoesNotThrow(reserva::evolucionarAZerling);
+        assert(reserva.activa());
     }
 
     @Test
@@ -117,7 +117,7 @@ public class CasoDeUso2Test {
         extractor.nuevoTurno(new Zerg());
 
         // Assert
-        assertThrows(EdificioNoEstaOperativo.class, extractor::obtenerGasProducido);
+        assert(!extractor.activa());
     }
 
     @Test
@@ -163,7 +163,7 @@ public class CasoDeUso2Test {
 
 
         // Assert
-        assertThrows(EdificioNoEstaOperativo.class, guarida::evolucionarAHidralisco);
+        assert(!guarida.activa());
     }
 
     @Test
@@ -192,7 +192,7 @@ public class CasoDeUso2Test {
         guarida.nuevoTurno(new Zerg());
 
         // Assert
-        assertDoesNotThrow(guarida::evolucionarAHidralisco);
+        assert(guarida.activa());
     }
 
     @Test
@@ -216,7 +216,7 @@ public class CasoDeUso2Test {
 
 
         // Assert
-        assertThrows(EdificioNoEstaOperativo.class, espiral::evolucionarAMutalisco);
+        assert(!espiral.activa());
     }
 
     @Test
@@ -240,7 +240,7 @@ public class CasoDeUso2Test {
         espiral.nuevoTurno(new Zerg());
 
         // Assert
-        assertDoesNotThrow(espiral::evolucionarAMutalisco);
+        assert(espiral.activa());
     }
 
     @Test

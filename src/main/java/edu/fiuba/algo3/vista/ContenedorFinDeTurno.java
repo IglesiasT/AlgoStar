@@ -60,7 +60,11 @@ public class ContenedorFinDeTurno extends VBox implements Contenedor {
 
     @Override
     public Scene obtenerProximaEscena() {
-        juego.siguienteTurno(jugador);
-        return new Scene(new ContenedorElegirAccion(this.stage,this.juego,siguienteJugador()),800,800);
+        try {
+            juego.siguienteTurno(jugador);
+            return new Scene(new ContenedorElegirAccion(this.stage, this.juego, siguienteJugador()), 800, 800);
+        }catch (Exception e){
+            return new Scene(new ContenedorFinDeJuego(stage,juego),800,800);
+        }
     }
 }

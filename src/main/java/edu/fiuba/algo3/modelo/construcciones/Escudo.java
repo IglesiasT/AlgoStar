@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo.construcciones;
 
 public class Escudo {
-    private int regeneracionPorTurno;
+    private final int regeneracionPorTurno;
 
-    private int vidaMaxima;
+    private final int vidaMaxima;
     private int vida;
     private int danioNoMitigado;
 

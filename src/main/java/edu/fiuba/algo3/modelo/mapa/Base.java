@@ -15,14 +15,14 @@ public class Base {
     private static final int CANTIDAD_NODOS = 7;
     public static final int RADIO = 3;
 
-    private Casillero ubicacion;
-    private ArrayList<?extends Casillero> casilleros;
+    private final Casillero ubicacion;
+
     public Base(Casillero ubicacion){
 
         this.ubicacion = ubicacion;
         this.ubicacion.setArea(new AreaTerrestre());
         this.ubicacion.setRecurso(new Volcan());
-        casilleros = ubicacion.obtenerCasilleros(RADIO);
+        ArrayList<? extends Casillero> casilleros = ubicacion.obtenerCasilleros(RADIO);
         casilleros.remove(ubicacion);
         for (Casillero casillero: casilleros){
             casillero.setArea(new AreaTerrestre());

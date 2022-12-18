@@ -8,7 +8,6 @@ import edu.fiuba.algo3.modelo.mapa.Casillero;
 public class Zangano extends UnidadZerg {
 
     private int recursoRecolectado;
-    private boolean enExtractor;
     public Zangano(){
         super();
         this.vida = 25;
@@ -18,8 +17,8 @@ public class Zangano extends UnidadZerg {
         this.recursoRecolectado = 0;
         this.recursosNecesarios.agregar(new Mineral(25));
     }
-    public void ubicar(Casillero nuevaUbicacion) {
-        this.ubicacion = nuevaUbicacion;
+    public void moverse(Casillero nuevaUbicacion) {
+        super.moverse(nuevaUbicacion);
         if ((nuevaUbicacion.obtenerConstruccion() != null) && (nuevaUbicacion.obtenerConstruccion().getClass() == Extractor.class)) {
             ((Extractor) nuevaUbicacion.obtenerConstruccion()).asignarZangano(this);
         }
@@ -37,8 +36,7 @@ public class Zangano extends UnidadZerg {
         super.nuevoTurno(raza);
         if (this.turnos > turnosParaConstruirse ){
             if (this.ubicacion.obtenerRecurso().getClass() == Nodo.class) {
-                this.producir();
-                raza.agregarRecurso(new Mineral(recursoRecolectado));
+                raza.agregarRecurso(new Mineral(this.producir()));
             }
         }
 

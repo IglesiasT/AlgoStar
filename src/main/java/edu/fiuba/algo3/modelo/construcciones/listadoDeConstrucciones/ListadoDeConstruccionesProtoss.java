@@ -5,14 +5,12 @@ import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionP
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Pilon;
 import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Raza;
-import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class ListadoDeConstruccionesProtoss implements ListadoDeConstrucciones {
-    private LinkedList<ConstruccionProtoss> construcciones;
+    private final LinkedList<ConstruccionProtoss> construcciones;
     public ListadoDeConstruccionesProtoss(){
         this.construcciones = new LinkedList<>();
     }

@@ -105,8 +105,8 @@ public class ContenedorMapa extends Pane {
         Group grupoDeEspacios = new Group();
 
         this.setPrefSize(tamanioMapa* App.TAMANIO_CASILLERO, tamanioMapa* App.TAMANIO_CASILLERO);
-        this.getChildren().addAll(grupoDeCasilleros,grupoDeRecursos,grupoDeBases,
-                grupoDeConstrucciones,grupoDeUnidades,grupoDeEspacios);
+        this.getChildren().addAll(grupoDeCasilleros,grupoDeEspacios,grupoDeRecursos,grupoDeBases,
+                grupoDeConstrucciones,grupoDeUnidades);
 
         this.cargarBaseJugadorVista(crearBaseVista(mapa.obtenerBaseUno()),juego.obtenerJugadorUno().obtenerColor(),grupoDeBases);
         this.cargarBaseJugadorVista(crearBaseVista(mapa.obtenerBaseDos()),juego.obtenerJugadorDos().obtenerColor(),grupoDeBases);

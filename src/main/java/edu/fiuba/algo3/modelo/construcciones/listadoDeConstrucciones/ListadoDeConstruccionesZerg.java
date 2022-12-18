@@ -1,20 +1,17 @@
 package edu.fiuba.algo3.modelo.construcciones.listadoDeConstrucciones;
 
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
-import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.AmoSupremo;
-import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.razas.Zerg;
-import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class ListadoDeConstruccionesZerg implements ListadoDeConstrucciones{
-    private LinkedList<ConstruccionZerg> construcciones;
+    private final LinkedList<ConstruccionZerg> construcciones;
 
     public ListadoDeConstruccionesZerg(){
         this.construcciones = new LinkedList<>();

@@ -2,20 +2,17 @@ package edu.fiuba.algo3.modelo.construcciones.construccionesZerg;
 
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.AmoSupremo;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.razas.Raza;
-import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
-import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.recursos.Nodo;
+import edu.fiuba.algo3.modelo.recursos.*;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 import java.util.ArrayList;
 
 public class Criadero extends ConstruccionZerg {
     private int rangoMoho;
-    private int maximoDeLarvas;
+    private final int maximoDeLarvas;
     private int larvas;
     private int turnos;
 

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class Pilon extends ConstruccionProtoss {
     ArrayList<? extends Casillero> casillerosEnergizados;
-    private int radioAfectado;
+    private final int radioAfectado;
 
     public Pilon(){
         super();

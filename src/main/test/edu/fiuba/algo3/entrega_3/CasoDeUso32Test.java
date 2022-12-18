@@ -20,8 +20,7 @@ public class CasoDeUso32Test {
 
         juego.comenzarJuego() ;
         juego.siguienteTurno(juego.obtenerJugadorUno());
-        juego.siguienteTurno(juego.obtenerJugadorDos());
 
-        assertThrows(JuegoFinalizado.class, () -> juego.siguienteTurno(juego.obtenerJugadorUno()));
+        assertThrows(JuegoFinalizado.class, () -> juego.siguienteTurno(juego.obtenerJugadorDos()));
     }
 }

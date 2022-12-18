@@ -14,11 +14,4 @@ public class Guarida extends ConstruccionZerg {
         this.vida = 1250;
         this.vidaMaxima = 1250;
     }
-
-    public void evolucionarAHidralisco(){
-        if (turnos < this.turnosParaConstruirse){
-            throw new EdificioNoEstaOperativo();
-        }
-        // recibir Larva y cambiar estado a Hidralisco
-    }
 }

@@ -34,7 +34,7 @@ public class CasilleroTest {
         Zangano zangano = new Zangano();
 
         //Act
-        zangano.ubicar(casillero);
+        zangano.moverse(casillero);
 
         //Assert
         assertThrows(NoSePuedeConstruir.class, () -> casillero.establecerConstruccion(new NexoMineral()));

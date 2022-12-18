@@ -6,10 +6,10 @@ import java.util.Random;
 
 public class Mapa {
 
-    private int tamanio;
-    private Casillero[][] tablero;
-    private ArrayList<Area> areas;
-    private ArrayList<Base> bases;
+    private final int tamanio;
+    private final Casillero[][] tablero;
+    private final ArrayList<Area> areas;
+    private final ArrayList<Base> bases;
 
     public Mapa(){
         this.areas = new ArrayList<Area>();

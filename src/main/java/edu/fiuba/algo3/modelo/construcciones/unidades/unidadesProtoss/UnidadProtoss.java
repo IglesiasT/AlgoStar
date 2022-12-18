@@ -1,11 +1,9 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss;
 
-import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.NoSePuedeMover;
 import edu.fiuba.algo3.modelo.ObjetivoFueraDeRango;
-import edu.fiuba.algo3.modelo.VisitanteAtacar;
+import edu.fiuba.algo3.modelo.Atacante;
 import edu.fiuba.algo3.modelo.areas.Area;
-import edu.fiuba.algo3.modelo.construcciones.Construccion;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
@@ -42,7 +40,7 @@ public abstract class UnidadProtoss extends ConstruccionProtoss implements Unida
         }
 
         // Se aplica patron Visitor de manera que el area sepa cuanto danio recibir
-        VisitanteAtacar ataque = new VisitanteAtacar(this.danioAereo, this.danioTerrestre);
+        Atacante ataque = new Atacante(this.danioAereo, this.danioTerrestre);
         Area areaConstruccion = construccionEnemiga.obtenerArea();
         areaConstruccion.aceptar(ataque, construccionEnemiga);
     }
@@ -57,11 +55,13 @@ public abstract class UnidadProtoss extends ConstruccionProtoss implements Unida
     }
     @Override
     public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
-        if (recursos.contieneTodos(this.recursosNecesarios)) {
-            throw new NoSePuedeConstruir();
+        try {
+            moverse(casilleroAConstruir);
+            this.recursosNecesarios.consumir(recursos);
+        }catch(Exception e){
+            throw e;
         }
-        moverse(casilleroAConstruir);
-        this.recursosNecesarios.consumir(recursos);
+
 
     }
     public int consumirSuministro(int suministroAConsumir){

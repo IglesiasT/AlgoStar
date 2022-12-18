@@ -3,12 +3,11 @@ package edu.fiuba.algo3.modelo.construcciones.construccionesProtoss;
 import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
 import edu.fiuba.algo3.modelo.razas.Raza;
-import edu.fiuba.algo3.modelo.recursos.Nodo;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 
 public class NexoMineral extends ConstruccionProtoss {
     private int turnos;
-    private int produccionPorTurno;
+    private final int produccionPorTurno;
     private int mineralProducido;
     public NexoMineral(){
         super();

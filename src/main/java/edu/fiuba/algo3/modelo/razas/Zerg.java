@@ -6,17 +6,14 @@ import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionP
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.*;
 import edu.fiuba.algo3.modelo.construcciones.listadoDeConstrucciones.ListadoDeConstruccionesZerg;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.UnidadProtoss;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.AmoSupremo;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.*;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 
 public class Zerg extends Raza{
-    private ListadoDeConstruccionesZerg construccionesRealizadas;
+    private final ListadoDeConstruccionesZerg construccionesRealizadas;
     public Zerg(){
         super();
         this.construccionesRealizadas = new ListadoDeConstruccionesZerg();
@@ -70,7 +67,7 @@ public class Zerg extends Raza{
         this.maximoSuministro = this.maximoSuministro + 5 ;
         return amoSupremo;
     }
-    public Zangano engendrarZangano(Criadero criaderoAUsar) {
+    public void engendrarZangano(Criadero criaderoAUsar) {
         if ((suministro + (new Zangano()).consumirSuministro(0)) > this.maximoSuministro) {
             throw new SuministroAgotado() ;
         }
@@ -79,9 +76,8 @@ public class Zerg extends Raza{
         this.construccionesRealizadas.agregar(zangano);
 
         this.suministro = zangano.consumirSuministro(this.suministro) ;
-
-        return zangano;
     }
+
     public Mutalisco engendrarMutalisco(Criadero criaderoAUsar){
         if (! this.construccionesRealizadas.contiene(new Espiral())){
             throw new ConstruccionPreviaNoConstruida();
@@ -127,18 +123,6 @@ public class Zerg extends Raza{
 
         return zerling;
     }
-//    public Guardian evolucionarMutalisco(Mutalisco mutaliscoAEvolucionar){
-//        Guardian unidad = new Guardian();
-//        if(!unidad.recursosSuficientes(this.cantidadDeMineral, this.cantidadDeGas)){
-//            throw new NoSePuedeEngendrar();
-//        }
-//        unidad = mutaliscoAEvolucionar.evolucionar();
-        //esto lo deberia hacer el mutalisco creo
-//        this.unidadesEngendradas.remove(mutaliscoAEvolucionar);
-//        this.unidadesEngendradas.add(unidad);
-
-//        return unidad;
-//    }
 
     public void evolucionarMutaliscoAGuardian(Mutalisco mutaliscoAEvolucionar){
         mutaliscoAEvolucionar.evolucionarAGuardian(recursos);
@@ -167,9 +151,6 @@ public class Zerg extends Raza{
         this.construccionesRealizadas.destruir(construccionADestruir);
         this.maximoSuministro = this.maximoSuministro -5 ;
     }
-    //public void destruir (UnidadZerg unidadZerg) {
-    //    this.unidadesEngendradas.remove(unidadZerg) ;
-    //}
     public void destruir (AmoSupremo unidadZerg) {
         this.construccionesRealizadas.destruir(unidadZerg) ;
         this.maximoSuministro = this.maximoSuministro -5;

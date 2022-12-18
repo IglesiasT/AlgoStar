@@ -42,9 +42,9 @@ public class CasoDeUso15Test {
         extractor.nuevoTurno(new Zerg());
         gasRecolectado.agregar(extractor.obtenerGasProducido());
 
-        zangano1.ubicar(casillero);
-        zangano2.ubicar(casillero);
-        zangano3.ubicar(casillero);
+        zangano1.moverse(casillero);
+        zangano2.moverse(casillero);
+        zangano3.moverse(casillero);
 
         zangano1.nuevoTurno(new Zerg());
         zangano2.nuevoTurno(new Zerg());
@@ -108,7 +108,7 @@ public class CasoDeUso15Test {
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
-        zangano.ubicar(casillero);
+        zangano.moverse(casillero);
         zangano.nuevoTurno(new Zerg());
 
         // un zangano recolecta 10 por turno, en 201 turnos recolecta 2010, el nodo tiene 2000
