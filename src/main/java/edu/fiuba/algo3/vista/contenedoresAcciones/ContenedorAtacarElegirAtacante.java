@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.vista.ContenedorMapa;
-import edu.fiuba.algo3.controlador.eventos.BotonConfirmarEventHandler;
+import edu.fiuba.algo3.controlador.BotonConfirmarEventHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;

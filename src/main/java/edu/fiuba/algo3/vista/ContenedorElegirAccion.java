@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionP
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.vista.contenedoresAcciones.*;
-import edu.fiuba.algo3.controlador.eventos.BotonConfirmarEventHandler;
+import edu.fiuba.algo3.controlador.BotonConfirmarEventHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;

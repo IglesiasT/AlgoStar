@@ -2,7 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.AlgoStar;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.controlador.eventos.BotonConfirmarEventHandler;
+import edu.fiuba.algo3.controlador.BotonConfirmarEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

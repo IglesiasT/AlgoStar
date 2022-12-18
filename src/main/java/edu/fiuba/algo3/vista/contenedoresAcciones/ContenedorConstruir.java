@@ -9,7 +9,7 @@ import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.vista.ContenedorError;
 import edu.fiuba.algo3.vista.ContenedorFinDeTurno;
 import edu.fiuba.algo3.vista.ContenedorMapa;
-import edu.fiuba.algo3.controlador.eventos.BotonConfirmarEventHandler;
+import edu.fiuba.algo3.controlador.BotonConfirmarEventHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;

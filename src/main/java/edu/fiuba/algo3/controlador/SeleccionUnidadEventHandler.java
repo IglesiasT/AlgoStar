@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.controlador.eventos;
+package edu.fiuba.algo3.controlador;
 
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
 import edu.fiuba.algo3.vista.contenedoresAcciones.ContenedorAccion;
