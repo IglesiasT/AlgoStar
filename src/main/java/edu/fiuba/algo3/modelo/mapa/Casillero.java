@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.mapa;
 
 
-import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
+import edu.fiuba.algo3.modelo.construcciones.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.NexoMineral;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
@@ -44,20 +44,6 @@ public class Casillero {
         this.construccion = null;
         this.unidades = new LinkedList<>();
     }
-
-    /*
-    no se si hace falta este
-    public Casillero(Recurso recurso,Area area, int fila, int columna, Mapa mapa){
-        this.fila = fila;
-        this.columna = columna;
-        this.mapa = mapa;
-        this.recurso = recurso;
-        this.area = area ;
-        this.espacio = new SinEspacio();
-        this.construccion = null;
-    }
-
-     */
 
     public void setEspacioDeConstruccion(EspacioDeConstruccion espacio){
         this.espacio = espacio;

@@ -15,9 +15,4 @@ public class Mineral extends RecursoObtenido {
         Mineral that = (Mineral) o;
         return cantidad == that.cantidad;
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(cantidad);
-    }
 }

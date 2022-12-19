@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_2;
 
-import edu.fiuba.algo3.modelo.ObjetivoFueraDeRango;
+import edu.fiuba.algo3.modelo.visitante.ObjetivoFueraDeRango;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Pilon;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Zealot;

@@ -33,5 +33,4 @@ public abstract class Recurso{
         this.ocupado = false;
     }
     public boolean estaOcupado(){ return this.ocupado;}
-
 }

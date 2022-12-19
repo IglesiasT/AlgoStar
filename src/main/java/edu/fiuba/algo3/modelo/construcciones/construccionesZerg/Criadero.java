@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.construcciones.construccionesZerg;
 
-import edu.fiuba.algo3.modelo.NoSePuedeEngendrar;
+import edu.fiuba.algo3.modelo.construcciones.NoSePuedeEngendrar;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;

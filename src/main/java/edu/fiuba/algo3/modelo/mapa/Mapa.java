@@ -34,8 +34,7 @@ public class Mapa {
 
         for (int i = 2; i <= cantidad; i++) {
             int fila = 1 + ((new Random()).nextInt(tamanio-2));
-            int columna = ((new Random()).nextInt(fila/*-1-*/)); //esto a veces rompe, pero no se por que
-                                                                 //sin el -1 no rompe
+            int columna = ((new Random()).nextInt(fila));
             this.bases.add(new Base(this.tablero[fila][columna]));
             this.bases.add(new Base(this.tablero[columna][fila]));
         }

@@ -1,12 +1,11 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss;
 
-import edu.fiuba.algo3.modelo.NoSePuedeMover;
-import edu.fiuba.algo3.modelo.ObjetivoFueraDeRango;
-import edu.fiuba.algo3.modelo.Atacante;
+import edu.fiuba.algo3.modelo.visitante.NoSePuedeMover;
+import edu.fiuba.algo3.modelo.visitante.ObjetivoFueraDeRango;
+import edu.fiuba.algo3.modelo.visitante.Atacante;
 import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
-import edu.fiuba.algo3.modelo.estados.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
@@ -30,10 +29,9 @@ public abstract class UnidadProtoss extends ConstruccionProtoss implements Unida
                 (ubicacion.obtenerColumna() <= this.ubicacion.obtenerColumna()+this.rangoDeAtaque) &&
                 ubicacion.obtenerColumna() >= this.ubicacion.obtenerColumna()-this.rangoDeAtaque);
     }
+
     public void atacar(ConstruccionZerg construccionEnemiga){
-        if (turnos < this.turnosParaConstruirse) {
-            throw new EdificioNoEstaOperativo();
-        }
+        estado.jugar();
 
         if (!enRangoDeAtaque(construccionEnemiga.obtenerUbicacion())){
             throw new ObjetivoFueraDeRango();
@@ -55,14 +53,8 @@ public abstract class UnidadProtoss extends ConstruccionProtoss implements Unida
     }
     @Override
     public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
-        try {
-            moverse(casilleroAConstruir);
-            this.recursosNecesarios.consumir(recursos);
-        }catch(Exception e){
-            throw e;
-        }
-
-
+        moverse(casilleroAConstruir);
+        this.recursosNecesarios.consumir(recursos);
     }
     public int consumirSuministro(int suministroAConsumir){
         return suministroAConsumir + this.suministro;

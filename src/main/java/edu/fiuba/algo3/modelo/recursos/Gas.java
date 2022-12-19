@@ -16,9 +16,4 @@ public class Gas extends RecursoObtenido {
         Gas that = (Gas) o;
         return cantidad == that.cantidad;
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(cantidad);
-    }
 }

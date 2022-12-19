@@ -1,14 +1,14 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg;
 
-import edu.fiuba.algo3.modelo.*;
-
 import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
 import edu.fiuba.algo3.modelo.mapa.*;
-import edu.fiuba.algo3.modelo.estados.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
+import edu.fiuba.algo3.modelo.visitante.Atacante;
+import edu.fiuba.algo3.modelo.visitante.NoSePuedeMover;
+import edu.fiuba.algo3.modelo.visitante.ObjetivoFueraDeRango;
 
 public abstract class UnidadZerg extends ConstruccionZerg implements Unidad {
     protected int rangoDeAtaque;
@@ -25,20 +25,8 @@ public abstract class UnidadZerg extends ConstruccionZerg implements Unidad {
 
     @Override
     public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
-        /*
-        if (recursos.contieneTodos(this.recursosNecesarios)) {
-            throw new NoSePuedeConstruir();
-        }
         moverse(casilleroAConstruir);
         this.recursosNecesarios.consumir(recursos);
-
-         */
-        try {
-            moverse(casilleroAConstruir);
-            this.recursosNecesarios.consumir(recursos);
-        }catch(Exception e){
-            throw e;
-        }
     }
     protected boolean enRangoDeAtaque(Casillero ubicacion){
         return ((ubicacion.obtenerFila() <= this.ubicacion.obtenerFila()+this.rangoDeAtaque &&
@@ -50,14 +38,11 @@ public abstract class UnidadZerg extends ConstruccionZerg implements Unidad {
     }
 
     public void atacar(ConstruccionProtoss construccionEnemiga){
-        if (turnos < this.turnosParaConstruirse) {
-            throw new EdificioNoEstaOperativo();
-        }
-
+        estado.jugar();
         if (!enRangoDeAtaque(construccionEnemiga.obtenerUbicacion())){
             throw new ObjetivoFueraDeRango();
         }
-        // Se aplica patron Visitor de manera que el area sepa cuanto danio recibir
+
         Atacante ataque = new Atacante(this.danioAereo, this.danioTerrestre);
         Area areaConstruccion = construccionEnemiga.obtenerArea();
         areaConstruccion.aceptar(ataque, construccionEnemiga);

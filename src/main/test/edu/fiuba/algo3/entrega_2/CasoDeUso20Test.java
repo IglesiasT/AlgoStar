@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_2;
 
-import edu.fiuba.algo3.modelo.NoSePuedeMover;
+import edu.fiuba.algo3.modelo.visitante.NoSePuedeMover;
 import edu.fiuba.algo3.modelo.areas.AreaEspacial;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Dragon;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Scout;

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
+import edu.fiuba.algo3.modelo.construcciones.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Asimilador;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Extractor;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.NexoMineral;

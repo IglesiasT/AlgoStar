@@ -9,4 +9,5 @@ public interface Unidad {
 
     void nuevoTurno(Raza raza);
     Class obtenerRazaMadre();
+
 }

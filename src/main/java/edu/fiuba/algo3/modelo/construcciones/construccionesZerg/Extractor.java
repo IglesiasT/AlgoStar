@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.construcciones.construccionesZerg;
 
-import edu.fiuba.algo3.modelo.MaximoDeZanganosAsignados;
+import edu.fiuba.algo3.modelo.construcciones.MaximoDeZanganosAsignados;
 import edu.fiuba.algo3.modelo.estados.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.construcciones.ProductorDeGas;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zangano;
