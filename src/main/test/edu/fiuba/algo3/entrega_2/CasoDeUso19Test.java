@@ -124,11 +124,19 @@ public class CasoDeUso19Test {
         casillero2.setRecurso(new SinRecurso());
         UnidadZerg unidadEnemiga = new Mutalisco();
         unidadEnemiga.moverse(casillero2);
-
+        Raza raza2 = new Zerg();
         Zealot zealot = new Zealot();
         zealot.moverse(casillero1);
 
         // Act
+
+        unidadEnemiga.nuevoTurno(raza2);
+        unidadEnemiga.nuevoTurno(raza2);
+        unidadEnemiga.nuevoTurno(raza2);
+        unidadEnemiga.nuevoTurno(raza2);
+        unidadEnemiga.nuevoTurno(raza2);
+        unidadEnemiga.nuevoTurno(raza2);
+        unidadEnemiga.nuevoTurno(raza2);
 
         zealot.nuevoTurno(raza);
         zealot.nuevoTurno(raza);

@@ -378,7 +378,7 @@ public class CasoDeUso2Test {
 
 
         // Assert
-        assertThrows(EdificioNoEstaOperativo.class, acceso::transportarTropas);
+        assert(!acceso.activa());
     }
     @Test
     public void accesoEstaOperativoLuegoDeOchoTurnos(){
@@ -401,7 +401,8 @@ public class CasoDeUso2Test {
         acceso.nuevoTurno(raza);
 
         // Assert
-        assertDoesNotThrow(acceso::transportarTropas);
+        assert(acceso.activa());
+
     }
 
     @Test
@@ -426,7 +427,7 @@ public class CasoDeUso2Test {
         puertoEstelar.nuevoTurno(raza);
 
         // Assert
-        assertThrows(EdificioNoEstaOperativo.class, puertoEstelar::transportarTropas);
+        assert(!puertoEstelar.activa());
     }
     @Test
     public void puertoEstelarEstaOperativoLuegoDeDiezTurnos(){
@@ -451,6 +452,6 @@ public class CasoDeUso2Test {
         puertoEstelar.nuevoTurno(raza);
 
         // Assert
-        assertDoesNotThrow(puertoEstelar::transportarTropas);
+        assert(puertoEstelar.activa());
     }
 }

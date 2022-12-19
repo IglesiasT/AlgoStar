@@ -15,11 +15,6 @@ public class PuertoEstelar extends ConstruccionProtoss {
         this.vida = 600;
     }
 
-    public void transportarTropas() {
-        estado.jugar();
-        // recibir coleccion de unidades protoss y cambiar ubicacion de todas
-    }
-
     @Override
     public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
         if (! casilleroAConstruir.contiene(new RangoPilon())){  // Sacar if usando patron State

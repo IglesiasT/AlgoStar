@@ -610,6 +610,14 @@ public class CasoDeUso22Test {
 
         Zealot zealot = razaProtoss.construirZealot(casillero4);
 
+        zealot.nuevoTurno(razaProtoss);
+        zealot.nuevoTurno(razaProtoss);
+        zealot.nuevoTurno(razaProtoss);
+        zealot.nuevoTurno(razaProtoss);
+        zealot.nuevoTurno(razaProtoss);
+        zealot.nuevoTurno(razaProtoss);
+        zealot.nuevoTurno(razaProtoss);
+
         razaProtoss.nuevoTurno();
         razaProtoss.nuevoTurno();
         razaProtoss.nuevoTurno();
@@ -732,6 +740,12 @@ public class CasoDeUso22Test {
         razaProtoss.construirAcceso(casillero3);
 
         Dragon dragon = razaProtoss.construirDragon(casillero4);
+        dragon.nuevoTurno(razaProtoss);
+        dragon.nuevoTurno(razaProtoss);
+        dragon.nuevoTurno(razaProtoss);
+        dragon.nuevoTurno(razaProtoss);
+        dragon.nuevoTurno(razaProtoss);
+        dragon.nuevoTurno(razaProtoss);
 
         razaProtoss.nuevoTurno();
         razaProtoss.nuevoTurno();
