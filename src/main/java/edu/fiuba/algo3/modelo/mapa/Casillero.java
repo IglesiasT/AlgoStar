@@ -51,7 +51,7 @@ public class Casillero {
     }
     public void establecerConstruccion(Construccion construccionAEstablecer){
 
-        if (this.construccion != null || (this.recurso.estaOcupado())){
+        if (this.construccion != null){
             throw new NoSePuedeConstruir();
         }
 
@@ -65,6 +65,7 @@ public class Casillero {
                 throw new CasilleroSinMoho();
             }
         }
+
         if (construccionAEstablecer instanceof ProductorDeGas){
             if (this.recurso.getClass() != Volcan.class){
                 throw new CasilleroSinGas();
@@ -83,8 +84,8 @@ public class Casillero {
             throw new NoSePuedeConstruir();
         }
 
-        this.construccion = construccionAEstablecer;
         this.recurso.ocupar();
+        this.construccion = construccionAEstablecer;
     }
     public void destruirConstruccion(){
         this.construccion = null;
