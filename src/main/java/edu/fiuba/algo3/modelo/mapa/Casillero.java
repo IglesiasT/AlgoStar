@@ -16,6 +16,7 @@ import edu.fiuba.algo3.modelo.recursos.Volcan;
 import edu.fiuba.algo3.modelo.recursos.Recurso;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import edu.fiuba.algo3.modelo.areas.*;
+import edu.fiuba.algo3.modelo.visitante.NoSePuedeMover;
 
 
 import java.util.ArrayList;
@@ -105,8 +106,14 @@ public class Casillero {
     public boolean contiene (EspacioDeConstruccion espacio){
         return (this.espacio.getClass() == espacio.getClass());
     }
-    public boolean puedeMoverse (Area tipoUnidad) {     // Rompe tell don't ask, ver presentacion polimorfismo hay ej parecido
-        return ((tipoUnidad.getClass() == AreaEspacial.class) || ((tipoUnidad.getClass() == AreaTerrestre.class) && (this.area.getClass() == AreaTerrestre.class)) ) ;
+    public Casillero Mover(Casillero nuevaPosicion , Area tipoUnidad) {
+        if (! ((tipoUnidad.getClass() == AreaEspacial.class) ||
+                ((tipoUnidad.getClass() == AreaTerrestre.class) &&
+                 (this.area.getClass() == AreaTerrestre.class)) ) ) {
+            return null;
+        }
+
+        return nuevaPosicion;
     }
     public ArrayList<? extends Casillero> obtenerCasilleros(int radio) {
         return this.mapa.obtenerCasilleros(radio, this.fila, this.columna);

@@ -67,11 +67,15 @@ public class Criadero extends ConstruccionZerg {
     }
     private void expandirMoho(){
         ArrayList<Casillero> casillerosInfectados = new ArrayList<>(this.ubicacion.obtenerCasilleros(this.rangoMoho));
+        Casillero aux ;
 
         for (Casillero casillero: casillerosInfectados) {
-            if (casillero.puedeMoverse(new AreaTerrestre()))
-                casillero.setEspacioDeConstruccion(new Moho());
 
+            aux = casillero.Mover(casillero, new AreaTerrestre());
+
+            if (aux != null){
+                casillero.setEspacioDeConstruccion(new Moho());
+            }
         }
     }
     public AmoSupremo engendrarAmoSupremo(ListadoDeRecursos recursos) {

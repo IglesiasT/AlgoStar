@@ -48,11 +48,16 @@ public class ComportamientoUnidad {
     }
 
     public Casillero moverse(Casillero casillero) {
-        if (!casillero.puedeMoverse(this.area)) {
+
+        Casillero aux = casillero.Mover(casillero ,this.area);
+
+        if (aux == null) {
             throw new NoSePuedeMover();
         }
-        if(this.ubicacion != null)
+
+        if(this.ubicacion != null) {
             this.ubicacion.retirarUnidad(this.unidad);
+        }
         casillero.ubicarUnidad(this.unidad);
         this.ubicacion = casillero;
         this.area = casillero.obtenerArea();
