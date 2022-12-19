@@ -8,7 +8,7 @@ import edu.fiuba.algo3.modelo.recursos.Mineral;
 
 public class Asimilador extends ConstruccionProtoss implements ProductorDeGas {
     private int gasProducido;
-    private int produccionPorTurno;
+    private final int produccionPorTurno;
 
     public Asimilador(){
         super();

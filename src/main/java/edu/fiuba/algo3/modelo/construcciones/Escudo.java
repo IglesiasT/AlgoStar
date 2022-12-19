@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.modelo.construcciones;
 
 public class Escudo {
-    private int regeneracionPorTurno;
-    private int vidaMaxima;
+    private final int regeneracionPorTurno;
+
+    private final int vidaMaxima;
+
     private int vida;
     public Escudo(int vida){
         this.regeneracionPorTurno = 10;

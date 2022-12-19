@@ -46,6 +46,7 @@ public class CasoDeUso23Test {
         pilon.nuevoTurno(raza2);
         pilon.nuevoTurno(raza2);
 
+
         unidad.nuevoTurno(raza);
         unidad.nuevoTurno(raza);
 
@@ -81,8 +82,10 @@ public class CasoDeUso23Test {
         pilon.nuevoTurno(raza2);
         pilon.nuevoTurno(raza2);
 
+
         unidad.nuevoTurno(raza);
         unidad.nuevoTurno(raza);
+
 
         unidad.atacar(pilon);
 
@@ -106,6 +109,7 @@ public class CasoDeUso23Test {
         casillero2.setArea(new AreaTerrestre());
         unidadEnemiga.moverse(casillero2);
 
+
         unidad.nuevoTurno(raza);
         unidad.nuevoTurno(raza);
         unidad.nuevoTurno(raza);
@@ -113,6 +117,7 @@ public class CasoDeUso23Test {
 
         unidadEnemiga.nuevoTurno(raza2);
         unidadEnemiga.nuevoTurno(raza2);
+
 
         assertThrows(ObjetivoFueraDeRango.class, () -> unidad.atacar(unidadEnemiga));
     }

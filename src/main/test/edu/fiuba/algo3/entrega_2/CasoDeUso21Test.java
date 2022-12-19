@@ -3,8 +3,6 @@ package edu.fiuba.algo3.entrega_2;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Mutalisco;
-import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
-import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
@@ -32,16 +30,12 @@ public class CasoDeUso21Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setRecurso(new SinRecurso());
         casillero2.setArea(new AreaTerrestre());
-        casillero2.setEspacioDeConstruccion(new Moho());
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setRecurso(new SinRecurso());
         casillero3.setArea(new AreaTerrestre());
-        casillero3.setEspacioDeConstruccion(new Moho());
         Casillero casillero4 = mapa.obtenerCasillero(1,4);
         casillero4.setRecurso(new SinRecurso());
         casillero4.setArea(new AreaTerrestre());
-        casillero4.setEspacioDeConstruccion(new Moho());
-
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
@@ -73,15 +67,12 @@ public class CasoDeUso21Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setRecurso(new SinRecurso());
         casillero2.setArea(new AreaTerrestre());
-        casillero2.setEspacioDeConstruccion(new Moho());
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setRecurso(new SinRecurso());
         casillero3.setArea(new AreaTerrestre());
-        casillero3.setEspacioDeConstruccion(new Moho());
         Casillero casillero4 = mapa.obtenerCasillero(1,4);
         casillero4.setRecurso(new SinRecurso());
         casillero4.setArea(new AreaTerrestre());
-        casillero4.setEspacioDeConstruccion(new Moho());
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();

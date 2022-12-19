@@ -13,7 +13,6 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Hidralisco;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Mutalisco;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zerling;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
-import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.estados.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Zerg;
@@ -60,7 +59,6 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new Moho());
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
@@ -85,7 +83,6 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new Moho());
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
@@ -114,7 +111,6 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new Moho());
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
@@ -143,7 +139,6 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new Moho());
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
@@ -169,11 +164,9 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new Moho());
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
-        casillero3.setEspacioDeConstruccion(new Moho());
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
@@ -200,11 +193,9 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new Moho());
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
-        casillero3.setEspacioDeConstruccion(new Moho());
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
@@ -227,7 +218,6 @@ public class CasoDeUso22Test {
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         casillero1.setArea(new AreaTerrestre());
         casillero1.setRecurso(new SinRecurso());
-        casillero1.setEspacioDeConstruccion(new Moho());
 
         Casillero casillero2 = mapa.obtenerCasillero(2,2);
         casillero2.setArea(new AreaTerrestre());
@@ -239,11 +229,9 @@ public class CasoDeUso22Test {
         Casillero casillero3 = mapa.obtenerCasillero(1,2);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
-        casillero3.setEspacioDeConstruccion(new Moho());
         Casillero casillero4 = mapa.obtenerCasillero(1,3);
         casillero4.setArea(new AreaTerrestre());
         casillero4.setRecurso(new SinRecurso());
-        casillero4.setEspacioDeConstruccion(new Moho());
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
@@ -276,11 +264,9 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new Moho());
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
-        casillero3.setEspacioDeConstruccion(new Moho());
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
@@ -307,15 +293,12 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new Moho());
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
-        casillero3.setEspacioDeConstruccion(new Moho());
         Casillero casillero4 = mapa.obtenerCasillero(1,4);
         casillero4.setArea(new AreaTerrestre());
         casillero4.setRecurso(new SinRecurso());
-        casillero4.setEspacioDeConstruccion(new Moho());
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
@@ -343,15 +326,12 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new Moho());
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
-        casillero3.setEspacioDeConstruccion(new Moho());
         Casillero casillero4 = mapa.obtenerCasillero(1,4);
         casillero4.setArea(new AreaTerrestre());
         casillero4.setRecurso(new SinRecurso());
-        casillero4.setEspacioDeConstruccion(new Moho());
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
@@ -386,15 +366,12 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new Moho());
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
-        casillero3.setEspacioDeConstruccion(new Moho());
         Casillero casillero4 = mapa.obtenerCasillero(1,4);
         casillero4.setArea(new AreaTerrestre());
         casillero4.setRecurso(new SinRecurso());
-        casillero4.setEspacioDeConstruccion(new Moho());
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
@@ -432,15 +409,12 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new Moho());
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
-        casillero3.setEspacioDeConstruccion(new Moho());
         Casillero casillero4 = mapa.obtenerCasillero(1,4);
         casillero4.setArea(new AreaTerrestre());
         casillero4.setRecurso(new SinRecurso());
-        casillero4.setEspacioDeConstruccion(new Moho());
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
@@ -473,7 +447,6 @@ public class CasoDeUso22Test {
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         casillero1.setArea(new AreaTerrestre());
         casillero1.setRecurso(new SinRecurso());
-        casillero1.setEspacioDeConstruccion(new Moho());
         NexoMineral nexoMineral = new NexoMineral();
 
         razaZerg.construirCriadero(casillero1);
@@ -487,15 +460,12 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new Moho());
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
-        casillero3.setEspacioDeConstruccion(new Moho());
         Casillero casillero4 = mapa.obtenerCasillero(1,4);
         casillero4.setArea(new AreaTerrestre());
         casillero4.setRecurso(new SinRecurso());
-        casillero4.setEspacioDeConstruccion(new Moho());
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
@@ -568,7 +538,6 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new RangoPilon());
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
@@ -597,7 +566,6 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new RangoPilon());
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
@@ -633,7 +601,6 @@ public class CasoDeUso22Test {
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
-        casillero3.setEspacioDeConstruccion(new RangoPilon());
         Casillero casillero4 = mapa.obtenerCasillero(2,1);
         casillero4.setArea(new AreaTerrestre());
         casillero4.setRecurso(new SinRecurso());
@@ -689,7 +656,6 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new RangoPilon());
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
@@ -718,11 +684,9 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new RangoPilon());
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
-        casillero3.setEspacioDeConstruccion(new RangoPilon());
 
         razaProtoss.construirAcceso(casillero2);
 
@@ -757,7 +721,6 @@ public class CasoDeUso22Test {
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
-        casillero3.setEspacioDeConstruccion(new RangoPilon());
         Casillero casillero4 = mapa.obtenerCasillero(2,1);
         casillero4.setArea(new AreaTerrestre());
         casillero4.setRecurso(new SinRecurso());
@@ -798,11 +761,9 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new RangoPilon());
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
-
 
         razaProtoss.construirAcceso(casillero2);
 
@@ -829,11 +790,9 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new RangoPilon());
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
-        casillero3.setEspacioDeConstruccion(new RangoPilon());
         Casillero casillero4 = mapa.obtenerCasillero(2,1);
         casillero4.setArea(new AreaTerrestre());
         casillero4.setRecurso(new SinRecurso());
@@ -863,15 +822,12 @@ public class CasoDeUso22Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
         casillero2.setRecurso(new SinRecurso());
-        casillero2.setEspacioDeConstruccion(new RangoPilon());
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
-        casillero3.setEspacioDeConstruccion(new RangoPilon());
         Casillero casillero4 = mapa.obtenerCasillero(2,1);
         casillero4.setArea(new AreaTerrestre());
         casillero4.setRecurso(new SinRecurso());
-        casillero4.setEspacioDeConstruccion(new RangoPilon());
 
         razaProtoss.construirAcceso(casillero2);
         razaProtoss.construirPuertoEstelar(casillero3);
@@ -905,11 +861,9 @@ public class CasoDeUso22Test {
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
-        casillero3.setEspacioDeConstruccion(new RangoPilon());
         Casillero casillero4 = mapa.obtenerCasillero(2,1);
         casillero4.setArea(new AreaTerrestre());
         casillero4.setRecurso(new SinRecurso());
-        casillero4.setEspacioDeConstruccion(new RangoPilon());
         Casillero casillero5 = mapa.obtenerCasillero(2,2);
         casillero5.setArea(new AreaTerrestre());
         casillero5.setRecurso(new SinRecurso());

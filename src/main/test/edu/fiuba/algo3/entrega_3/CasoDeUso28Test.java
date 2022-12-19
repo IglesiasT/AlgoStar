@@ -31,6 +31,7 @@ public class CasoDeUso28Test {
         zerling.nuevoTurno(raza);
         zerling.nuevoTurno(raza);
         zerling.nuevoTurno(raza);
+
         zerling.moverse(casillero2);
         zerling.atacar(zealot);
 

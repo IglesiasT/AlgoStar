@@ -5,6 +5,9 @@ import edu.fiuba.algo3.modelo.estados.JuegoFinalizado;
 import javafx.scene.paint.Color;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CasoDeUso32Test {
@@ -17,8 +20,7 @@ public class CasoDeUso32Test {
 
         juego.comenzarJuego() ;
         juego.siguienteTurno(juego.obtenerJugadorUno());
-        juego.siguienteTurno(juego.obtenerJugadorDos());
 
-        assertThrows(JuegoFinalizado.class, () -> juego.siguienteTurno(juego.obtenerJugadorUno()));
+        assertThrows(JuegoFinalizado.class, () -> juego.siguienteTurno(juego.obtenerJugadorDos()));
     }
 }

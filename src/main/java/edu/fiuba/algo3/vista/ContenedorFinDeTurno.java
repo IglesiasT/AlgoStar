@@ -2,7 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.AlgoStar;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.controlador.eventos.BotonConfirmarEventHandler;
+import edu.fiuba.algo3.controlador.BotonConfirmarEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -60,7 +60,11 @@ public class ContenedorFinDeTurno extends VBox implements Contenedor {
 
     @Override
     public Scene obtenerProximaEscena() {
-        juego.siguienteTurno(jugador);
-        return new Scene(new ContenedorElegirAccion(this.stage,this.juego,siguienteJugador()),800,800);
+        try {
+            juego.siguienteTurno(jugador);
+            return new Scene(new ContenedorElegirAccion(this.stage, this.juego, siguienteJugador()), 800, 800);
+        }catch (Exception e){
+            return new Scene(new ContenedorFinDeJuego(stage,juego),800,800);
+        }
     }
 }

@@ -25,7 +25,7 @@ public class CasoDeUso7Test {
         int cantidadEsperada = 10;
 
         //Act
-        zangano.ubicar(casillero);
+        zangano.moverse(casillero);
         zangano.nuevoTurno(new Zerg());
 
         //Assert

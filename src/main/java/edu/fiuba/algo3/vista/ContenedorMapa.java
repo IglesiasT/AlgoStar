@@ -15,9 +15,9 @@ import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.recursos.*;
 import edu.fiuba.algo3.vista.contenedoresAcciones.ContenedorAccion;
-import edu.fiuba.algo3.controlador.eventos.SeleccionCasilleroEventHandler;
-import edu.fiuba.algo3.controlador.eventos.SeleccionUnidadEventHandler;
-import edu.fiuba.algo3.controlador.eventos.SeleccionUnidadesEventHandler;
+import edu.fiuba.algo3.controlador.SeleccionCasilleroEventHandler;
+import edu.fiuba.algo3.controlador.SeleccionUnidadEventHandler;
+import edu.fiuba.algo3.controlador.SeleccionUnidadesEventHandler;
 import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.MenuItem;
@@ -105,8 +105,8 @@ public class ContenedorMapa extends Pane {
         Group grupoDeEspacios = new Group();
 
         this.setPrefSize(tamanioMapa* App.TAMANIO_CASILLERO, tamanioMapa* App.TAMANIO_CASILLERO);
-        this.getChildren().addAll(grupoDeCasilleros,grupoDeRecursos,grupoDeBases,
-                grupoDeConstrucciones,grupoDeUnidades,grupoDeEspacios);
+        this.getChildren().addAll(grupoDeCasilleros,grupoDeEspacios,grupoDeRecursos,grupoDeBases,
+                grupoDeConstrucciones,grupoDeUnidades);
 
         this.cargarBaseJugadorVista(crearBaseVista(mapa.obtenerBaseUno()),juego.obtenerJugadorUno().obtenerColor(),grupoDeBases);
         this.cargarBaseJugadorVista(crearBaseVista(mapa.obtenerBaseDos()),juego.obtenerJugadorDos().obtenerColor(),grupoDeBases);

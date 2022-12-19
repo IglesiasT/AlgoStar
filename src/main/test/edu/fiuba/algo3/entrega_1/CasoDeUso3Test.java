@@ -116,6 +116,7 @@ public class CasoDeUso3Test {
         // Arrange
         Guarida guarida = new Guarida();
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        casillero.setRecurso(new Volcan());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
@@ -131,6 +132,7 @@ public class CasoDeUso3Test {
         // Arrange
         Espiral espiral = new Espiral();
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        casillero.setRecurso(new Volcan());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
@@ -192,6 +194,7 @@ public class CasoDeUso3Test {
         // Arrange
         PuertoEstelar puerto = new PuertoEstelar();
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        casillero.setRecurso(new Volcan());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act

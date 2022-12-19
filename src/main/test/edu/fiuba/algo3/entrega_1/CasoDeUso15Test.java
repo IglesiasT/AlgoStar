@@ -42,9 +42,9 @@ public class CasoDeUso15Test {
         extractor.nuevoTurno(new Zerg());
         gasRecolectado.agregar(extractor.obtenerGasProducido());
 
-        zangano1.ubicar(casillero);
-        zangano2.ubicar(casillero);
-        zangano3.ubicar(casillero);
+        zangano1.moverse(casillero);
+        zangano2.moverse(casillero);
+        zangano3.moverse(casillero);
 
         zangano1.nuevoTurno(new Zerg());
         zangano2.nuevoTurno(new Zerg());
@@ -100,8 +100,7 @@ public class CasoDeUso15Test {
     @Test
     public void zanganoNoRecolectaMasMineralLuegoDeAgotadoElRecurso(){
         //Arrange
-        NodoMineral mineralProducidoEsperado = new NodoMineral(2000);
-
+        Mineral mineralProducidoEsperado = new Mineral(2000);
         Zangano zangano = new Zangano();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
         casillero.setRecurso(new Nodo());
@@ -109,7 +108,7 @@ public class CasoDeUso15Test {
 
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
-        zangano.ubicar(casillero);
+        zangano.moverse(casillero);
         zangano.nuevoTurno(new Zerg());
 
         // un zangano recolecta 10 por turno, en 201 turnos recolecta 2010, el nodo tiene 2000
@@ -119,8 +118,7 @@ public class CasoDeUso15Test {
         }
 
         // Assert
-        assertEquals(mineralProducidoEsperado, new NodoMineral(mineralProducido));
-
+        assertEquals(mineralProducidoEsperado, new Mineral(mineralProducido));
 
     }
 
@@ -128,9 +126,7 @@ public class CasoDeUso15Test {
     public void nexoMineralNoRecolectaMasMineralLuegoDeAgotadoElRecurso(){
         // Arrange
         Mineral mineralProducidoEsperado = new Mineral(2000);
-
         Mineral mineralRecolectado = new Mineral(0);
-
         NexoMineral nexo = new NexoMineral();
         Casillero casillero = new Casillero(new AreaTerrestre(),1,1,new Mapa());
         casillero.setRecurso(new Nodo());

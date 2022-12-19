@@ -32,6 +32,7 @@ public class CasoDeUso13Test {
         // Act
         recursos.agregar(new Mineral(2000));
         criadero.construir(casillero1, recursos);
+
         criadero.nuevoTurno(raza);
         criadero.nuevoTurno(raza);
         criadero.nuevoTurno(raza);

@@ -25,12 +25,20 @@ public abstract class UnidadZerg extends ConstruccionZerg implements Unidad {
 
     @Override
     public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
+        /*
         if (recursos.contieneTodos(this.recursosNecesarios)) {
             throw new NoSePuedeConstruir();
         }
         moverse(casilleroAConstruir);
         this.recursosNecesarios.consumir(recursos);
 
+         */
+        try {
+            moverse(casilleroAConstruir);
+            this.recursosNecesarios.consumir(recursos);
+        }catch(Exception e){
+            throw e;
+        }
     }
     protected boolean enRangoDeAtaque(Casillero ubicacion){
         return ((ubicacion.obtenerFila() <= this.ubicacion.obtenerFila()+this.rangoDeAtaque &&

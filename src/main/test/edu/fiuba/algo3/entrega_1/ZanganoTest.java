@@ -5,9 +5,7 @@ import edu.fiuba.algo3.modelo.mapa.*;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zangano;
 import edu.fiuba.algo3.modelo.razas.Zerg;
-import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.recursos.Nodo;
-import edu.fiuba.algo3.modelo.recursos.Volcan;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,7 +21,7 @@ public class ZanganoTest {
         int cantidadEsperada = 10;
 
         //Act
-        zangano.ubicar(casillero);
+        zangano.moverse(casillero);
         zangano.nuevoTurno(new Zerg());
 
         //Assert

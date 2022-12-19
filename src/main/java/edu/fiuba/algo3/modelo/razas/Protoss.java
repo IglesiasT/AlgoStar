@@ -10,14 +10,12 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Dragon;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Scout;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.UnidadProtoss;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Zealot;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.UnidadZerg;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 import java.util.List;
-import java.util.Objects;
 
 public class Protoss extends Raza{
-    private ListadoDeConstruccionesProtoss construccionesRealizadas;
+    private final ListadoDeConstruccionesProtoss construccionesRealizadas;
     public Protoss(){
         super();
         this.construccionesRealizadas = new ListadoDeConstruccionesProtoss();
@@ -28,11 +26,7 @@ public class Protoss extends Raza{
     }
     public void nuevoTurno(){
         this.construccionesRealizadas.eliminarConstruccionesDestruidas(this);
-        this.construccionesRealizadas.nuevoTurno(this.recursos, this);
-        //for (Unidad unidad : this.unidadesEngendradas) {    //delegar for en nueva clase ListadoUnidades
-        //    unidad.nuevoTurno();
-        //}
-        // ^ esto rompe
+        this.construccionesRealizadas.nuevoTurno(this);
     }
     private void construir(ConstruccionProtoss construccion, Casillero casilleroAConstruir){
 

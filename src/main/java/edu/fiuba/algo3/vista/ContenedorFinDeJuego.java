@@ -2,7 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.AlgoStar;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.controlador.BotonConfirmarEventHandler;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,17 +17,17 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-public class ContenedorError extends VBox implements Contenedor{
+public class ContenedorFinDeJuego extends VBox {
 
     private Stage stage;
     private AlgoStar juego;
     private Jugador jugador;
-
-    public ContenedorError(Stage stage, AlgoStar juego, Jugador jugador){
+    public ContenedorFinDeJuego(Stage stage,AlgoStar juego) {
         super();
+
         this.stage = stage;
         this.juego = juego;
-        this.jugador = jugador;
+        this.jugador = juego.obtenerGanador();
 
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
@@ -35,23 +35,26 @@ public class ContenedorError extends VBox implements Contenedor{
         this.setBackground(new Background(new BackgroundFill(Color.valueOf("#D0CFE0"), CornerRadii.EMPTY, Insets.EMPTY)));
 
         Label etiquetaTitulo = new Label();
-        etiquetaTitulo.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
-        etiquetaTitulo.setText("NO PUEDE REALIZAR ESTA ACCION");
+        etiquetaTitulo.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
+        etiquetaTitulo.setText("FIN DE JUEGO");
         etiquetaTitulo.setTextFill(Color.BLACK);
         this.getChildren().add(etiquetaTitulo);
+        Label etiquetaGanador = new Label();
+        etiquetaGanador.setFont(Font.font("Verdana", FontWeight.BOLD, 40));
+        etiquetaGanador.setText("GANA");
+        etiquetaGanador.setTextFill(jugador.obtenerColor());
+        this.getChildren().add(etiquetaGanador);
+        Label etiquetaJugador = new Label();
+        etiquetaJugador.setFont(Font.font("Verdana", FontWeight.BOLD, 55));
+        etiquetaJugador.setText(jugador.obtenerNombre().toUpperCase());
+        etiquetaJugador.setTextFill(jugador.obtenerColor());
+        this.getChildren().add(etiquetaJugador);
 
-        Button botonConfirmar = new Button();
-        botonConfirmar.setText("Volver");
+        Button botonFinalizar = new Button();
+        botonFinalizar.setText("Finalizar");
+        botonFinalizar.setOnAction(e -> Platform.exit());
 
-        this.getChildren().addAll(botonConfirmar);
+        this.getChildren().addAll(botonFinalizar);
 
-        BotonConfirmarEventHandler botonConfirmarEventHandler = new BotonConfirmarEventHandler(this.stage,this);
-        botonConfirmar.setOnAction(botonConfirmarEventHandler);
-
-
-    }
-    @Override
-    public Scene obtenerProximaEscena() {
-        return new Scene(new ContenedorElegirAccion(this.stage,this.juego,this.jugador),800,800);
     }
 }

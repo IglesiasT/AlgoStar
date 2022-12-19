@@ -116,10 +116,12 @@ public class CasoDeUso27Test {
 
         // Act
 
+
         devorador.nuevoTurno(raza);
         devorador.nuevoTurno(raza);
         devorador.nuevoTurno(raza);
         devorador.nuevoTurno(raza);
+
         devorador.establecerUbicacion(casillero1);
         scout.establecerUbicacion(casillero2);
         devorador.atacar(scout);
@@ -141,10 +143,12 @@ public class CasoDeUso27Test {
         casillero2.setArea(new AreaTerrestre());
 
         // Act
+
         devorador.nuevoTurno(raza);
         devorador.nuevoTurno(raza);
         devorador.nuevoTurno(raza);
         devorador.nuevoTurno(raza);
+
         devorador.establecerUbicacion(casillero1);
         asimilador.establecerUbicacion(casillero2);
         devorador.atacar(asimilador);

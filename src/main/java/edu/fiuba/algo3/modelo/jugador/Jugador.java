@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.Objects;
 
 public class Jugador {
-    private String nombre ;
-    private Color color ;
-    private Raza raza ;
+    private final String nombre ;
+    private final Color color ;
+    private final Raza raza ;
     private Base baseInicial;
 
     public Jugador(String nombre, Color color , String raza) {

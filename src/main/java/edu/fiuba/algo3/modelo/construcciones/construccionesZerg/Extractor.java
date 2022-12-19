@@ -8,16 +8,17 @@ import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Extractor extends ConstruccionZerg implements ProductorDeGas {
     private int gasProducido;
-    private int capacidadMaximaDeZanganos;
-    private ArrayList<Zangano> zanganosAsignados;
+    private final int capacidadMaximaDeZanganos;
+    private final List<Zangano> zanganosAsignados;
     public Extractor(){
         this.turnosParaConstruirse = 6;
         this.capacidadMaximaDeZanganos = 3;
-        this.zanganosAsignados = new ArrayList<>();
+        this.zanganosAsignados = new LinkedList<>();
         this.gasProducido = 0;
         this.recursosNecesarios.agregar(new Mineral(100));
         this.vida = 750;
@@ -31,7 +32,7 @@ public class Extractor extends ConstruccionZerg implements ProductorDeGas {
         }catch (RuntimeException EdificioNoEstaOperativo){};
     }
     public void producirGas(){
-        gasProducido = 0;
+        this.gasProducido = 0;
         for (Zangano zangano: this.zanganosAsignados) {
             this.gasProducido += zangano.producir();
         }

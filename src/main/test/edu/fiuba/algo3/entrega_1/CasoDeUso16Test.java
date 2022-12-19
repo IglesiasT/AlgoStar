@@ -64,7 +64,7 @@ public class CasoDeUso16Test {
         // Act
         recursos.agregar(new Mineral(2000));
         casillero.setEspacioDeConstruccion(new Moho());
-        zangano.ubicar(casillero);
+        zangano.moverse(casillero);
 
         // Assert
         assertThrows(NoSePuedeConstruir.class, () -> nexo.construir(casillero, recursos));
@@ -85,6 +85,6 @@ public class CasoDeUso16Test {
         nexo.construir(casillero, recursos);
 
         // Assert
-        assertThrows(RecursoOcupado.class, () -> zangano.ubicar(casillero));
+        assertThrows(RecursoOcupado.class, () -> zangano.moverse(casillero));
     }
 }

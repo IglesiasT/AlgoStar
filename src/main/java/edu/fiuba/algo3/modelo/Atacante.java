@@ -5,8 +5,10 @@ import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
 
 public class Atacante implements Visitante{
-    private int danioAereo;
-    private int danioTerrestre;
+
+    private final int danioAereo;
+    private final int danioTerrestre;
+
 
     public Atacante(int danioAereo, int danioTerrestre){
         this.danioAereo = danioAereo;

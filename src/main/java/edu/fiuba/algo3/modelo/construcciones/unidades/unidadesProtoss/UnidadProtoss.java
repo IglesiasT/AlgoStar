@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss;
 
-import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.NoSePuedeMover;
 import edu.fiuba.algo3.modelo.ObjetivoFueraDeRango;
 import edu.fiuba.algo3.modelo.Atacante;
@@ -56,11 +55,13 @@ public abstract class UnidadProtoss extends ConstruccionProtoss implements Unida
     }
     @Override
     public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
-        if (recursos.contieneTodos(this.recursosNecesarios)) {
-            throw new NoSePuedeConstruir();
+        try {
+            moverse(casilleroAConstruir);
+            this.recursosNecesarios.consumir(recursos);
+        }catch(Exception e){
+            throw e;
         }
-        moverse(casilleroAConstruir);
-        this.recursosNecesarios.consumir(recursos);
+
 
     }
     public int consumirSuministro(int suministroAConsumir){

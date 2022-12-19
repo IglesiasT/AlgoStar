@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.construcciones;
 
-import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.estados.ConstruccionFinalizada;
@@ -31,14 +30,11 @@ public abstract class Construccion {
     }
 
     public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
-        if (recursos.contieneTodos(this.recursosNecesarios)) {
-            throw new NoSePuedeConstruir();
-        }
-
         this.recursosNecesarios.consumir(recursos);
         casilleroAConstruir.establecerConstruccion(this);
         this.ubicacion = casilleroAConstruir;
     }
+
     public abstract void recibirDanio(int danioInflingido);
     protected abstract void regenerar();
     public int obtenerVida(){

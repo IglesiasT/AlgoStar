@@ -41,7 +41,7 @@ public class CasoDeUso19Test {
 
         // Act
 
-        zangano.ubicar(casillero1);
+        zangano.moverse(casillero1);
         zangano.nuevoTurno(new Zerg());
         zangano.atacar(construccionEnemiga);
 
@@ -68,8 +68,10 @@ public class CasoDeUso19Test {
         zerling.moverse(casillero1);
 
         // Act
+
         zerling.nuevoTurno(raza);
         zerling.nuevoTurno(raza);
+
         zerling.atacar(unidadEnemiga);
 
         // Assert
@@ -95,10 +97,12 @@ public class CasoDeUso19Test {
         guardian.moverse(casillero1);
 
         // Act
+
         guardian.nuevoTurno(raza);
         guardian.nuevoTurno(raza);
         guardian.nuevoTurno(raza);
         guardian.nuevoTurno(raza);
+
         guardian.atacar(unidadEnemiga);
 
         // Assert
@@ -125,10 +129,12 @@ public class CasoDeUso19Test {
         zealot.moverse(casillero1);
 
         // Act
+
         zealot.nuevoTurno(raza);
         zealot.nuevoTurno(raza);
         zealot.nuevoTurno(raza);
         zealot.nuevoTurno(raza);
+
         zealot.atacar(unidadEnemiga);
 
         // Assert

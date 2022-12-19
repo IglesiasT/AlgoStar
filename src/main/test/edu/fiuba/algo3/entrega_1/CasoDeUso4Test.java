@@ -64,7 +64,7 @@ public class CasoDeUso4Test {
 
         zangano.nuevoTurno(new Zerg());
 
-        zangano.ubicar(casillero);
+        zangano.moverse(casillero);
         extractor.nuevoTurno(new Zerg()); //El gas correspondiente debe generarse por turno
 
         // Assert
@@ -97,8 +97,8 @@ public class CasoDeUso4Test {
         zangano1.nuevoTurno(new Zerg());
         zangano2.nuevoTurno(new Zerg());
 
-        zangano1.ubicar(casillero);
-        zangano2.ubicar(casillero);
+        zangano1.moverse(casillero);
+        zangano2.moverse(casillero);
         extractor.nuevoTurno(new Zerg());     // El gas correspondiente debe generarse por turno
 
         // Assert
@@ -133,9 +133,9 @@ public class CasoDeUso4Test {
         zangano2.nuevoTurno(new Zerg());
         zangano3.nuevoTurno(new Zerg());
 
-        zangano1.ubicar(casillero);
-        zangano2.ubicar(casillero);
-        zangano3.ubicar(casillero);
+        zangano1.moverse(casillero);
+        zangano2.moverse(casillero);
+        zangano3.moverse(casillero);
         extractor.nuevoTurno(new Zerg()); //El gas correspondiente debe generarse por turno
 
         // Assert
@@ -168,9 +168,9 @@ public class CasoDeUso4Test {
         zangano2.nuevoTurno(new Zerg());
         zangano3.nuevoTurno(new Zerg());
 
-        zangano1.ubicar(casillero);
-        zangano2.ubicar(casillero);
-        zangano3.ubicar(casillero);
+        zangano1.moverse(casillero);
+        zangano2.moverse(casillero);
+        zangano3.moverse(casillero);
 
         //Assert
         assertThrows(MaximoDeZanganosAsignados.class, ()-> extractor.asignarZangano(new Zangano()));

@@ -31,10 +31,12 @@ public class CasoDeUso6Test {
         recursos.agregar(new Mineral(2000));
         casillero1.setEspacioDeConstruccion(new Moho());
         criadero.construir(casillero1, recursos);
+
         criadero.nuevoTurno(raza);
         criadero.nuevoTurno(raza);
         criadero.nuevoTurno(raza);
         criadero.nuevoTurno(raza);
+
 
         ArrayList<? extends Casillero> casillerosConMoho =
                 mapa.obtenerCasilleros(5,1, 1);
@@ -62,12 +64,14 @@ public class CasoDeUso6Test {
         recursos.agregar(new Mineral(2000));
         casillero1.setEspacioDeConstruccion(new Moho());
         criadero.construir(casillero1, recursos);
+
         criadero.nuevoTurno(raza);
         criadero.nuevoTurno(raza);
         criadero.nuevoTurno(raza);
         criadero.nuevoTurno(raza);
 
         criadero.nuevoTurno(raza);
+
 
         ArrayList<? extends Casillero> casillerosConMoho =
                 mapa.obtenerCasilleros(6,1, 1);
@@ -98,6 +102,7 @@ public class CasoDeUso6Test {
         recursos.agregar(new Mineral(2000));
         casillero1.setEspacioDeConstruccion(new Moho());
         criadero.construir(casillero1, recursos);
+
         criadero.nuevoTurno(raza);
         criadero.nuevoTurno(raza);
         criadero.nuevoTurno(raza);
@@ -105,6 +110,7 @@ public class CasoDeUso6Test {
 
         criadero.nuevoTurno(raza);
         criadero.nuevoTurno(raza);
+
 
         ArrayList<? extends Casillero> casillerosConMoho =
                 mapa.obtenerCasilleros(6,1,1);

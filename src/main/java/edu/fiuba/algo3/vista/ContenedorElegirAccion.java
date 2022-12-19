@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionP
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.vista.contenedoresAcciones.*;
-import edu.fiuba.algo3.controlador.eventos.BotonConfirmarEventHandler;
+import edu.fiuba.algo3.controlador.BotonConfirmarEventHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -15,10 +15,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -115,23 +113,35 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
 
     private void mostrarEstados(Jugador jugador){
         List<Construccion> construcciones = jugador.obtenerConstrucciones();
+        VBox panelConstrucciones = new VBox();
+        panelConstrucciones.setAlignment(Pos.CENTER);
+        panelConstrucciones.setSpacing(20);
+        panelConstrucciones.setBackground(new Background(new BackgroundFill(Color.valueOf("#D0CFE0"), CornerRadii.EMPTY, Insets.EMPTY)));
         if (!construcciones.isEmpty())
             for (Construccion construccion: construcciones){
                 Label etiquetaConstruccion = new Label();
-                etiquetaConstruccion.setFont(Font.font("Verdana", FontWeight.BOLD, 15));
+                etiquetaConstruccion.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
                 String[] construccionString = (construccion.getClass().toString().split("\\."));
                 if (construccion.obtenerRazaMadre() == Zerg.class)
                     etiquetaConstruccion.setText(construccionString[construccionString.length - 1]+
-                            " V"+String.valueOf(construccion.obtenerVida()));
+                            " V"+ construccion.obtenerVida());
                 else etiquetaConstruccion.setText(construccionString[construccionString.length - 1]+
                         " V"+ construccion.obtenerVida() + " E"+ ((ConstruccionProtoss)construccion).obtenerEscudo());
                 if (construccion.activa())
                     etiquetaConstruccion.setTextFill(jugador.obtenerColor());
                 else etiquetaConstruccion.setTextFill(Color.GRAY);
                 etiquetaConstruccion.setWrapText(true);
-                this.getChildren().add(etiquetaConstruccion);
+                etiquetaConstruccion.setLayoutX(400-etiquetaConstruccion.getWidth());
+                panelConstrucciones.getChildren().add(etiquetaConstruccion);
             }
-
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setContent(panelConstrucciones);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollPane.setFitToWidth(true);
+        scrollPane.setPrefViewportHeight(100);
+        scrollPane.setStyle("-fx-background: #D0CFE0;\n -fx-background-color: #D0CFE0");
+        this.getChildren().add(scrollPane);
     }
 
 

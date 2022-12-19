@@ -25,7 +25,8 @@ public abstract class ListadoDeConstrucciones {
         return false;
     }
 
-    public void nuevoTurno(ListadoDeRecursos recursos , Raza raza){
+
+    public void nuevoTurno(Raza raza){
         for (Construccion construccion: construcciones){
             construccion.nuevoTurno(raza);  //delegar recursos y que se vayan acumulando en caso de producir
         }

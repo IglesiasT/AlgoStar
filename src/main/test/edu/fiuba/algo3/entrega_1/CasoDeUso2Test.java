@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
+import edu.fiuba.algo3.modelo.construcciones.*;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.*;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
@@ -24,9 +25,11 @@ public class CasoDeUso2Test {
         Raza raza = new Zerg();
 
         //Act
+
         criadero.nuevoTurno(raza);
         criadero.nuevoTurno(raza);
         criadero.nuevoTurno(raza);
+
 
         //Assert
         assertThrows(EdificioNoEstaOperativo.class, () -> criadero.engendrarZangano(new ListadoDeRecursos()));
@@ -43,6 +46,7 @@ public class CasoDeUso2Test {
 
         //Act
         criadero.establecerUbicacion(casillero);
+
         criadero.nuevoTurno(raza);
         criadero.nuevoTurno(raza);
         criadero.nuevoTurno(raza);
@@ -64,6 +68,7 @@ public class CasoDeUso2Test {
         casillero.setEspacioDeConstruccion(new Moho());
         reserva.establecerUbicacion(casillero);
 
+
         reserva.nuevoTurno(raza);
         reserva.nuevoTurno(raza);
         reserva.nuevoTurno(raza);
@@ -78,7 +83,7 @@ public class CasoDeUso2Test {
 
 
         //Assert
-        assertThrows(EdificioNoEstaOperativo.class, reserva::evolucionarAZerling);
+        assert(!reserva.activa());
     }
 
     @Test
@@ -91,6 +96,7 @@ public class CasoDeUso2Test {
         // Act
         casillero.setEspacioDeConstruccion(new Moho());
         reserva.establecerUbicacion(casillero);
+
         reserva.nuevoTurno(raza);
         reserva.nuevoTurno(raza);
         reserva.nuevoTurno(raza);
@@ -105,7 +111,7 @@ public class CasoDeUso2Test {
         reserva.nuevoTurno(raza);
 
         // Assert
-        assertDoesNotThrow(reserva::evolucionarAZerling);
+        assert(reserva.activa());
     }
 
     @Test
@@ -122,7 +128,7 @@ public class CasoDeUso2Test {
         extractor.nuevoTurno(new Zerg());
 
         // Assert
-        assertThrows(EdificioNoEstaOperativo.class, extractor::obtenerGasProducido);
+        assert(!extractor.activa());
     }
 
     @Test
@@ -155,6 +161,7 @@ public class CasoDeUso2Test {
         // Act
         casillero.setEspacioDeConstruccion(new Moho());
         guarida.establecerUbicacion(casillero);
+
         guarida.nuevoTurno(raza);
         guarida.nuevoTurno(raza);
         guarida.nuevoTurno(raza);
@@ -169,7 +176,7 @@ public class CasoDeUso2Test {
 
 
         // Assert
-        assertThrows(EdificioNoEstaOperativo.class, guarida::evolucionarAHidralisco);
+        assert(!guarida.activa());
     }
 
     @Test
@@ -184,7 +191,7 @@ public class CasoDeUso2Test {
         recursos.agregar(new Mineral(2000));
         recursos.agregar(new Gas(2000));
         casillero.setEspacioDeConstruccion(new Moho());
-        guarida.construir(casillero, recursos);
+
         guarida.nuevoTurno(raza);
         guarida.nuevoTurno(raza);
         guarida.nuevoTurno(raza);
@@ -199,7 +206,7 @@ public class CasoDeUso2Test {
         guarida.nuevoTurno(raza);
 
         // Assert
-        assertDoesNotThrow(guarida::evolucionarAHidralisco);
+        assert(guarida.activa());
     }
 
     @Test
@@ -212,6 +219,7 @@ public class CasoDeUso2Test {
         // Act
         casillero.setEspacioDeConstruccion(new Moho());
         espiral.establecerUbicacion(casillero);
+
         espiral.nuevoTurno(raza);
         espiral.nuevoTurno(raza);
         espiral.nuevoTurno(raza);
@@ -224,7 +232,7 @@ public class CasoDeUso2Test {
 
 
         // Assert
-        assertThrows(EdificioNoEstaOperativo.class, espiral::evolucionarAMutalisco);
+        assert(!espiral.activa());
     }
 
     @Test
@@ -237,6 +245,7 @@ public class CasoDeUso2Test {
         // Act
         casillero.setEspacioDeConstruccion(new Moho());
         espiral.establecerUbicacion(casillero);
+
         espiral.nuevoTurno(raza);
         espiral.nuevoTurno(raza);
         espiral.nuevoTurno(raza);
@@ -249,7 +258,7 @@ public class CasoDeUso2Test {
         espiral.nuevoTurno(raza);
 
         // Assert
-        assertDoesNotThrow(espiral::evolucionarAMutalisco);
+        assert(espiral.activa());
     }
 
     @Test
@@ -358,6 +367,7 @@ public class CasoDeUso2Test {
         // Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
         acceso.establecerUbicacion(casillero);
+
         acceso.nuevoTurno(raza);
         acceso.nuevoTurno(raza);
         acceso.nuevoTurno(raza);
@@ -365,6 +375,7 @@ public class CasoDeUso2Test {
         acceso.nuevoTurno(raza);
         acceso.nuevoTurno(raza);
         acceso.nuevoTurno(raza);
+
 
         // Assert
         assertThrows(EdificioNoEstaOperativo.class, acceso::transportarTropas);
@@ -379,6 +390,7 @@ public class CasoDeUso2Test {
         // Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
         acceso.establecerUbicacion(casillero);
+
         acceso.nuevoTurno(raza);
         acceso.nuevoTurno(raza);
         acceso.nuevoTurno(raza);
@@ -402,6 +414,7 @@ public class CasoDeUso2Test {
         // Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
         puertoEstelar.establecerUbicacion(casillero);
+
         puertoEstelar.nuevoTurno(raza);
         puertoEstelar.nuevoTurno(raza);
         puertoEstelar.nuevoTurno(raza);
@@ -425,6 +438,7 @@ public class CasoDeUso2Test {
         // Act
         casillero.setEspacioDeConstruccion(new RangoPilon());
         puertoEstelar.establecerUbicacion(casillero);
+
         puertoEstelar.nuevoTurno(raza);
         puertoEstelar.nuevoTurno(raza);
         puertoEstelar.nuevoTurno(raza);
