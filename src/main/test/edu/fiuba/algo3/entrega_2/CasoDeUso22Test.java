@@ -18,8 +18,7 @@ import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.recursos.Nodo;
-import edu.fiuba.algo3.modelo.recursos.SinRecurso;
+import edu.fiuba.algo3.modelo.recursos.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -104,6 +103,9 @@ public class CasoDeUso22Test {
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         casillero1.setArea(new AreaTerrestre());
         casillero1.setRecurso(new SinRecurso());
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+        recursos.agregar(new Mineral(1000));
+        recursos.agregar(new Gas(1000));
 
         nexoMineral.establecerUbicacion(mapa.obtenerCasillero(1, 3));
         razaZerg.construirCriadero(casillero1);
@@ -120,7 +122,7 @@ public class CasoDeUso22Test {
         razaZerg.construirReservaDeReproduccion(casillero2);
 
         Zerling zerling = razaZerg.engendrarZerling((Criadero) casillero1.obtenerConstruccion());
-        zerling.establecerUbicacion(casillero2);
+        zerling.construir(casillero2, recursos);
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
 

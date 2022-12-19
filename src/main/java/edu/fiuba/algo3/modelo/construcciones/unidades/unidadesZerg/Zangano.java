@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg;
 
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Extractor;
+import edu.fiuba.algo3.modelo.construcciones.unidades.ComportamientoUnidad;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.*;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
@@ -16,6 +17,7 @@ public class Zangano extends UnidadZerg {
         this.suministro = 1;
         this.recursoRecolectado = 0;
         this.recursosNecesarios.agregar(new Mineral(25));
+        this.comportamiento = new ComportamientoUnidad(this.ubicacion , this.rangoDeAtaque , this , this.area);
     }
     public void moverse(Casillero nuevaUbicacion) {
         super.moverse(nuevaUbicacion);

@@ -12,8 +12,7 @@ import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.razas.Zerg;
-import edu.fiuba.algo3.modelo.recursos.RecursosInsuficientes;
-import edu.fiuba.algo3.modelo.recursos.SinRecurso;
+import edu.fiuba.algo3.modelo.recursos.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -113,6 +112,9 @@ public class CasoDeUso27Test {
         Raza raza = new Zerg();
         Casillero casillero2 = new Casillero(new AreaEspacial(), 1 , 1 , new Mapa());
         casillero2.setArea(new AreaEspacial());
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+        recursos.agregar(new Mineral(1000));
+        recursos.agregar(new Gas(1000));
 
         // Act
 
@@ -122,8 +124,8 @@ public class CasoDeUso27Test {
         devorador.nuevoTurno(raza);
         devorador.nuevoTurno(raza);
 
-        devorador.establecerUbicacion(casillero1);
-        scout.establecerUbicacion(casillero2);
+        devorador.construir(casillero1, recursos);
+        scout.construir(casillero2 , recursos);
         devorador.atacar(scout);
 
         // Assert
@@ -141,6 +143,9 @@ public class CasoDeUso27Test {
         Raza raza = new Zerg();
         Casillero casillero2 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
         casillero2.setArea(new AreaTerrestre());
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+        recursos.agregar(new Mineral(1000));
+        recursos.agregar(new Gas(1000));
 
         // Act
 
@@ -149,12 +154,11 @@ public class CasoDeUso27Test {
         devorador.nuevoTurno(raza);
         devorador.nuevoTurno(raza);
 
-        devorador.establecerUbicacion(casillero1);
+        devorador.construir(casillero1, recursos);
         asimilador.establecerUbicacion(casillero2);
         devorador.atacar(asimilador);
 
         assertEquals(asimilador.obtenerEscudo()+asimilador.obtenerVida(),resultadoEsperado);
 
     }
-
 }

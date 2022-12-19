@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg;
 
 import edu.fiuba.algo3.modelo.areas.AreaEspacial;
+import edu.fiuba.algo3.modelo.construcciones.unidades.ComportamientoUnidad;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.recursos.Volcan;
-import edu.fiuba.algo3.modelo.recursos.Nodo;
 
 public class Devorador extends UnidadZerg implements EstadoMutalisco {
 
@@ -19,6 +18,7 @@ public class Devorador extends UnidadZerg implements EstadoMutalisco {
         this.recursosNecesarios.agregar(new Mineral(150));
         this.recursosNecesarios.agregar(new Gas(50));
         this.area = new AreaEspacial();
+        this.comportamiento = new ComportamientoUnidad(this.ubicacion , this.rangoDeAtaque , this , this.area);
     }
 
 }

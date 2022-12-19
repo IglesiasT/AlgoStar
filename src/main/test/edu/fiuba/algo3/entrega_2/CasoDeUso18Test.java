@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_2;
 
+import edu.fiuba.algo3.modelo.areas.AreaEspacial;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Asimilador;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.NexoMineral;
@@ -18,6 +19,9 @@ import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.razas.Zerg;
+import edu.fiuba.algo3.modelo.recursos.Gas;
+import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
+import edu.fiuba.algo3.modelo.recursos.Mineral;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -31,13 +35,17 @@ public class CasoDeUso18Test {
         NexoMineral nexoMineral = new NexoMineral();
         int valorEsperado = 246;    //250 escudo - 4 ataque
         Raza raza = new Zerg();
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+        recursos.agregar(new Mineral(1000));
+        recursos.agregar(new Gas(1000));
 
         // Act
 
         zerling.nuevoTurno(raza);
         zerling.nuevoTurno(raza);
 
-        zerling.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
+        zerling.construir(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()), recursos);
+
         nexoMineral.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         zerling.atacar(nexoMineral);
 
@@ -52,6 +60,9 @@ public class CasoDeUso18Test {
         Raza raza = new Zerg();
         Pilon pilon = new Pilon();
         int valorEsperado = 290;    //290 escudo - 10 ataque
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+        recursos.agregar(new Mineral(1000));
+        recursos.agregar(new Gas(1000));
 
         // Act
 
@@ -60,7 +71,7 @@ public class CasoDeUso18Test {
         hidralisco.nuevoTurno(raza);
         hidralisco.nuevoTurno(raza);
 
-        hidralisco.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
+        hidralisco.construir(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()), recursos);
         pilon.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         hidralisco.atacar(pilon);
 
@@ -75,6 +86,9 @@ public class CasoDeUso18Test {
         Scout scout = new Scout();
         Raza raza = new Zerg();
         int valorEsperado = 90;    //100 escudo - 10 ataque
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+        recursos.agregar(new Mineral(1000));
+        recursos.agregar(new Gas(1000));
 
         // Act
 
@@ -83,8 +97,8 @@ public class CasoDeUso18Test {
         hidralisco.nuevoTurno(raza);
         hidralisco.nuevoTurno(raza);
 
-        hidralisco.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
-        scout.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
+        hidralisco.construir(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()), recursos);
+        scout.construir(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()), recursos);
         hidralisco.atacar(scout);
 
         // Assert
@@ -98,6 +112,9 @@ public class CasoDeUso18Test {
         Zealot zealot = new Zealot();
         Raza raza = new Zerg();
         int valorEsperado = 51;    //60 escudo - 9 ataque
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+        recursos.agregar(new Mineral(1000));
+        recursos.agregar(new Gas(1000));
 
         // Act
 
@@ -109,8 +126,9 @@ public class CasoDeUso18Test {
         mutalisco.nuevoTurno(raza);
         mutalisco.nuevoTurno(raza);
 
-        mutalisco.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
-        zealot.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
+        mutalisco.construir(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()), recursos);
+        zealot.construir(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()), recursos);
+
         mutalisco.atacar(zealot);
 
         // Assert
@@ -124,6 +142,9 @@ public class CasoDeUso18Test {
         Scout scout = new Scout();
         Raza raza = new Zerg();
         int valorEsperado = 91;    //100 escudo - 9 ataque
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+        recursos.agregar(new Mineral(1000));
+        recursos.agregar(new Gas(1000));
 
         // Act
 
@@ -135,8 +156,9 @@ public class CasoDeUso18Test {
         mutalisco.nuevoTurno(raza);
         mutalisco.nuevoTurno(raza);
 
-        mutalisco.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
-        scout.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
+        mutalisco.construir(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()), recursos);
+        scout.construir(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()), recursos);
+
         mutalisco.atacar(scout);
 
         // Assert
@@ -150,6 +172,9 @@ public class CasoDeUso18Test {
         Asimilador asimilador = new Asimilador();
         Raza raza = new Zerg();
         int valorEsperado = 425;    //450 escudo - 25 ataque
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+        recursos.agregar(new Mineral(1000));
+        recursos.agregar(new Gas(1000));
 
         // Act
 
@@ -158,8 +183,8 @@ public class CasoDeUso18Test {
         guardian.nuevoTurno(raza);
         guardian.nuevoTurno(raza);
 
-        guardian.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
-        asimilador.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
+        guardian.construir(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()), recursos);
+        asimilador.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
         guardian.atacar(asimilador);
 
         // Assert
@@ -174,6 +199,9 @@ public class CasoDeUso18Test {
         Raza raza = new Protoss();
         ReservaDeReproduccion reserva = new ReservaDeReproduccion();
         int valorEsperado = 992;    //1000 vida - 8 ataque
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+        recursos.agregar(new Mineral(1000));
+        recursos.agregar(new Gas(1000));
 
         // Act
 
@@ -182,9 +210,8 @@ public class CasoDeUso18Test {
         zealot.nuevoTurno(raza);
         zealot.nuevoTurno(raza);
 
-        zealot.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
-        reserva.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
-
+        zealot.construir(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()), recursos);
+        reserva.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
         zealot.atacar(reserva);
 
         // Assert
@@ -197,6 +224,9 @@ public class CasoDeUso18Test {
         Criadero criadero = new Criadero();
         Raza raza = new Protoss();
         int valorEsperado = 480;    //500 vida - 20 ataque
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+        recursos.agregar(new Mineral(1000));
+        recursos.agregar(new Gas(1000));
 
         // Act
 
@@ -207,7 +237,7 @@ public class CasoDeUso18Test {
         dragon.nuevoTurno(raza);
         dragon.nuevoTurno(raza);
 
-        dragon.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
+        dragon.construir(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()), recursos);
         criadero.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
         dragon.atacar(criadero);
 
@@ -220,6 +250,9 @@ public class CasoDeUso18Test {
         Dragon dragon = new Dragon();
         Guardian guardian = new Guardian();
         Raza raza = new Protoss();
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+        recursos.agregar(new Mineral(1000));
+        recursos.agregar(new Gas(1000));
         int valorEsperado = 80;    //100 vida - 20 ataque
 
         // Act
@@ -231,8 +264,8 @@ public class CasoDeUso18Test {
         dragon.nuevoTurno(raza);
         dragon.nuevoTurno(raza);
 
-        dragon.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
-        guardian.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
+        dragon.construir(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()), recursos);
+        guardian.construir(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()), recursos);
         dragon.atacar(guardian);
 
         // Assert
@@ -245,6 +278,9 @@ public class CasoDeUso18Test {
         Criadero criadero = new Criadero();
         Raza raza = new Protoss();
         int valorEsperado = 492;    //500 vida - 8 ataque
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+        recursos.agregar(new Mineral(1000));
+        recursos.agregar(new Gas(1000));
 
         // Act
 
@@ -258,8 +294,9 @@ public class CasoDeUso18Test {
         scout.nuevoTurno(raza);
         scout.nuevoTurno(raza);
 
-        scout.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
+        scout.construir(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()), recursos);
         criadero.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
+
         scout.atacar(criadero);
 
         // Assert
@@ -272,6 +309,9 @@ public class CasoDeUso18Test {
         Mutalisco mutalisco = new Mutalisco();
         Raza raza = new Protoss();
         int valorEsperado = 106;    //120 vida - 14 ataque
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+        recursos.agregar(new Mineral(1000));
+        recursos.agregar(new Gas(1000));
 
         // Act
 
@@ -285,8 +325,8 @@ public class CasoDeUso18Test {
         scout.nuevoTurno(raza);
         scout.nuevoTurno(raza);
 
-        mutalisco.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()));
-        scout.establecerUbicacion(new Casillero(new AreaTerrestre(), 1, 2, new Mapa()));
+        mutalisco.construir(new Casillero(new AreaEspacial(), 1, 1, new Mapa()), recursos);
+        scout.construir(new Casillero(new AreaTerrestre(), 1, 1, new Mapa()), recursos);
         scout.atacar(mutalisco);
 
         // Assert

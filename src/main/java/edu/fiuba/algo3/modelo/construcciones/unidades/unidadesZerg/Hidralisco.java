@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg;
 
+import edu.fiuba.algo3.modelo.construcciones.unidades.ComportamientoUnidad;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.recursos.Volcan;
@@ -17,5 +18,6 @@ public class Hidralisco extends UnidadZerg {
         this.recursosNecesarios.agregar(new Gas(25));
         this.danioTerrestre = 10;
         this.danioAereo = 10;
+        this.comportamiento = new ComportamientoUnidad(this.ubicacion , this.rangoDeAtaque , this , this.area);
     }
 }
