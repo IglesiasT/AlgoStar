@@ -5,9 +5,4 @@ public class Nodo extends Recurso{
         super();
         this.cantidad = 2000;
     }
-
-    public Nodo(int cantidad){
-        super();
-        this.cantidad = cantidad;
-    }
 }
