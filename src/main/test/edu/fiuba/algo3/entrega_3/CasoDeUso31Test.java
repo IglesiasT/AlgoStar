@@ -3,7 +3,7 @@ package edu.fiuba.algo3.entrega_3;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Pilon;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.AmoSupremo;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.AmoSupremo;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
@@ -82,10 +82,12 @@ public class CasoDeUso31Test{
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(raza);
         }
 
         for (int i = 0; i < 50; i++) {
+            criadero.nuevoTurno(raza);
+
             raza.engendrarMutalisco(criadero);
         }
 
@@ -131,10 +133,11 @@ public class CasoDeUso31Test{
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(raza);
         }
 
         for (int i = 0; i < 50; i++) {
+            criadero.nuevoTurno(raza);
             raza.engendrarMutalisco(criadero);
         }
 
@@ -142,7 +145,7 @@ public class CasoDeUso31Test{
 
         raza.construirCriadero(casillero4);
 
-        raza.destruir(new Criadero());
+        raza.destruir((Criadero) casillero4.obtenerConstruccion());
 
         try {raza.engendrarZerling(criadero);} catch (RuntimeException SuministroAgotado){};
 

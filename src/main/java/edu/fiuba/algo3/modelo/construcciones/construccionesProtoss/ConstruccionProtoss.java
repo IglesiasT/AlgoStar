@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.construcciones.construccionesProtoss;
 
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
+import edu.fiuba.algo3.modelo.razas.Protoss;
 
 public abstract class ConstruccionProtoss extends Construccion {
     protected Escudo escudo;
@@ -15,9 +16,8 @@ public abstract class ConstruccionProtoss extends Construccion {
     }
     @Override
     public void recibirDanio(int danioInflingido) {
-        this.escudo.recibirDanio(danioInflingido);
 
-        this.vida -= this.escudo.obtenerDanioNoMitigado();
+        this.vida -= this.escudo.recibirDanio(danioInflingido);
 
         if (this.vida <= 0){
             this.destruir();
@@ -28,4 +28,5 @@ public abstract class ConstruccionProtoss extends Construccion {
         this.escudo.regenerar();
     }
 
+    public Class obtenerRazaMadre(){ return Protoss.class;}
 }

@@ -26,7 +26,7 @@ public class CasoDeUso26Test {
         Zerg raza = new Zerg(50, 0);
 
         for (int i = 0; i < 4; i++) {
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(raza);
         }
 
         raza.engendrarAmoSupremo(criadero);
@@ -42,7 +42,8 @@ public class CasoDeUso26Test {
         Zerg raza = new Zerg(25, 0);
 
         for (int i = 0; i < 4; i++) {
-            criadero.nuevoTurno();
+
+            criadero.nuevoTurno(raza);
         }
 
         raza.engendrarZangano(criadero);
@@ -57,8 +58,11 @@ public class CasoDeUso26Test {
         casillero.setRecurso(new SinRecurso());
         casillero.setArea(new AreaTerrestre());
         casillero.setEspacioDeConstruccion(new Moho());
+        Casillero casillero2 = mapa.obtenerCasillero(1, 4);
+        casillero2.setRecurso(new SinRecurso());
+        casillero2.setArea(new AreaTerrestre());
         Criadero criadero = new Criadero();
-        criadero.establecerUbicacion(mapa.obtenerCasillero(1, 4));
+        criadero.establecerUbicacion(casillero2);
 
         Zerg raza = new Zerg(175, 0);
 
@@ -66,7 +70,9 @@ public class CasoDeUso26Test {
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno();
+
+            criadero.nuevoTurno(raza);
+
         }
 
         raza.engendrarZerling(criadero);
@@ -98,7 +104,9 @@ public class CasoDeUso26Test {
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno();
+
+            criadero.nuevoTurno(raza);
+
         }
 
         raza.engendrarHidralisco(criadero);
@@ -132,7 +140,8 @@ public class CasoDeUso26Test {
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(raza);
+
         }
 
         raza.engendrarMutalisco(criadero);
@@ -228,12 +237,14 @@ public class CasoDeUso26Test {
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(raza);
         }
 
         for (int i = 0; i < 50; i++) {
+            criadero.nuevoTurno(raza);
             raza.engendrarMutalisco(criadero);
         }
+        criadero.nuevoTurno(raza);
 
         try {raza.engendrarZerling(criadero);} catch (RuntimeException SuministroAgotado){};
 
@@ -269,7 +280,7 @@ public class CasoDeUso26Test {
         Criadero criadero = new Criadero();
         criadero.establecerUbicacion(casillero);
 
-        Zerg raza = new Zerg(5700, 5300);
+        Zerg raza = new Zerg(5800, 5300);
 
         raza.construirReservaDeReproduccion(casillero);
         raza.construirGuarida(casillero2);
@@ -277,10 +288,11 @@ public class CasoDeUso26Test {
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
-            criadero.nuevoTurno();
+            criadero.nuevoTurno(raza);
         }
 
         for (int i = 0; i < 50; i++) {
+            criadero.nuevoTurno(raza);
             raza.engendrarMutalisco(criadero);
         }
 

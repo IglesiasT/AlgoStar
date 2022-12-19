@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.recursos.Mineral;
+import edu.fiuba.algo3.modelo.recursos.Nodo;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,7 +9,7 @@ public class MineralTest {
     @Test
     public void seRecolectaLaCantidadDeMineralIndicada(){
         //Arrange
-        Mineral mineral = new Mineral();
+        Nodo mineral = new Nodo();
         int valorEsperado = 500;
 
         //Act and Assert
@@ -19,7 +19,7 @@ public class MineralTest {
     @Test
     public void luegoDeRecolectarsePorCompletoNoSeRecolectaMasMineral(){
         //Arrange
-        Mineral mineral = new Mineral();
+        Nodo mineral = new Nodo();
         int valorEsperado = 0;
 
         //Act

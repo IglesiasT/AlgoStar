@@ -1,16 +1,14 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
+import edu.fiuba.algo3.modelo.construcciones.MaximoDeZanganosAsignados;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Extractor;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zangano;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
-import edu.fiuba.algo3.modelo.recursos.Gas;
+import edu.fiuba.algo3.modelo.razas.Zerg;
+import edu.fiuba.algo3.modelo.recursos.*;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
-import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.recursos.Volcan;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -28,15 +26,15 @@ public class CasoDeUso4Test {
 
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         casillero.setEspacioDeConstruccion(new Moho());
         extractor.construir(casillero, recursos);
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
 
         // Assert
         assertEquals(valorEsperado, extractor.obtenerGasProducido());
@@ -54,20 +52,20 @@ public class CasoDeUso4Test {
 
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         casillero.setEspacioDeConstruccion(new Moho());
         extractor.construir(casillero, recursos);
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
 
-        zangano.nuevoTurno();
+        zangano.nuevoTurno(new Zerg());
 
-        extractor.asignarZangano(zangano);
-        extractor.nuevoTurno(); //El gas correspondiente debe generarse por turno
+        zangano.moverse(casillero);
+        extractor.nuevoTurno(new Zerg()); //El gas correspondiente debe generarse por turno
 
         // Assert
         assertEquals(gasProducidoEsperado, extractor.obtenerGasProducido());
@@ -86,22 +84,22 @@ public class CasoDeUso4Test {
 
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         casillero.setEspacioDeConstruccion(new Moho());
         extractor.construir(casillero, recursos);
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
 
-        zangano1.nuevoTurno();
-        zangano2.nuevoTurno();
+        zangano1.nuevoTurno(new Zerg());
+        zangano2.nuevoTurno(new Zerg());
 
-        extractor.asignarZangano(zangano1);
-        extractor.asignarZangano(zangano2);
-        extractor.nuevoTurno();     // El gas correspondiente debe generarse por turno
+        zangano1.moverse(casillero);
+        zangano2.moverse(casillero);
+        extractor.nuevoTurno(new Zerg());     // El gas correspondiente debe generarse por turno
 
         // Assert
         assertEquals(gasProducidoEsperado, extractor.obtenerGasProducido());
@@ -121,24 +119,24 @@ public class CasoDeUso4Test {
 
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         casillero.setEspacioDeConstruccion(new Moho());
         extractor.construir(casillero, recursos);
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
 
-        zangano1.nuevoTurno();
-        zangano2.nuevoTurno();
-        zangano3.nuevoTurno();
+        zangano1.nuevoTurno(new Zerg());
+        zangano2.nuevoTurno(new Zerg());
+        zangano3.nuevoTurno(new Zerg());
 
-        extractor.asignarZangano(zangano1);
-        extractor.asignarZangano(zangano2);
-        extractor.asignarZangano(zangano3);
-        extractor.nuevoTurno(); //El gas correspondiente debe generarse por turno
+        zangano1.moverse(casillero);
+        zangano2.moverse(casillero);
+        zangano3.moverse(casillero);
+        extractor.nuevoTurno(new Zerg()); //El gas correspondiente debe generarse por turno
 
         // Assert
         assertEquals(gasProducidoEsperado, extractor.obtenerGasProducido());
@@ -156,23 +154,23 @@ public class CasoDeUso4Test {
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         casillero.setEspacioDeConstruccion(new Moho());
         extractor.construir(casillero, recursos);
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
-        extractor.nuevoTurno();
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
+        extractor.nuevoTurno(new Zerg());
 
-        zangano1.nuevoTurno();
-        zangano2.nuevoTurno();
-        zangano3.nuevoTurno();
+        zangano1.nuevoTurno(new Zerg());
+        zangano2.nuevoTurno(new Zerg());
+        zangano3.nuevoTurno(new Zerg());
 
-        extractor.asignarZangano(zangano1);
-        extractor.asignarZangano(zangano2);
-        extractor.asignarZangano(zangano3);
+        zangano1.moverse(casillero);
+        zangano2.moverse(casillero);
+        zangano3.moverse(casillero);
 
         //Assert
         assertThrows(MaximoDeZanganosAsignados.class, ()-> extractor.asignarZangano(new Zangano()));

@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.entrega_2;
 
 
-import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.*;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.NexoMineral;
@@ -14,11 +13,12 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Hidralisco;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Mutalisco;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zerling;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
+import edu.fiuba.algo3.modelo.estados.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.recursos.Mineral;
+import edu.fiuba.algo3.modelo.recursos.Nodo;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import org.junit.jupiter.api.Test;
 
@@ -34,6 +34,8 @@ public class CasoDeUso22Test {
         Zerg razaZerg = new Zerg(1000,1000);
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        casillero1.setArea(new AreaTerrestre());
+        casillero1.setRecurso(new SinRecurso());
         razaZerg.construirCriadero(casillero1);
 
         razaZerg.nuevoTurno();
@@ -50,14 +52,18 @@ public class CasoDeUso22Test {
         Zerg razaZerg = new Zerg(1000,1000);
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        casillero1.setArea(new AreaTerrestre());
+        casillero1.setRecurso(new SinRecurso());
         razaZerg.construirCriadero(casillero1);
 
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        casillero2.setArea(new AreaTerrestre());
+        casillero2.setRecurso(new SinRecurso());
+
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
 
@@ -70,14 +76,18 @@ public class CasoDeUso22Test {
         Zerg razaZerg = new Zerg(1000,1000);
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        casillero1.setArea(new AreaTerrestre());
+        casillero1.setRecurso(new SinRecurso());
         razaZerg.construirCriadero(casillero1);
 
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        casillero2.setArea(new AreaTerrestre());
+        casillero2.setRecurso(new SinRecurso());
+
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
 
@@ -92,16 +102,20 @@ public class CasoDeUso22Test {
         NexoMineral nexoMineral = new NexoMineral();
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        casillero1.setArea(new AreaTerrestre());
+        casillero1.setRecurso(new SinRecurso());
 
         nexoMineral.establecerUbicacion(mapa.obtenerCasillero(1, 3));
         razaZerg.construirCriadero(casillero1);
 
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        casillero2.setArea(new AreaTerrestre());
+        casillero2.setRecurso(new SinRecurso());
+
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
 
@@ -118,14 +132,18 @@ public class CasoDeUso22Test {
         Zerg razaZerg = new Zerg(1000,1000);
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        casillero1.setArea(new AreaTerrestre());
+        casillero1.setRecurso(new SinRecurso());
         razaZerg.construirCriadero(casillero1);
 
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        casillero2.setArea(new AreaTerrestre());
+        casillero2.setRecurso(new SinRecurso());
+
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
 
@@ -138,15 +156,22 @@ public class CasoDeUso22Test {
         Zerg razaZerg = new Zerg(1000,1000);
         Mapa mapa = new Mapa();
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
+        casillero1.setArea(new AreaTerrestre());
+        casillero1.setRecurso(new SinRecurso());
         razaZerg.construirCriadero(casillero1);
 
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
 
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
+        casillero2.setArea(new AreaTerrestre());
+        casillero2.setRecurso(new SinRecurso());
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
+        casillero3.setArea(new AreaTerrestre());
+        casillero3.setRecurso(new SinRecurso());
+
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
@@ -164,10 +189,6 @@ public class CasoDeUso22Test {
         casillero1.setRecurso(new SinRecurso());
         razaZerg.construirCriadero(casillero1);
 
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
 
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
@@ -175,6 +196,11 @@ public class CasoDeUso22Test {
         Casillero casillero3 = mapa.obtenerCasillero(1,3);
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
+
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
@@ -195,14 +221,10 @@ public class CasoDeUso22Test {
 
         Casillero casillero2 = mapa.obtenerCasillero(2,2);
         casillero2.setArea(new AreaTerrestre());
-        casillero2.setRecurso(new Mineral());
+        casillero2.setRecurso(new Nodo());
         nexoMineral.establecerUbicacion(casillero2);
         razaZerg.construirCriadero(casillero1);
 
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
 
         Casillero casillero3 = mapa.obtenerCasillero(1,2);
         casillero3.setArea(new AreaTerrestre());
@@ -210,6 +232,11 @@ public class CasoDeUso22Test {
         Casillero casillero4 = mapa.obtenerCasillero(1,3);
         casillero4.setArea(new AreaTerrestre());
         casillero4.setRecurso(new SinRecurso());
+
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero3);
         razaZerg.construirGuarida(casillero4);
@@ -233,10 +260,6 @@ public class CasoDeUso22Test {
         casillero1.setRecurso(new SinRecurso());
         razaZerg.construirCriadero(casillero1);
 
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
 
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
@@ -245,6 +268,10 @@ public class CasoDeUso22Test {
         casillero3.setArea(new AreaTerrestre());
         casillero3.setRecurso(new SinRecurso());
 
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
@@ -262,10 +289,6 @@ public class CasoDeUso22Test {
         casillero1.setRecurso(new SinRecurso());
         razaZerg.construirCriadero(casillero1);
 
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
 
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
@@ -277,6 +300,10 @@ public class CasoDeUso22Test {
         casillero4.setArea(new AreaTerrestre());
         casillero4.setRecurso(new SinRecurso());
 
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
@@ -295,10 +322,6 @@ public class CasoDeUso22Test {
         casillero1.setRecurso(new SinRecurso());
         razaZerg.construirCriadero(casillero1);
 
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
 
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
@@ -310,6 +333,10 @@ public class CasoDeUso22Test {
         casillero4.setArea(new AreaTerrestre());
         casillero4.setRecurso(new SinRecurso());
 
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
@@ -332,12 +359,9 @@ public class CasoDeUso22Test {
         razaZerg.construirCriadero(casillero1);
         Casillero casilleroNexo = mapa.obtenerCasillero(3,3);
         casilleroNexo.setArea(new AreaTerrestre());
-        casilleroNexo.setRecurso(new Mineral());
+        casilleroNexo.setRecurso(new Nodo());
         nexoMineral.establecerUbicacion(casilleroNexo);
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
+
 
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
@@ -349,6 +373,10 @@ public class CasoDeUso22Test {
         casillero4.setArea(new AreaTerrestre());
         casillero4.setRecurso(new SinRecurso());
 
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
@@ -376,10 +404,7 @@ public class CasoDeUso22Test {
         casillero1.setRecurso(new SinRecurso());
         razaZerg.construirCriadero(casillero1);
 
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
+
 
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
@@ -391,6 +416,10 @@ public class CasoDeUso22Test {
         casillero4.setArea(new AreaTerrestre());
         casillero4.setRecurso(new SinRecurso());
 
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
@@ -423,13 +452,10 @@ public class CasoDeUso22Test {
         razaZerg.construirCriadero(casillero1);
         Casillero casilleroNexo = mapa.obtenerCasillero(3,3);
         casilleroNexo.setArea(new AreaTerrestre());
-        casilleroNexo.setRecurso(new Mineral());
+        casilleroNexo.setRecurso(new Nodo());
         nexoMineral.establecerUbicacion(casilleroNexo);
 
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
-        razaZerg.nuevoTurno();
+
 
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaTerrestre());
@@ -441,6 +467,10 @@ public class CasoDeUso22Test {
         casillero4.setArea(new AreaTerrestre());
         casillero4.setRecurso(new SinRecurso());
 
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
@@ -580,6 +610,14 @@ public class CasoDeUso22Test {
 
         Zealot zealot = razaProtoss.construirZealot(casillero4);
 
+        zealot.nuevoTurno(razaProtoss);
+        zealot.nuevoTurno(razaProtoss);
+        zealot.nuevoTurno(razaProtoss);
+        zealot.nuevoTurno(razaProtoss);
+        zealot.nuevoTurno(razaProtoss);
+        zealot.nuevoTurno(razaProtoss);
+        zealot.nuevoTurno(razaProtoss);
+
         razaProtoss.nuevoTurno();
         razaProtoss.nuevoTurno();
         razaProtoss.nuevoTurno();
@@ -702,6 +740,12 @@ public class CasoDeUso22Test {
         razaProtoss.construirAcceso(casillero3);
 
         Dragon dragon = razaProtoss.construirDragon(casillero4);
+        dragon.nuevoTurno(razaProtoss);
+        dragon.nuevoTurno(razaProtoss);
+        dragon.nuevoTurno(razaProtoss);
+        dragon.nuevoTurno(razaProtoss);
+        dragon.nuevoTurno(razaProtoss);
+        dragon.nuevoTurno(razaProtoss);
 
         razaProtoss.nuevoTurno();
         razaProtoss.nuevoTurno();

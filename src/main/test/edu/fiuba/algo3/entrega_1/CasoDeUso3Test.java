@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.NoSePuedeConstruir;
+import edu.fiuba.algo3.modelo.construcciones.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.*;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.*;
@@ -26,7 +26,7 @@ public class CasoDeUso3Test {
         casillero.setRecurso(new Volcan());
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         asimilador.construir(casillero, recursos);
 
         // Assert
@@ -41,7 +41,7 @@ public class CasoDeUso3Test {
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
 
         // Assert
         assertThrows(CasilleroSinGas.class, () -> asimilador.construir(casillero, recursos));
@@ -56,7 +56,7 @@ public class CasoDeUso3Test {
         casillero.setRecurso(new Volcan());
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         casillero.setEspacioDeConstruccion(new Moho());
         extractor.construir(casillero, recursos);
 
@@ -72,7 +72,7 @@ public class CasoDeUso3Test {
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         casillero.setEspacioDeConstruccion(new Moho());
 
         // Assert
@@ -88,7 +88,7 @@ public class CasoDeUso3Test {
         casillero.setRecurso(new Volcan());
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
 
         // Assert
         assertThrows(NoSePuedeConstruir.class, () -> criadero.construir(casillero, recursos));
@@ -103,7 +103,7 @@ public class CasoDeUso3Test {
         casillero.setRecurso(new Volcan());
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         casillero.setEspacioDeConstruccion(new Moho());
 
         // Assert
@@ -115,10 +115,11 @@ public class CasoDeUso3Test {
         // Arrange
         Guarida guarida = new Guarida();
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        casillero.setRecurso(new Volcan());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         casillero.setEspacioDeConstruccion(new Moho());
 
         // Assert
@@ -130,10 +131,11 @@ public class CasoDeUso3Test {
         // Arrange
         Espiral espiral = new Espiral();
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        casillero.setRecurso(new Volcan());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         casillero.setEspacioDeConstruccion(new Moho());
 
         // Assert
@@ -149,7 +151,7 @@ public class CasoDeUso3Test {
         casillero.setRecurso(new Volcan());
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
 
         // Assert
         assertThrows(NoSePuedeConstruir.class, () -> nexo.construir(casillero, recursos));
@@ -164,7 +166,7 @@ public class CasoDeUso3Test {
         casillero.setRecurso(new Volcan());
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
 
         // Assert
         assertThrows(NoSePuedeConstruir.class, () -> pilon.construir(casillero, recursos));
@@ -179,7 +181,7 @@ public class CasoDeUso3Test {
         casillero.setRecurso(new Volcan());
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
         // Assert
@@ -191,10 +193,11 @@ public class CasoDeUso3Test {
         // Arrange
         PuertoEstelar puerto = new PuertoEstelar();
         Casillero casillero = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
+        casillero.setRecurso(new Volcan());
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         casillero.setEspacioDeConstruccion(new RangoPilon());
 
         // Assert

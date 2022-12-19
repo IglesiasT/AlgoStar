@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.recursos;
 
 import javafx.scene.text.Text;
 
+import java.util.List;
 import java.util.Set;
 
 public abstract class Recurso{
@@ -32,14 +33,4 @@ public abstract class Recurso{
         this.ocupado = false;
     }
     public boolean estaOcupado(){ return this.ocupado;}
-    public void consumir(Set<Recurso> recursos){
-        for (Recurso recurso : recursos) {
-            if (recurso.equals(this)){
-                if(this.cantidad < recurso.cantidad){
-                    throw new RecursosInsuficientes();
-                }
-                this.cantidad -= recurso.cantidad;
-            }
-        }
-    }
 }

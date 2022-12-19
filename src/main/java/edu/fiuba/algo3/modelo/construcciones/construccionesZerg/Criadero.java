@@ -1,43 +1,52 @@
 package edu.fiuba.algo3.modelo.construcciones.construccionesZerg;
 
-import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.AmoSupremo;
+import edu.fiuba.algo3.modelo.construcciones.NoSePuedeEngendrar;
+import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.*;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
+import edu.fiuba.algo3.modelo.estados.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.AmoSupremo;
+import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Criadero extends ConstruccionZerg {
     private int rangoMoho;
     private int maximoDeLarvas;
-    private int larvas;
+    private LinkedList<Larva> larvas;
     private int turnos;
 
     public Criadero (){
         super();
         this.maximoDeLarvas = 3;
-        this.larvas = this.maximoDeLarvas;
+        this.larvas = new LinkedList<>();
+
+        for (int i = 0 ; i < this.maximoDeLarvas ; i++) {
+            this.larvas.add(new Larva());
+        }
+
         this.turnosParaConstruirse = 4;
-        this.recursosNecesarios.agregar(new Mineral(50));
+        this.recursosNecesarios.agregar(new Mineral(100));
         this.rangoMoho = 4;
         this.vida = 500;
         this.vidaMaxima = 500;
     }
     public int larvasRestantes() {
-        return this.larvas;
+        return this.larvas.size();
     }
     public Zangano engendrarZangano(ListadoDeRecursos recursos) throws EdificioNoEstaOperativo {
         return (Zangano)this.engendrar(new Zangano(), recursos);
     }
-    public void nuevoTurno(){
-        super.nuevoTurno();
+    public void nuevoTurno(Raza raza){
+        super.nuevoTurno(raza);
 
         this.turnos++;
-        if (this.larvas < this.maximoDeLarvas){
-            this.larvas++;
+        if (this.larvas.size() < this.maximoDeLarvas){
+            this.larvas.add(new Larva());
         }
 
         if (this.turnos % 2 == 0 && this.turnos >= this.turnosParaConstruirse){
@@ -46,20 +55,22 @@ public class Criadero extends ConstruccionZerg {
         }
     }
     private UnidadZerg engendrar(UnidadZerg unidad, ListadoDeRecursos recursos) throws EdificioNoEstaOperativo{
-        if (turnos < this.turnosParaConstruirse){
-            throw new EdificioNoEstaOperativo();
-        }
+        estado.jugar();
 
-        unidad.construir(this.ubicacion, recursos);
-        this.larvas--;
+        if (this.larvas.size() == 0){
+            throw new NoSePuedeEngendrar();
+        }
+        unidad = this.larvas.getFirst().evolucionar(unidad, this.ubicacion, recursos);
+        this.larvas.remove();
 
         return unidad;
     }
-    public void expandirMoho(){
+    private void expandirMoho(){
         ArrayList<Casillero> casillerosInfectados = new ArrayList<>(this.ubicacion.obtenerCasilleros(this.rangoMoho));
 
         for (Casillero casillero: casillerosInfectados) {
-            casillero.setEspacioDeConstruccion(new Moho());
+            if (casillero.puedeMoverse(new AreaTerrestre()))
+                casillero.setEspacioDeConstruccion(new Moho());
 
         }
     }

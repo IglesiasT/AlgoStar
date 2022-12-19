@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.construcciones.construccionesProtoss;
 
-import edu.fiuba.algo3.modelo.construcciones.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
@@ -14,13 +13,6 @@ public class Acceso extends ConstruccionProtoss {
         this.turnosParaConstruirse = 8;
         this.escudo = new Escudo(500);
         this.vida = 500;
-    }
-
-    public void transportarTropas() {
-        if (turnos < this.turnosParaConstruirse){
-            throw new EdificioNoEstaOperativo();
-        }
-        // recibir coleccion de unidades protoss y cambiar ubicacion de todas
     }
 
     @Override

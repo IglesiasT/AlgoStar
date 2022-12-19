@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.construcciones.Escudo;
 import edu.fiuba.algo3.modelo.construcciones.unidades.visibilidad.Visibilidad;
 import edu.fiuba.algo3.modelo.construcciones.unidades.visibilidad.Visible;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
+import edu.fiuba.algo3.modelo.recursos.Nodo;
 
 public class Zealot extends UnidadProtoss {
     Visibilidad estado;

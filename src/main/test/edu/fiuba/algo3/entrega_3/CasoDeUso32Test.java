@@ -1,7 +1,8 @@
 package edu.fiuba.algo3.entrega_3;
 
 import edu.fiuba.algo3.modelo.AlgoStar;
-import edu.fiuba.algo3.modelo.estadosDeJuego.JuegoFinalizado;
+import edu.fiuba.algo3.modelo.estados.JuegoFinalizado;
+import javafx.scene.paint.Color;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -14,14 +15,12 @@ public class CasoDeUso32Test {
     @Test
     public void elJuegoTerminaCuandoAlgunoDeLosJugadoresSeQuedaSinEdificios() {
         AlgoStar juego = new AlgoStar();
-        String input = "Amparo\nVioleta\nZerg\nAmparoMaria\nRojo\nProtoss\n";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        juego.agregarJugadorUno("Amparo" , Color.BLUE, "Zerg");
+        juego.agregarJugadorDos("Mariaa" , Color.RED, "Protoss");
 
         juego.comenzarJuego() ;
-        juego.siguienteTurno();
-        juego.siguienteTurno();
+        juego.siguienteTurno(juego.obtenerJugadorUno());
 
-        assertThrows(JuegoFinalizado.class, () -> juego.siguienteTurno());
+        assertThrows(JuegoFinalizado.class, () -> juego.siguienteTurno(juego.obtenerJugadorDos()));
     }
 }

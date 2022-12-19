@@ -1,12 +1,12 @@
 package edu.fiuba.algo3.modelo.recursos;
 
+import java.util.List;
 import java.util.Objects;
 
-public class Gas {
-    private int gasProducido;
+public class Gas extends RecursoObtenido {
 
-    public Gas(int gasProducido) {
-        this.gasProducido = gasProducido;
+    public Gas(int cantidad) {
+        super(cantidad);
     }
 
     @Override
@@ -14,11 +14,6 @@ public class Gas {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Gas that = (Gas) o;
-        return gasProducido == that.gasProducido;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(gasProducido);
+        return cantidad == that.cantidad;
     }
 }

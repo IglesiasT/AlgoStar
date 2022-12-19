@@ -6,8 +6,10 @@ import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Pilon;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.FueraDeRangoDePilon;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
+import edu.fiuba.algo3.modelo.recursos.Nodo;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import org.junit.jupiter.api.Test;
 
@@ -31,14 +33,14 @@ public class CasoDeUso9Test {
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         pilon.construir(casillero1, recursos);
-        pilon.nuevoTurno();
-        pilon.nuevoTurno();
-        pilon.nuevoTurno();
-        pilon.nuevoTurno();
-        pilon.nuevoTurno();
-        pilon.nuevoTurno();
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
         acceso.construir(casillero2, recursos);
 
         // Assert
@@ -60,14 +62,14 @@ public class CasoDeUso9Test {
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         pilon.construir(casillero1, recursos);
-        pilon.nuevoTurno();
-        pilon.nuevoTurno();
-        pilon.nuevoTurno();
-        pilon.nuevoTurno();
-        pilon.nuevoTurno();
-        pilon.nuevoTurno();
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
         pilon.destruir();
 
         // Assert
@@ -93,25 +95,25 @@ public class CasoDeUso9Test {
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
         // Act
-        recursos.agregar(new Mineral());
+        recursos.agregar(new Mineral(2000));
         pilon1.construir(casillero1, recursos);
-        pilon1.nuevoTurno();
-        pilon1.nuevoTurno();
-        pilon1.nuevoTurno();
-        pilon1.nuevoTurno();
-        pilon1.nuevoTurno();
-        pilon1.nuevoTurno();
+        pilon1.nuevoTurno(new Protoss());
+        pilon1.nuevoTurno(new Protoss());
+        pilon1.nuevoTurno(new Protoss());
+        pilon1.nuevoTurno(new Protoss());
+        pilon1.nuevoTurno(new Protoss());
+        pilon1.nuevoTurno(new Protoss());
 
         pilon2.construir(casillero2, recursos);
-        pilon2.nuevoTurno();
-        pilon2.nuevoTurno();
-        pilon2.nuevoTurno();
-        pilon2.nuevoTurno();
-        pilon2.nuevoTurno();
-        pilon2.nuevoTurno();
+        pilon2.nuevoTurno(new Protoss());
+        pilon2.nuevoTurno(new Protoss());
+        pilon2.nuevoTurno(new Protoss());
+        pilon2.nuevoTurno(new Protoss());
+        pilon2.nuevoTurno(new Protoss());
+        pilon2.nuevoTurno(new Protoss());
 
         pilon1.destruir();
-        pilon2.nuevoTurno();
+        pilon2.nuevoTurno(new Protoss());
 
         acceso.construir(casillero3, recursos);
 

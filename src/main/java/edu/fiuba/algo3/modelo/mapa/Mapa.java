@@ -6,18 +6,18 @@ import java.util.Random;
 
 public class Mapa {
 
-    private int tamanio;
-    private Casillero[][] tablero;
-    private ArrayList<Area> areas;
-    private ArrayList<Base> bases;
+    private final int tamanio;
+    private final Casillero[][] tablero;
+    private final ArrayList<Area> areas;
+    private final ArrayList<Base> bases;
 
     public Mapa(){
         this.areas = new ArrayList<Area>();
         this.areas.add(new AreaTerrestre());
         this.areas.add(new AreaEspacial());
         this.bases = new ArrayList<>();
-        int cantidadDeBasesPorLado =1 + (new Random()).nextInt(4);
-        this.tamanio=cantidadDeBasesPorLado*2*5;
+        int cantidadDeBasesPorLado =2 + (new Random()).nextInt(3);
+        this.tamanio=cantidadDeBasesPorLado*2*10;
         this.tablero = new Casillero[tamanio][tamanio];
 
         for (int i = 0; i < tamanio; i++){
@@ -34,16 +34,15 @@ public class Mapa {
 
         for (int i = 2; i <= cantidad; i++) {
             int fila = 1 + ((new Random()).nextInt(tamanio-2));
-            int columna = ((new Random()).nextInt(fila/*-1-*/)); //esto a veces rompe, pero no se por que
-                                                                 //sin el -1 no rompe
+            int columna = ((new Random()).nextInt(fila));
             this.bases.add(new Base(this.tablero[fila][columna]));
             this.bases.add(new Base(this.tablero[columna][fila]));
         }
     }
 
     private void cargarBasesJugadores(){
-        int fila = tamanio/2 + ((new Random()).nextInt(tamanio/2 - 1));
-        int columna = ((new Random()).nextInt(tamanio/2 - 1 ));
+        int fila = 7 + ((new Random()).nextInt(tamanio - 8));
+        int columna = ((new Random()).nextInt(fila - 6));
         Base baseUno = new Base(this.tablero[fila][columna]);
 
         Base baseDos = new Base(this.tablero[columna][fila]);

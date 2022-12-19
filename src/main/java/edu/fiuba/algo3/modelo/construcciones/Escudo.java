@@ -1,36 +1,33 @@
 package edu.fiuba.algo3.modelo.construcciones;
 
 public class Escudo {
-    private int regeneracionPorTurno;
+    private final int regeneracionPorTurno;
 
-    private int vidaMaxima;
+    private final int vidaMaxima;
+
     private int vida;
-    private int danioNoMitigado;
-
     public Escudo(int vida){
         this.regeneracionPorTurno = 10;
         this.vidaMaxima = vida;
         this.vida = vida;
-        this.danioNoMitigado = 0;
     }
-
     public void regenerar(){
         if(this.vida < vidaMaxima ) {
             this.vida += this.regeneracionPorTurno;
         }
     }
 
-    public void recibirDanio(int danioInflingido){
+    public int recibirDanio(int danioInflingido){
+        int danioNoMitigado = 0;
         this.vida -= danioInflingido;
         if (this.vida < 0){
-            this.danioNoMitigado = (this.vida * -1);
+            danioNoMitigado = (this.vida * -1);
             this.vida = 0;
         }
+
+        return danioNoMitigado;
     }
 
-    public int obtenerDanioNoMitigado(){
-        return this.danioNoMitigado;
-    }
     public int obtenerVida(){
         return this.vida;
     }

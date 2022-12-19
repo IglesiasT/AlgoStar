@@ -1,8 +1,9 @@
 package edu.fiuba.algo3.modelo.mapa;
 
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
+import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import edu.fiuba.algo3.modelo.recursos.Volcan;
-import edu.fiuba.algo3.modelo.recursos.Mineral;
+import edu.fiuba.algo3.modelo.recursos.Nodo;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -14,19 +15,23 @@ public class Base {
     private static final int CANTIDAD_NODOS = 7;
     public static final int RADIO = 3;
 
-    private Casillero ubicacion;
-    private ArrayList<?extends Casillero> casilleros;
+    private final Casillero ubicacion;
+
     public Base(Casillero ubicacion){
 
         this.ubicacion = ubicacion;
         this.ubicacion.setArea(new AreaTerrestre());
         this.ubicacion.setRecurso(new Volcan());
-        casilleros = ubicacion.obtenerCasilleros(RADIO);
+        ArrayList<? extends Casillero> casilleros = ubicacion.obtenerCasilleros(RADIO);
         casilleros.remove(ubicacion);
+        for (Casillero casillero: casilleros){
+            casillero.setArea(new AreaTerrestre());
+        }
         for (int i=0;i < CANTIDAD_NODOS; i++){
             Casillero casillero = casilleros.get((new Random()).nextInt(casilleros.size()));
-            casillero.setArea(new AreaTerrestre());
-            casillero.setRecurso(new Mineral());
+            if (casillero.contiene(new SinRecurso())) {
+                casillero.setRecurso(new Nodo());
+            }
         }
     }
     public Casillero obtenerUbicacion(){

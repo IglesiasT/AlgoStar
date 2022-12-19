@@ -11,8 +11,4 @@ public class Volcan extends Recurso{
         this.cantidad = cantidad;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        return this.getClass() == o.getClass();
-    }
 }
