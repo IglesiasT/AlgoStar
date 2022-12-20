@@ -26,8 +26,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-import java.nio.file.Paths;
-
 public class ContenedorEvolucionar extends VBox implements ContenedorAccion{
 
     private Stage stage;
@@ -113,8 +111,7 @@ public class ContenedorEvolucionar extends VBox implements ContenedorAccion{
         }
 
  */
-        AudioClip audio = new AudioClip(Paths.get("src/main/java/edu/fiuba/algo3/vista/audio/evolucion.wav").toUri().toString());
-        audio.play();
+        AudioClip audio = new AudioClip(this.getClass().getResource("evolucion.wav").toString());        audio.play();
         jugador.evolucionar(comboBoxUnidades.getValue(),(MutaliscoBase)unidad);
         return new Scene(new ContenedorFinDeTurno(this.stage,this.juego,this.jugador,((MutaliscoBase) unidad).obtenerUbicacion()),800,800);
     }

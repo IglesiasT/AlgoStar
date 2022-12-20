@@ -4,7 +4,6 @@ import edu.fiuba.algo3.modelo.AlgoStar;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
-import edu.fiuba.algo3.vista.ContenedorError;
 import edu.fiuba.algo3.vista.ContenedorFinDeTurno;
 import edu.fiuba.algo3.vista.ContenedorMapa;
 import edu.fiuba.algo3.controlador.BotonConfirmarEventHandler;
@@ -25,8 +24,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-
-import java.nio.file.Paths;
 
 public class ContenedorEngendrar extends VBox implements ContenedorAccion{
     private Stage stage;
@@ -115,7 +112,7 @@ public class ContenedorEngendrar extends VBox implements ContenedorAccion{
 
          */
         jugador.engendrar(comboBoxUnidades.getValue(),casillero);
-        AudioClip audio = new AudioClip(Paths.get("src/main/java/edu/fiuba/algo3/vista/audio/engendrado.wav").toUri().toString());
+        AudioClip audio = new AudioClip(this.getClass().getResource("engendrado.wav").toString());
         audio.play();
         return new Scene(new ContenedorFinDeTurno(this.stage,this.juego,this.jugador,casillero),800,800);
 

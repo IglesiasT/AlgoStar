@@ -7,8 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
-import java.nio.file.Paths;
-
 public class BotonConfirmarEventHandler implements EventHandler<ActionEvent> {
 
     private Stage stage;
@@ -26,7 +24,7 @@ public class BotonConfirmarEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        AudioClip audio = new AudioClip(Paths.get("src/main/java/edu/fiuba/algo3/vista/audio/confirmacion.wav").toUri().toString());
+        AudioClip audio = new AudioClip(this.getClass().getResource("confirmacion.wav").toString());
         audio.play();
         this.cargarProximaEscena();
         stage.setScene(proximaEscena);

@@ -6,8 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.media.AudioClip;
 
-import java.nio.file.Paths;
-
 public class SeleccionUnidadEventHandler implements EventHandler<ActionEvent> {
 
     private ContenedorAccion accion;
@@ -18,7 +16,7 @@ public class SeleccionUnidadEventHandler implements EventHandler<ActionEvent> {
     }
     @Override
     public void handle(ActionEvent actionEvent) {
-        AudioClip audio = new AudioClip(Paths.get("src/main/java/edu/fiuba/algo3/vista/audio/confirmacion.wav").toUri().toString());
+        AudioClip audio = new AudioClip(this.getClass().getResource("confirmacion.wav").toString());
         audio.play();
         accion.setUnidadElegida(unidad);
     }

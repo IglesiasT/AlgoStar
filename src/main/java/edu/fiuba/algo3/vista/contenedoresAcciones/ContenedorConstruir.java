@@ -27,8 +27,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -121,8 +119,7 @@ public class ContenedorConstruir extends VBox implements ContenedorAccion {
     public Scene obtenerProximaEscena() {
         try {
             jugador.construir(comboBoxConstrucciones.getValue(),casillero);
-            AudioClip audio = new AudioClip(Paths.get("src/main/java/edu/fiuba/algo3/vista/audio/construccion.wav").toUri().toString());
-            audio.play();
+            AudioClip audio = new AudioClip(this.getClass().getResource("construccion.wav").toString());            audio.play();
             return new Scene(new ContenedorFinDeTurno(this.stage,this.juego,this.jugador,casillero),800,800);
 
         }catch (Exception e){

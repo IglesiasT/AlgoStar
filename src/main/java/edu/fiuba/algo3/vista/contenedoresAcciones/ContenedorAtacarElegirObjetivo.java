@@ -23,8 +23,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-
-import java.nio.file.Paths;
 import java.util.Objects;
 
 public class ContenedorAtacarElegirObjetivo extends VBox implements ContenedorAccion {
@@ -99,7 +97,7 @@ public class ContenedorAtacarElegirObjetivo extends VBox implements ContenedorAc
     public Scene obtenerProximaEscena() {
         try {
             jugador.atacar(atacante, objetivo);
-            AudioClip audio = new AudioClip(Paths.get("src/main/java/edu/fiuba/algo3/vista/audio/ataque.wav").toUri().toString());
+            AudioClip audio = new AudioClip(this.getClass().getResource("ataque.wav").toString());
             audio.play();
             return new Scene(new ContenedorFinDeTurno(this.stage, this.juego, this.jugador,objetivo.obtenerUbicacion()), 800, 800);
         } catch (Exception e) {

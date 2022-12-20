@@ -7,8 +7,6 @@ import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.AudioClip;
-
-import java.nio.file.Paths;
 import java.util.List;
 
 public class SeleccionUnidadesEventHandler implements EventHandler<MouseEvent> {
@@ -23,7 +21,7 @@ public class SeleccionUnidadesEventHandler implements EventHandler<MouseEvent> {
     }
     @Override
     public void handle(MouseEvent mouseEvent) {
-        AudioClip audio = new AudioClip(Paths.get("src/main/java/edu/fiuba/algo3/vista/audio/confirmacion.wav").toUri().toString());
+        AudioClip audio = new AudioClip(this.getClass().getResource("confirmacion.wav").toString());
         audio.play();
         menu.show((Node)mouseEvent.getSource(), Side.RIGHT, 5, 5);
         mouseEvent.consume();
