@@ -16,5 +16,6 @@ public interface EstadoMutalisco {
     Area obtenerArea();
     int obtenerVida();
     boolean activa();
-    boolean enRangoDeAtaque(Casillero casillero);
+    void enRangoDeAtaque(Casillero casillero);
+    void moverse(Casillero casillero);
 }

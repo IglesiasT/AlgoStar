@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg;
 
 import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
+import edu.fiuba.algo3.modelo.construcciones.unidades.ComportamientoUnidad;
+import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
@@ -30,9 +32,6 @@ public class MutaliscoBase extends UnidadZerg {
 
     }
     public void atacar(ConstruccionProtoss construccionEnemiga){
-        if (!enRangoDeAtaque(construccionEnemiga.obtenerUbicacion())){
-            throw new ObjetivoFueraDeRango();
-        }
         estadoMutalisco.atacar(construccionEnemiga);
     }
     @Override
@@ -61,12 +60,9 @@ public class MutaliscoBase extends UnidadZerg {
         return estadoMutalisco.activa();
     }
     public void moverse(Casillero casillero) {
-        if (!casillero.puedeMoverse(this.estadoMutalisco.obtenerArea())) {
-            throw new NoSePuedeMover();
-        }
-        if(this.ubicacion != null)
-            this.ubicacion.retirarUnidad(this);
+        this.estadoMutalisco.moverse(casillero);
         casillero.ubicarUnidad(this);
+        casillero.retirarUnidad((Unidad)this.estadoMutalisco);
         this.ubicacion = casillero;
     }
     @Override
@@ -81,8 +77,8 @@ public class MutaliscoBase extends UnidadZerg {
         return estadoString[estadoString.length - 1];
     };
     @Override
-    protected boolean enRangoDeAtaque(Casillero ubicacion){
-        return estadoMutalisco.enRangoDeAtaque(ubicacion);
+    protected void enRangoDeAtaque(Casillero ubicacion){
+        estadoMutalisco.enRangoDeAtaque(ubicacion);
 
     }
 }

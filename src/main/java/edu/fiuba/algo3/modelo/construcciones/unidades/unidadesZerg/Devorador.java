@@ -6,6 +6,8 @@ import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionP
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.recursos.*;
 import edu.fiuba.algo3.modelo.visitante.Atacante;
+import edu.fiuba.algo3.modelo.construcciones.unidades.ComportamientoUnidad;
+
 
 public class Devorador extends UnidadZerg implements EstadoMutalisco {
 
@@ -20,6 +22,7 @@ public class Devorador extends UnidadZerg implements EstadoMutalisco {
         this.recursosNecesarios.agregar(new Mineral(150));
         this.recursosNecesarios.agregar(new Gas(50));
         this.area = new AreaEspacial();
+        this.comportamiento = new ComportamientoUnidad(this.ubicacion , this.rangoDeAtaque , this , this.area);
     }
 
     public void construir(Casillero casillero,ListadoDeRecursos recursos){
@@ -34,8 +37,8 @@ public class Devorador extends UnidadZerg implements EstadoMutalisco {
     }
 
     @Override
-    public boolean enRangoDeAtaque(Casillero casillero) {
-        return super.enRangoDeAtaque(casillero);
+    public void enRangoDeAtaque(Casillero casillero) {
+        super.enRangoDeAtaque(casillero);
     }
 
 

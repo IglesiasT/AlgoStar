@@ -50,7 +50,7 @@ public class Casillero {
     }
     public void establecerConstruccion(Construccion construccionAEstablecer){
 
-        if (this.construccion != null || (this.recurso.estaOcupado())){
+        if (this.construccion != null){
             throw new NoSePuedeConstruir();
         }
 
@@ -64,6 +64,7 @@ public class Casillero {
                 throw new CasilleroSinMoho();
             }
         }
+
         if (construccionAEstablecer instanceof ProductorDeGas){
             if (this.recurso.getClass() != Volcan.class){
                 throw new CasilleroSinGas();
@@ -82,8 +83,8 @@ public class Casillero {
             throw new NoSePuedeConstruir();
         }
 
-        this.construccion = construccionAEstablecer;
         this.recurso.ocupar();
+        this.construccion = construccionAEstablecer;
     }
     public void destruirConstruccion(){
         this.construccion = null;
@@ -99,14 +100,15 @@ public class Casillero {
         return this.recurso;
     }
     public Construccion obtenerConstruccion(){ return this.construccion;}
-    public boolean contiene (Recurso recurso){
-        return (this.recurso.getClass() == recurso.getClass());
-    }
     public boolean contiene (EspacioDeConstruccion espacio){
         return (this.espacio.getClass() == espacio.getClass());
     }
-    public boolean puedeMoverse (Area tipoUnidad) {     // Rompe tell don't ask, ver presentacion polimorfismo hay ej parecido
-        return ((tipoUnidad.getClass() == AreaEspacial.class) || ((tipoUnidad.getClass() == AreaTerrestre.class) && (this.area.getClass() == AreaTerrestre.class)) ) ;
+    public Casillero mover(Casillero nuevaPosicion , Area tipoUnidad) {
+        if ((!(tipoUnidad.getClass() == AreaEspacial.class)) && (this.area.getClass() == AreaEspacial.class)) {
+            return null;
+        }
+
+        return nuevaPosicion;
     }
     public ArrayList<? extends Casillero> obtenerCasilleros(int radio) {
         return this.mapa.obtenerCasilleros(radio, this.fila, this.columna);

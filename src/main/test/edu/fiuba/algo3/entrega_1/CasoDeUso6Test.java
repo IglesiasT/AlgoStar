@@ -43,7 +43,7 @@ public class CasoDeUso6Test {
 
         // Assert
         for (Casillero casillero : casillerosConMoho){
-            assert !casillero.puedeMoverse(new AreaTerrestre()) || (casillero.contiene(new Moho()));
+            assert (casillero.mover(casillero , new AreaTerrestre()) == null) || (casillero.contiene(new Moho()));
         }
 
     }
@@ -117,7 +117,7 @@ public class CasoDeUso6Test {
 
         //Assert
         for (Casillero casillero : casillerosConMoho){
-            assert !casillero.puedeMoverse(new AreaTerrestre()) || (casillero.contiene(new Moho()));
+            assert (casillero.mover(casillero , new AreaTerrestre()) == null) || (casillero.contiene(new Moho()));
         }
     }
 }

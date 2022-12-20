@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss;
 
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
+import edu.fiuba.algo3.modelo.construcciones.unidades.ComportamientoUnidad;
 import edu.fiuba.algo3.modelo.construcciones.unidades.visibilidad.Visibilidad;
 import edu.fiuba.algo3.modelo.construcciones.unidades.visibilidad.Visible;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
@@ -18,6 +19,7 @@ public class Zealot extends UnidadProtoss {
         this.recursosNecesarios.agregar(new Mineral(100));
         this.estado = new Visible(this.escudo, this.vida);
         this.danioTerrestre = 8;
+        this.comportamiento = new ComportamientoUnidad(this.ubicacion , this.rangoDeAtaque , this , this.area);
     }
     @Override
     public void recibirDanio(int danioInflingido) {

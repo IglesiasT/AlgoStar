@@ -13,6 +13,7 @@ import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.razas.Zerg;
+import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
@@ -90,11 +91,16 @@ public class CasoDeUso19Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaEspacial());
         casillero2.setRecurso(new SinRecurso());
+        ListadoDeRecursos recursos = new ListadoDeRecursos();
+        recursos.agregar(new Mineral(1000));
+        recursos.agregar(new Gas(1000));
         UnidadProtoss unidadEnemiga = new Scout();
-        unidadEnemiga.moverse(casillero2);
+        unidadEnemiga.construir(casillero2 , recursos);
+        System.out.println(unidadEnemiga.obtenerArea());
 
+        /*
         Guardian guardian = new Guardian();
-        guardian.moverse(casillero1);
+        guardian.construir(casillero1 , recursos);
 
         // Act
 
@@ -107,7 +113,7 @@ public class CasoDeUso19Test {
 
         // Assert
         assertEquals(valorEsperador,unidadEnemiga.obtenerVida()+unidadEnemiga.obtenerEscudo());
-    }
+  */  }
 
     @Test
     public void zealotNoPuedeAtacarAire(){

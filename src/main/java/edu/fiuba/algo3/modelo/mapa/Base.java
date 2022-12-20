@@ -29,7 +29,7 @@ public class Base {
         }
         for (int i=0;i < CANTIDAD_NODOS; i++){
             Casillero casillero = casilleros.get((new Random()).nextInt(casilleros.size()));
-            if (casillero.contiene(new SinRecurso())) {
+            if (casillero.obtenerRecurso().getClass() == SinRecurso.class) {
                 casillero.setRecurso(new Nodo());
             }
         }

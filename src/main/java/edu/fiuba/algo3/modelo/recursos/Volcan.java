@@ -6,9 +6,4 @@ public class Volcan extends Recurso{
         super();
         this.cantidad = 5000;
     }
-    public Volcan(int cantidad){
-        super();
-        this.cantidad = cantidad;
-    }
-
-}
+ }

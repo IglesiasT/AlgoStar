@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zangano;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.recursos.Nodo;
 import edu.fiuba.algo3.modelo.mapa.*;
+import edu.fiuba.algo3.modelo.recursos.RecursoOcupado;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,6 +38,6 @@ public class CasilleroTest {
         zangano.moverse(casillero);
 
         //Assert
-        assertThrows(NoSePuedeConstruir.class, () -> casillero.establecerConstruccion(new NexoMineral()));
+        assertThrows(RecursoOcupado.class, () -> casillero.establecerConstruccion(new NexoMineral()));
     }
 }

@@ -32,5 +32,5 @@ public abstract class Recurso{
     public void liberar(){
         this.ocupado = false;
     }
-    public boolean estaOcupado(){ return this.ocupado;}
+
 }

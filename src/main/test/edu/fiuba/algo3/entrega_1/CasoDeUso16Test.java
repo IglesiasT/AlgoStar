@@ -67,7 +67,7 @@ public class CasoDeUso16Test {
         zangano.moverse(casillero);
 
         // Assert
-        assertThrows(NoSePuedeConstruir.class, () -> nexo.construir(casillero, recursos));
+        assertThrows(RecursoOcupado.class, () -> nexo.construir(casillero, recursos));
     }
 
     @Test
