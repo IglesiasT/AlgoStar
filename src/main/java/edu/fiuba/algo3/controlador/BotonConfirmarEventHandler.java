@@ -4,7 +4,10 @@ import edu.fiuba.algo3.vista.Contenedor;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
+
+import java.nio.file.Paths;
 
 public class BotonConfirmarEventHandler implements EventHandler<ActionEvent> {
 
@@ -23,6 +26,8 @@ public class BotonConfirmarEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
+        AudioClip audio = new AudioClip(Paths.get("src/main/java/edu/fiuba/algo3/vista/audio/confirmacion.wav").toUri().toString());
+        audio.play();
         this.cargarProximaEscena();
         stage.setScene(proximaEscena);
         stage.setFullScreenExitHint("");

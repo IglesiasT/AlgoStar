@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Asimilador;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Devorador;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Mutalisco;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.MutaliscoBase;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Scout;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
@@ -56,7 +56,7 @@ public class CasoDeUso27Test {
         razaZerg.construirReservaDeReproduccion(casillero1);
         razaZerg.construirGuarida(casillero2);
         razaZerg.construirEspiral(casillero3);
-        Mutalisco mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero.obtenerConstruccion());
+        MutaliscoBase mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero.obtenerConstruccion());
 
         assertThrows(RecursosInsuficientes.class, () -> razaZerg.evolucionarMutaliscoADevorador(mutalisco));
 
@@ -96,7 +96,7 @@ public class CasoDeUso27Test {
         razaZerg.construirReservaDeReproduccion(casillero2);
         razaZerg.construirGuarida(casillero3);
         razaZerg.construirEspiral(casillero4);
-        Mutalisco mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
+        MutaliscoBase mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
 
         assertDoesNotThrow(() -> razaZerg.evolucionarMutaliscoADevorador(mutalisco));
 

@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.construcciones.Construccion;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.*;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.*;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.MutaliscoBase;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.mapa.Base;
@@ -18,9 +19,13 @@ import edu.fiuba.algo3.vista.contenedoresAcciones.ContenedorAccion;
 import edu.fiuba.algo3.controlador.SeleccionCasilleroEventHandler;
 import edu.fiuba.algo3.controlador.SeleccionUnidadEventHandler;
 import edu.fiuba.algo3.controlador.SeleccionUnidadesEventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -31,10 +36,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ContenedorMapa extends Pane {
 
@@ -62,6 +64,24 @@ public class ContenedorMapa extends Pane {
         this.juego = juego;
         this.accion = accion;
 
+        cargarDiccionariosVista();
+
+        this.mostrarMapa(juego.obtenerMapa(),seleccionCasillero,seleccionUnidad);
+    }
+
+    public ContenedorMapa(Stage stage, AlgoStar juego, Casillero casillero){
+        super();
+        this.stage = stage;
+        this.canvas = new Canvas();
+        this.juego = juego;
+
+        cargarDiccionariosVista();
+
+        this.mostrarMapa(casillero);
+    }
+
+
+    private void cargarDiccionariosVista(){
         this.areasMapa = new HashMap<>();
         areasMapa.put(AreaTerrestre.class,Color.valueOf("#98C3A5"));
         areasMapa.put(AreaEspacial.class, Color.valueOf("#9CA9D3"));
@@ -85,11 +105,7 @@ public class ContenedorMapa extends Pane {
         this.unidadesDuenio = new HashMap<>();
         unidadesDuenio.put(juego.obtenerJugadorUno().obtenerRaza().getClass(),juego.obtenerJugadorUno().obtenerNombre());
         unidadesDuenio.put(juego.obtenerJugadorDos().obtenerRaza().getClass(),juego.obtenerJugadorDos().obtenerNombre());
-
-        this.mostrarMapa(juego.obtenerMapa(),seleccionCasillero,seleccionUnidad);
     }
-
-
 
     private void mostrarMapa(Mapa mapa, boolean seleccionCasillero,boolean seleccionUnidad) {
 
@@ -126,16 +142,61 @@ public class ContenedorMapa extends Pane {
 
     }
 
+    private void mostrarMapa(Casillero casilleroCentro) {
+
+        this.setBackground(new Background(new BackgroundFill(Color.valueOf("#B7B5CF"), CornerRadii.EMPTY, Insets.EMPTY)));
+
+        int tamanioMapa = 9;
+
+        this.mapaBaseVista = new Rectangle[tamanioMapa][tamanioMapa];
+
+        Group grupoDeCasilleros = new Group();
+        Group grupoDeRecursos = new Group();
+        Group grupoDeConstrucciones = new Group();
+        Group grupoDeUnidades = new Group();
+        Group grupoDeEspacios = new Group();
+
+        this.setPrefSize(tamanioMapa* App.TAMANIO_CASILLERO, tamanioMapa* App.TAMANIO_CASILLERO);
+        this.getChildren().addAll(grupoDeCasilleros,grupoDeEspacios,grupoDeRecursos,
+                grupoDeConstrucciones,grupoDeUnidades);
+
+        ArrayList<? extends Casillero> casilleros = casilleroCentro.obtenerCasilleros(4);
+
+        for (Casillero casillero: casilleros){
+            int filaVista = casillero.obtenerFila() - casilleroCentro.obtenerFila() + 4;
+            int columnaVista = casillero.obtenerColumna() - casilleroCentro.obtenerColumna() + 4;
+
+            Rectangle casilleroVista = crearCasilleroVista(casillero,false);
+            casilleroVista.relocate(filaVista* App.TAMANIO_CASILLERO,columnaVista* App.TAMANIO_CASILLERO);
+            mapaBaseVista[filaVista][columnaVista] = casilleroVista;
+            grupoDeCasilleros.getChildren().add(casilleroVista);
+
+            Rectangle espacioVista = crearEspacioDeConstruccionVista(casillero);
+            espacioVista.relocate(filaVista* App.TAMANIO_CASILLERO-((espacioVista.getWidth()-App.TAMANIO_CASILLERO)/2),
+                    columnaVista* App.TAMANIO_CASILLERO+(double)(App.TAMANIO_CASILLERO/2)-1.5);
+            grupoDeEspacios.getChildren().add(espacioVista);
+
+            Text recursoVista = crearRecursoVista(casillero);
+            recursoVista.relocate(filaVista*App.TAMANIO_CASILLERO + 20,columnaVista*App.TAMANIO_CASILLERO+18);
+            grupoDeRecursos.getChildren().add(recursoVista);
+
+            Text construccionVista = crearConstruccionVista(casillero);
+            construccionVista.relocate(filaVista* App.TAMANIO_CASILLERO,columnaVista* App.TAMANIO_CASILLERO);
+            grupoDeConstrucciones.getChildren().add(construccionVista);
+
+            Circle unidadVista = crearUnidadVista(casillero,false);
+            unidadVista.relocate(filaVista*App.TAMANIO_CASILLERO + 49,columnaVista*App.TAMANIO_CASILLERO+5);
+            grupoDeUnidades.getChildren().add(unidadVista);
+
+        }
+
+    }
+
     private Rectangle crearBaseVista(Base baseModelo){
         Rectangle baseVista = new Rectangle();
-        //baseVista.setWidth(App.TAMANIO_CASILLERO*(Base.RADIO*2 +1) -1 );
-        //baseVista.setHeight(App.TAMANIO_CASILLERO*(Base.RADIO*2 +1) -1 );
         baseVista.setWidth(10);
         baseVista.setHeight(10);
         baseVista.setFill(Color.TRANSPARENT);
-        //baseVista.relocate((baseModelo.obtenerUbicacion().obtenerFila()-Base.RADIO) * App.TAMANIO_CASILLERO,
-        //        (baseModelo.obtenerUbicacion().obtenerColumna()-Base.RADIO) * App.TAMANIO_CASILLERO );
-
         baseVista.relocate((baseModelo.obtenerUbicacion().obtenerFila()) * App.TAMANIO_CASILLERO,
                 (baseModelo.obtenerUbicacion().obtenerColumna()) * App.TAMANIO_CASILLERO );
         return baseVista;
@@ -193,7 +254,10 @@ public class ContenedorMapa extends Pane {
             List<Unidad> unidadesModelo = casilleroModelo.obtenerUnidades();
             for (Unidad unidad: unidadesModelo){
                 String[] unidadString = (unidad.getClass().toString().split("\\."));
-                MenuItem unidadOpcion = new MenuItem(unidadString[unidadString.length - 1] + " " + unidadesDuenio.get(unidad.obtenerRazaMadre()));
+                MenuItem unidadOpcion;
+                if (unidad.getClass() == MutaliscoBase.class)
+                    unidadOpcion = new MenuItem(((MutaliscoBase) unidad).obtenerEstado() + " " + unidadesDuenio.get(unidad.obtenerRazaMadre()));
+                else unidadOpcion = new MenuItem(unidadString[unidadString.length - 1] + " " + unidadesDuenio.get(unidad.obtenerRazaMadre()));
                 if(seleccionUnidad) {
                     unidadOpcion.setOnAction(new SeleccionUnidadEventHandler(accion, unidad));
                 }

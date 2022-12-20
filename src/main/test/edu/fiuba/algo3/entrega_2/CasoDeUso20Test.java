@@ -7,7 +7,7 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Scout;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Zealot;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Guardian;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Hidralisco;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Mutalisco;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.MutaliscoBase;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zerling;
 import edu.fiuba.algo3.modelo.mapa.*;
 import org.junit.jupiter.api.Test;
@@ -53,7 +53,7 @@ public class CasoDeUso20Test {
 
     @Test
     public void MutaliscoPuedeMoverseAUnAreaEspacial() {
-        Mutalisco unidad = new Mutalisco();
+        MutaliscoBase unidad = new MutaliscoBase();
         Casillero casillero = new Casillero(new AreaEspacial(), 1, 1, new Mapa());
 
         assertDoesNotThrow(() ->unidad.moverse(casillero));

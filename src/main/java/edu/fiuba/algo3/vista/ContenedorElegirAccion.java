@@ -3,6 +3,7 @@ package edu.fiuba.algo3.vista;
 import edu.fiuba.algo3.modelo.AlgoStar;
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.MutaliscoBase;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.vista.contenedoresAcciones.*;
@@ -119,21 +120,29 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
         panelConstrucciones.setBackground(new Background(new BackgroundFill(Color.valueOf("#D0CFE0"), CornerRadii.EMPTY, Insets.EMPTY)));
         if (!construcciones.isEmpty())
             for (Construccion construccion: construcciones){
+
                 Label etiquetaConstruccion = new Label();
                 etiquetaConstruccion.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
                 String[] construccionString = (construccion.getClass().toString().split("\\."));
+
                 if (construccion.obtenerRazaMadre() == Zerg.class)
-                    etiquetaConstruccion.setText(construccionString[construccionString.length - 1]+
+                    if (construccion.getClass() == MutaliscoBase.class)
+                        etiquetaConstruccion.setText(((MutaliscoBase) construccion).obtenerEstado()+
+                            " V"+ construccion.obtenerVida());
+                    else etiquetaConstruccion.setText(construccionString[construccionString.length - 1]+
                             " V"+ construccion.obtenerVida());
                 else etiquetaConstruccion.setText(construccionString[construccionString.length - 1]+
                         " V"+ construccion.obtenerVida() + " E"+ ((ConstruccionProtoss)construccion).obtenerEscudo());
+
                 if (construccion.activa())
                     etiquetaConstruccion.setTextFill(jugador.obtenerColor());
                 else etiquetaConstruccion.setTextFill(Color.GRAY);
+
                 etiquetaConstruccion.setWrapText(true);
                 etiquetaConstruccion.setLayoutX(400-etiquetaConstruccion.getWidth());
                 panelConstrucciones.getChildren().add(etiquetaConstruccion);
             }
+
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.setContent(panelConstrucciones);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);

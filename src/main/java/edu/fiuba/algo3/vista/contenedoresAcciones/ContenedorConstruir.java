@@ -22,11 +22,13 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,7 +52,6 @@ public class ContenedorConstruir extends VBox implements ContenedorAccion {
         ObservableList<String> construccionesZerg= FXCollections.observableArrayList();
         construccionesZerg.addAll("Criadero: Δ0 ❖100 T",  "Extractor: Δ0 ❖100 T",
                 "Reserva de reproduccion: Δ0 ❖150 T", "Espiral: Δ100 ❖150 T","Guarida: Δ100 ❖200 T");
-        //construccionesZerg.addAll("Zangano", "Zerling", "Mutalisco", "Hidralisco", "Guardian", "Devorador", "Amo Supremo");
 
         ObservableList<String> construccionesProtoss = FXCollections.observableArrayList();
         construccionesProtoss.addAll("Nexo Mineral: Δ0 ❖50 T","Pilon: Δ0 ❖100 T", "Asimilador: Δ0 ❖100 T",
@@ -120,7 +121,10 @@ public class ContenedorConstruir extends VBox implements ContenedorAccion {
     public Scene obtenerProximaEscena() {
         try {
             jugador.construir(comboBoxConstrucciones.getValue(),casillero);
-            return new Scene(new ContenedorFinDeTurno(this.stage,this.juego,this.jugador),800,800);
+            AudioClip audio = new AudioClip(Paths.get("src/main/java/edu/fiuba/algo3/vista/audio/construccion.wav").toUri().toString());
+            audio.play();
+            return new Scene(new ContenedorFinDeTurno(this.stage,this.juego,this.jugador,casillero),800,800);
+
         }catch (Exception e){
             return new Scene(new ContenedorError(this.stage,this.juego,this.jugador),800,800);
         }

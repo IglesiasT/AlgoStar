@@ -122,7 +122,7 @@ public class CasoDeUso19Test {
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
         casillero2.setArea(new AreaEspacial());
         casillero2.setRecurso(new SinRecurso());
-        UnidadZerg unidadEnemiga = new Mutalisco();
+        UnidadZerg unidadEnemiga = new MutaliscoBase();
         unidadEnemiga.moverse(casillero2);
         Raza raza2 = new Zerg();
         Zealot zealot = new Zealot();

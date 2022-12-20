@@ -2,10 +2,9 @@ package edu.fiuba.algo3.vista.contenedoresAcciones;
 
 import edu.fiuba.algo3.modelo.AlgoStar;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Mutalisco;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.MutaliscoBase;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
-import edu.fiuba.algo3.vista.ContenedorError;
 import edu.fiuba.algo3.vista.ContenedorFinDeTurno;
 import edu.fiuba.algo3.vista.ContenedorMapa;
 import edu.fiuba.algo3.controlador.BotonConfirmarEventHandler;
@@ -21,10 +20,13 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+
+import java.nio.file.Paths;
 
 public class ContenedorEvolucionar extends VBox implements ContenedorAccion{
 
@@ -40,7 +42,7 @@ public class ContenedorEvolucionar extends VBox implements ContenedorAccion{
         this.jugador = jugador;
 
         unidades = FXCollections.observableArrayList();
-        unidades.addAll("Mutalisco a Guardian: Δ100 ❖50", "Mutalisco a Devorador: Δ50 ❖150", "Amo Supremo: Δ0 ❖50");
+        unidades.addAll("Mutalisco a Guardian: Δ100 ❖50", "Mutalisco a Devorador: Δ50 ❖150");
 
 
         this.setSpacing(20);
@@ -100,12 +102,21 @@ public class ContenedorEvolucionar extends VBox implements ContenedorAccion{
 
     @Override
     public Scene obtenerProximaEscena() {
+/*
         try {
+            AudioClip audio = new AudioClip(Paths.get("src/main/java/edu/fiuba/algo3/vista/audio/evolucion.wav").toUri().toString());
+            audio.play();
             jugador.evolucionar(comboBoxUnidades.getValue(),(Mutalisco)unidad);
-            return new Scene(new ContenedorFinDeTurno(this.stage,this.juego,this.jugador),800,800);
+            return new Scene(new ContenedorFinDeTurno(this.stage,this.juego,this.jugador,((Mutalisco) unidad).obtenerUbicacion()),800,800);
         }catch (Exception e){
             return new Scene(new ContenedorError(this.stage,this.juego,this.jugador),800,800);
         }
+
+ */
+        AudioClip audio = new AudioClip(Paths.get("src/main/java/edu/fiuba/algo3/vista/audio/evolucion.wav").toUri().toString());
+        audio.play();
+        jugador.evolucionar(comboBoxUnidades.getValue(),(MutaliscoBase)unidad);
+        return new Scene(new ContenedorFinDeTurno(this.stage,this.juego,this.jugador,((MutaliscoBase) unidad).obtenerUbicacion()),800,800);
     }
 
     private void mostrarRecursos(){

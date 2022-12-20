@@ -78,16 +78,16 @@ public class Zerg extends Raza{
         this.suministro = zangano.consumirSuministro(this.suministro) ;
     }
 
-    public Mutalisco engendrarMutalisco(Criadero criaderoAUsar){
+    public MutaliscoBase engendrarMutalisco(Criadero criaderoAUsar){
         if (! this.construccionesRealizadas.contiene(new Espiral())){
             throw new ConstruccionPreviaNoConstruida();
         }
 
-        if ((suministro + (new Mutalisco()).consumirSuministro(0)) > this.maximoSuministro) {
+        if ((suministro + (new MutaliscoBase()).consumirSuministro(0)) > this.maximoSuministro) {
             throw new SuministroAgotado() ;
         }
 
-        Mutalisco mutalisco = criaderoAUsar.engendrarMutalisco(this.recursos);
+        MutaliscoBase mutalisco = criaderoAUsar.engendrarMutalisco(this.recursos);
         this.construccionesRealizadas.agregar(mutalisco);
         this.suministro = mutalisco.consumirSuministro(this.suministro) ;
 
@@ -124,10 +124,10 @@ public class Zerg extends Raza{
         return zerling;
     }
 
-    public void evolucionarMutaliscoAGuardian(Mutalisco mutaliscoAEvolucionar){
+    public void evolucionarMutaliscoAGuardian(MutaliscoBase mutaliscoAEvolucionar){
         mutaliscoAEvolucionar.evolucionarAGuardian(recursos);
     }
-    public void evolucionarMutaliscoADevorador(Mutalisco mutaliscoAEvolucionar){
+    public void evolucionarMutaliscoADevorador(MutaliscoBase mutaliscoAEvolucionar){
         mutaliscoAEvolucionar.evolucionarADevorador(recursos);
     }
     public int construccionesRealizadas() {
@@ -164,7 +164,7 @@ public class Zerg extends Raza{
         else {throw new NoSePuedeConstruir();}
     }
 
-    public void evolucionar(String construccion, Mutalisco mutalisco) {
+    public void evolucionar(String construccion, MutaliscoBase mutalisco) {
         if (construccion.contains("Guardian")) {evolucionarMutaliscoAGuardian(mutalisco);}
         else if (construccion.contains("Devorador")) {evolucionarMutaliscoADevorador(mutalisco);}
         else {throw new NoSePuedeConstruir();}

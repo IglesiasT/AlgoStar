@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.AlgoStar;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.vista.ContenedorError;
 import edu.fiuba.algo3.vista.ContenedorMapa;
 import edu.fiuba.algo3.controlador.BotonConfirmarEventHandler;
 import javafx.collections.FXCollections;
@@ -91,6 +92,8 @@ public class ContenedorAtacarElegirAtacante extends VBox implements ContenedorAc
 
     @Override
     public Scene obtenerProximaEscena() {
+        if (unidad.obtenerRazaMadre() != jugador.obtenerRaza().getClass())
+            return new Scene(new ContenedorError(this.stage,this.juego,this.jugador),800,800);
         return new Scene(new ContenedorAtacarElegirObjetivo(stage,juego,jugador,comboBoxTipos.getValue(),unidad),800,800);
     }
 }

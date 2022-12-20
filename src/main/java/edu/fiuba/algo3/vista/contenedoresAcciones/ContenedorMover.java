@@ -17,10 +17,13 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+
+import java.nio.file.Paths;
 
 public class ContenedorMover extends VBox implements ContenedorAccion {
 
@@ -83,7 +86,9 @@ public class ContenedorMover extends VBox implements ContenedorAccion {
     public Scene obtenerProximaEscena() {
         try {
             jugador.mover(unidad,casillero);
-            return new Scene(new ContenedorFinDeTurno(this.stage,this.juego,this.jugador),800,800);
+            AudioClip audio = new AudioClip(Paths.get("src/main/java/edu/fiuba/algo3/vista/audio/movimiento.wav").toUri().toString());
+            audio.play();
+            return new Scene(new ContenedorFinDeTurno(this.stage,this.juego,this.jugador,casillero),800,800);
         }catch (Exception e){
             return new Scene(new ContenedorError(this.stage,this.juego,this.jugador),800,800);
         }

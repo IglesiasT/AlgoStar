@@ -13,7 +13,6 @@ import edu.fiuba.algo3.modelo.mapa.Casillero;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-
 public class Criadero extends ConstruccionZerg {
     private int rangoMoho;
     private int maximoDeLarvas;
@@ -77,8 +76,8 @@ public class Criadero extends ConstruccionZerg {
     public AmoSupremo engendrarAmoSupremo(ListadoDeRecursos recursos) {
         return (AmoSupremo) this.engendrar(new AmoSupremo(), recursos);
     }
-    public Mutalisco engendrarMutalisco(ListadoDeRecursos recursos) throws EdificioNoEstaOperativo {
-        return (Mutalisco) this.engendrar(new Mutalisco(), recursos);
+    public MutaliscoBase engendrarMutalisco(ListadoDeRecursos recursos) throws EdificioNoEstaOperativo {
+        return (MutaliscoBase) this.engendrar(new MutaliscoBase(), recursos);
     }
     public Hidralisco engendrarHidralisco(ListadoDeRecursos recursos) throws EdificioNoEstaOperativo {
         return (Hidralisco) this.engendrar(new Hidralisco(), recursos);

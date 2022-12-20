@@ -5,10 +5,12 @@ import edu.fiuba.algo3.vista.contenedoresAcciones.ContenedorAccion;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.nio.file.Paths;
 import java.util.Arrays;
 
 public class SeleccionCasilleroEventHandler implements EventHandler<MouseEvent> {
@@ -38,6 +40,8 @@ public class SeleccionCasilleroEventHandler implements EventHandler<MouseEvent> 
 
     @Override
     public void handle(MouseEvent mouseEvent) {
+        AudioClip audio = new AudioClip(Paths.get("src/main/java/edu/fiuba/algo3/vista/audio/confirmacion.wav").toUri().toString());
+        audio.play();
         limpiarMapa();
         accion.setCasilleroElegido(casilleroModelo);
         casilleroVista.setStroke(Color.BLACK);

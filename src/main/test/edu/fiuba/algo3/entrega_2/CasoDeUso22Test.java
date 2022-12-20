@@ -10,7 +10,7 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Dragon;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Scout;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Zealot;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Hidralisco;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Mutalisco;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.MutaliscoBase;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zerling;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.estados.EdificioNoEstaOperativo;
@@ -320,7 +320,13 @@ public class CasoDeUso22Test {
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         casillero1.setArea(new AreaTerrestre());
         casillero1.setRecurso(new SinRecurso());
+        NexoMineral nexoMineral = new NexoMineral();
+
         razaZerg.construirCriadero(casillero1);
+        Casillero casilleroNexo = mapa.obtenerCasillero(3,3);
+        casilleroNexo.setArea(new AreaTerrestre());
+        casilleroNexo.setRecurso(new Nodo());
+        nexoMineral.establecerUbicacion(casilleroNexo);
 
 
         Casillero casillero2 = mapa.obtenerCasillero(1,2);
@@ -342,9 +348,9 @@ public class CasoDeUso22Test {
         razaZerg.construirGuarida(casillero3);
         razaZerg.construirEspiral(casillero4);
 
-        Mutalisco mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
+        MutaliscoBase mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
 
-        assertThrows(EdificioNoEstaOperativo.class, () -> mutalisco.atacar(new NexoMineral()));
+        assertThrows(EdificioNoEstaOperativo.class, () -> mutalisco.atacar(nexoMineral));
     }
 
     @Test
@@ -382,8 +388,8 @@ public class CasoDeUso22Test {
         razaZerg.construirGuarida(casillero3);
         razaZerg.construirEspiral(casillero4);
 
-        Mutalisco mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
-        mutalisco.establecerUbicacion(casillero4);
+        MutaliscoBase mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
+        mutalisco.moverse(casillero4);
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
@@ -402,7 +408,13 @@ public class CasoDeUso22Test {
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         casillero1.setArea(new AreaTerrestre());
         casillero1.setRecurso(new SinRecurso());
+        NexoMineral nexoMineral = new NexoMineral();
+
         razaZerg.construirCriadero(casillero1);
+        Casillero casilleroNexo = mapa.obtenerCasillero(3,3);
+        casilleroNexo.setArea(new AreaTerrestre());
+        casilleroNexo.setRecurso(new Nodo());
+        nexoMineral.establecerUbicacion(casilleroNexo);
 
 
 
@@ -425,7 +437,7 @@ public class CasoDeUso22Test {
         razaZerg.construirGuarida(casillero3);
         razaZerg.construirEspiral(casillero4);
 
-        Mutalisco mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
+        MutaliscoBase mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();
@@ -437,7 +449,7 @@ public class CasoDeUso22Test {
 
         razaZerg.evolucionarMutaliscoAGuardian(mutalisco);
 
-        assertThrows(EdificioNoEstaOperativo.class, () -> mutalisco.atacar(new NexoMineral()));
+        assertThrows(EdificioNoEstaOperativo.class, () -> razaZerg.atacar(casillero1.obtenerUnidades().get(0),nexoMineral));
     }
 
     @Test
@@ -476,7 +488,7 @@ public class CasoDeUso22Test {
         razaZerg.construirGuarida(casillero3);
         razaZerg.construirEspiral(casillero4);
 
-        Mutalisco mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
+        MutaliscoBase mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
 
         razaZerg.nuevoTurno();
         razaZerg.nuevoTurno();

@@ -9,10 +9,7 @@ import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ReservaDeReprodu
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Dragon;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Scout;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Zealot;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Guardian;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Hidralisco;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Mutalisco;
-import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zerling;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.*;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.razas.Protoss;
@@ -269,7 +266,7 @@ public class CasoDeUso18Test {
     public void scoutInflinge14DeDanioEnAire(){
         // Arrange
         Scout scout = new Scout();
-        Mutalisco mutalisco = new Mutalisco();
+        MutaliscoBase mutalisco = new MutaliscoBase();
         Raza raza = new Protoss();
         int valorEsperado = 106;    //120 vida - 14 ataque
 
