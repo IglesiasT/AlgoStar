@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.AlgoStar;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.vista.ContenedorError;
 import edu.fiuba.algo3.vista.ContenedorFinDeTurno;
 import edu.fiuba.algo3.vista.ContenedorMapa;
 import edu.fiuba.algo3.controlador.BotonConfirmarEventHandler;
@@ -100,25 +101,15 @@ public class ContenedorEngendrar extends VBox implements ContenedorAccion{
 
     @Override
     public Scene obtenerProximaEscena() {
-        /*
         try {
             jugador.engendrar(comboBoxUnidades.getValue(),casillero);
-            AudioClip audio = new AudioClip(Paths.get("src/main/java/edu/fiuba/algo3/vista/audio/engendrado.wav").toUri().toString());
+            AudioClip audio = new AudioClip(this.getClass().getResource("/engendrado.wav").toString());
             audio.play();
             return new Scene(new ContenedorFinDeTurno(this.stage,this.juego,this.jugador,casillero),800,800);
         }catch (Exception e){
             return new Scene(new ContenedorError(this.stage,this.juego,this.jugador),800,800);
         }
-
-         */
-        jugador.engendrar(comboBoxUnidades.getValue(),casillero);
-        AudioClip audio = new AudioClip(this.getClass().getResource("engendrado.wav").toString());
-        audio.play();
-        return new Scene(new ContenedorFinDeTurno(this.stage,this.juego,this.jugador,casillero),800,800);
-
-        //jugador.engendrar(comboBoxUnidades.getValue(),casillero);
-        //return new Scene(new ContenedorFinDeTurno(this.stage,this.juego,this.jugador),800,800);
-    }
+}
 
     private void mostrarRecursos(){
         Label etiquetaRecursos = new Label();

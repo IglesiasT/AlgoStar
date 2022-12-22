@@ -41,8 +41,8 @@ public class Mapa {
     }
 
     private void cargarBasesJugadores(){
-        int fila = 7 + ((new Random()).nextInt(tamanio - 8));
-        int columna = ((new Random()).nextInt(fila - 6));
+        int fila = tamanio - 5;
+        int columna = 5;
         Base baseUno = new Base(this.tablero[fila][columna]);
 
         Base baseDos = new Base(this.tablero[columna][fila]);

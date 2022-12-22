@@ -2,10 +2,6 @@ package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss;
 
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.unidades.ComportamientoUnidad;
-import edu.fiuba.algo3.modelo.visitante.NoSePuedeMover;
-import edu.fiuba.algo3.modelo.visitante.ObjetivoFueraDeRango;
-import edu.fiuba.algo3.modelo.visitante.Atacante;
-import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;

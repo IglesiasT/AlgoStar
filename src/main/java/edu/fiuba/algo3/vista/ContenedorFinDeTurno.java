@@ -100,7 +100,7 @@ public class ContenedorFinDeTurno extends VBox implements Contenedor {
             juego.siguienteTurno(jugador);
             return new Scene(new ContenedorElegirAccion(this.stage, this.juego, siguienteJugador()), 800, 800);
         }catch (Exception e){
-            AudioClip audio = new AudioClip(Paths.get("src/main/java/edu/fiuba/algo3/vista/audio/victoria.wav").toUri().toString());
+            AudioClip audio = new AudioClip(this.getClass().getResource("/victoria.wav").toString());
             audio.play();
             return new Scene(new ContenedorFinDeJuego(stage,juego),800,800);
         }

@@ -27,9 +27,9 @@ public class ContenedorInicio extends VBox {
         etiqueta.setTextFill(Color.web("#000000"));
 
         Button botonNuevaPartida = new Button();
-        botonNuevaPartida.setText("Nueva partida");
+        botonNuevaPartida.setText("Comenzar");
 
-        Scene proximaEscena = new Scene(new ContenedorElegirJugador(stage,new AlgoStar(),""), 800, 800);
+        Scene proximaEscena = new Scene(new ContenedorManual(stage), 800, 800);
         BotonNuevaPartidaEventHandler botonNuevaPartidaEventHandler = new BotonNuevaPartidaEventHandler(stage, proximaEscena);
         botonNuevaPartida.setOnAction(botonNuevaPartidaEventHandler);
 

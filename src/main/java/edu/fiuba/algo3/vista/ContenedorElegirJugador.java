@@ -110,8 +110,6 @@ public class ContenedorElegirJugador extends VBox implements Contenedor{
     private void pedirNombre(){
         Label label = new Label();
         textFieldNombreJugador = new TextField();
-
-        label.setText("Nombre");
         textFieldNombreJugador.setText("Introducir nombre");
 
         this.getChildren().addAll(label, textFieldNombreJugador);
@@ -141,15 +139,10 @@ public class ContenedorElegirJugador extends VBox implements Contenedor{
         if (segundoJugador){
             try{anotarJugadorDos();
                 juego.comenzarJuego();
-                //return new Scene(new ContenedorPrincipal(this.stage, this.juego), App.TAMANIO_CASILLERO*juego.obtenerMapa().obtenerTamanio() + 150, App.TAMANIO_CASILLERO*juego.obtenerMapa().obtenerTamanio()+60);
                 return new Scene(new ContenedorElegirAccion(this.stage,this.juego,juego.obtenerJugadorUno()),800,800);
             }catch (Exception e){
                 return new Scene(new ContenedorElegirJugador(this.stage,this.juego, "DATOS INVALIDOS",true), 800,800);
             }
-            //anotarJugadorDos();
-            //juego.comenzarJuego();
-            //return new Scene(new ContenedorElegirAccion(this.stage,this.juego,juego.obtenerJugadorUno()),800,800);
-            //return new Scene(new ContenedorPrincipal(this.stage, this.juego), App.TAMANIO_CASILLERO * juego.obtenerMapa().obtenerTamanio(), App.TAMANIO_CASILLERO * juego.obtenerMapa().obtenerTamanio());
         }
         else
             try{anotarJugadorUno();

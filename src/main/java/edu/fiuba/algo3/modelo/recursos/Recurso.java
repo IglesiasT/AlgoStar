@@ -1,10 +1,5 @@
 package edu.fiuba.algo3.modelo.recursos;
 
-import javafx.scene.text.Text;
-
-import java.util.List;
-import java.util.Set;
-
 public abstract class Recurso{
     protected boolean ocupado;
     protected int cantidad;
