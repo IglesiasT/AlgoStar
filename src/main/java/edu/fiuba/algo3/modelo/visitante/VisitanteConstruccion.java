@@ -49,7 +49,7 @@ public class VisitanteConstruccion {
     public void construir(Criadero criadero) {}
 
     public void construir(ConstruccionZerg contruccion , EspacioDeConstruccion espacio ) {
-        if (espacio.getClass() != Moho.class && !(contruccion instanceof Criadero)) {
+        if (espacio.getClass() != Moho.class) {
             throw new CasilleroSinMoho();
         }
     }

@@ -60,7 +60,8 @@ public class Casillero {
         }
 
         //VisitanteConstruccion visitante = new VisitanteConstruccion();
-        //visitante.construir(construccionAEstablecer , this.espacio , this.recurso);
+        //construccionAEstablecer.visitar(visitante , this.espacio , this.recurso);
+        //this.recurso.visitar (visitante);
 
         // Aplicar patron Visitor para limpiar estos if
         if(construccionAEstablecer instanceof ConstruccionZerg){
