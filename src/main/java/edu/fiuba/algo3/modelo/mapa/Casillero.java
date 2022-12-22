@@ -16,6 +16,7 @@ import edu.fiuba.algo3.modelo.recursos.Volcan;
 import edu.fiuba.algo3.modelo.recursos.Recurso;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import edu.fiuba.algo3.modelo.areas.*;
+import edu.fiuba.algo3.modelo.visitante.VisitanteConstruccion;
 
 
 import java.util.ArrayList;
@@ -54,9 +55,12 @@ public class Casillero {
             throw new NoSePuedeConstruir();
         }
 
-        if ((construccionAEstablecer.obtenerArea().getClass() == AreaTerrestre.class)&&(this.area.getClass() != AreaTerrestre.class)){
+        if (construccionAEstablecer.obtenerArea().getClass() != this.area.getClass()){
             throw new NoSePuedeConstruir();
         }
+
+        //VisitanteConstruccion visitante = new VisitanteConstruccion();
+        //visitante.construir(construccionAEstablecer , this.espacio , this.recurso);
 
         // Aplicar patron Visitor para limpiar estos if
         if(construccionAEstablecer instanceof ConstruccionZerg){

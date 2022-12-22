@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.areas.AreaEspacial;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
 
-public class Atacante implements Visitante {
+public class Atacante implements VisitanteArea {
 
     private final int danioAereo;
     private final int danioTerrestre;
