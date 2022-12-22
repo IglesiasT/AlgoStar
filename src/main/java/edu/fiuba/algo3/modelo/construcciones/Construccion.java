@@ -2,12 +2,15 @@ package edu.fiuba.algo3.modelo.construcciones;
 
 import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.EspacioDeConstruccion;
 import edu.fiuba.algo3.modelo.estados.ConstruccionFinalizada;
 import edu.fiuba.algo3.modelo.estados.EnConstruccion;
 import edu.fiuba.algo3.modelo.estados.Estado;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
+import edu.fiuba.algo3.modelo.recursos.Recurso;
+import edu.fiuba.algo3.modelo.visitante.VisitanteConstruccion;
 
 public abstract class Construccion {
     protected int turnosParaConstruirse;
@@ -64,4 +67,9 @@ public abstract class Construccion {
     public abstract Class obtenerRazaMadre();
 
     public boolean activa(){ return turnos >= turnosParaConstruirse;}
+
+    public void visitar(VisitanteConstruccion visitante , EspacioDeConstruccion espacio , Recurso recurso){
+        recurso.visitar (visitante);
+    }
+
 }

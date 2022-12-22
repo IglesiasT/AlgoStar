@@ -1,20 +1,17 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.App;
+import edu.fiuba.algo3.controlador.BotonConfirmarEventHandler;
 import edu.fiuba.algo3.modelo.AlgoStar;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.controlador.BotonConfirmarEventHandler;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;

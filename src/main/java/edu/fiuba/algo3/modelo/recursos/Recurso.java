@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.recursos;
 
+import edu.fiuba.algo3.modelo.visitante.VisitanteConstruccion;
+
 public abstract class Recurso{
     protected boolean ocupado;
     protected int cantidad;
@@ -27,5 +29,7 @@ public abstract class Recurso{
     public void liberar(){
         this.ocupado = false;
     }
+
+    public void visitar(VisitanteConstruccion visitante){}
 
 }

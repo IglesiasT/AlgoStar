@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.mapa.CasilleroSinGas;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.mapa.CasilleroSinMineral;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
@@ -154,7 +155,7 @@ public class CasoDeUso3Test {
         recursos.agregar(new Mineral(2000));
 
         // Assert
-        assertThrows(NoSePuedeConstruir.class, () -> nexo.construir(casillero, recursos));
+        assertThrows(CasilleroSinMineral.class, () -> nexo.construir(casillero, recursos));
     }
 
     @Test

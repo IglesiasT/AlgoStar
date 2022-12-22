@@ -16,6 +16,7 @@ import edu.fiuba.algo3.modelo.recursos.Volcan;
 import edu.fiuba.algo3.modelo.recursos.Recurso;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import edu.fiuba.algo3.modelo.areas.*;
+import edu.fiuba.algo3.modelo.visitante.VisitanteConstruccion;
 
 
 import java.util.ArrayList;
@@ -28,7 +29,6 @@ public class Casillero {
     private final Mapa mapa;
     private Recurso recurso;
     private Area area;
-
     private EspacioDeConstruccion espacio;
     private Construccion construccion;
     private final List<Unidad> unidades;
@@ -44,44 +44,17 @@ public class Casillero {
         this.construccion = null;
         this.unidades = new LinkedList<>();
     }
-
     public void setEspacioDeConstruccion(EspacioDeConstruccion espacio){
         this.espacio = espacio;
     }
     public void establecerConstruccion(Construccion construccionAEstablecer){
 
-        if (this.construccion != null){
+        if ( (this.construccion != null) || (construccionAEstablecer.obtenerArea().getClass() != this.area.getClass()) ){
             throw new NoSePuedeConstruir();
         }
 
-        if ((construccionAEstablecer.obtenerArea().getClass() == AreaTerrestre.class)&&(this.area.getClass() != AreaTerrestre.class)){
-            throw new NoSePuedeConstruir();
-        }
-
-        // Aplicar patron Visitor para limpiar estos if
-        if(construccionAEstablecer instanceof ConstruccionZerg){
-            if (this.espacio.getClass() != Moho.class && !(construccionAEstablecer instanceof Criadero)){
-                throw new CasilleroSinMoho();
-            }
-        }
-
-        if (construccionAEstablecer instanceof ProductorDeGas){
-            if (this.recurso.getClass() != Volcan.class){
-                throw new CasilleroSinGas();
-            }
-
-        } else if (this.recurso.getClass() == Volcan.class) {
-            throw new NoSePuedeConstruir();
-        }
-
-        if (construccionAEstablecer instanceof NexoMineral){
-            if (this.recurso.getClass() != Nodo.class){
-                throw new CasilleroSinMineral();
-            }
-
-        } else if (this.recurso.getClass() == Nodo.class) {
-            throw new NoSePuedeConstruir();
-        }
+        VisitanteConstruccion visitante = new VisitanteConstruccion();
+        construccionAEstablecer.visitar(visitante , this.espacio , this.recurso);
 
         this.recurso.ocupar();
         this.construccion = construccionAEstablecer;
@@ -104,10 +77,10 @@ public class Casillero {
         return (this.espacio.getClass() == espacio.getClass());
     }
     public Casillero mover(Casillero nuevaPosicion , Area tipoUnidad) {
-        if ((!(tipoUnidad.getClass() == AreaEspacial.class)) && (this.area.getClass() == AreaEspacial.class)) {
+
+        if ( (tipoUnidad.getClass() != AreaEspacial.class) && ( this.area.getClass() == AreaEspacial.class ) ) {
             return null;
         }
-
         return nuevaPosicion;
     }
     public ArrayList<? extends Casillero> obtenerCasilleros(int radio) {
@@ -125,7 +98,6 @@ public class Casillero {
     public void setArea(Area area){
         this.area = area;
     }
-
     public Area obtenerArea(){
         return this.area;
     }
