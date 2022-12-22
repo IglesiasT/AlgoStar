@@ -29,7 +29,6 @@ public class Casillero {
     private final Mapa mapa;
     private Recurso recurso;
     private Area area;
-
     private EspacioDeConstruccion espacio;
     private Construccion construccion;
     private final List<Unidad> unidades;
@@ -45,17 +44,12 @@ public class Casillero {
         this.construccion = null;
         this.unidades = new LinkedList<>();
     }
-
     public void setEspacioDeConstruccion(EspacioDeConstruccion espacio){
         this.espacio = espacio;
     }
     public void establecerConstruccion(Construccion construccionAEstablecer){
 
-        if (this.construccion != null){
-            throw new NoSePuedeConstruir();
-        }
-
-        if (construccionAEstablecer.obtenerArea().getClass() != this.area.getClass()){
+        if ( (this.construccion != null) || (construccionAEstablecer.obtenerArea().getClass() != this.area.getClass()) ){
             throw new NoSePuedeConstruir();
         }
 
@@ -83,10 +77,10 @@ public class Casillero {
         return (this.espacio.getClass() == espacio.getClass());
     }
     public Casillero mover(Casillero nuevaPosicion , Area tipoUnidad) {
+
         if ( (tipoUnidad.getClass() != AreaEspacial.class) && ( this.area.getClass() == AreaEspacial.class ) ) {
             return null;
         }
-
         return nuevaPosicion;
     }
     public ArrayList<? extends Casillero> obtenerCasilleros(int radio) {
@@ -104,7 +98,6 @@ public class Casillero {
     public void setArea(Area area){
         this.area = area;
     }
-
     public Area obtenerArea(){
         return this.area;
     }
