@@ -59,34 +59,8 @@ public class Casillero {
             throw new NoSePuedeConstruir();
         }
 
-        //VisitanteConstruccion visitante = new VisitanteConstruccion();
-        //construccionAEstablecer.visitar(visitante , this.espacio , this.recurso);
-        //this.recurso.visitar (visitante);
-
-        // Aplicar patron Visitor para limpiar estos if
-        if(construccionAEstablecer instanceof ConstruccionZerg){
-            if (this.espacio.getClass() != Moho.class && !(construccionAEstablecer instanceof Criadero)){
-                throw new CasilleroSinMoho();
-            }
-        }
-
-        if (construccionAEstablecer instanceof ProductorDeGas){
-            if (this.recurso.getClass() != Volcan.class){
-                throw new CasilleroSinGas();
-            }
-
-        } else if (this.recurso.getClass() == Volcan.class) {
-            throw new NoSePuedeConstruir();
-        }
-
-        if (construccionAEstablecer instanceof NexoMineral){
-            if (this.recurso.getClass() != Nodo.class){
-                throw new CasilleroSinMineral();
-            }
-
-        } else if (this.recurso.getClass() == Nodo.class) {
-            throw new NoSePuedeConstruir();
-        }
+        VisitanteConstruccion visitante = new VisitanteConstruccion();
+        construccionAEstablecer.visitar(visitante , this.espacio , this.recurso);
 
         this.recurso.ocupar();
         this.construccion = construccionAEstablecer;
@@ -109,7 +83,7 @@ public class Casillero {
         return (this.espacio.getClass() == espacio.getClass());
     }
     public Casillero mover(Casillero nuevaPosicion , Area tipoUnidad) {
-        if ((!(tipoUnidad.getClass() == AreaEspacial.class)) && (this.area.getClass() == AreaEspacial.class)) {
+        if ( (tipoUnidad.getClass() != AreaEspacial.class) && ( this.area.getClass() == AreaEspacial.class ) ) {
             return null;
         }
 

@@ -2,9 +2,12 @@ package edu.fiuba.algo3.modelo.construcciones.construccionesProtoss;
 
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
 import edu.fiuba.algo3.modelo.construcciones.ProductorDeGas;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.EspacioDeConstruccion;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
+import edu.fiuba.algo3.modelo.recursos.Recurso;
+import edu.fiuba.algo3.modelo.visitante.VisitanteConstruccion;
 
 public class Asimilador extends ConstruccionProtoss implements ProductorDeGas {
     private int gasProducido;
@@ -36,4 +39,10 @@ public class Asimilador extends ConstruccionProtoss implements ProductorDeGas {
     public void producirGas(){
         this.gasProducido = this.ubicacion.obtenerRecurso().recolectar(this.produccionPorTurno);
     }
+
+    @Override
+    public void visitar(VisitanteConstruccion visitante , EspacioDeConstruccion espacio , Recurso recurso){
+        visitante.construir(this, recurso);
+    }
+
 }

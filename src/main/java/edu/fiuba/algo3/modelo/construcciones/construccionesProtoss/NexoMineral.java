@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.modelo.construcciones.construccionesProtoss;
 
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.EspacioDeConstruccion;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-
+import edu.fiuba.algo3.modelo.recursos.Recurso;
+import edu.fiuba.algo3.modelo.visitante.VisitanteConstruccion;
 
 
 public class NexoMineral extends ConstruccionProtoss {
@@ -37,4 +39,10 @@ public class NexoMineral extends ConstruccionProtoss {
             raza.agregarRecurso(new Mineral(this.mineralProducido));
         }catch (RuntimeException EdificioNoEstaOperativo){};
     }
+
+    @Override
+    public void visitar(VisitanteConstruccion visitante , EspacioDeConstruccion espacio , Recurso recurso){
+        visitante.construir(this, recurso);
+    }
+
 }

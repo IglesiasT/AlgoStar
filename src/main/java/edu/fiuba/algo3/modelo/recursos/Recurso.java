@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.recursos;
 
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.EspacioDeConstruccion;
+import edu.fiuba.algo3.modelo.visitante.VisitanteConstruccion;
 import javafx.scene.text.Text;
 
 import java.util.List;
@@ -32,5 +34,7 @@ public abstract class Recurso{
     public void liberar(){
         this.ocupado = false;
     }
+
+    public void visitar(VisitanteConstruccion visitante){}
 
 }

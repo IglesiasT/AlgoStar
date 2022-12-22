@@ -1,12 +1,15 @@
 package edu.fiuba.algo3.modelo.construcciones.construccionesZerg;
 
 import edu.fiuba.algo3.modelo.construcciones.MaximoDeZanganosAsignados;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.EspacioDeConstruccion;
 import edu.fiuba.algo3.modelo.estados.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.construcciones.ProductorDeGas;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zangano;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
+import edu.fiuba.algo3.modelo.recursos.Recurso;
+import edu.fiuba.algo3.modelo.visitante.VisitanteConstruccion;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -47,4 +50,11 @@ public class Extractor extends ConstruccionZerg implements ProductorDeGas {
         estado.jugar();
         return new Gas(this.gasProducido);
     }
+
+    @Override
+    public void visitar(VisitanteConstruccion visitante , EspacioDeConstruccion espacio , Recurso recurso){
+        visitante.construir(this, recurso);
+        visitante.construir(this,espacio);
+    }
+
 }

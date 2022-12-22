@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.construcciones.construccionesZerg;
 import edu.fiuba.algo3.modelo.construcciones.NoSePuedeEngendrar;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.*;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.EspacioDeConstruccion;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.estados.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.AmoSupremo;
@@ -10,6 +11,8 @@ import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.recursos.Recurso;
+import edu.fiuba.algo3.modelo.visitante.VisitanteConstruccion;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -88,5 +91,10 @@ public class Criadero extends ConstruccionZerg {
     }
     public Zerling engendrarZerling(ListadoDeRecursos recursos) throws EdificioNoEstaOperativo {
         return (Zerling) this.engendrar(new Zerling(), recursos);
+    }
+    @Override
+    public void visitar(VisitanteConstruccion visitante , EspacioDeConstruccion espacio , Recurso recurso){
+        visitante.construir(this);
+        recurso.visitar (visitante);
     }
 }
