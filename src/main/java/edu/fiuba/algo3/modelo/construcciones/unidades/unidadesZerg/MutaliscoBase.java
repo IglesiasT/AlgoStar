@@ -2,14 +2,10 @@ package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg;
 
 import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
-import edu.fiuba.algo3.modelo.construcciones.unidades.ComportamientoUnidad;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
-import edu.fiuba.algo3.modelo.visitante.Atacante;
-import edu.fiuba.algo3.modelo.visitante.NoSePuedeMover;
-import edu.fiuba.algo3.modelo.visitante.ObjetivoFueraDeRango;
 
 public class MutaliscoBase extends UnidadZerg {
 
@@ -76,8 +72,5 @@ public class MutaliscoBase extends UnidadZerg {
         String[] estadoString = (estadoMutalisco.getClass().toString().split("\\."));
         return estadoString[estadoString.length - 1];
     };
-    @Override
-    protected void enRangoDeAtaque(Casillero ubicacion){
-        estadoMutalisco.enRangoDeAtaque(ubicacion);
-    }
+
 }

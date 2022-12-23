@@ -4,9 +4,9 @@ import edu.fiuba.algo3.modelo.areas.Area;
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
-import edu.fiuba.algo3.modelo.visitante.Atacante;
 import edu.fiuba.algo3.modelo.visitante.NoSePuedeMover;
 import edu.fiuba.algo3.modelo.visitante.ObjetivoFueraDeRango;
+import edu.fiuba.algo3.modelo.visitante.VisitanteArea;
 
 public class ComportamientoUnidad {
 
@@ -42,7 +42,7 @@ public class ComportamientoUnidad {
 
     public void atacar(Construccion construccionEnemiga , int danioAereo , int danioTerrestre){
         enRangoDeAtaque(construccionEnemiga.obtenerUbicacion());
-        Atacante ataque = new Atacante(danioAereo, danioTerrestre);
+        VisitanteArea ataque = new VisitanteArea(danioAereo, danioTerrestre);
         Area areaConstruccion = construccionEnemiga.obtenerArea();
         areaConstruccion.aceptar(ataque, construccionEnemiga);
     }
