@@ -52,9 +52,10 @@ public class CasoDeUso31Test{
 
         try {raza.construirZealot(casillero3);} catch (RuntimeException SuministroAgotado){};
 
-        raza.construirPilon(new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa()));
+        Casillero casillero4 = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
+        raza.construirPilon(casillero4);
 
-        raza.destruir(new Pilon());
+        raza.destruir(casillero4.obtenerConstruccion());
 
         try {raza.construirZealot(casillero3);} catch (RuntimeException SuministroAgotado){};
 

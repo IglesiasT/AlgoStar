@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.ComportamientoUnidad;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
 import edu.fiuba.algo3.modelo.mapa.*;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
+import edu.fiuba.algo3.modelo.recursos.RecursosInsuficientes;
 
 public abstract class UnidadZerg extends ConstruccionZerg implements Unidad {
     protected int rangoDeAtaque;
@@ -23,11 +24,6 @@ public abstract class UnidadZerg extends ConstruccionZerg implements Unidad {
         this.area = new AreaTerrestre();
         this.comportamiento = new ComportamientoUnidad(this.ubicacion, this.rangoDeAtaque , this , this.area);
     }
-
-    protected void enRangoDeAtaque(Casillero ubicacion) {
-        this.comportamiento.enRangoDeAtaque(ubicacion);
-    }
-
     public void atacar(ConstruccionProtoss construccionEnemiga) {
         this.estado.jugar();
         this.comportamiento.atacar(construccionEnemiga, this.danioAereo, this.danioTerrestre);
@@ -39,7 +35,14 @@ public abstract class UnidadZerg extends ConstruccionZerg implements Unidad {
 
     @Override
     public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos) {
-        this.ubicacion = this.comportamiento.construir(casilleroAConstruir, recursos, this.recursosNecesarios);
+        try{
+            this.ubicacion = this.comportamiento.construir(casilleroAConstruir, recursos, this.recursosNecesarios);
+        }catch (Exception e){
+            if (e.getClass() == RecursosInsuficientes.class)
+                casilleroAConstruir.retirarUnidad(this);
+            throw e;
+        }
+
     }
 
     public int consumirSuministro(int suministroAConsumir) {

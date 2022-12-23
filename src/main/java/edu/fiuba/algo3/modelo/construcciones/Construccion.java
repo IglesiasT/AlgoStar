@@ -10,6 +10,7 @@ import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Recurso;
+import edu.fiuba.algo3.modelo.recursos.RecursosInsuficientes;
 import edu.fiuba.algo3.modelo.visitante.VisitanteConstruccion;
 
 public abstract class Construccion {
@@ -33,9 +34,14 @@ public abstract class Construccion {
     }
 
     public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
-        this.recursosNecesarios.consumir(recursos);
         casilleroAConstruir.establecerConstruccion(this);
-        this.ubicacion = casilleroAConstruir;
+        try{
+            this.ubicacion = casilleroAConstruir;
+            this.recursosNecesarios.consumir(recursos);
+        }catch (Exception e){
+            this.destruir();
+            throw new RecursosInsuficientes();
+        }
     }
     public abstract void recibirDanio(int danioInflingido);
     protected abstract void regenerar();
