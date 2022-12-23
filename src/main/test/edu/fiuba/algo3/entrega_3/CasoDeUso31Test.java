@@ -38,7 +38,13 @@ public class CasoDeUso31Test{
         Protoss raza = new Protoss(15825, 7700);
 
         raza.construirAcceso(casillero1);
+        for (int i = 0; i < 12; i++) {
+            raza.nuevoTurno();
+        }
         raza.construirPuertoEstelar(casillero2);
+        for (int i = 0; i < 12; i++) {
+            raza.nuevoTurno();
+        }
 
         for (int i = 0; i < 50; i++) {
             raza.construirScout(new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa()));
@@ -77,8 +83,17 @@ public class CasoDeUso31Test{
         Zerg raza = new Zerg(5700, 5300);
 
         raza.construirReservaDeReproduccion(casillero);
+        for (int i = 0; i < 12; i++) {
+            raza.nuevoTurno();
+        }
         raza.construirGuarida(casillero2);
+        for (int i = 0; i < 12; i++) {
+            raza.nuevoTurno();
+        }
         raza.construirEspiral(casillero3);
+        for (int i = 0; i < 12; i++) {
+            raza.nuevoTurno();
+        }
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();
@@ -128,8 +143,17 @@ public class CasoDeUso31Test{
         Zerg raza = new Zerg(5700, 5300);
 
         raza.construirReservaDeReproduccion(casillero);
+        for (int i = 0; i < 12; i++) {
+            raza.nuevoTurno();
+        }
         raza.construirGuarida(casillero2);
+        for (int i = 0; i < 12; i++) {
+            raza.nuevoTurno();
+        }
         raza.construirEspiral(casillero3);
+        for (int i = 0; i < 12; i++) {
+            raza.nuevoTurno();
+        }
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();

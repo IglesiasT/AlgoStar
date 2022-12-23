@@ -1,9 +1,7 @@
 package edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg;
 
 import edu.fiuba.algo3.modelo.construcciones.unidades.ComportamientoUnidad;
-import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.recursos.Nodo;
 
 public class Zerling extends UnidadZerg {
     public Zerling(){

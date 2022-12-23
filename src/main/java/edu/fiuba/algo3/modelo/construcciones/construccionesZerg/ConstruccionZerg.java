@@ -13,11 +13,14 @@ public abstract class ConstruccionZerg extends Construccion {
     }
     @Override
     public void recibirDanio(int danioInflingido) {
-        this.vida -= danioInflingido;
+        try {
+            estado.jugar();
+            this.vida -= danioInflingido;
 
-        if (this.vida <= 0){
-            this.destruir();
-        }
+            if (this.vida <= 0) {
+                this.destruir();
+            }
+        }catch (Exception e){}
     }
 
     @Override

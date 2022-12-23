@@ -5,10 +5,9 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.ComportamientoUnidad;
 import edu.fiuba.algo3.modelo.construcciones.unidades.visibilidad.Visibilidad;
 import edu.fiuba.algo3.modelo.construcciones.unidades.visibilidad.Visible;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
-import edu.fiuba.algo3.modelo.recursos.Nodo;
 
 public class Zealot extends UnidadProtoss {
-    Visibilidad estado;
+    Visibilidad visibilidad;
     public Zealot(){
 
         super();
@@ -17,26 +16,29 @@ public class Zealot extends UnidadProtoss {
         this.rangoDeAtaque = 1;
         this.suministro = 2;
         this.recursosNecesarios.agregar(new Mineral(100));
-        this.estado = new Visible(this.escudo, this.vida);
+        this.visibilidad = new Visible(this.escudo, this.vida);
         this.danioTerrestre = 8;
         this.comportamiento = new ComportamientoUnidad(this.ubicacion , this.rangoDeAtaque , this , this.area);
     }
     @Override
     public void recibirDanio(int danioInflingido) {
-        this.estado.recibirDanio(danioInflingido);
+        try {
+            estado.jugar();
+            this.visibilidad.recibirDanio(danioInflingido);
+        }catch (Exception e){}
     }
     public void visibilizar(){
-        estado = this.estado.hacerVisible();
+        visibilidad = this.visibilidad.hacerVisible();
     }
     public void invisibilizar(){
-        estado = this.estado.hacerInvisible();
+        visibilidad = this.visibilidad.hacerInvisible();
     }
     @Override
     public int obtenerEscudo(){
-        return this.estado.obtenerEscudo();
+        return this.visibilidad.obtenerEscudo();
     }
     @Override
     public int obtenerVida(){
-        return this.estado.obtenerVida();
+        return this.visibilidad.obtenerVida();
     }
 }

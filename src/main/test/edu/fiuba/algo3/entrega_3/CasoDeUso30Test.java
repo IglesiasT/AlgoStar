@@ -35,7 +35,13 @@ public class CasoDeUso30Test {
         Protoss raza = new Protoss(15500, 7650);
 
         raza.construirAcceso(casillero1);
+        for (int i = 0; i < 12; i++) {
+            raza.nuevoTurno();
+        }
         raza.construirPuertoEstelar(casillero2);
+        for (int i = 0; i < 12; i++) {
+            raza.nuevoTurno();
+        }
 
         for (int i = 0; i < 50; i++) {
             Casillero casilleroi = new Casillero(new AreaTerrestre(), 1 , 1 , new Mapa());
@@ -70,8 +76,17 @@ public class CasoDeUso30Test {
         Zerg raza = new Zerg(5525, 5200);
 
         raza.construirReservaDeReproduccion(casillero1);
+        for (int i = 0; i < 12; i++) {
+            raza.nuevoTurno();
+        }
         raza.construirGuarida(casillero2);
+        for (int i = 0; i < 12; i++) {
+            raza.nuevoTurno();
+        }
         raza.construirEspiral(casillero3);
+        for (int i = 0; i < 12; i++) {
+            raza.nuevoTurno();
+        }
 
         for (int i = 0; i < 12; i++) {
             raza.nuevoTurno();

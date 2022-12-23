@@ -14,6 +14,11 @@ public class CasoDeUso11Test {
         int vidaEsperada = 300;
 
         Pilon pilon = new Pilon();
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
         pilon.recibirDanio(20);
 
         assertEquals(vidaEsperada, pilon.obtenerVida());
@@ -27,6 +32,11 @@ public class CasoDeUso11Test {
         int vidaEsperada = 300;
 
         Pilon pilon = new Pilon();
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
         pilon.recibirDanio(20);
 
         pilon.nuevoTurno(new Protoss());
@@ -41,6 +51,11 @@ public class CasoDeUso11Test {
         int escudoEsperado = 300;
 
         Pilon pilon = new Pilon();
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
+        pilon.nuevoTurno(new Protoss());
         pilon.recibirDanio(20);
 
         pilon.nuevoTurno(new Protoss());

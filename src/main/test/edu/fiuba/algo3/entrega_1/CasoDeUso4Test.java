@@ -37,7 +37,7 @@ public class CasoDeUso4Test {
         extractor.nuevoTurno(new Zerg());
 
         // Assert
-        assertEquals(valorEsperado, extractor.obtenerGasProducido());
+        assertEquals(valorEsperado, extractor.producirGas());
     }
 
     @Test
@@ -65,10 +65,9 @@ public class CasoDeUso4Test {
         zangano.nuevoTurno(new Zerg());
 
         zangano.moverse(casillero);
-        extractor.nuevoTurno(new Zerg()); //El gas correspondiente debe generarse por turno
 
         // Assert
-        assertEquals(gasProducidoEsperado, extractor.obtenerGasProducido());
+        assertEquals(gasProducidoEsperado, extractor.producirGas());
     }
 
     @Test
@@ -99,10 +98,9 @@ public class CasoDeUso4Test {
 
         zangano1.moverse(casillero);
         zangano2.moverse(casillero);
-        extractor.nuevoTurno(new Zerg());     // El gas correspondiente debe generarse por turno
 
         // Assert
-        assertEquals(gasProducidoEsperado, extractor.obtenerGasProducido());
+        assertEquals(gasProducidoEsperado, extractor.producirGas());
     }
 
     @Test
@@ -136,10 +134,9 @@ public class CasoDeUso4Test {
         zangano1.moverse(casillero);
         zangano2.moverse(casillero);
         zangano3.moverse(casillero);
-        extractor.nuevoTurno(new Zerg()); //El gas correspondiente debe generarse por turno
 
         // Assert
-        assertEquals(gasProducidoEsperado, extractor.obtenerGasProducido());
+        assertEquals(gasProducidoEsperado, extractor.producirGas());
     }
 
     @Test

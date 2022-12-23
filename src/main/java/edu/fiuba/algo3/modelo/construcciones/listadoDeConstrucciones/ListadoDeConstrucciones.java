@@ -18,7 +18,7 @@ public abstract class ListadoDeConstrucciones {
 
     public boolean contiene(Construccion construccionBuscada) {
         for (Construccion construccion : this.construcciones) {
-            if (construccion.getClass() == construccionBuscada.getClass()) {
+            if (construccion.getClass() == construccionBuscada.getClass() && construccion.activa()) {
                 return true;
             }
         }

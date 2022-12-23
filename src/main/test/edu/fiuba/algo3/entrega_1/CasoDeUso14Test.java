@@ -1,8 +1,12 @@
 package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Acceso;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.FueraDeRangoDePilon;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Pilon;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Extractor;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ReservaDeReproduccion;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
@@ -14,6 +18,8 @@ import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CasoDeUso14Test {
 
@@ -54,7 +60,7 @@ public class CasoDeUso14Test {
         pilon.nuevoTurno(raza2);
 
         // Assert
-        assert !casillero3.contiene(new RangoPilon());
+        assertThrows(FueraDeRangoDePilon.class,() ->casillero3.establecerConstruccion(new Acceso()));
     }
 
     @Test
@@ -78,7 +84,7 @@ public class CasoDeUso14Test {
 
         // Act
         recursos.agregar(new Mineral(2000));
-        criadero.construir(casillero1, recursos);
+        pilon.construir(casillero1, recursos);
         pilon.nuevoTurno(raza2);
         pilon.nuevoTurno(raza2);
         pilon.nuevoTurno(raza2);
@@ -96,6 +102,6 @@ public class CasoDeUso14Test {
 
 
         // Assert
-        assert casillero3.contiene(new Moho());
+        assertDoesNotThrow(() ->casillero3.establecerConstruccion(new ReservaDeReproduccion()));
     }
 }
