@@ -79,6 +79,5 @@ public class MutaliscoBase extends UnidadZerg {
     @Override
     protected void enRangoDeAtaque(Casillero ubicacion){
         estadoMutalisco.enRangoDeAtaque(ubicacion);
-
     }
 }

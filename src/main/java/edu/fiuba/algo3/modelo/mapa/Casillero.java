@@ -74,7 +74,7 @@ public class Casillero {
     }
     public Construccion obtenerConstruccion(){ return this.construccion;}
     public boolean contiene (EspacioDeConstruccion espacio){
-        return (this.espacio.getClass() == espacio.getClass());
+        return ( this.espacio.getClass() == espacio.getClass() );
     }
     public Casillero mover(Casillero nuevaPosicion , Area tipoUnidad) {
 
