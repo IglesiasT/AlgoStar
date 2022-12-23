@@ -35,6 +35,7 @@ public class Pilon extends ConstruccionProtoss {
         this.casillerosEnergizados = this.ubicacion.obtenerCasilleros(this.radioAfectado);
     }
     public void destruir(){
+        super.destruir();
         for (Casillero casillero: this.casillerosEnergizados) {
             casillero.fueraDelRangoDelPilon();
         }

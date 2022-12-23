@@ -18,12 +18,14 @@ public class MutaliscoBase extends UnidadZerg {
     public void evolucionarAGuardian(ListadoDeRecursos recursosDisponibles){
         Guardian guardian = new Guardian();
         guardian.construir(this.ubicacion,recursosDisponibles);
+        ubicacion.retirarUnidad(guardian);
         this.estadoMutalisco = guardian;
 
     }
     public void evolucionarADevorador(ListadoDeRecursos recursosDisponibles){
         Devorador devorador = new Devorador();
         devorador.construir(this.ubicacion,recursosDisponibles);
+        ubicacion.retirarUnidad(devorador);
         this.estadoMutalisco = devorador;
 
     }
@@ -65,6 +67,7 @@ public class MutaliscoBase extends UnidadZerg {
     public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
         moverse(casilleroAConstruir);
         this.estadoMutalisco.construir(casilleroAConstruir,recursos);
+        casilleroAConstruir.retirarUnidad((Unidad)estadoMutalisco);
     }
 
     public String obtenerEstado(){
