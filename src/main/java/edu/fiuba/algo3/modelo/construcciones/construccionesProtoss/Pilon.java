@@ -43,7 +43,6 @@ public class Pilon extends ConstruccionProtoss {
         super.nuevoTurno(raza);
         try{this.energizar();}catch (RuntimeException EdificioNoEstaOperativo){};
     }
-
     public void visitar(VisitanteConstruccion visitante , EspacioDeConstruccion espacio , Recurso recurso){
         recurso.visitar (visitante);
     }

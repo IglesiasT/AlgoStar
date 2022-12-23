@@ -9,12 +9,10 @@ public class SinRecurso extends Recurso{
     public RecursoObtenido recolectar(Zangano zangano, Construccion construccion, int recoleccionPorTurno) {
         return new RecursoObtenido(0);
     }
-
     @Override
     public RecursoObtenido recolectar(Construccion construccion, int recoleccionPorTurno) {
         return new RecursoObtenido(0);
     }
-
     @Override
     public void ocupar(){}
 }

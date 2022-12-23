@@ -9,8 +9,8 @@ import java.util.List;
 
 public abstract class Raza {
     protected ListadoDeRecursos recursos;
-    int maximoSuministro;
-    int suministro;
+    protected int maximoSuministro;
+    protected int suministro;
 
     public Raza(){
         this.maximoSuministro = 200;
@@ -19,7 +19,6 @@ public abstract class Raza {
         this.recursos.agregar(new Mineral(200));
         this.recursos.agregar(new Gas(0));
     }
-
     public Raza(int cantidadDeMineral, int cantidadDeGas){
         this.recursos = new ListadoDeRecursos();
         this.recursos.agregar(new Mineral(cantidadDeMineral));
@@ -31,17 +30,13 @@ public abstract class Raza {
     public int obtenerOcupacionActual() {
         return this.suministro;
     }
-
     public abstract int construccionesRealizadas();
-
     public abstract void construir(String construccion, Casillero casillero);
     public abstract void nuevoTurno();
     public abstract void atacar(Unidad atacante, Construccion objetivo);
-
     public void agregarRecurso(RecursoObtenido recurso){
         this.recursos.agregar(recurso);
     }
-
     public String obtenerRecursos(){
         return recursos.obtenerRecursos();
     }

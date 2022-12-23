@@ -22,20 +22,16 @@ public abstract class ConstruccionZerg extends Construccion {
             }
         }catch (Exception e){}
     }
-
     @Override
     protected void regenerar() {
         if (this.vida < this.vidaMaxima){
             this.vida += 5;
         }
     }
-
     @Override
     public Class obtenerRazaMadre() {
         return Zerg.class;
     }
-
-
     public void visitar(VisitanteConstruccion visitante , EspacioDeConstruccion espacio , Recurso recurso){
         super.visitar(visitante , espacio , recurso);
         visitante.construir(this, espacio);

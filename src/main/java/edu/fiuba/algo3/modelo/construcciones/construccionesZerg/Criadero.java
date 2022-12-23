@@ -39,7 +39,7 @@ public class Criadero extends ConstruccionZerg {
     public int larvasRestantes() {
         return this.larvas.size();
     }
-    public Zangano engendrarZangano(ListadoDeRecursos recursos) throws EdificioNoEstaOperativo {
+    public Zangano engendrarZangano(ListadoDeRecursos recursos) {
         return (Zangano)this.engendrar(new Zangano(), recursos);
     }
     public void nuevoTurno(Raza raza){
@@ -53,7 +53,7 @@ public class Criadero extends ConstruccionZerg {
             this.expandirMoho();
         }
     }
-    private UnidadZerg engendrar(UnidadZerg unidad, ListadoDeRecursos recursos) throws EdificioNoEstaOperativo{
+    private UnidadZerg engendrar(UnidadZerg unidad, ListadoDeRecursos recursos){
         estado.jugar();
 
         if (this.larvas.size() == 0){

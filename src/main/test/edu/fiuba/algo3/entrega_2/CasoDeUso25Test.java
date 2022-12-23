@@ -31,35 +31,35 @@ public class CasoDeUso25Test {
     public void noSePuedenCrearDosJugadoresConElMismoNombreEnUnJuego () {
 
         AlgoStar juego = new AlgoStar();
-        juego.agregarJugadorUno("Amparo" , Color.BLUE, "Zerg");
+        juego.agregarJugador("Amparo" , Color.BLUE, "Zerg");
 
-        assertThrows(DatosRepetidos.class, () -> juego.agregarJugadorDos("Amparo" , Color.RED, "Protoss"));
+        assertThrows(DatosRepetidos.class, () -> juego.agregarJugador("Amparo" , Color.RED, "Protoss"));
     }
 
     @Test
     public void noSePuedenCrearDosJugadoresConElMismoColorEnUnJuego () {
 
         AlgoStar juego = new AlgoStar();
-        juego.agregarJugadorUno("Amparo" , Color.BLUE, "Zerg");
+        juego.agregarJugador("Amparo" , Color.BLUE, "Zerg");
 
-        assertThrows(DatosRepetidos.class, () -> juego.agregarJugadorDos("Mariaa" , Color.BLUE, "Protoss"));
+        assertThrows(DatosRepetidos.class, () -> juego.agregarJugador("Mariaa" , Color.BLUE, "Protoss"));
     }
 
     @Test
     public void noSePuedenCrearDosJugadoresConLaMismaRazaEnUnJuego () {
 
         AlgoStar juego = new AlgoStar();
-        juego.agregarJugadorUno("Amparo" , Color.BLUE, "Zerg");
+        juego.agregarJugador("Amparo" , Color.BLUE, "Zerg");
 
-        assertThrows(DatosRepetidos.class, () -> juego.agregarJugadorDos("Mariaa" , Color.RED, "Zerg"));
+        assertThrows(DatosRepetidos.class, () -> juego.agregarJugador("Mariaa" , Color.RED, "Zerg"));
     }
 
     @Test
     public void sePuedeCrearLosJugadoresConDatosValidos() {
         AlgoStar juego = new AlgoStar();
-        juego.agregarJugadorUno("Amparo" , Color.BLUE, "Zerg");
+        juego.agregarJugador("Amparo" , Color.BLUE, "Zerg");
 
-        assertDoesNotThrow(() -> juego.agregarJugadorDos("Mariaa" , Color.RED, "Protoss"));
+        assertDoesNotThrow(() -> juego.agregarJugador("Mariaa" , Color.RED, "Protoss"));
 
     }
 }

@@ -85,10 +85,10 @@ public class ContenedorFinDeTurno extends VBox implements Contenedor {
     }
 
     private Jugador siguienteJugador(){
-        if(this.jugador == juego.obtenerJugadorUno()){
-            return juego.obtenerJugadorDos();
+        if(this.jugador == juego.obtenerJugador(1)){
+            return juego.obtenerJugador(2);
         }
-        return  juego.obtenerJugadorUno();
+        return  juego.obtenerJugador(1);
     }
 
     @Override

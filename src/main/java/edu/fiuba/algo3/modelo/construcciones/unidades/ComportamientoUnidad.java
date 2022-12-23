@@ -21,7 +21,6 @@ public class ComportamientoUnidad {
         this.unidad = unidad ;
         this.area = area;
     }
-
     public Casillero construir(Casillero casilleroAConstruir, ListadoDeRecursos recursosAConsumir , ListadoDeRecursos recursosNecesarios){
         Casillero nuevaUbicacion;
         nuevaUbicacion = moverse(casilleroAConstruir);
@@ -39,14 +38,12 @@ public class ComportamientoUnidad {
         }
 
     }
-
     public void atacar(Construccion construccionEnemiga , int danioAereo , int danioTerrestre){
         enRangoDeAtaque(construccionEnemiga.obtenerUbicacion());
         VisitanteArea ataque = new VisitanteArea(danioAereo, danioTerrestre);
         Area areaConstruccion = construccionEnemiga.obtenerArea();
         areaConstruccion.aceptar(ataque, construccionEnemiga);
     }
-
     public Casillero moverse(Casillero casillero) {
 
         Casillero aux = casillero.mover(casillero ,this.area);
@@ -63,7 +60,6 @@ public class ComportamientoUnidad {
 
         return this.ubicacion;
     }
-
     public int consumirSuministro(int suministroAConsumir , int suministro){
         return suministroAConsumir + suministro;
     }

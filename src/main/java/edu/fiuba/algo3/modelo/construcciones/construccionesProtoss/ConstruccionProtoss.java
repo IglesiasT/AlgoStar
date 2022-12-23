@@ -32,9 +32,7 @@ public abstract class ConstruccionProtoss extends Construccion {
     protected void regenerar() {
         this.escudo.regenerar();
     }
-
     public Class obtenerRazaMadre(){ return Protoss.class;}
-
     public void visitar(VisitanteConstruccion visitante , EspacioDeConstruccion espacio , Recurso recurso){
         super.visitar(visitante , espacio , recurso);
         visitante.construir(this, espacio);

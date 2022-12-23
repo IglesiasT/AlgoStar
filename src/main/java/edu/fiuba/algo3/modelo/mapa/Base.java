@@ -10,11 +10,9 @@ import java.util.Random;
 
 public class Base {
 
-
     //una base tiene radio 3, 1 volcan y como maximo tiene 7 nodos
     private static final int CANTIDAD_NODOS = 7;
     public static final int RADIO = 3;
-
     private final Casillero ubicacion;
 
     public Base(Casillero ubicacion){

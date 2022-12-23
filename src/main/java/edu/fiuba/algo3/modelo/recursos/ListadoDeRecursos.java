@@ -15,7 +15,6 @@ public class ListadoDeRecursos {
             recurso.consumir(this.recursos);
         }
     }
-
     public void agregar(RecursoObtenido recursoAgregar){
         boolean yaAgregado = false;
         for (RecursoObtenido recurso: recursos){
@@ -27,7 +26,6 @@ public class ListadoDeRecursos {
         if (!yaAgregado)
             this.recursos.add(recursoAgregar);
     }
-
     public String obtenerRecursos(){
         return "Δ"+Integer.toString(recursos.get(1).cantidad)+" ❖"+Integer.toString(recursos.get(0).cantidad);
     }

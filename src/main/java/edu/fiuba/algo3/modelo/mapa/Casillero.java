@@ -39,6 +39,7 @@ public class Casillero {
         this.construccion = null;
         this.unidades = new LinkedList<>();
     }
+
     public void setEspacioDeConstruccion(EspacioDeConstruccion espacio){
         this.espacio = espacio;
     }
@@ -58,7 +59,6 @@ public class Casillero {
         this.construccion = null;
         this.recurso.liberar();
     }
-
     public void ubicarUnidad(Unidad unidad){
         unidades.add(unidad);
     }
@@ -75,7 +75,6 @@ public class Casillero {
         this.recurso.ocupar();
     }
     public Construccion obtenerConstruccion(){ return this.construccion;}
-
     public void fueraDelRangoDelPilon(){
         if(espacio.getClass() == RangoPilon.class)
             espacio = new SinEspacio();

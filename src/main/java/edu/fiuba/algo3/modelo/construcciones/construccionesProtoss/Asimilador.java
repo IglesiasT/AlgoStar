@@ -23,15 +23,11 @@ public class Asimilador extends ConstruccionProtoss implements ProductorDeGas {
         try {raza.agregarRecurso(producirGas());}catch (Exception e){};
         super.nuevoTurno(raza);
     }
-
-
     public RecursoObtenido producirGas(){
         return this.ubicacion.recolectarRecurso(this.produccionPorTurno);
     }
-
     @Override
     public void visitar(VisitanteConstruccion visitante , EspacioDeConstruccion espacio , Recurso recurso){
         visitante.construir(this, recurso);
     }
-
 }

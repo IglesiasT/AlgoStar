@@ -37,7 +37,6 @@ public abstract class Construccion {
         casilleroAConstruir.establecerConstruccion(this);
         this.ubicacion = casilleroAConstruir;
     }
-
     public abstract void recibirDanio(int danioInflingido);
     protected abstract void regenerar();
     public int obtenerVida(){
@@ -63,11 +62,8 @@ public abstract class Construccion {
     public Area obtenerArea() {
         return this.area;
     }
-
     public abstract Class obtenerRazaMadre();
-
     public boolean activa(){ return turnos >= turnosParaConstruirse;}
-
     public void visitar(VisitanteConstruccion visitante , EspacioDeConstruccion espacio , Recurso recurso){
         recurso.visitar (visitante);
     }

@@ -13,14 +13,13 @@ public class Nodo extends Recurso{
         super();
         this.cantidad = 2000;
     }
+
     public RecursoObtenido recolectar(Zangano zangano, Construccion construccion, int recoleccionPorTurno) {
         return new Mineral(recolectar(recoleccionPorTurno));
     }
-
     public RecursoObtenido recolectar(Construccion construccion, int recoleccionPorTurno) {
         return new Mineral(recolectar(recoleccionPorTurno));
     }
-
     @Override
     public void visitar(VisitanteConstruccion visitante){
         visitante.construir(this);

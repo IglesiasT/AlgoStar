@@ -128,18 +128,18 @@ public class ContenedorElegirJugador extends VBox implements Contenedor{
     }
 
     public void anotarJugadorUno(){
-        juego.agregarJugadorUno(textFieldNombreJugador.getText(),colorPicker.getValue(),comboBoxRazas.getValue());
+        juego.agregarJugador(textFieldNombreJugador.getText(),colorPicker.getValue(),comboBoxRazas.getValue());
     }
 
     public void anotarJugadorDos(){
-        juego.agregarJugadorDos(textFieldNombreJugador.getText(),colorPicker.getValue(),comboBoxRazas.getValue());
+        juego.agregarJugador(textFieldNombreJugador.getText(),colorPicker.getValue(),comboBoxRazas.getValue());
     }
 
     public Scene obtenerProximaEscena() {
         if (segundoJugador){
             try{anotarJugadorDos();
                 juego.comenzarJuego();
-                return new Scene(new ContenedorElegirAccion(this.stage,this.juego,juego.obtenerJugadorUno()),800,800);
+                return new Scene(new ContenedorElegirAccion(this.stage,this.juego,juego.obtenerJugador(1)),800,800);
             }catch (Exception e){
                 return new Scene(new ContenedorElegirJugador(this.stage,this.juego, "DATOS INVALIDOS",true), 800,800);
             }

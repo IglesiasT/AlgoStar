@@ -24,17 +24,14 @@ public class NexoMineral extends ConstruccionProtoss {
         estado.jugar();
         return this.ubicacion.recolectarRecurso(produccionPorTurno);
     }
-
     public void nuevoTurno(Raza raza){
         try{raza.agregarRecurso(recolectarMineral());}catch (Exception e){};
         super.nuevoTurno(raza);
 
 ;
     }
-
     @Override
     public void visitar(VisitanteConstruccion visitante , EspacioDeConstruccion espacio , Recurso recurso){
         visitante.construir(this, recurso);
     }
-
 }

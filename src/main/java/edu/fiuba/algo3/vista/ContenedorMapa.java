@@ -99,12 +99,12 @@ public class ContenedorMapa extends Pane {
         cargarDiccionarioConstrucciones();
 
         this.construccionesColor = new HashMap<>();
-        construccionesColor.put(juego.obtenerJugadorUno().obtenerRaza().getClass(),juego.obtenerJugadorUno().obtenerColor());
-        construccionesColor.put(juego.obtenerJugadorDos().obtenerRaza().getClass(),juego.obtenerJugadorDos().obtenerColor());
+        construccionesColor.put(juego.obtenerJugador(1).obtenerRaza().getClass(),juego.obtenerJugador(1).obtenerColor());
+        construccionesColor.put(juego.obtenerJugador(2).obtenerRaza().getClass(),juego.obtenerJugador(2).obtenerColor());
 
         this.unidadesDuenio = new HashMap<>();
-        unidadesDuenio.put(juego.obtenerJugadorUno().obtenerRaza().getClass(),juego.obtenerJugadorUno().obtenerNombre());
-        unidadesDuenio.put(juego.obtenerJugadorDos().obtenerRaza().getClass(),juego.obtenerJugadorDos().obtenerNombre());
+        unidadesDuenio.put(juego.obtenerJugador(1).obtenerRaza().getClass(),juego.obtenerJugador(1).obtenerNombre());
+        unidadesDuenio.put(juego.obtenerJugador(2).obtenerRaza().getClass(),juego.obtenerJugador(2).obtenerNombre());
     }
 
     private void mostrarMapa(Mapa mapa, boolean seleccionCasillero,boolean seleccionUnidad) {
@@ -124,8 +124,8 @@ public class ContenedorMapa extends Pane {
         this.getChildren().addAll(grupoDeCasilleros,grupoDeEspacios,grupoDeRecursos,grupoDeBases,
                 grupoDeConstrucciones,grupoDeUnidades);
 
-        this.cargarBaseJugadorVista(crearBaseVista(mapa.obtenerBaseUno()),juego.obtenerJugadorUno().obtenerColor(),grupoDeBases);
-        this.cargarBaseJugadorVista(crearBaseVista(mapa.obtenerBaseDos()),juego.obtenerJugadorDos().obtenerColor(),grupoDeBases);
+        this.cargarBaseJugadorVista(crearBaseVista(mapa.obtenerBaseUno()),juego.obtenerJugador(1).obtenerColor(),grupoDeBases);
+        this.cargarBaseJugadorVista(crearBaseVista(mapa.obtenerBaseDos()),juego.obtenerJugador(2).obtenerColor(),grupoDeBases);
 
         for (int i = 0; i < tamanioMapa; i++){
             for (int j = 0; j < tamanioMapa; j++){

@@ -39,30 +39,25 @@ public class Jugador {
         }
         return razaRaza;
     }
-
     public void setBaseInicial(Base baseInicial){
         this.baseInicial = baseInicial;
     }
-
     public int cantidadDeConstruccionesRealizadas(){
         return this.raza.construccionesRealizadas();
     }
-
     public Jugador crearUnJugadorDistinto(String nombreJugador, Color color, String razaJugador){
-        Jugador jugadorDos = null;
+        Jugador jugador = null;
         if ((!Objects.equals(this.nombre, nombreJugador))&&
                 (!Objects.equals(this.color,color))&& (!Objects.equals(this.raza.getClass(), stringARaza(razaJugador).getClass()))){
-            jugadorDos = new Jugador(nombreJugador,color,razaJugador);
+            jugador = new Jugador(nombreJugador,color,razaJugador);
         }
-        return jugadorDos;
+        return jugador;
     }
-
     public Color obtenerColor(){
         return this.color;
     }
     public String obtenerNombre(){ return this.nombre; }
     public Raza obtenerRaza(){ return this.raza; }
-
     public void construir(String construccion, Casillero casillero){
         raza.construir(construccion,casillero);
     }

@@ -15,12 +15,12 @@ public class CasoDeUso32Test {
     @Test
     public void elJuegoTerminaCuandoAlgunoDeLosJugadoresSeQuedaSinEdificios() {
         AlgoStar juego = new AlgoStar();
-        juego.agregarJugadorUno("Amparo" , Color.BLUE, "Zerg");
-        juego.agregarJugadorDos("Mariaa" , Color.RED, "Protoss");
+        juego.agregarJugador("Amparo" , Color.BLUE, "Zerg");
+        juego.agregarJugador("Mariaa" , Color.RED, "Protoss");
 
         juego.comenzarJuego() ;
-        juego.siguienteTurno(juego.obtenerJugadorUno());
+        juego.siguienteTurno(juego.obtenerJugador(1));
 
-        assertThrows(JuegoFinalizado.class, () -> juego.siguienteTurno(juego.obtenerJugadorDos()));
+        assertThrows(JuegoFinalizado.class, () -> juego.siguienteTurno(juego.obtenerJugador(2)));
     }
 }

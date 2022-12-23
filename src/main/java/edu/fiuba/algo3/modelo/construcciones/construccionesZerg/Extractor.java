@@ -30,7 +30,7 @@ public class Extractor extends ConstruccionZerg implements ProductorDeGas {
         super.nuevoTurno(raza);
 
     }
-    public void asignarZangano(Zangano zangano) throws MaximoDeZanganosAsignados {
+    public void asignarZangano(Zangano zangano)  {
         if (this.zanganosAsignados.size() >= this.capacidadMaximaDeZanganos){
             throw new MaximoDeZanganosAsignados();
         }
@@ -44,11 +44,9 @@ public class Extractor extends ConstruccionZerg implements ProductorDeGas {
         }
         return gasProducido;
     }
-
     @Override
     public void visitar(VisitanteConstruccion visitante , EspacioDeConstruccion espacio , Recurso recurso){
         visitante.construir(this, recurso);
         visitante.construir(this,espacio);
     }
-
 }

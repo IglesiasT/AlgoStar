@@ -24,6 +24,7 @@ public class Protoss extends Raza{
         super(mineralInicial, gasInicial);
         this.construccionesRealizadas = new ListadoDeConstruccionesProtoss();
     }
+
     public void nuevoTurno(){
         this.construccionesRealizadas.eliminarConstruccionesDestruidas(this);
         this.construccionesRealizadas.nuevoTurno(this);
@@ -111,7 +112,6 @@ public class Protoss extends Raza{
     public int construccionesRealizadas() {
         return construccionesRealizadas.size();
     }
-
     @Override
     public void construir(String construccion,Casillero casillero) {
         if (construccion.contains("Pilon")){ construirPilon(casillero);}
@@ -124,12 +124,10 @@ public class Protoss extends Raza{
         else if (construccion.contains("Dragon")) {construirDragon(casillero);}
         else {throw new NoSePuedeConstruir();}
     }
-
     public void destruir (Construccion construccionADestruir) {
         this.maximoSuministro=this.construccionesRealizadas.destruir(construccionADestruir, this.maximoSuministro);
     }
     public void atacar(Unidad atacante, Construccion objetivo){((UnidadProtoss)atacante).atacar((ConstruccionZerg)objetivo);}
-
     @Override
     public List<Construccion> obtenerConstrucciones() {return construccionesRealizadas.obtenerConstrucciones();}
 }

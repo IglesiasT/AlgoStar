@@ -21,35 +21,29 @@ import edu.fiuba.algo3.modelo.recursos.Volcan;
 public class VisitanteConstruccion {
 
     public void construir(Criadero criadero) {}
-
     public void construir(ConstruccionZerg contruccion , EspacioDeConstruccion espacio ) {
         if (espacio.getClass() != Moho.class) {
             throw new CasilleroSinMoho();
         }
     }
-
     public void construir(ConstruccionProtoss contruccion , EspacioDeConstruccion espacio ) {
         if (espacio.getClass() != RangoPilon.class) {
             throw new FueraDeRangoDePilon();
         }
     }
-
     public void construir(ProductorDeGas construccion , Recurso recurso) {
         if(recurso.getClass()!=Volcan .class){
             throw new CasilleroSinGas();
         }
     }
-
     public void construir(Volcan recurso) {
         throw new NoSePuedeConstruir();
     }
-
     public void construir(NexoMineral construccion , Recurso recurso) {
         if (recurso.getClass() != Nodo.class){
             throw new CasilleroSinMineral();
         }
     }
-
     public void construir(Nodo recurso) {
         throw new NoSePuedeConstruir();
     }

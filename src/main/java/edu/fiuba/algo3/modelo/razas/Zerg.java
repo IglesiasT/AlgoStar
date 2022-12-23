@@ -22,6 +22,7 @@ public class Zerg extends Raza{
         super(mineralInicial, gasInicial);
         this.construccionesRealizadas = new ListadoDeConstruccionesZerg();
     }
+
     private void construir(ConstruccionZerg construccion, Casillero casilleroAConstruir){
 
         construccion.construir(casilleroAConstruir, this.recursos);
@@ -77,7 +78,6 @@ public class Zerg extends Raza{
 
         this.suministro = zangano.consumirSuministro(this.suministro) ;
     }
-
     public MutaliscoBase engendrarMutalisco(Criadero criaderoAUsar){
         if (! this.construccionesRealizadas.contiene(new Espiral())){
             throw new ConstruccionPreviaNoConstruida();
@@ -123,7 +123,6 @@ public class Zerg extends Raza{
 
         return zerling;
     }
-
     public void evolucionarMutaliscoAGuardian(MutaliscoBase mutaliscoAEvolucionar){
         mutaliscoAEvolucionar.evolucionarAGuardian(recursos);
     }
@@ -133,7 +132,6 @@ public class Zerg extends Raza{
     public int construccionesRealizadas() {
         return construccionesRealizadas.size();
     }
-
     @Override
     public void construir(String construccion, Casillero casillero) {
         if (construccion.contains("Criadero")){ construirCriadero(casillero);}
@@ -143,7 +141,6 @@ public class Zerg extends Raza{
         else if (construccion.contains("Guarida")) {construirGuarida(casillero);}
         else {throw new NoSePuedeConstruir();}
     }
-
     public void destruir(Construccion construccionADestruir){
         this.construccionesRealizadas.destruir(construccionADestruir);
     }
@@ -163,14 +160,12 @@ public class Zerg extends Raza{
         else if (construccion.contains("Hidralisco")) {engendrarHidralisco((Criadero)casillero.obtenerConstruccion());}
         else {throw new NoSePuedeConstruir();}
     }
-
     public void evolucionar(String construccion, MutaliscoBase mutalisco) {
         if (construccion.contains("Guardian")) {evolucionarMutaliscoAGuardian(mutalisco);}
         else if (construccion.contains("Devorador")) {evolucionarMutaliscoADevorador(mutalisco);}
         else {throw new NoSePuedeConstruir();}
     }
     public void atacar(Unidad atacante, Construccion objetivo){((UnidadZerg)atacante).atacar((ConstruccionProtoss)objetivo);}
-
     @Override
     public List<Construccion> obtenerConstrucciones() {return construccionesRealizadas.obtenerConstrucciones();}
 }

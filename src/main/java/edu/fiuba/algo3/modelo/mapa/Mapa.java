@@ -39,7 +39,6 @@ public class Mapa {
             this.bases.add(new Base(this.tablero[columna][fila]));
         }
     }
-
     private void cargarBasesJugadores(){
         int fila = tamanio - 5;
         int columna = 5;
@@ -51,12 +50,10 @@ public class Mapa {
         this.bases.add(baseDos);
 
     }
-
     private Area asignarArea(){
         return areas.get(new Random().nextInt(areas.size()));
 
     }
-
     public ArrayList<?extends Casillero> obtenerCasilleros(int radio, int fila, int columna){
 
         ArrayList<Casillero> casilleros = new ArrayList<>();
@@ -72,18 +69,15 @@ public class Mapa {
         }
         return casilleros;
     }
-
     public Casillero obtenerCasillero(int i, int j) {
         return this.tablero[i][j];
     }
-
     public Base obtenerBaseUno(){
         return this.bases.get(0);
     }
     public Base obtenerBaseDos(){
         return this.bases.get(1);
     }
-
     public int obtenerTamanio(){
         return tamanio;
     }
