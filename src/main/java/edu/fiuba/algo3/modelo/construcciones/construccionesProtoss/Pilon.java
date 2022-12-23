@@ -1,13 +1,13 @@
 package edu.fiuba.algo3.modelo.construcciones.construccionesProtoss;
 
 import edu.fiuba.algo3.modelo.construcciones.Escudo;
-import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
-import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
-import edu.fiuba.algo3.modelo.espaciosDeConstruccion.SinEspacio;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.EspacioDeConstruccion;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.recursos.ListadoDeRecursos;
 import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.recursos.Recurso;
+import edu.fiuba.algo3.modelo.visitante.VisitanteConstruccion;
 
 import java.util.ArrayList;
 
@@ -27,9 +27,7 @@ public class Pilon extends ConstruccionProtoss {
     public void energizar(){
         estado.jugar();
         for (Casillero casillero: this.casillerosEnergizados) {
-            if (! casillero.contiene(new Moho())){
-                casillero.setEspacioDeConstruccion(new RangoPilon());
-            }
+            casillero.dentroDelRangoDelPilon();
         }
     }
     public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
@@ -38,15 +36,15 @@ public class Pilon extends ConstruccionProtoss {
     }
     public void destruir(){
         for (Casillero casillero: this.casillerosEnergizados) {
-            if (! casillero.contiene(new Moho())){
-                casillero.setEspacioDeConstruccion(new SinEspacio());
-            }
+            casillero.fueraDelRangoDelPilon();
         }
     }
     public void nuevoTurno(Raza raza){
         super.nuevoTurno(raza);
-        try{
-            this.energizar();
-        }catch (RuntimeException EdificioNoEstaOperativo){};
+        try{this.energizar();}catch (RuntimeException EdificioNoEstaOperativo){};
+    }
+
+    public void visitar(VisitanteConstruccion visitante , EspacioDeConstruccion espacio , Recurso recurso){
+        recurso.visitar (visitante);
     }
 }

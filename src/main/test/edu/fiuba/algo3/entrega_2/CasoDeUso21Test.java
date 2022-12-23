@@ -44,8 +44,45 @@ public class CasoDeUso21Test {
 
 
         razaZerg.construirReservaDeReproduccion(casillero2);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirGuarida(casillero3);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirEspiral(casillero4);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+
         MutaliscoBase mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
 
         assertThrows(RecursosInsuficientes.class, () -> razaZerg.evolucionarMutaliscoAGuardian(mutalisco));
@@ -81,8 +118,45 @@ public class CasoDeUso21Test {
 
 
         razaZerg.construirReservaDeReproduccion(casillero2);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirGuarida(casillero3);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirEspiral(casillero4);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+
         MutaliscoBase mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
 
         assertDoesNotThrow(() -> razaZerg.evolucionarMutaliscoAGuardian(mutalisco));

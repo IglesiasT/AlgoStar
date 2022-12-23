@@ -136,6 +136,18 @@ public class CasoDeUso8Test {
         casillero1.setEspacioDeConstruccion(new Moho());
         casillero2.setEspacioDeConstruccion(new Moho());
         razaZerg.construirReservaDeReproduccion(casillero1);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         // Assert
         assertThrows(RecursosInsuficientes.class, () -> razaZerg.construirGuarida(casillero2) );
@@ -152,7 +164,31 @@ public class CasoDeUso8Test {
         casillero1.setEspacioDeConstruccion(new Moho());
         casillero2.setEspacioDeConstruccion(new Moho());
         razaZerg.construirReservaDeReproduccion(casillero1);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirGuarida(casillero2);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         // Assert
         assertEquals(Guarida.class, casillero2.obtenerConstruccion().getClass());
@@ -171,7 +207,31 @@ public class CasoDeUso8Test {
         casillero2.setEspacioDeConstruccion(new Moho());
         casillero3.setEspacioDeConstruccion(new Moho());
         razaZerg.construirReservaDeReproduccion(casillero1);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirGuarida(casillero2);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         // Assert
         assertThrows(RecursosInsuficientes.class, () -> razaZerg.construirEspiral(casillero3) );
@@ -190,8 +250,44 @@ public class CasoDeUso8Test {
         casillero2.setEspacioDeConstruccion(new Moho());
         casillero3.setEspacioDeConstruccion(new Moho());
         razaZerg.construirReservaDeReproduccion(casillero1);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirGuarida(casillero2);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirEspiral(casillero3);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         // Assert
         assertEquals(Espiral.class, casillero3.obtenerConstruccion().getClass());
@@ -282,6 +378,16 @@ public class CasoDeUso8Test {
         casillero1.setEspacioDeConstruccion(new RangoPilon());
         casillero2.setEspacioDeConstruccion(new RangoPilon());
         razaProtoss.construirAcceso(casillero1);
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
 
         // Assert
         assertThrows(RecursosInsuficientes.class, () -> razaProtoss.construirPuertoEstelar(casillero2) );
@@ -298,7 +404,27 @@ public class CasoDeUso8Test {
         casillero1.setEspacioDeConstruccion(new RangoPilon());
         casillero2.setEspacioDeConstruccion(new RangoPilon());
         razaProtoss.construirAcceso(casillero1);
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
         razaProtoss.construirPuertoEstelar(casillero2);
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
 
         // Assert
         assertEquals(PuertoEstelar.class, casillero2.obtenerConstruccion().getClass());

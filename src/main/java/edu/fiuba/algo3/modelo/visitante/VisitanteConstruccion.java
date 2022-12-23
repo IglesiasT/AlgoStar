@@ -3,11 +3,14 @@ package edu.fiuba.algo3.modelo.visitante;
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
 import edu.fiuba.algo3.modelo.construcciones.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.construcciones.ProductorDeGas;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.ConstruccionProtoss;
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.FueraDeRangoDePilon;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.NexoMineral;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.EspacioDeConstruccion;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.mapa.CasilleroSinGas;
 import edu.fiuba.algo3.modelo.mapa.CasilleroSinMineral;
 import edu.fiuba.algo3.modelo.mapa.CasilleroSinMoho;
@@ -51,6 +54,12 @@ public class VisitanteConstruccion {
     public void construir(ConstruccionZerg contruccion , EspacioDeConstruccion espacio ) {
         if (espacio.getClass() != Moho.class) {
             throw new CasilleroSinMoho();
+        }
+    }
+
+    public void construir(ConstruccionProtoss contruccion , EspacioDeConstruccion espacio ) {
+        if (espacio.getClass() != RangoPilon.class) {
+            throw new FueraDeRangoDePilon();
         }
     }
 

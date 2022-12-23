@@ -3,6 +3,7 @@ package edu.fiuba.algo3.entrega_3;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Zealot;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
@@ -28,6 +29,11 @@ public class CasoDeUso28Test {
 
         // Act
         zealot.moverse(casillero);
+        for (int i = 0; i <5; i++) {
+            zealot.nuevoTurno(new Protoss());
+        }
+
+        zealot.invisibilizar();
         zerling.nuevoTurno(raza);
         zerling.nuevoTurno(raza);
         zerling.nuevoTurno(raza);
@@ -36,6 +42,6 @@ public class CasoDeUso28Test {
         zerling.atacar(zealot);
 
         // Assert
-        assertEquals(56, zealot.obtenerEscudo());
+        assertEquals(60, zealot.obtenerEscudo());
     }
 }

@@ -20,7 +20,6 @@ public class Criadero extends ConstruccionZerg {
     private int rangoMoho;
     private int maximoDeLarvas;
     private LinkedList<Larva> larvas;
-    private int turnos;
 
     public Criadero (){
         super();
@@ -45,13 +44,11 @@ public class Criadero extends ConstruccionZerg {
     }
     public void nuevoTurno(Raza raza){
         super.nuevoTurno(raza);
-
-        this.turnos++;
         if (this.larvas.size() < this.maximoDeLarvas){
             this.larvas.add(new Larva());
         }
 
-        if (this.turnos % 2 == 0 && this.turnos >= this.turnosParaConstruirse){
+        if (this.turnos % 2 == 0 && activa()){
             this.rangoMoho++;
             this.expandirMoho();
         }

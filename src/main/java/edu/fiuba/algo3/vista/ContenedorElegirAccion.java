@@ -31,6 +31,7 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
 
     private Stage stage;
     private AlgoStar juego;
+    private Jugador jugador;
 
     private ObservableList<String> acciones;
     private ComboBox<String> comboBoxAcciones;
@@ -40,8 +41,9 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
         super();
         this.stage = stage;
         this.juego = juego;
+        this.jugador = jugador;
 
-        this.accionesPorRaza(jugador);
+        this.accionesPorRaza();
 
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
@@ -61,8 +63,8 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
         etiquetaTitulo.setTextFill(Color.BLACK);
         this.getChildren().add(etiquetaTitulo);
 
-        this.mostrarRecursos(jugador);
-        this.mostrarEstados(jugador);
+        this.mostrarRecursos();
+        this.mostrarEstados();
 
         this.pedirAccion();
 
@@ -85,7 +87,7 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
         return escenasAcciones.get(comboBoxAcciones.getValue());
     }
 
-    private void accionesPorRaza(Jugador jugador){
+    private void accionesPorRaza(){
         this.acciones = FXCollections.observableArrayList();
         acciones.addAll("Mover", "Construir", "Atacar","Pasar Turno");
 
@@ -94,6 +96,7 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
         escenasAcciones.put("Construir",new Scene(new ContenedorConstruir(stage,juego,jugador),800,800));
         escenasAcciones.put("Atacar",new Scene(new ContenedorAtacarElegirAtacante(stage,juego,jugador),800,800));
         escenasAcciones.put("Pasar Turno", new Scene(new ContenedorFinDeTurno(this.stage,this.juego,jugador),800,800));
+        escenasAcciones.put("Elegir accion",new Scene(new ContenedorError(this.stage,this.juego,this.jugador),800,800));
 
         if(jugador.obtenerRaza().getClass() == Zerg.class) {
             acciones.add("Engendrar");
@@ -104,7 +107,7 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
         }
     }
 
-    private void mostrarRecursos(Jugador jugador){
+    private void mostrarRecursos(){
         Label etiquetaRecursos = new Label();
         etiquetaRecursos.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
         etiquetaRecursos.setText("Recursos disponibles: " + jugador.obtenerRaza().obtenerRecursos());
@@ -112,7 +115,7 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
         this.getChildren().add(etiquetaRecursos);
     }
 
-    private void mostrarEstados(Jugador jugador){
+    private void mostrarEstados(){
         List<Construccion> construcciones = jugador.obtenerConstrucciones();
         VBox panelConstrucciones = new VBox();
         panelConstrucciones.setAlignment(Pos.CENTER);

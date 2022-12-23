@@ -66,6 +66,19 @@ public class CasoDeUso22Test {
 
         razaZerg.construirReservaDeReproduccion(casillero2);
 
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+
         assertDoesNotThrow(() -> razaZerg.engendrarZerling((Criadero) casillero1.obtenerConstruccion()));
 
     }
@@ -89,6 +102,18 @@ public class CasoDeUso22Test {
         razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         Zerling zerling = razaZerg.engendrarZerling((Criadero) casillero1.obtenerConstruccion());
 
@@ -120,6 +145,19 @@ public class CasoDeUso22Test {
         razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
+
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         Zerling zerling = razaZerg.engendrarZerling((Criadero) casillero1.obtenerConstruccion());
         zerling.construir(casillero2, recursos);
@@ -176,7 +214,34 @@ public class CasoDeUso22Test {
         razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
+
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+
         razaZerg.construirGuarida(casillero3);
+
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         assertDoesNotThrow(() -> razaZerg.engendrarHidralisco((Criadero) casillero1.obtenerConstruccion()));
 
@@ -205,7 +270,31 @@ public class CasoDeUso22Test {
         razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirGuarida(casillero3);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         Hidralisco hidralisco = razaZerg.engendrarHidralisco((Criadero) casillero1.obtenerConstruccion());
 
@@ -241,7 +330,31 @@ public class CasoDeUso22Test {
         razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero3);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirGuarida(casillero4);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         Hidralisco hidralisco = razaZerg.engendrarHidralisco((Criadero) casillero1.obtenerConstruccion());
         hidralisco.establecerUbicacion(casillero4);
@@ -276,7 +389,31 @@ public class CasoDeUso22Test {
         razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirGuarida(casillero3);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         assertThrows(ConstruccionPreviaNoConstruida.class, () -> razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion()));
 
@@ -308,8 +445,44 @@ public class CasoDeUso22Test {
         razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirGuarida(casillero3);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirEspiral(casillero4);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         assertDoesNotThrow(() -> razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion()));
 
@@ -347,8 +520,44 @@ public class CasoDeUso22Test {
         razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirGuarida(casillero3);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirEspiral(casillero4);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         MutaliscoBase mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
 
@@ -387,8 +596,44 @@ public class CasoDeUso22Test {
         razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirGuarida(casillero3);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirEspiral(casillero4);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         MutaliscoBase mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
         mutalisco.moverse(casillero4);
@@ -436,8 +681,44 @@ public class CasoDeUso22Test {
         razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirGuarida(casillero3);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirEspiral(casillero4);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         MutaliscoBase mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
 
@@ -487,8 +768,44 @@ public class CasoDeUso22Test {
         razaZerg.nuevoTurno();
 
         razaZerg.construirReservaDeReproduccion(casillero2);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirGuarida(casillero3);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirEspiral(casillero4);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
 
         MutaliscoBase mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
 
@@ -557,6 +874,14 @@ public class CasoDeUso22Test {
         casillero3.setRecurso(new SinRecurso());
 
         razaProtoss.construirAcceso(casillero2);
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
 
         assertDoesNotThrow(() -> razaProtoss.construirZealot(casillero3));
 
@@ -585,6 +910,14 @@ public class CasoDeUso22Test {
         casillero3.setRecurso(new SinRecurso());
 
         razaProtoss.construirAcceso(casillero2);
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
 
         Zealot zealot = razaProtoss.construirZealot(casillero3);
 
@@ -621,6 +954,14 @@ public class CasoDeUso22Test {
 
 
         razaProtoss.construirAcceso(casillero3);
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
 
         Zealot zealot = razaProtoss.construirZealot(casillero4);
 
@@ -683,6 +1024,14 @@ public class CasoDeUso22Test {
         casillero3.setRecurso(new SinRecurso());
 
         razaProtoss.construirAcceso(casillero2);
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
 
         assertDoesNotThrow(() -> razaProtoss.construirDragon(casillero3));
 
@@ -711,6 +1060,14 @@ public class CasoDeUso22Test {
         casillero3.setRecurso(new SinRecurso());
 
         razaProtoss.construirAcceso(casillero2);
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
 
         Dragon dragon = razaProtoss.construirDragon(casillero3);
 
@@ -752,6 +1109,14 @@ public class CasoDeUso22Test {
         casillero5.setEspacioDeConstruccion(new Moho());
 
         razaProtoss.construirAcceso(casillero3);
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
 
         Dragon dragon = razaProtoss.construirDragon(casillero4);
         dragon.nuevoTurno(razaProtoss);
@@ -826,7 +1191,25 @@ public class CasoDeUso22Test {
         casillero4.setRecurso(new SinRecurso());
 
         razaProtoss.construirAcceso(casillero2);
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
         razaProtoss.construirPuertoEstelar(casillero3);
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
 
         assertDoesNotThrow(() -> razaProtoss.construirScout(casillero4));
 
@@ -858,7 +1241,27 @@ public class CasoDeUso22Test {
         casillero4.setRecurso(new SinRecurso());
 
         razaProtoss.construirAcceso(casillero2);
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
         razaProtoss.construirPuertoEstelar(casillero3);
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
 
         Scout scout = razaProtoss.construirScout(casillero4);
 
@@ -897,7 +1300,27 @@ public class CasoDeUso22Test {
         casillero5.setRecurso(new SinRecurso());
 
         razaProtoss.construirAcceso(casillero3);
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
         razaProtoss.construirPuertoEstelar(casillero4);
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
+        razaProtoss.nuevoTurno();
 
         Scout scout = razaProtoss.construirScout(casillero5);
 

@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.entrega_1;
 
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.Asimilador;
+import edu.fiuba.algo3.modelo.recursos.Gas;
 import edu.fiuba.algo3.modelo.recursos.Volcan;
 import org.junit.jupiter.api.Test;
 
@@ -11,22 +13,22 @@ public class VolcanTest {
     public void seRecolectaLaCantidadDeGasIndicada(){
         //Arrange
         Volcan volcan = new Volcan();
-        int valorEsperado = 20;
+        Gas valorEsperado = new Gas(20);
 
         //Act and Assert
-        assertEquals(valorEsperado, volcan.recolectar(20));
+        assertEquals(valorEsperado, volcan.recolectar(new Asimilador(),20));
     }
 
     @Test
     public void luegoDeRecolectarsePorCompletoNoSeRecolectaMasGas(){
         //Arrange
         Volcan volcan = new Volcan();
-        int valorEsperado = 0;
+        Gas valorEsperado = new Gas(0);
 
         //Act
-        volcan.recolectar(5000);
+        volcan.recolectar(new Asimilador(),5000);
 
         //Assert
-        assertEquals(valorEsperado, volcan.recolectar(20));
+        assertEquals(valorEsperado, volcan.recolectar(new Asimilador(),20));
     }
 }

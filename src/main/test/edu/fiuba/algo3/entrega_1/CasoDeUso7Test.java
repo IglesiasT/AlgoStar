@@ -22,7 +22,7 @@ public class CasoDeUso7Test {
         Zangano zangano = new Zangano();
         Casillero casillero = new Casillero(new AreaTerrestre(), 1, 1, new Mapa());
         casillero.setRecurso(new Nodo());
-        int cantidadEsperada = 10;
+        Mineral cantidadEsperada = new Mineral(10);
 
         //Act
         zangano.moverse(casillero);
@@ -50,9 +50,7 @@ public class CasoDeUso7Test {
         nexo.nuevoTurno(new Zerg());
         nexo.nuevoTurno(new Zerg());
 
-        nexo.nuevoTurno(new Zerg());
-
         // Assert
-        assertEquals(mineralProducidoEsperado, nexo.obtenerMineralProducido());
+        assertEquals(mineralProducidoEsperado, nexo.recolectarMineral());
     }
 }

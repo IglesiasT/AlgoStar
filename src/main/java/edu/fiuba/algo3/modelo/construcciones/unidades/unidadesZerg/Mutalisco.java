@@ -7,7 +7,6 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.ComportamientoUnidad;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.recursos.*;
 import edu.fiuba.algo3.modelo.visitante.Atacante;
-import edu.fiuba.algo3.modelo.visitante.ObjetivoFueraDeRango;
 public class Mutalisco extends UnidadZerg implements EstadoMutalisco {
     public Mutalisco(){
         super();

@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.entrega_1;
 
+import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.NexoMineral;
+import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.recursos.Nodo;
 import org.junit.jupiter.api.Test;
 
@@ -10,22 +12,22 @@ public class MineralTest {
     public void seRecolectaLaCantidadDeMineralIndicada(){
         //Arrange
         Nodo mineral = new Nodo();
-        int valorEsperado = 500;
+        Mineral valorEsperado = new Mineral(500);
 
         //Act and Assert
-        assertEquals(valorEsperado, mineral.recolectar(500));
+        assertEquals(valorEsperado, mineral.recolectar(new NexoMineral(),500));
     }
 
     @Test
     public void luegoDeRecolectarsePorCompletoNoSeRecolectaMasMineral(){
         //Arrange
         Nodo mineral = new Nodo();
-        int valorEsperado = 0;
+        Mineral valorEsperado = new Mineral(0);
 
         //Act
-        mineral.recolectar(2000);
+        mineral.recolectar(new NexoMineral(),2000);
 
         //Assert
-        assertEquals(valorEsperado, mineral.recolectar(70));
+        assertEquals(valorEsperado, mineral.recolectar(new NexoMineral(),70));
     }
 }

@@ -24,22 +24,17 @@ public abstract class UnidadProtoss extends ConstruccionProtoss implements Unida
         this.area = new AreaTerrestre();
         this.comportamiento = new ComportamientoUnidad(this.ubicacion , this.rangoDeAtaque , this , this.area);
     }
-    protected void enRangoDeAtaque(Casillero ubicacion){
-        this.comportamiento.enRangoDeAtaque(ubicacion);
-    }
     public void atacar(ConstruccionZerg construccionEnemiga){
         this.estado.jugar();
         this.comportamiento.atacar(construccionEnemiga , this.danioAereo , this.danioTerrestre);
     }
     public void moverse(Casillero casillero) {
        this.ubicacion = this.comportamiento.moverse(casillero);
-       this.area = this.ubicacion.obtenerArea();
     }
 
     @Override
     public void construir(Casillero casilleroAConstruir, ListadoDeRecursos recursos){
         this.ubicacion = this.comportamiento.construir(casilleroAConstruir , recursos , this.recursosNecesarios);
-        this.area = this.ubicacion.obtenerArea();
     }
     public int consumirSuministro(int suministroAConsumir){
         return this.comportamiento.consumirSuministro(suministroAConsumir , this.suministro);

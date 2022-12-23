@@ -10,6 +10,7 @@ import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesProtoss.Scout;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Raza;
 import edu.fiuba.algo3.modelo.razas.Zerg;
 import edu.fiuba.algo3.modelo.recursos.*;
@@ -53,8 +54,44 @@ public class CasoDeUso27Test {
 
 
         razaZerg.construirReservaDeReproduccion(casillero1);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirGuarida(casillero2);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirEspiral(casillero3);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         MutaliscoBase mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero.obtenerConstruccion());
 
         assertThrows(RecursosInsuficientes.class, () -> razaZerg.evolucionarMutaliscoADevorador(mutalisco));
@@ -93,8 +130,44 @@ public class CasoDeUso27Test {
 
 
         razaZerg.construirReservaDeReproduccion(casillero2);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirGuarida(casillero3);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         razaZerg.construirEspiral(casillero4);
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
+        razaZerg.nuevoTurno();
         MutaliscoBase mutalisco = razaZerg.engendrarMutalisco((Criadero) casillero1.obtenerConstruccion());
 
         assertDoesNotThrow(() -> razaZerg.evolucionarMutaliscoADevorador(mutalisco));
@@ -126,6 +199,15 @@ public class CasoDeUso27Test {
 
         devorador.construir(casillero1, recursos);
         scout.construir(casillero2 , recursos);
+        scout.nuevoTurno(new Protoss());
+        scout.nuevoTurno(new Protoss());
+        scout.nuevoTurno(new Protoss());
+        scout.nuevoTurno(new Protoss());
+        scout.nuevoTurno(new Protoss());
+        scout.nuevoTurno(new Protoss());
+        scout.nuevoTurno(new Protoss());
+        scout.nuevoTurno(new Protoss());
+        scout.nuevoTurno(new Protoss());
         devorador.atacar(scout);
 
         // Assert

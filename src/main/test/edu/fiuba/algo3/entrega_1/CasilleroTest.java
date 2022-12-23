@@ -3,6 +3,8 @@ package edu.fiuba.algo3.entrega_1;
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.NoSePuedeConstruir;
 import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.NexoMineral;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Extractor;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ReservaDeReproduccion;
 import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zangano;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.recursos.Nodo;
@@ -23,7 +25,7 @@ public class CasilleroTest {
         casillero.setEspacioDeConstruccion(new Moho());
 
         //Assert
-        assertTrue(casillero.contiene(new Moho()));
+        assertDoesNotThrow(() -> casillero.establecerConstruccion(new ReservaDeReproduccion()));
     }
 
     @Test

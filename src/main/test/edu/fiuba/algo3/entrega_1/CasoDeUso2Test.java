@@ -148,7 +148,7 @@ public class CasoDeUso2Test {
         extractor.nuevoTurno(new Zerg());
 
         //Assert
-        assertDoesNotThrow(extractor::obtenerGasProducido);
+        assert(extractor.activa());
     }
 
     @Test
@@ -272,7 +272,7 @@ public class CasoDeUso2Test {
         nexo.nuevoTurno(new Protoss());
 
         // Assert
-        assertThrows(EdificioNoEstaOperativo.class, nexo::obtenerMineralProducido);
+        assert(!nexo.activa());;
     }
 
     @Test
@@ -287,7 +287,7 @@ public class CasoDeUso2Test {
         nexo.nuevoTurno(new Protoss());
 
         // Assert
-        assertDoesNotThrow(nexo::obtenerMineralProducido);
+        assert(nexo.activa());;
     }
 
     @Test
@@ -336,7 +336,7 @@ public class CasoDeUso2Test {
         asimilador.nuevoTurno(new Protoss());
 
         // Assert
-        assertThrows(EdificioNoEstaOperativo.class, asimilador::obtenerGasProducido);
+        assert(!asimilador.activa());;
     }
     @Test
     public void asimiladorEstaOperativoLuegoDeSeisTurnos(){
@@ -354,7 +354,7 @@ public class CasoDeUso2Test {
         asimilador.nuevoTurno(new Protoss());
 
         // Assert
-        assertDoesNotThrow(asimilador::obtenerGasProducido);
+        assert(asimilador.activa());;
     }
 
     @Test

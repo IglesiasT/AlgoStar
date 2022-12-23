@@ -213,17 +213,17 @@ public class ContenedorMapa extends Pane {
         casilleroVista.setWidth(App.TAMANIO_CASILLERO);
         casilleroVista.setHeight(App.TAMANIO_CASILLERO);
         casilleroVista.relocate(casilleroModelo.obtenerFila() * App.TAMANIO_CASILLERO,casilleroModelo.obtenerColumna() * App.TAMANIO_CASILLERO);
-        casilleroVista.setFill(areasMapa.get(casilleroModelo.obtenerArea().getClass()));
+        casilleroVista.setFill(areasMapa.get(casilleroModelo.obtenerArea()));
         if (conSeleccion)
             casilleroVista.setOnMouseClicked(new SeleccionCasilleroEventHandler(this.stage,this.accion,casilleroModelo,casilleroVista,mapaBaseVista));
         return casilleroVista;
     }
 
     private Text crearRecursoVista(Casillero casilleroModelo){
-        Recurso recursoModelo = casilleroModelo.obtenerRecurso();
-        Text recursoVista = new Text(recursosTexto.get(recursoModelo.getClass()));
+        Class <? extends Recurso> recursoModelo = casilleroModelo.obtenerRecurso();
+        Text recursoVista = new Text(recursosTexto.get(recursoModelo));
         recursoVista.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
-        recursoVista.setFill(recursosColor.get(recursosTexto.get(recursoModelo.getClass())));
+        recursoVista.setFill(recursosColor.get(recursosTexto.get(recursoModelo)));
         recursoVista.relocate(casilleroModelo.obtenerFila()*App.TAMANIO_CASILLERO + 20,
                 casilleroModelo.obtenerColumna()*App.TAMANIO_CASILLERO+18);
         return recursoVista;
@@ -279,11 +279,11 @@ public class ContenedorMapa extends Pane {
         espacioVista.setWidth(Math.sqrt(2)*App.TAMANIO_CASILLERO);
         espacioVista.setHeight(3);
         espacioVista.relocate(casilleroModelo.obtenerFila() * App.TAMANIO_CASILLERO-((espacioVista.getWidth()-App.TAMANIO_CASILLERO)/2),casilleroModelo.obtenerColumna() * App.TAMANIO_CASILLERO+(double)(App.TAMANIO_CASILLERO/2)-1.5);
-        if(casilleroModelo.contiene(new Moho())) {
+        if(casilleroModelo.obtenerEspacio() == Moho.class) {
             espacioVista.setRotate(45);
             espacioVista.setFill(Color.valueOf("#72AC83"));
         }
-        else if (casilleroModelo.contiene(new RangoPilon())) {
+        else if (casilleroModelo.obtenerEspacio() == RangoPilon.class) {
             espacioVista.setRotate(135);
             espacioVista.setFill(Color.valueOf("#6478B9"));
         }

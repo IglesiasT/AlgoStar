@@ -41,25 +41,4 @@ public class ZergTest {
         //Assert
         assertThrows(ConstruccionPreviaNoConstruida.class, () -> razaZerg.construirEspiral(casilleroAConstruir));
     }
-
-    @Test
-    public void sePuedeCrearEspiralConGuarida(){
-        //Arrange
-        Zerg razaZerg = new Zerg(1000, 1000);
-
-        Casillero casilleroAConstruir1 = new Casillero(new AreaTerrestre(),1, 1, new Mapa());
-        Casillero casilleroAConstruir2 = new Casillero(new AreaTerrestre(),1, 4, new Mapa());
-        Casillero casilleroAConstruir3 = new Casillero(new AreaTerrestre(),1, 6, new Mapa());
-
-
-        //Act
-        casilleroAConstruir3.setEspacioDeConstruccion(new Moho());
-        razaZerg.construirReservaDeReproduccion(casilleroAConstruir3);
-        casilleroAConstruir1.setEspacioDeConstruccion(new Moho());
-        razaZerg.construirGuarida(casilleroAConstruir1);
-        casilleroAConstruir2.setEspacioDeConstruccion(new Moho());
-
-        //Assert
-        assertDoesNotThrow(() -> razaZerg.construirEspiral(casilleroAConstruir2));
-    }
 }

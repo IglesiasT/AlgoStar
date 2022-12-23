@@ -3,18 +3,13 @@ package edu.fiuba.algo3.modelo.mapa;
 
 import edu.fiuba.algo3.modelo.construcciones.Construccion;
 import edu.fiuba.algo3.modelo.construcciones.NoSePuedeConstruir;
-import edu.fiuba.algo3.modelo.construcciones.construccionesProtoss.NexoMineral;
-import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ConstruccionZerg;
-import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
-import edu.fiuba.algo3.modelo.construcciones.ProductorDeGas;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
+import edu.fiuba.algo3.modelo.construcciones.unidades.unidadesZerg.Zangano;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.EspacioDeConstruccion;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
+import edu.fiuba.algo3.modelo.espaciosDeConstruccion.RangoPilon;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.SinEspacio;
-import edu.fiuba.algo3.modelo.recursos.Nodo;
-import edu.fiuba.algo3.modelo.recursos.Volcan;
-import edu.fiuba.algo3.modelo.recursos.Recurso;
-import edu.fiuba.algo3.modelo.recursos.SinRecurso;
+import edu.fiuba.algo3.modelo.recursos.*;
 import edu.fiuba.algo3.modelo.areas.*;
 import edu.fiuba.algo3.modelo.visitante.VisitanteConstruccion;
 
@@ -63,18 +58,31 @@ public class Casillero {
         this.construccion = null;
         this.recurso.liberar();
     }
+
     public void ubicarUnidad(Unidad unidad){
         unidades.add(unidad);
     }
     public void retirarUnidad(Unidad unidad){
         unidades.remove(unidad);
     }
-    public Recurso obtenerRecurso() {
-        return this.recurso;
+    public RecursoObtenido recolectarRecurso(Zangano zangano,int recoleccionPorTurno) {
+        return this.recurso.recolectar(zangano,this.construccion,recoleccionPorTurno);
+    }
+    public RecursoObtenido recolectarRecurso(int recoleccionPorTurno) {
+        return this.recurso.recolectar(this.construccion,recoleccionPorTurno);
+    }
+    public void ocuparRecurso(){
+        this.recurso.ocupar();
     }
     public Construccion obtenerConstruccion(){ return this.construccion;}
-    public boolean contiene (EspacioDeConstruccion espacio){
-        return ( this.espacio.getClass() == espacio.getClass() );
+
+    public void fueraDelRangoDelPilon(){
+        if(espacio.getClass() == RangoPilon.class)
+            espacio = new SinEspacio();
+    }
+    public void dentroDelRangoDelPilon(){
+        if(espacio.getClass() != Moho.class)
+            espacio = new RangoPilon();
     }
     public Casillero mover(Casillero nuevaPosicion , Area tipoUnidad) {
 
@@ -95,11 +103,15 @@ public class Casillero {
     public void setRecurso(Recurso recurso){
         this.recurso = recurso;
     }
+    public Class<? extends Recurso> obtenerRecurso() {
+        return this.recurso.getClass();
+    }
     public void setArea(Area area){
         this.area = area;
     }
-    public Area obtenerArea(){
-        return this.area;
+    public Class<? extends Area> obtenerArea(){
+        return this.area.getClass();
     }
     public List<Unidad> obtenerUnidades(){return unidades;}
+    public Class<? extends EspacioDeConstruccion> obtenerEspacio(){return espacio.getClass();}
 }

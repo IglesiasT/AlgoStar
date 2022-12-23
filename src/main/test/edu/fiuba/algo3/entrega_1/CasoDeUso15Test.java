@@ -40,22 +40,16 @@ public class CasoDeUso15Test {
         extractor.nuevoTurno(new Zerg());
         extractor.nuevoTurno(new Zerg());
         extractor.nuevoTurno(new Zerg());
-        gasRecolectado.agregar(extractor.obtenerGasProducido());
 
         zangano1.moverse(casillero);
         zangano2.moverse(casillero);
         zangano3.moverse(casillero);
 
-        zangano1.nuevoTurno(new Zerg());
-        zangano2.nuevoTurno(new Zerg());
-        zangano3.nuevoTurno(new Zerg());
-
 
 
         // 3 zanganos recolectan 30 por turno, en 167 turnos recolectan 5010, el volcan tiene 5000
         for(int i = 0; i<167; i++){
-            extractor.nuevoTurno(new Zerg());
-            gasRecolectado.agregar(extractor.obtenerGasProducido());
+            gasRecolectado.agregar(extractor.producirGas());
         }
 
         // Assert
@@ -77,19 +71,11 @@ public class CasoDeUso15Test {
         recursos.agregar(new Mineral(100));
         casillero.setEspacioDeConstruccion(new Moho());
         asimilador.construir(casillero, recursos);
-        asimilador.nuevoTurno(new Protoss());
-        asimilador.nuevoTurno(new Protoss());
-        asimilador.nuevoTurno(new Protoss());
-        asimilador.nuevoTurno(new Protoss());
-        asimilador.nuevoTurno(new Protoss());
-        asimilador.nuevoTurno(new Protoss());
-        gasRecolectado.agregar(asimilador.obtenerGasProducido());
 
 
         // asimilador recolecta 20 por turno, en 251 turnos recolectan 5020, el volcan tiene 5000
         for(int i = 0; i<251; i++){
-            asimilador.nuevoTurno(new Protoss());
-            gasRecolectado.agregar(asimilador.obtenerGasProducido());
+            gasRecolectado.agregar(asimilador.producirGas());
         }
 
         // Assert
@@ -109,16 +95,15 @@ public class CasoDeUso15Test {
         //Act
         casillero.setEspacioDeConstruccion(new Moho());
         zangano.moverse(casillero);
-        zangano.nuevoTurno(new Zerg());
 
         // un zangano recolecta 10 por turno, en 201 turnos recolecta 2010, el nodo tiene 2000
-        int mineralProducido = 0;
+        Mineral mineralProducido = new Mineral(0);
         for(int i = 0; i<201; i++){
-            mineralProducido += zangano.producir();
+            mineralProducido.agregar(zangano.producir());
         }
 
         // Assert
-        assertEquals(mineralProducidoEsperado, new Mineral(mineralProducido));
+        assertEquals(mineralProducidoEsperado, mineralProducido);
 
     }
 
@@ -140,12 +125,11 @@ public class CasoDeUso15Test {
         nexo.nuevoTurno(new Protoss());
         nexo.nuevoTurno(new Protoss());
         nexo.nuevoTurno(new Protoss());
-        mineralRecolectado.agregar(nexo.obtenerMineralProducido());
+
 
         // nexo recolecta 20 por turno, en 101 turnos recolecta 2020, el nodo tiene 2000
         for(int i = 0; i<101; i++){
-            nexo.nuevoTurno(new Protoss());
-            mineralRecolectado.agregar(nexo.obtenerMineralProducido());
+            mineralRecolectado.agregar(nexo.recolectarMineral());
         }
 
         // Assert

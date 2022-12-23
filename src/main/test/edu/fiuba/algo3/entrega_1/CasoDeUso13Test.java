@@ -2,6 +2,8 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.areas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Criadero;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.Extractor;
+import edu.fiuba.algo3.modelo.construcciones.construccionesZerg.ReservaDeReproduccion;
 import edu.fiuba.algo3.modelo.espaciosDeConstruccion.Moho;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
@@ -13,6 +15,8 @@ import edu.fiuba.algo3.modelo.recursos.Mineral;
 import edu.fiuba.algo3.modelo.recursos.SinRecurso;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 public class CasoDeUso13Test {
 
     @Test
@@ -23,9 +27,6 @@ public class CasoDeUso13Test {
         Casillero casillero1 = mapa.obtenerCasillero(1,1);
         casillero1.setArea(new AreaTerrestre());
         casillero1.setRecurso(new SinRecurso());
-        Casillero casillero2 = mapa.obtenerCasillero(1,3);
-        casillero2.setArea(new AreaTerrestre());
-        casillero2.setRecurso(new SinRecurso());
         Criadero criadero = new Criadero();
         ListadoDeRecursos recursos = new ListadoDeRecursos();
 
@@ -45,6 +46,6 @@ public class CasoDeUso13Test {
 
 
         // Assert
-        assert casillero2.contiene(new Moho());
+        assertDoesNotThrow(() ->casillero1.establecerConstruccion(new ReservaDeReproduccion()));
     }
 }
