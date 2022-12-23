@@ -84,11 +84,7 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
     }
 
     public Scene obtenerProximaEscena(){
-        try {
-            return escenasAcciones.get(comboBoxAcciones.getValue());
-        }catch (Exception e){
-            return new Scene(new ContenedorError(this.stage,this.juego,this.jugador),800,800);
-        }
+        return escenasAcciones.get(comboBoxAcciones.getValue());
     }
 
     private void accionesPorRaza(){
@@ -100,6 +96,7 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
         escenasAcciones.put("Construir",new Scene(new ContenedorConstruir(stage,juego,jugador),800,800));
         escenasAcciones.put("Atacar",new Scene(new ContenedorAtacarElegirAtacante(stage,juego,jugador),800,800));
         escenasAcciones.put("Pasar Turno", new Scene(new ContenedorFinDeTurno(this.stage,this.juego,jugador),800,800));
+        escenasAcciones.put("Elegir accion",new Scene(new ContenedorError(this.stage,this.juego,this.jugador),800,800));
 
         if(jugador.obtenerRaza().getClass() == Zerg.class) {
             acciones.add("Engendrar");
