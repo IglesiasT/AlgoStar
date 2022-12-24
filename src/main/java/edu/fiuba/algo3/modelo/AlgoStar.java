@@ -68,7 +68,7 @@ public class AlgoStar {
 
         if (jugador != null){
             this.jugadores.add(jugador);
-            jugador.setBaseInicial(this.mapa.obtenerBaseDos());
+            jugador.setBaseInicial(this.mapa.obtenerBase(2));
         }
         else {
             throw new DatosRepetidos();

@@ -124,8 +124,8 @@ public class ContenedorMapa extends Pane {
         this.getChildren().addAll(grupoDeCasilleros,grupoDeEspacios,grupoDeRecursos,grupoDeBases,
                 grupoDeConstrucciones,grupoDeUnidades);
 
-        this.cargarBaseJugadorVista(crearBaseVista(mapa.obtenerBaseUno()),juego.obtenerJugador(1).obtenerColor(),grupoDeBases);
-        this.cargarBaseJugadorVista(crearBaseVista(mapa.obtenerBaseDos()),juego.obtenerJugador(2).obtenerColor(),grupoDeBases);
+        this.cargarBaseJugadorVista(crearBaseVista(mapa.obtenerBase(1)),juego.obtenerJugador(1).obtenerColor(),grupoDeBases);
+        this.cargarBaseJugadorVista(crearBaseVista(mapa.obtenerBase(2)),juego.obtenerJugador(2).obtenerColor(),grupoDeBases);
 
         for (int i = 0; i < tamanioMapa; i++){
             for (int j = 0; j < tamanioMapa; j++){

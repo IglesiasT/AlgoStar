@@ -12,8 +12,8 @@ public class CasoDeUso24Test {
     public void losJugadoresComienzanEnBasesOpuestasDelMapa(){
         Mapa mapa = new Mapa();
 
-        Base baseJugadorUno = mapa.obtenerBaseUno();
-        Base baseJugadorDos = mapa.obtenerBaseDos();
+        Base baseJugadorUno = mapa.obtenerBase(1);
+        Base baseJugadorDos = mapa.obtenerBase(2);
 
         assertEquals(baseJugadorDos.obtenerUbicacion().obtenerFila(),
                 baseJugadorUno.obtenerUbicacion().obtenerColumna());

@@ -72,11 +72,9 @@ public class Mapa {
     public Casillero obtenerCasillero(int i, int j) {
         return this.tablero[i][j];
     }
-    public Base obtenerBaseUno(){
-        return this.bases.get(0);
-    }
-    public Base obtenerBaseDos(){
-        return this.bases.get(1);
+
+    public Base obtenerBase(int numeroDeBase) {
+        return this.bases.get(numeroDeBase-1);
     }
     public int obtenerTamanio(){
         return tamanio;

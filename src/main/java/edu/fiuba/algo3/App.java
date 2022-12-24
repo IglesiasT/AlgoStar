@@ -3,6 +3,9 @@ package edu.fiuba.algo3;
 import edu.fiuba.algo3.vista.ContenedorInicio;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
 /**
