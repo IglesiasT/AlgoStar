@@ -8,10 +8,8 @@ AlgoStar es un juego similar al famoso StarCraft pero no en tiempo real, sino po
 
 ## Grupo 1
 
-* **Integrante 1** - [Tomás Iglesias](https://github.com/IglesiasT)
-* **Integrante 2** - [Anita Vernieri](https://github.com/avernieri)
-* **Integrante 3** - [Amparo Zanardi](https://github.com/Ampi-Z)
-* **Integrante 4** - [María Zanatta](https://github.com/mariazanatta)
+* **Integrante 1** - [Anita Vernieri](https://github.com/avernieri)
+* **Integrante 2** - [Amparo Zanardi](https://github.com/Ampi-Z)
 
 Corrector: [**Diego Sánchez**](https://github.com/diegosanchez)
 
