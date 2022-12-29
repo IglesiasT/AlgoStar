@@ -18,6 +18,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         stage.setTitle("AlgoStar");
+        stage.setFullScreen(true);
 
         ContenedorInicio contenedorInicio = new ContenedorInicio(stage);
         Scene escenaInicio = new Scene(contenedorInicio, 800, 800);

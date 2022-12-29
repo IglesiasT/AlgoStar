@@ -72,7 +72,6 @@ public class Mapa {
     public Casillero obtenerCasillero(int i, int j) {
         return this.tablero[i][j];
     }
-
     public Base obtenerBase(int numeroDeBase) {
         return this.bases.get(numeroDeBase-1);
     }
