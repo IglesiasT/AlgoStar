@@ -25,7 +25,6 @@ public class ContenedorInicio extends VBox {
     public ContenedorInicio(Stage stage) {
         super();
         this.setAlignment(Pos.CENTER);
-
         MediaView view = new MediaView();
         Media video = new Media(Objects.requireNonNull(getClass().getResource("/videos/videoInicio.mp4")).toExternalForm());
         MediaPlayer player = new MediaPlayer(video);
@@ -34,14 +33,10 @@ public class ContenedorInicio extends VBox {
         player.setCycleCount(MediaPlayer.INDEFINITE);
         player.play();
 
-
-
         Label etiqueta = new Label();
         etiqueta.setFont(Font.font("Castellar", FontWeight.BOLD, 110));
         etiqueta.setText("AlgoStar");
         etiqueta.setTextFill(Color.web("#FFFFFF"));
-        etiqueta.minHeight(200);
-        etiqueta.prefWidth(800);
         etiqueta.setTranslateY(-450);
 
         Button botonNuevaPartida = new Button();
@@ -50,15 +45,14 @@ public class ContenedorInicio extends VBox {
         botonNuevaPartida.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
         botonNuevaPartida.setTranslateY(-400);
 
-        Scene proximaEscena = new Scene(new ContenedorManual(stage), 800, 800);
+        Scene proximaEscena = new Scene(new ContenedorManual(stage), 950, 950);
         BotonNuevaPartidaEventHandler botonNuevaPartidaEventHandler = new BotonNuevaPartidaEventHandler(stage, proximaEscena);
         botonNuevaPartida.setOnAction(botonNuevaPartidaEventHandler);
+        botonNuevaPartida.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
 
         Pane background = new Pane() ;
         background.getChildren().addAll(view);
 
         this.getChildren().addAll(background, etiqueta, botonNuevaPartida);
-
     }
-
 }

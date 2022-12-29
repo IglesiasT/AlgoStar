@@ -8,14 +8,16 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+
+import java.util.Objects;
 
 public class ContenedorError extends VBox implements Contenedor{
 
@@ -29,19 +31,31 @@ public class ContenedorError extends VBox implements Contenedor{
         this.juego = juego;
         this.jugador = jugador;
 
+        MediaView view = new MediaView();
+        Media video = new Media(Objects.requireNonNull(getClass().getResource("/videos/videoInicio.mp4")).toExternalForm());
+        MediaPlayer player = new MediaPlayer(video);
+        view.setMediaPlayer(player);
+        player.setAutoPlay(true);
+        player.setCycleCount(MediaPlayer.INDEFINITE);
+        player.play();
+
+        Pane background = new Pane() ;
+        background.getChildren().addAll(view);
+        this.getChildren().add(background);
+
         this.setAlignment(Pos.CENTER);
-        this.setSpacing(20);
-        this.setPadding(new Insets(25));
-        this.setBackground(new Background(new BackgroundFill(Color.valueOf("#D0CFE0"), CornerRadii.EMPTY, Insets.EMPTY)));
 
         Label etiquetaTitulo = new Label();
-        etiquetaTitulo.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
+        etiquetaTitulo.setFont(Font.font("Castellar", FontWeight.BOLD, 50));
         etiquetaTitulo.setText("NO PUEDE REALIZAR ESTA ACCION");
-        etiquetaTitulo.setTextFill(Color.BLACK);
+        etiquetaTitulo.setTextFill(Color.WHITE);
+        etiquetaTitulo.setTranslateY(-500);
         this.getChildren().add(etiquetaTitulo);
 
         Button botonConfirmar = new Button();
         botonConfirmar.setText("Volver");
+        etiquetaTitulo.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
+        etiquetaTitulo.setTranslateY(-400);
 
         this.getChildren().addAll(botonConfirmar);
 

@@ -97,7 +97,7 @@ public class ContenedorAtacarElegirObjetivo extends VBox implements ContenedorAc
     public Scene obtenerProximaEscena() {
         try {
             jugador.atacar(atacante, objetivo);
-            AudioClip audio = new AudioClip(this.getClass().getResource("/ataque.wav").toString());
+            AudioClip audio = new AudioClip(this.getClass().getResource("/sonidos/ataque.wav").toString());
             audio.play();
             return new Scene(new ContenedorFinDeTurno(this.stage, this.juego, this.jugador,objetivo.obtenerUbicacion()), 800, 800);
         } catch (Exception e) {

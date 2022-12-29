@@ -11,12 +11,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-import java.nio.file.Paths;
+import java.util.Objects;
 
 
 public class ContenedorFinDeTurno extends VBox implements Contenedor {
@@ -31,22 +34,37 @@ public class ContenedorFinDeTurno extends VBox implements Contenedor {
         this.juego = juego;
         this.jugador = jugador;
 
+        MediaView view = new MediaView();
+        Media video = new Media(Objects.requireNonNull(getClass().getResource("/videos/videoInicio.mp4")).toExternalForm());
+        MediaPlayer player = new MediaPlayer(video);
+        view.setMediaPlayer(player);
+        player.setAutoPlay(true);
+        player.setCycleCount(MediaPlayer.INDEFINITE);
+        player.play();
+
+        Pane background = new Pane() ;
+        background.getChildren().addAll(view);
+        this.getChildren().add(background);
+
         this.setAlignment(Pos.CENTER);
-        this.setSpacing(20);
-        this.setPadding(new Insets(25,130,25,130));
-        this.setBackground(new Background(new BackgroundFill(Color.valueOf("#D0CFE0"), CornerRadii.EMPTY, Insets.EMPTY)));
 
         Label etiquetaTitulo = new Label();
-        etiquetaTitulo.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
-        etiquetaTitulo.setText("FIN DE TURNO");
-        etiquetaTitulo.setTextFill(Color.BLACK);
+        etiquetaTitulo.setFont(Font.font("Castellar", FontWeight.BOLD, 40));
+        etiquetaTitulo.setText("Fin De Turno");
+        etiquetaTitulo.setTextFill(Color.WHITE);
+        etiquetaTitulo.setTranslateY(-575);
         this.getChildren().add(etiquetaTitulo);
 
         Pane mapa = new ContenedorMapa(stage,juego,casillero);
+        mapa.setTranslateY(-550);
+        mapa.setTranslateX(125);
         this.getChildren().add(mapa);
 
         Button botonConfirmar = new Button();
+        etiquetaTitulo.setFont(Font.font("Agency FB", FontWeight.BOLD, 40));
         botonConfirmar.setText("Continuar");
+        botonConfirmar.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+        botonConfirmar.setTranslateY(-50);
 
         this.getChildren().addAll(botonConfirmar);
 
@@ -62,19 +80,32 @@ public class ContenedorFinDeTurno extends VBox implements Contenedor {
         this.juego = juego;
         this.jugador = jugador;
 
+        MediaView view = new MediaView();
+        Media video = new Media(Objects.requireNonNull(getClass().getResource("/videos/videoInicio.mp4")).toExternalForm());
+        MediaPlayer player = new MediaPlayer(video);
+        view.setMediaPlayer(player);
+        player.setAutoPlay(true);
+        player.setCycleCount(MediaPlayer.INDEFINITE);
+        player.play();
+
+        Pane background = new Pane() ;
+        background.getChildren().addAll(view);
+        this.getChildren().add(background);
+
         this.setAlignment(Pos.CENTER);
-        this.setSpacing(20);
-        this.setPadding(new Insets(25));
-        this.setBackground(new Background(new BackgroundFill(Color.valueOf("#D0CFE0"), CornerRadii.EMPTY, Insets.EMPTY)));
 
         Label etiquetaTitulo = new Label();
-        etiquetaTitulo.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
-        etiquetaTitulo.setText("FIN DE TURNO");
-        etiquetaTitulo.setTextFill(Color.BLACK);
+        etiquetaTitulo.setFont(Font.font("Castellar", FontWeight.BOLD, 40));
+        etiquetaTitulo.setText("Fin De Turno");
+        etiquetaTitulo.setTextFill(Color.WHITE);
+        etiquetaTitulo.setTranslateY(-500);
         this.getChildren().add(etiquetaTitulo);
 
         Button botonConfirmar = new Button();
+        etiquetaTitulo.setFont(Font.font("Agency FB", FontWeight.BOLD, 40));
         botonConfirmar.setText("Continuar");
+        botonConfirmar.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+        botonConfirmar.setTranslateY(-50);
 
         this.getChildren().addAll(botonConfirmar);
 
@@ -97,7 +128,7 @@ public class ContenedorFinDeTurno extends VBox implements Contenedor {
             juego.siguienteTurno(jugador);
             return new Scene(new ContenedorElegirAccion(this.stage, this.juego, siguienteJugador()), 800, 800);
         }catch (Exception e){
-            AudioClip audio = new AudioClip(this.getClass().getResource("/victoria.wav").toString());
+            AudioClip audio = new AudioClip(this.getClass().getResource("/sonidos/victoria.wav").toString());
             audio.play();
             return new Scene(new ContenedorFinDeJuego(stage,juego),800,800);
         }

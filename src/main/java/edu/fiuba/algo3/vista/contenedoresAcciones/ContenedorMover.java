@@ -84,7 +84,7 @@ public class ContenedorMover extends VBox implements ContenedorAccion {
     public Scene obtenerProximaEscena() {
         try {
             jugador.mover(unidad,casillero);
-            AudioClip audio = new AudioClip(this.getClass().getResource("/movimiento.wav").toString());
+            AudioClip audio = new AudioClip(this.getClass().getResource("/sonidos/movimiento.wav").toString());
             audio.play();
             return new Scene(new ContenedorFinDeTurno(this.stage,this.juego,this.jugador,casillero),800,800);
         }catch (Exception e){

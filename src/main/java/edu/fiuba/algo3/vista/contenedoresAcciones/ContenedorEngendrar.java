@@ -103,7 +103,7 @@ public class ContenedorEngendrar extends VBox implements ContenedorAccion{
     public Scene obtenerProximaEscena() {
         try {
             jugador.engendrar(comboBoxUnidades.getValue(),casillero);
-            AudioClip audio = new AudioClip(this.getClass().getResource("/engendrado.wav").toString());
+            AudioClip audio = new AudioClip(this.getClass().getResource("/sonidos/engendrado.wav").toString());
             audio.play();
             return new Scene(new ContenedorFinDeTurno(this.stage,this.juego,this.jugador,casillero),800,800);
         }catch (Exception e){

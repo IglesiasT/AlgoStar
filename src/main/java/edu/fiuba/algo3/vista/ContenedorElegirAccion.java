@@ -18,7 +18,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -26,6 +30,7 @@ import javafx.stage.Stage;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class ContenedorElegirAccion extends VBox implements Contenedor{
 
@@ -43,24 +48,35 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
         this.juego = juego;
         this.jugador = jugador;
 
+        MediaView view = new MediaView();
+        Media video = new Media(Objects.requireNonNull(getClass().getResource("/videos/videoInicio.mp4")).toExternalForm());
+        MediaPlayer player = new MediaPlayer(video);
+        view.setMediaPlayer(player);
+        player.setAutoPlay(true);
+        player.setCycleCount(MediaPlayer.INDEFINITE);
+        player.play();
+
+        Pane background = new Pane() ;
+        background.getChildren().addAll(view);
+        this.getChildren().add(background);
+
         this.accionesPorRaza();
 
         this.setAlignment(Pos.CENTER);
-        this.setSpacing(20);
-        this.setPadding(new Insets(25));
-        this.setBackground(new Background(new BackgroundFill(Color.valueOf("#D0CFE0"), CornerRadii.EMPTY, Insets.EMPTY)));
 
         Label etiquetaTurno = new Label();
-        etiquetaTurno.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
-        etiquetaTurno.setText("Juega " + jugador.obtenerNombre());
+        etiquetaTurno.setFont(Font.font("Agency FB", FontWeight.LIGHT, 30));
+        etiquetaTurno.setText("Es el turno de " + jugador.obtenerNombre());
         etiquetaTurno.setTextFill(jugador.obtenerColor());
         etiquetaTurno.setWrapText(true);
+        etiquetaTurno.setTranslateY(-450);
         this.getChildren().add(etiquetaTurno);
 
         Label etiquetaTitulo = new Label();
-        etiquetaTitulo.setFont(Font.font("Verdana", FontWeight.BOLD, 40));
+        etiquetaTitulo.setFont(Font.font("Castellar", FontWeight.BOLD, 50));
         etiquetaTitulo.setText("¿Que desea hacer?");
-        etiquetaTitulo.setTextFill(Color.BLACK);
+        etiquetaTitulo.setTextFill(Color.WHITE);
+        etiquetaTitulo.setTranslateY(-400);
         this.getChildren().add(etiquetaTitulo);
 
         this.mostrarRecursos();
@@ -70,6 +86,9 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
 
         Button botonConfirmar = new Button();
         botonConfirmar.setText("Confirmar");
+        botonConfirmar.setFont(Font.font("Agency FB", FontWeight.LIGHT, 20));
+        botonConfirmar.setTranslateY(-100);
+        botonConfirmar.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
 
         this.getChildren().addAll(botonConfirmar);
 
@@ -80,6 +99,8 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
     private void pedirAccion(){
         comboBoxAcciones = new ComboBox<>(acciones);
         comboBoxAcciones.setValue("Elegir accion");
+        comboBoxAcciones.setTranslateY(-350);
+        comboBoxAcciones.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         this.getChildren().add(comboBoxAcciones);
     }
 
@@ -109,9 +130,11 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
 
     private void mostrarRecursos(){
         Label etiquetaRecursos = new Label();
-        etiquetaRecursos.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
+        etiquetaRecursos.setFont(Font.font("Agency FB", FontWeight.MEDIUM, 20));;
         etiquetaRecursos.setText("Recursos disponibles: " + jugador.obtenerRaza().obtenerRecursos());
         etiquetaRecursos.setTextFill(jugador.obtenerColor());
+        etiquetaRecursos.setTranslateY(-250);
+
         this.getChildren().add(etiquetaRecursos);
     }
 
@@ -119,13 +142,12 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
         List<Construccion> construcciones = jugador.obtenerConstrucciones();
         VBox panelConstrucciones = new VBox();
         panelConstrucciones.setAlignment(Pos.CENTER);
-        panelConstrucciones.setSpacing(20);
-        panelConstrucciones.setBackground(new Background(new BackgroundFill(Color.valueOf("#D0CFE0"), CornerRadii.EMPTY, Insets.EMPTY)));
+
         if (!construcciones.isEmpty())
             for (Construccion construccion: construcciones){
 
                 Label etiquetaConstruccion = new Label();
-                etiquetaConstruccion.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
+                etiquetaConstruccion.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
                 String[] construccionString = (construccion.getClass().toString().split("\\."));
 
                 if (construccion.obtenerRazaMadre() == Zerg.class)
@@ -151,8 +173,10 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         scrollPane.setFitToWidth(true);
-        scrollPane.setPrefViewportHeight(100);
-        scrollPane.setStyle("-fx-background: #D0CFE0;\n -fx-background-color: #D0CFE0");
+        scrollPane.setPrefViewportHeight(200);
+        scrollPane.setTranslateY(-200);
+        scrollPane.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
+
         this.getChildren().add(scrollPane);
     }
 

@@ -27,6 +27,9 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -64,6 +67,18 @@ public class ContenedorMapa extends Pane {
         this.juego = juego;
         this.accion = accion;
 
+        MediaView view = new MediaView();
+        Media video = new Media(Objects.requireNonNull(getClass().getResource("/videos/videoInicio.mp4")).toExternalForm());
+        MediaPlayer player = new MediaPlayer(video);
+        view.setMediaPlayer(player);
+        player.setAutoPlay(true);
+        player.setCycleCount(MediaPlayer.INDEFINITE);
+        player.play();
+
+        Pane background = new Pane() ;
+        background.getChildren().addAll(view);
+        this.getChildren().add(background);
+
         cargarDiccionariosVista();
 
         this.mostrarMapa(juego.obtenerMapa(),seleccionCasillero,seleccionUnidad);
@@ -75,11 +90,22 @@ public class ContenedorMapa extends Pane {
         this.canvas = new Canvas();
         this.juego = juego;
 
+        MediaView view = new MediaView();
+        Media video = new Media(Objects.requireNonNull(getClass().getResource("/videos/videoInicio.mp4")).toExternalForm());
+        MediaPlayer player = new MediaPlayer(video);
+        view.setMediaPlayer(player);
+        player.setAutoPlay(true);
+        player.setCycleCount(MediaPlayer.INDEFINITE);
+        player.play();
+
+        Pane background = new Pane() ;
+        background.getChildren().addAll(view);
+        this.getChildren().add(background);
+
         cargarDiccionariosVista();
 
         this.mostrarMapa(casillero);
     }
-
 
     private void cargarDiccionariosVista(){
         this.areasMapa = new HashMap<>();

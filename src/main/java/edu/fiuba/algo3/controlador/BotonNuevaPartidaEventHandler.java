@@ -16,7 +16,7 @@ public class BotonNuevaPartidaEventHandler implements EventHandler<ActionEvent> 
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        AudioClip audio = new AudioClip(this.getClass().getResource("/confirmacion.wav").toString());
+        AudioClip audio = new AudioClip(this.getClass().getResource("/sonidos/confirmacion.wav").toString());
         audio.play();
         stage.setScene(proximaEscena);
         stage.setFullScreenExitHint("");

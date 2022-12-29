@@ -36,7 +36,7 @@ public class SeleccionCasilleroEventHandler implements EventHandler<MouseEvent> 
 
     @Override
     public void handle(MouseEvent mouseEvent) {
-        AudioClip audio = new AudioClip(this.getClass().getResource("/confirmacion.wav").toString());
+        AudioClip audio = new AudioClip(this.getClass().getResource("/sonidos/confirmacion.wav").toString());
         audio.play();
         limpiarMapa();
         accion.setCasilleroElegido(casilleroModelo);

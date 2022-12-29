@@ -21,7 +21,7 @@ public class SeleccionUnidadesEventHandler implements EventHandler<MouseEvent> {
     }
     @Override
     public void handle(MouseEvent mouseEvent) {
-        AudioClip audio = new AudioClip(this.getClass().getResource("/confirmacion.wav").toString());
+        AudioClip audio = new AudioClip(this.getClass().getResource("/sonidos/confirmacion.wav").toString());
         audio.play();
         menu.show((Node)mouseEvent.getSource(), Side.RIGHT, 5, 5);
         mouseEvent.consume();

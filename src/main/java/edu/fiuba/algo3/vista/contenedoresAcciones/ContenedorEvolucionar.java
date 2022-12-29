@@ -104,7 +104,7 @@ public class ContenedorEvolucionar extends VBox implements ContenedorAccion{
 
         try {
             jugador.evolucionar(comboBoxUnidades.getValue(),(MutaliscoBase)unidad);
-            AudioClip audio = new AudioClip(this.getClass().getResource("/evolucion.wav").toString());
+            AudioClip audio = new AudioClip(this.getClass().getResource("/sonidos/evolucion.wav").toString());
             audio.play();
             return new Scene(new ContenedorFinDeTurno(this.stage,this.juego,this.jugador,((MutaliscoBase) unidad).obtenerUbicacion()),800,800);
         }catch (Exception e){
