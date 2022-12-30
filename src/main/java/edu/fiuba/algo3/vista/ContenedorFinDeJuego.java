@@ -31,17 +31,8 @@ public class ContenedorFinDeJuego extends VBox {
         this.juego = juego;
         this.jugador = juego.obtenerGanador();
 
-        MediaView view = new MediaView();
-        Media video = new Media(Objects.requireNonNull(getClass().getResource("/videos/videoInicio.mp4")).toExternalForm());
-        MediaPlayer player = new MediaPlayer(video);
-        view.setMediaPlayer(player);
-        player.setAutoPlay(true);
-        player.setCycleCount(MediaPlayer.INDEFINITE);
-        player.play();
-
-        Pane background = new Pane() ;
-        background.getChildren().addAll(view);
-        this.getChildren().add(background);
+        CanvasConVideo background = new CanvasConVideo("/videos/videoGanador.mp4") ;
+        this.getChildren().add(background.obtenerCanvas());
 
         this.setAlignment(Pos.CENTER);
 

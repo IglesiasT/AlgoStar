@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.AlgoStar;
 import edu.fiuba.algo3.modelo.construcciones.unidades.Unidad;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
+import edu.fiuba.algo3.vista.CanvasConVideo;
 import edu.fiuba.algo3.vista.ContenedorError;
 import edu.fiuba.algo3.vista.ContenedorMapa;
 import edu.fiuba.algo3.controlador.BotonConfirmarEventHandler;
@@ -39,26 +40,34 @@ public class ContenedorAtacarElegirAtacante extends VBox implements ContenedorAc
         this.juego = juego;
         this.jugador = jugador;
 
-        this.setSpacing(20);
-        this.setPadding(new Insets(25));
-        this.setBackground(new Background(new BackgroundFill(Color.valueOf("#D0CFE0"), CornerRadii.EMPTY, Insets.EMPTY)));
+        CanvasConVideo background = new CanvasConVideo("/videos/videoJuego.mp4") ;
+        this.getChildren().add(background.obtenerCanvas());
 
         Label etiquetaTitulo = new Label();
-        etiquetaTitulo.setFont(Font.font("Verdana", FontWeight.BOLD, 25));
+        etiquetaTitulo.setFont(Font.font("Castellar", FontWeight.BOLD, 45));
         etiquetaTitulo.setText("MENU ATACAR");
-        etiquetaTitulo.setTextFill(Color.BLACK);
-        this.getChildren().add(etiquetaTitulo);
+        etiquetaTitulo.setTextFill(Color.WHITE);
+        etiquetaTitulo.setTranslateX(20);
+        etiquetaTitulo.setTranslateY(-40);
 
         Label etiquetaSubtitulo = new Label();
-        etiquetaSubtitulo.setFont(Font.font("Verdana", FontWeight.BOLD, 15));
-        etiquetaSubtitulo.setText("Elija la unidad que quiere usar para atacar y si quiere acar una construccion o unidad enemiga");
-        etiquetaSubtitulo.setTextFill(Color.BLACK);
-        this.getChildren().add(etiquetaSubtitulo);
+        etiquetaSubtitulo.setFont(Font.font("Agency FB", FontWeight.BOLD, 25));
+        etiquetaSubtitulo.setText("Elija la unidad que quiere usar para atacar y si quiere atacar una construccion o unidad enemiga");
+        etiquetaSubtitulo.setTextFill(Color.WHITE);
+        etiquetaSubtitulo.setTranslateX(20);
+        etiquetaSubtitulo.setTranslateY(-35);
+
+        this.getChildren().addAll(etiquetaTitulo , etiquetaSubtitulo);
 
         this.pedirTipoDeObjetivo();
 
         Button botonConfirmar = new Button();
+        botonConfirmar.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
         botonConfirmar.setText("Confirmar");
+        botonConfirmar.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+        botonConfirmar.setTranslateX(700);
+        botonConfirmar.setTranslateY(-50);
+
         this.getChildren().addAll(botonConfirmar);
         BotonConfirmarEventHandler botonConfirmarEventHandler = new BotonConfirmarEventHandler(this.stage,this);
         botonConfirmar.setOnAction(botonConfirmarEventHandler);
@@ -74,6 +83,9 @@ public class ContenedorAtacarElegirAtacante extends VBox implements ContenedorAc
         tipos.addAll("Edificio","Unidad");
         comboBoxTipos = new ComboBox<>(tipos);
         comboBoxTipos.setValue("Elegir tipo de objetivo");
+        comboBoxTipos.setTranslateX(25);
+        comboBoxTipos.setTranslateY(-10);
+
         this.getChildren().add(comboBoxTipos);
     }
 
@@ -83,6 +95,12 @@ public class ContenedorAtacarElegirAtacante extends VBox implements ContenedorAc
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         scrollPane.setPannable(true);
+        scrollPane.setTranslateX(20);
+        scrollPane.setTranslateY(-20);
+        scrollPane.setMaxWidth(860);
+        scrollPane.setMaxHeight(700);
+        scrollPane.setMinHeight(750);
+
         this.getChildren().add(scrollPane);
     }
     public void setCasilleroElegido(Casillero casillero) {}

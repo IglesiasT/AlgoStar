@@ -27,17 +27,9 @@ public class ContenedorManual extends VBox {
         super();
         this.setAlignment(Pos.CENTER);
 
-        MediaView view = new MediaView();
-        Media video = new Media(Objects.requireNonNull(getClass().getResource("/videos/videoInicio.mp4")).toExternalForm());
-        MediaPlayer player = new MediaPlayer(video);
-        view.setMediaPlayer(player);
-        player.setAutoPlay(true);
-        player.setCycleCount(MediaPlayer.INDEFINITE);
-        player.play();
+        CanvasConVideo background = new CanvasConVideo("/videos/videoJuego.mp4") ;
+        this.getChildren().add(background.obtenerCanvas());
 
-        Pane background = new Pane() ;
-        background.getChildren().addAll(view);
-        this.getChildren().add(background);
 
         Label etiqueta = new Label();
         etiqueta.setFont(Font.font("Castellar", FontWeight.BOLD, 60));

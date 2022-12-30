@@ -31,31 +31,30 @@ public class ContenedorError extends VBox implements Contenedor{
         this.juego = juego;
         this.jugador = jugador;
 
-        MediaView view = new MediaView();
-        Media video = new Media(Objects.requireNonNull(getClass().getResource("/videos/videoInicio.mp4")).toExternalForm());
-        MediaPlayer player = new MediaPlayer(video);
-        view.setMediaPlayer(player);
-        player.setAutoPlay(true);
-        player.setCycleCount(MediaPlayer.INDEFINITE);
-        player.play();
-
-        Pane background = new Pane() ;
-        background.getChildren().addAll(view);
-        this.getChildren().add(background);
+        CanvasConVideo background = new CanvasConVideo("/videos/videoJuego.mp4") ;
+        this.getChildren().add(background.obtenerCanvas());
 
         this.setAlignment(Pos.CENTER);
 
-        Label etiquetaTitulo = new Label();
-        etiquetaTitulo.setFont(Font.font("Castellar", FontWeight.BOLD, 50));
-        etiquetaTitulo.setText("NO PUEDE REALIZAR ESTA ACCION");
-        etiquetaTitulo.setTextFill(Color.WHITE);
-        etiquetaTitulo.setTranslateY(-500);
-        this.getChildren().add(etiquetaTitulo);
+        Label etiquetaTituloParte1 = new Label();
+        etiquetaTituloParte1.setFont(Font.font("Castellar", FontWeight.BOLD, 50));
+        etiquetaTituloParte1.setText("NO PUEDE REALIZAR");
+        etiquetaTituloParte1.setTextFill(Color.WHITE);
+        etiquetaTituloParte1.setTranslateY(-500);
+
+        Label etiquetaTituloParte2 = new Label();
+        etiquetaTituloParte2.setFont(Font.font("Castellar", FontWeight.BOLD, 50));
+        etiquetaTituloParte2.setText("ESTA ACCION");
+        etiquetaTituloParte2.setTextFill(Color.WHITE);
+        etiquetaTituloParte2.setTranslateY(-475);
+
+        this.getChildren().addAll(etiquetaTituloParte1 , etiquetaTituloParte2);
+
 
         Button botonConfirmar = new Button();
         botonConfirmar.setText("Volver");
-        etiquetaTitulo.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
-        etiquetaTitulo.setTranslateY(-400);
+        botonConfirmar.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
+        botonConfirmar.setTranslateY(-400);
 
         this.getChildren().addAll(botonConfirmar);
 

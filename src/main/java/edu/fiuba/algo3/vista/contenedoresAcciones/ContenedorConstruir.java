@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Casillero;
 import edu.fiuba.algo3.modelo.razas.Protoss;
 import edu.fiuba.algo3.modelo.razas.Zerg;
+import edu.fiuba.algo3.vista.CanvasConVideo;
 import edu.fiuba.algo3.vista.ContenedorError;
 import edu.fiuba.algo3.vista.ContenedorFinDeTurno;
 import edu.fiuba.algo3.vista.ContenedorMapa;
@@ -47,6 +48,9 @@ public class ContenedorConstruir extends VBox implements ContenedorAccion {
         this.juego = juego;
         this.jugador = jugador;
 
+        CanvasConVideo background = new CanvasConVideo("/videos/videoJuego.mp4") ;
+        this.getChildren().add(background.obtenerCanvas());
+
         ObservableList<String> construccionesZerg= FXCollections.observableArrayList();
         construccionesZerg.addAll("Criadero: Δ0 ❖100 T",  "Extractor: Δ0 ❖100 T",
                 "Reserva de reproduccion: Δ0 ❖150 T", "Espiral: Δ100 ❖150 T","Guarida: Δ100 ❖200 T");
@@ -60,20 +64,22 @@ public class ContenedorConstruir extends VBox implements ContenedorAccion {
         construccionesPorRaza.put(Protoss.class,construccionesProtoss);
         construccionesPorRaza.put(Zerg.class,construccionesZerg);
 
-        this.setSpacing(20);
-        this.setPadding(new Insets(25));
-        this.setBackground(new Background(new BackgroundFill(Color.valueOf("#D0CFE0"), CornerRadii.EMPTY, Insets.EMPTY)));
-
         Label etiquetaTitulo = new Label();
-        etiquetaTitulo.setFont(Font.font("Verdana", FontWeight.BOLD, 25));
+        etiquetaTitulo.setFont(Font.font("Castellar", FontWeight.BOLD, 45));
         etiquetaTitulo.setText("MENU CONSTRUCCION");
-        etiquetaTitulo.setTextFill(Color.BLACK);
+        etiquetaTitulo.setTextFill(Color.WHITE);
+        etiquetaTitulo.setTranslateX(20);
+        etiquetaTitulo.setTranslateY(-50);
+
         this.getChildren().add(etiquetaTitulo);
 
         Label etiquetaSubtitulo = new Label();
-        etiquetaSubtitulo.setFont(Font.font("Verdana", FontWeight.BOLD, 15));
+        etiquetaSubtitulo.setFont(Font.font("Agency FB", FontWeight.BOLD, 25));
         etiquetaSubtitulo.setText("Elija la construccion que quiere comprar y la ubicacion donde la quiere construir");
-        etiquetaSubtitulo.setTextFill(Color.BLACK);
+        etiquetaSubtitulo.setTextFill(Color.WHITE);
+        etiquetaSubtitulo.setTranslateX(20);
+        etiquetaSubtitulo.setTranslateY(-35);
+
         this.getChildren().add(etiquetaSubtitulo);
 
         mostrarRecursos();
@@ -81,7 +87,12 @@ public class ContenedorConstruir extends VBox implements ContenedorAccion {
         this.pedirConstruccion();
 
         Button botonConfirmar = new Button();
+        botonConfirmar.setFont(Font.font("Agency FB", FontWeight.BOLD, 20));
         botonConfirmar.setText("Confirmar");
+        botonConfirmar.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+        botonConfirmar.setTranslateX(700);
+        botonConfirmar.setTranslateY(-50);
+
         this.getChildren().addAll(botonConfirmar);
         BotonConfirmarEventHandler botonConfirmarEventHandler = new BotonConfirmarEventHandler(this.stage,this);
         botonConfirmar.setOnAction(botonConfirmarEventHandler);
@@ -95,6 +106,8 @@ public class ContenedorConstruir extends VBox implements ContenedorAccion {
     private void pedirConstruccion(){
         comboBoxConstrucciones = new ComboBox<>(construccionesPorRaza.get(jugador.obtenerRaza().getClass()));
         comboBoxConstrucciones.setValue("Elegir construccion");
+        comboBoxConstrucciones.setTranslateX(25);
+        comboBoxConstrucciones.setTranslateY(-10);
         this.getChildren().add(comboBoxConstrucciones);
     }
 
@@ -104,6 +117,12 @@ public class ContenedorConstruir extends VBox implements ContenedorAccion {
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         scrollPane.setPannable(true);
+        scrollPane.setTranslateX(20);
+        scrollPane.setTranslateY(-20);
+        scrollPane.setMaxWidth(860);
+        scrollPane.setMaxHeight(700);
+        scrollPane.setMinHeight(750);
+
         this.getChildren().add(scrollPane);
     }
 
@@ -130,9 +149,13 @@ public class ContenedorConstruir extends VBox implements ContenedorAccion {
 
     private void mostrarRecursos(){
         Label etiquetaRecursos = new Label();
-        etiquetaRecursos.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
+        etiquetaRecursos.setFont(Font.font("Agency FB", FontWeight.BOLD, 25));
         etiquetaRecursos.setText("Recursos disponibles: " + jugador.obtenerRaza().obtenerRecursos());
         etiquetaRecursos.setTextFill(jugador.obtenerColor());
+        etiquetaRecursos.setTextFill(Color.WHITE);
+        etiquetaRecursos.setTranslateX(25);
+        etiquetaRecursos.setTranslateY(-25);
+
         this.getChildren().add(etiquetaRecursos);
     }
 }

@@ -34,22 +34,13 @@ public class ContenedorFinDeTurno extends VBox implements Contenedor {
         this.juego = juego;
         this.jugador = jugador;
 
-        MediaView view = new MediaView();
-        Media video = new Media(Objects.requireNonNull(getClass().getResource("/videos/videoInicio.mp4")).toExternalForm());
-        MediaPlayer player = new MediaPlayer(video);
-        view.setMediaPlayer(player);
-        player.setAutoPlay(true);
-        player.setCycleCount(MediaPlayer.INDEFINITE);
-        player.play();
-
-        Pane background = new Pane() ;
-        background.getChildren().addAll(view);
-        this.getChildren().add(background);
+        CanvasConVideo background = new CanvasConVideo("/videos/videoJuego.mp4") ;
+        this.getChildren().add(background.obtenerCanvas());
 
         this.setAlignment(Pos.CENTER);
 
         Label etiquetaTitulo = new Label();
-        etiquetaTitulo.setFont(Font.font("Castellar", FontWeight.BOLD, 40));
+        etiquetaTitulo.setFont(Font.font("Castellar", FontWeight.BOLD, 50));
         etiquetaTitulo.setText("Fin De Turno");
         etiquetaTitulo.setTextFill(Color.WHITE);
         etiquetaTitulo.setTranslateY(-575);
@@ -61,7 +52,7 @@ public class ContenedorFinDeTurno extends VBox implements Contenedor {
         this.getChildren().add(mapa);
 
         Button botonConfirmar = new Button();
-        etiquetaTitulo.setFont(Font.font("Agency FB", FontWeight.BOLD, 40));
+        botonConfirmar.setFont(Font.font("Agency FB", FontWeight.BOLD, 40));
         botonConfirmar.setText("Continuar");
         botonConfirmar.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         botonConfirmar.setTranslateY(-50);
@@ -81,7 +72,7 @@ public class ContenedorFinDeTurno extends VBox implements Contenedor {
         this.jugador = jugador;
 
         MediaView view = new MediaView();
-        Media video = new Media(Objects.requireNonNull(getClass().getResource("/videos/videoInicio.mp4")).toExternalForm());
+        Media video = new Media(Objects.requireNonNull(getClass().getResource("/videos/videoJuego.mp4")).toExternalForm());
         MediaPlayer player = new MediaPlayer(video);
         view.setMediaPlayer(player);
         player.setAutoPlay(true);
@@ -95,14 +86,14 @@ public class ContenedorFinDeTurno extends VBox implements Contenedor {
         this.setAlignment(Pos.CENTER);
 
         Label etiquetaTitulo = new Label();
-        etiquetaTitulo.setFont(Font.font("Castellar", FontWeight.BOLD, 40));
+        etiquetaTitulo.setFont(Font.font("Castellar", FontWeight.BOLD, 60));
         etiquetaTitulo.setText("Fin De Turno");
         etiquetaTitulo.setTextFill(Color.WHITE);
         etiquetaTitulo.setTranslateY(-500);
         this.getChildren().add(etiquetaTitulo);
 
         Button botonConfirmar = new Button();
-        etiquetaTitulo.setFont(Font.font("Agency FB", FontWeight.BOLD, 40));
+        botonConfirmar.setFont(Font.font("Agency FB", FontWeight.BOLD, 40));
         botonConfirmar.setText("Continuar");
         botonConfirmar.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         botonConfirmar.setTranslateY(-50);

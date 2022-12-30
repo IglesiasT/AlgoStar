@@ -40,17 +40,8 @@ public class ContenedorElegirJugador extends VBox implements Contenedor{
         this.razas = FXCollections.observableArrayList();
         razas.addAll("Protoss", "Zerg");
 
-        MediaView view = new MediaView();
-        Media video = new Media(Objects.requireNonNull(getClass().getResource("/videos/videoInicio.mp4")).toExternalForm());
-        MediaPlayer player = new MediaPlayer(video);
-        view.setMediaPlayer(player);
-        player.setAutoPlay(true);
-        player.setCycleCount(MediaPlayer.INDEFINITE);
-        player.play();
-
-        Pane background = new Pane() ;
-        background.getChildren().addAll(view);
-        this.getChildren().add(background);
+        CanvasConVideo background = new CanvasConVideo("/videos/videoJuego.mp4") ;
+        this.getChildren().add(background.obtenerCanvas());
 
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
@@ -86,17 +77,8 @@ public class ContenedorElegirJugador extends VBox implements Contenedor{
         this.juego = juego;
         this.segundoJugador = segundoJugador;
 
-        MediaView view = new MediaView();
-        Media video = new Media(Objects.requireNonNull(getClass().getResource("/videos/videoInicio.mp4")).toExternalForm());
-        MediaPlayer player = new MediaPlayer(video);
-        view.setMediaPlayer(player);
-        player.setAutoPlay(true);
-        player.setCycleCount(MediaPlayer.INDEFINITE);
-        player.play();
-
-        Pane background = new Pane() ;
-        background.getChildren().addAll(view);
-        this.getChildren().add(background);
+        CanvasConVideo background = new CanvasConVideo("/videos/videoJuego.mp4") ;
+        this.getChildren().add(background.obtenerCanvas());
 
         this.razas = FXCollections.observableArrayList();
         razas.addAll("Protoss", "Zerg");

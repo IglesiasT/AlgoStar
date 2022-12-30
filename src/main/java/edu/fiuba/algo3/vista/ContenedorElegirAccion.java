@@ -48,17 +48,8 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
         this.juego = juego;
         this.jugador = jugador;
 
-        MediaView view = new MediaView();
-        Media video = new Media(Objects.requireNonNull(getClass().getResource("/videos/videoInicio.mp4")).toExternalForm());
-        MediaPlayer player = new MediaPlayer(video);
-        view.setMediaPlayer(player);
-        player.setAutoPlay(true);
-        player.setCycleCount(MediaPlayer.INDEFINITE);
-        player.play();
-
-        Pane background = new Pane() ;
-        background.getChildren().addAll(view);
-        this.getChildren().add(background);
+        CanvasConVideo background = new CanvasConVideo("/videos/videoJuego.mp4") ;
+        this.getChildren().add(background.obtenerCanvas());
 
         this.accionesPorRaza();
 
@@ -113,17 +104,17 @@ public class ContenedorElegirAccion extends VBox implements Contenedor{
         acciones.addAll("Mover", "Construir", "Atacar","Pasar Turno");
 
         this.escenasAcciones = new HashMap<>();
-        escenasAcciones.put("Mover",new Scene(new ContenedorMover(this.stage,this.juego,jugador), 800,800));
-        escenasAcciones.put("Construir",new Scene(new ContenedorConstruir(stage,juego,jugador),800,800));
-        escenasAcciones.put("Atacar",new Scene(new ContenedorAtacarElegirAtacante(stage,juego,jugador),800,800));
+        escenasAcciones.put("Mover",new Scene(new ContenedorMover(this.stage,this.juego,jugador), 900,1000));
+        escenasAcciones.put("Construir",new Scene(new ContenedorConstruir(stage,juego,jugador),900,1000));
+        escenasAcciones.put("Atacar",new Scene(new ContenedorAtacarElegirAtacante(stage,juego,jugador),900,1000));
         escenasAcciones.put("Pasar Turno", new Scene(new ContenedorFinDeTurno(this.stage,this.juego,jugador),800,800));
         escenasAcciones.put("Elegir accion",new Scene(new ContenedorError(this.stage,this.juego,this.jugador),800,800));
 
         if(jugador.obtenerRaza().getClass() == Zerg.class) {
             acciones.add("Engendrar");
-            escenasAcciones.put("Engendrar",new Scene(new ContenedorEngendrar(this.stage,this.juego,jugador),800,800));
+            escenasAcciones.put("Engendrar",new Scene(new ContenedorEngendrar(this.stage,this.juego,jugador),900,1000));
             acciones.add("Evolucionar");
-            escenasAcciones.put("Evolucionar",new Scene(new ContenedorEvolucionar(this.stage,this.juego,jugador),800,800));
+            escenasAcciones.put("Evolucionar",new Scene(new ContenedorEvolucionar(this.stage,this.juego,jugador),900,1000));
 
         }
     }
